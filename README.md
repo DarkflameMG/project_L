@@ -1,1 +1,1 @@
-# project_L
+# project_L is game about logic gate
