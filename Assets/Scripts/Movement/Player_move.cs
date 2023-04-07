@@ -14,6 +14,7 @@ public class Player_move : MonoBehaviour
         transform.position += moveDir * moveSpeed * Time.deltaTime;
     }
 
+    /* return vector 2 dimention when press key*/
     private Vector2 VectorOnPush()
     {
         Vector2 inputVector = new Vector2(0,0);
@@ -35,7 +36,7 @@ public class Player_move : MonoBehaviour
         }
         return inputVector;
     }
-
+    /* tranform vector2 to vector 3 dimention*/
     private Vector3 Vector2To3(Vector2 v2)
     {
         return new Vector3(v2.x,0f,v2.y);
