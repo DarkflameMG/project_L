@@ -11,6 +11,7 @@ public class Interactor : MonoBehaviour
 
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] private int numfound;
+    [SerializeField]private GameObject popupSystem;
 
     private void Update() {
         numfound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadis, _colliders,
@@ -19,11 +20,16 @@ public class Interactor : MonoBehaviour
         if(numfound > 0)
         {
             var interactable = _colliders[0].GetComponent<IInteractable>();
+            interactable.ShowPopup();
 
             if(interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
                 interactable.Interact(this);
             }
+        }
+        else if(numfound == 0)
+        {
+            popupSystem.GetComponent<Popups>().closePopup();
         }
     }
 
