@@ -6,6 +6,11 @@ public class Player_move : MonoBehaviour
 {
     [SerializeField]private float moveSpeed = 7f;
     [SerializeField]private GameInput gameInput;
+    [SerializeField]private LobbyInfo lobbyInfo;
+
+    private void Start() {
+        transform.position = lobbyInfo.PlayerLocation;
+    }
 
     private void Update() {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
@@ -45,7 +50,7 @@ public class Player_move : MonoBehaviour
         {
             transform.position += moveDir * moveDistance;
         }
-        
+        lobbyInfo.PlayerLocation = transform.position;
     }
 
     /* return vector 2 dimention when press key*/
