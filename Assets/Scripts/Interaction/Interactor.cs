@@ -26,6 +26,7 @@ public class Interactor : MonoBehaviour
             if(interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
                 lobbyInfo.PlayerLocation = transform.position;
+                lobbyInfo.Busy = true;
                 interactable.Interact(this);
             }
         }

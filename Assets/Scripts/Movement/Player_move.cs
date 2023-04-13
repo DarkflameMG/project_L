@@ -21,9 +21,10 @@ public class Player_move : MonoBehaviour
         float playerHigh = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up*playerHigh, playerRadius, moveDir, moveDistance);
         // Debug.Log(Physics.Raycast(transform.position, moveDir, playerRadius));
-
-        if(!canMove)
+        if(!lobbyInfo.Busy)
         {
+            if(!canMove)
+            {
             //Cannot move towards moveDir
             //Attempt only X movment
             Vector3 moveDirX = new Vector3(moveDir.x,0,0);
@@ -45,10 +46,11 @@ public class Player_move : MonoBehaviour
                     moveDir = moveDirZ;
                 }
             }
-        }
-        if(canMove)
-        {
+            }
+            if(canMove)
+            {
             transform.position += moveDir * moveDistance;
+            }
         }
         lobbyInfo.PlayerLocation = transform.position;
     }

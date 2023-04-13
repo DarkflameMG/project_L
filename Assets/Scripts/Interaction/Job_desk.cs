@@ -7,6 +7,7 @@ public class Job_desk : MonoBehaviour,IInteractable
 {
     [SerializeField]private string _prompt;
     [SerializeField]private GameObject popupSystem;
+    [SerializeField]private GameObject MissionSystem;
     public string interactionPrompt => _prompt;
     public bool Interact(Interactor interactor)
     {
@@ -29,6 +30,7 @@ public class Job_desk : MonoBehaviour,IInteractable
 
     private void changeScene()
     {
-        SceneManager.LoadScene("MissionSelect");
+        // SceneManager.LoadScene("MissionSelect");
+        MissionSystem.GetComponent<MissionSelect>().run();
     }
 }
