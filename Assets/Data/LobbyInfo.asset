@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24131edee852fe43bf8e2df075cd90e, type: 3}
   m_Name: LobbyInfo
   m_EditorClassIdentifier: 
-  PlayerLocation: {x: -1.342774, y: 0, z: -5.5482545}
+  PlayerLocation: {x: 0.04843493, y: 0, z: -6.930846}
   Busy: 0
   isMissionSelect: 0
+  isTypeSelect: 0
+  isMainMissions: 1
