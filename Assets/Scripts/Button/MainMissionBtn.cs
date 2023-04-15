@@ -15,7 +15,6 @@ public class MainMissionBtn : MonoBehaviour
 
     private void onclick()
     {
-        lobbyinfo.isMissionSelect = false;
-        lobbyinfo.isTypeSelect = true;
+        lobbyinfo.currentPage = Page.selectType;
     }
 }
