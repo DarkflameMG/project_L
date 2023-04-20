@@ -13,7 +13,7 @@ public class TestJSON : MonoBehaviour
         string json = JsonUtility.ToJson(t1);
         Debug.Log(json);
 
-        File.WriteAllText(Application.dataPath+"/Data/saveFile.json",json);
+        File.WriteAllText(Application.dataPath+"/Resources/Data/saveFile.json",json);
     }
 
     private class MissionData{
