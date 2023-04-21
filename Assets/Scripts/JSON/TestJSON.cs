@@ -14,6 +14,7 @@ public class TestJSON : MonoBehaviour
         Debug.Log(json);
 
         File.WriteAllText(Application.dataPath+"/Resources/Data/saveFile.json",json);
+        List<Transform> a1 = new List<Transform>();
     }
 
     private class MissionData{
