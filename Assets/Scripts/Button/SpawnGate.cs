@@ -4,15 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SpawnGate : MonoBehaviour
+public class SpawnGate : MonoBehaviour//,IPointerClickHandler
 {
-    [SerializeField]private Sprite img;
-    [SerializeField]private Transform prefab;
+    [SerializeField]private GateSO gateSO;
     [SerializeField]private Transform spawnPoint;
 
     // private bool start = false;
     private void Start() {
-        GetComponent<Image>().sprite = img;
+        GetComponent<Image>().sprite = gateSO.sprite;
         // if(!start)
         // {
         //     click();
@@ -25,7 +24,13 @@ public class SpawnGate : MonoBehaviour
     private void click()
     {
         Debug.Log("click");
-        Transform notTranform = Instantiate(prefab,spawnPoint);
-        notTranform.localPosition = Vector3.zero;
+        Transform gateTranform = Instantiate(gateSO.prefab,spawnPoint);
+        gateTranform.localPosition = Vector3.zero;
     }
+
+    // public void OnPointerClick(PointerEventData eventData)
+    // {
+    //     // throw new System.NotImplementedException();
+    //     click();
+    // }
 }

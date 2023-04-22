@@ -86,6 +86,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6027748930571241568}
   - component: {fileID: -5409644370426658753}
+  - component: {fileID: 7525498001344053266}
+  - component: {fileID: 9211107519173968}
   m_Layer: 5
   m_Name: NotGate
   m_TagString: Untagged
@@ -126,4 +128,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1671581dbe3562440ba8ee8469d3855e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+--- !u!114 &7525498001344053266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748930571241569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f357a9465b77b41a2dd5d0ed76239a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateSO: {fileID: 11400000, guid: c75b226ef6b95f34293b65ec48dcc66a, type: 2}
+--- !u!225 &9211107519173968
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748930571241569}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
