@@ -191,11 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &72616969 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 148786119664584435, guid: 35934d8e78070cf43be199a160310274, type: 3}
-  m_PrefabInstance: {fileID: 1937225181}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &164735643
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +468,7 @@ GameObject:
   - component: {fileID: 1399154452}
   - component: {fileID: 1399154454}
   - component: {fileID: 1399154453}
+  - component: {fileID: 1399154455}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -538,6 +534,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399154451}
   m_CullTransparentMesh: 1
+--- !u!114 &1399154455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399154451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1c63c82c67f5344859b92f4e4b24aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617590774
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +919,7 @@ PrefabInstance:
     - target: {fileID: 524967915757806912, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: spawnPoint
       value: 
-      objectReference: {fileID: 72616969}
+      objectReference: {fileID: 397785414}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
