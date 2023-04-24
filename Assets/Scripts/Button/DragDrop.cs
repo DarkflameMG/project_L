@@ -10,23 +10,23 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     private CanvasGroup canvasGroup;
 
     private void Awake() {
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = transform.parent.GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("pointdown");
+        // Debug.Log(transform.parent.GetComponent<RectTransform>());
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("begin");
+        // Debug.Log("begin");
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("end");
+        // Debug.Log("end");
         canvasGroup.blocksRaycasts = true;
     }
 
