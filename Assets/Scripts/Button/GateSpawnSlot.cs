@@ -10,8 +10,9 @@ public class GateSpawnSlot : MonoBehaviour, IDropHandler
         Debug.Log("drop");
         if(eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            Destroy(eventData.pointerDrag.gameObject);
+            // Debug.Log( eventData.pointerDrag.transform.parent);
+            eventData.pointerDrag.transform.parent.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            Destroy(eventData.pointerDrag.transform.parent.gameObject);
         }
     }
 }
