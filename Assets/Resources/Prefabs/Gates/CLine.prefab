@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6416283618297241183}
   - component: {fileID: 6416283618297241181}
   - component: {fileID: 6416283618297241180}
-  - component: {fileID: 6416283618297241178}
   - component: {fileID: 2634041211999527194}
+  - component: {fileID: 6416283618297241178}
   m_Layer: 5
   m_Name: point2
   m_TagString: Untagged
@@ -78,6 +78,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2634041211999527194
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416283618297241182}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &6416283618297241178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,18 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPointer1: 0
---- !u!225 &2634041211999527194
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416283618297241182}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &6416283618721446211
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,8 +304,8 @@ GameObject:
   - component: {fileID: 6416283619343798873}
   - component: {fileID: 6416283619343798868}
   - component: {fileID: 6416283619343798871}
-  - component: {fileID: 6416283619343798870}
   - component: {fileID: 1070146195835774764}
+  - component: {fileID: 6416283619343798870}
   m_Layer: 5
   m_Name: point1
   m_TagString: Untagged
@@ -371,6 +371,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1070146195835774764
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416283619343798872}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &6416283619343798870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,15 +396,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPointer1: 1
---- !u!225 &1070146195835774764
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416283619343798872}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

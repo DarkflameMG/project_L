@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHandler,IDragHandler
 {
     [SerializeField]private Transform linePre;
+    [SerializeField]private bool isOuput;
     private Transform lineParent;
     private Transform currentLine;
     private void Awake() {
@@ -15,7 +16,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     {
         Debug.Log("drop");
         Debug.Log(GetComponent<RectTransform>().anchoredPosition);
-        if(eventData.pointerDrag != null)
+        if(eventData.pointerDrag != null && currentLine == null)
         {
             Vector2 parentPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
             eventData.pointerDrag.transform.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
@@ -47,5 +48,10 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     public void OnDrag(PointerEventData eventData)
     {
         // throw new System.NotImplementedException();
+    }
+
+    public void slotFree()
+    {
+        currentLine = null;
     }
 }

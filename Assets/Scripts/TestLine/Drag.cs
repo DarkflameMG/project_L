@@ -31,6 +31,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
         // Debug.Log("begin");
         canvasGroup.blocksRaycasts = false;
         isValid = false;
+        currentSlot.GetComponent<Slot>().slotFree();
         currentSlot = null;
     }
 
