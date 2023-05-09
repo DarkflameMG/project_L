@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHandler,IDragHandler
 {
     [SerializeField]private Transform linePre;
-    [SerializeField]private bool isOuput;
+    [SerializeField]private SlotNo slotNo;
     private Transform lineParent;
     private Transform currentLine;
     private void Awake() {
@@ -54,4 +54,36 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     {
         currentLine = null;
     }
+
+    private void Update() {
+        if(currentLine != null)
+        {
+            bool input = currentLine.GetComponent<PowerLine>().getCurrentState();
+            if(slotNo == SlotNo.s1)
+            {
+                transform.parent.GetComponent<GateObject>().SetSlot1(input);
+            }
+            else if(slotNo == SlotNo.s2)
+            {
+                transform.parent.GetComponent<GateObject>().SetSlot2(input);
+            }
+        }
+        else
+        {
+            transform.parent.GetComponent<GateObject>().SetSlot1(false);
+            transform.parent.GetComponent<GateObject>().SetSlot2(false);
+        }
+    }
+
+    public bool getCurrentState()
+    {
+        return transform.parent.GetComponent<GateObject>().getCurrentState();
+    }
+
+    public SlotNo getSlotType()
+    {
+        return slotNo;
+    }
 }
+
+public enum SlotNo{s1,s2,output};

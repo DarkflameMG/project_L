@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9020500548131537876}
   - component: {fileID: 6795630911209664009}
   - component: {fileID: 1185336715414392527}
+  - component: {fileID: 6301941260491386897}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1093565075, guid: 9b4d498bc1e8c7f418cfc4626b5a3921, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6301941260491386897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097823777694270675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f6c52fb5b4f0b42820fd07b00ec966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5518431984279742363
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePre: {fileID: 6416283619166477125, guid: 077e8994a10769a46b1a6e769716a84f, type: 3}
+  slotNo: 2
 --- !u!1 &8613313515652112604
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6137835852763397361}
+  - component: {fileID: 1293627733709053048}
   m_Layer: 5
   m_Name: power
   m_TagString: Untagged
@@ -204,3 +219,16 @@ RectTransform:
   m_AnchoredPosition: {x: -550, y: 66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1293627733709053048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613313515652112604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f357a9465b77b41a2dd5d0ed76239a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateSO: {fileID: 11400000, guid: dcd6a128fc849e84680ed5fa7eb1526e, type: 2}

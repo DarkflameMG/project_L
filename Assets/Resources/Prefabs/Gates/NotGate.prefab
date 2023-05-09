@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePre: {fileID: 6416283619166477125, guid: 077e8994a10769a46b1a6e769716a84f, type: 3}
-  isOuput: 0
+  slotNo: 0
 --- !u!1 &3689990550294183643
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linePre: {fileID: 6416283619166477125, guid: 077e8994a10769a46b1a6e769716a84f, type: 3}
-  isOuput: 1
+  slotNo: 2
 --- !u!1 &6027748929673016827
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 6027748929673016825}
   - component: {fileID: 2132058335524285169}
   - component: {fileID: 8797495629471459727}
+  - component: {fileID: 8811557206797246590}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -284,6 +285,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8811557206797246590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748929673016827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f6c52fb5b4f0b42820fd07b00ec966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6027748930571241569
 GameObject:
   m_ObjectHideFlags: 0

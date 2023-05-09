@@ -74,4 +74,12 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
         Vector2 currentSlotPostion = currentSlot.GetComponent<RectTransform>().anchoredPosition;
         return parentSlotPosition+currentSlotPostion;
     }
+    public bool getCurrentState()
+    {
+        return currentSlot.GetComponent<Slot>().getCurrentState();
+    }
+    public SlotNo GetSlotNo()
+    {
+        return currentSlot.GetComponent<Slot>().getSlotType();
+    }
 }
