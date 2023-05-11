@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b4d498bc1e8c7f418cfc4626b5a3921
+guid: a3a8723237f203f41b43bab684ba6178
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,22 +105,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: battery_1_0
+      name: bub_2_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 73
-        width: 499
-        height: 356
+        x: 0
+        y: 59
+        width: 512
+        height: 370
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 8}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5320a5ae8d9418842a9393c1663d4864
-      internalID: -1093565075
+      spriteID: 97f2e3b12c1c7ae48b8996f09e2802da
+      internalID: 1064232014
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3a14bc0e6c4d9c24886e73ba592e82cc
+    spriteID: ed3b34513e964e24e8e76391f220871e
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      battery_1_0: -1093565075
+      bub_2_0: 1064232014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
