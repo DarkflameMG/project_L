@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1293627733709053048}
   m_Layer: 5
   m_Name: Baterry
-  m_TagString: Untagged
+  m_TagString: saveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

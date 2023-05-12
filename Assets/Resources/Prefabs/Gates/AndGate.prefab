@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3466230885662796737}
   m_Layer: 5
   m_Name: AndGate
-  m_TagString: Untagged
+  m_TagString: saveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
