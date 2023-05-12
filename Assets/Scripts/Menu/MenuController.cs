@@ -10,9 +10,13 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private GameObject option;
 
+    [SerializeField]
+    private GameObject LoadData;
+
     public void con()
     {
         Debug.Log("Contiue clicked...!");
+        LoadData.SetActive(true);
     }
 
     public void newGame()

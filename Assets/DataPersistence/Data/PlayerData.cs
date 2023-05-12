@@ -8,19 +8,30 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField]
-    private string _name;
+    private int _slotNumber;
 
     [SerializeField]
-    private float _hp;
+    private string _name;
 
     [SerializeField]
     private Vector3 _position;
 
     [SerializeField]
-    private List<string> _equipment = new List<string>();
+    private Inventory _inventory;
 
-    [SerializeField]
-    private List<string> _checkpoint = new List<string>();
+
+    public void reSet()
+    {
+        _slotNumber = 0;
+        _name = null;
+        _position = Vector3.zero;
+        _inventory = null;
+    }
+    public int SlotNumber
+    {
+        get { return _slotNumber; }
+        set { _slotNumber = value; }
+    }
 
     public string Name
     {
@@ -28,29 +39,16 @@ public class PlayerData : ScriptableObject
         set { _name = value; }
     }
 
-    public float Hp
+    public Vector3 Position
     {
-        get { return _hp; }
-        set { _hp = value; }
+        get { return _position; }
+        set { _position = value; }
     }
 
-    public string getEquipment(int index)
+    public Inventory Inventorys
     {
-        return _equipment[index];
+        get { return _inventory; }
+        set { _inventory = value; }
     }
 
-    public void setEquipment(int index,string name)
-    {
-        _equipment[index] = name;
-    }
-
-    public string getCheckpoint(int index)
-    {
-        return _checkpoint[index];
-    }
-
-    public void setCheckpoint(int index, string name)
-    {
-        _checkpoint[index] = name;
-    }
 }

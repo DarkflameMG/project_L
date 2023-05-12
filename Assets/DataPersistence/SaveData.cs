@@ -6,38 +6,105 @@ using UnityEngine;
 public class SaveData : MonoBehaviour
 {
 
-    public Inventory inventory = new Inventory();
+    [SerializeField]
+    public PlayerData py;
+
+    public PYData playerData = new PYData();
+
+    private void Awake()
+    {
+        py.reSet();
+    }
 
     private void Update()
     {
+        
+        if(py.Inventorys != null)
+        {
+            py.Inventorys.Update();
+        }
+        
+        //Save data when press S from keyboard.
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveToJson();
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadFromJson();
-        }
     }
 
     public void SaveToJson()
     {
-        string inventoryData = JsonUtility.ToJson(inventory);
-        string filePath = Application.persistentDataPath+ "/InventoryData.json";
+        string PlayerDataJson = JsonUtility.ToJson(py);
+        string filePath = Application.persistentDataPath+ "/PlayerData" + py.SlotNumber + ".json";
+        //string filePath = Application.persistentDataPath + "/PlayerData2.json";
         Debug.Log("FilePath = \"" + filePath + "\"");
-        System.IO.File.WriteAllText(filePath, inventoryData);
-        Debug.Log("Save Complete...!!");
+        System.IO.File.WriteAllText(filePath, PlayerDataJson);
+        Debug.Log("Save Data to slot " + py.SlotNumber + " Complete...!!");
     }
 
-    public void LoadFromJson()
+
+    public void LoadFromJson(int slot)
     {
-        string filePath = Application.persistentDataPath + "/InventoryData.json";
-        string inventoryData = System.IO.File.ReadAllText(filePath);
+        string filePath = Application.persistentDataPath + "/PlayerData" + slot + ".json";
+        string PlayerDataJson = System.IO.File.ReadAllText(filePath);
 
-        inventory = JsonUtility.FromJson<Inventory>(inventoryData);
-        Debug.Log("Load Data Complete...!!");
+        playerData = JsonUtility.FromJson<PYData>(PlayerDataJson);
+
+
+        py.SlotNumber = playerData._slotNumber;
+        py.Name = playerData._name;
+        py.Inventorys = playerData._inventory;
+        py.Position = playerData._position;
+
+        Debug.Log("Load Data from slot " + slot + "  Complete...!!");
     }
+
+
+    //Menu button
+
+    [SerializeField]
+    private GameObject LoadFile;
+
+    public void LoadData1()
+    {
+        Debug.Log("Save 1 is Loading...!!");
+        LoadFromJson(1);
+    }
+
+    public void LoadData2()
+    {
+        Debug.Log("Save 2 is Loading...!!");
+        LoadFromJson(2);
+    }
+
+    public void LoadData3()
+    {
+        Debug.Log("Save 3 is Loading...!!");
+        LoadFromJson(3);
+    }
+
+    public void LoadData4()
+    {
+        Debug.Log("Save 4 is Loading...!!");
+        LoadFromJson(4);
+    }
+
+    public void exit()
+    {
+        LoadFile.SetActive(false);
+    }
+}
+
+
+//Data for Temp to ScriptableObject
+
+[System.Serializable]
+public class PYData
+{
+    public int _slotNumber;
+    public string _name;
+    public Vector3 _position = new Vector3();
+    public Inventory _inventory = new Inventory();
 }
 
 [System.Serializable]
@@ -46,6 +113,18 @@ public class Inventory
     public int goldCoins;
     public bool isFull;
     public List<Item> items = new List<Item>();
+
+    public void Update()
+    {
+        if (items.Count >= 20)
+        {
+            isFull = true;
+        }
+        else
+        {
+            isFull = false;
+        }
+    }
 }
 
 [System.Serializable]
