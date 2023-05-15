@@ -14,6 +14,6 @@ public class SaveMap : MonoBehaviour
     private void saveGates()
     {
         gates = GameObject.FindGameObjectsWithTag("saveable");
-        Debug.Log(gates.Length);
+        // Debug.Log(p1.gates.Length);
     }
 }
