@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -59,34 +60,61 @@ public class SaveData : MonoBehaviour
         Debug.Log("Load Data from slot " + slot + "  Complete...!!");
     }
 
+    
+
 
     //Menu button
 
     [SerializeField]
     private GameObject LoadFile;
 
+    [SerializeField]
+    public GameObject confirmBox;
+
+    public int dataSlot;
+
+    public void showConfirmBox(bool op)
+    {
+        confirmBox.SetActive(op);
+    }
+
+    public void yesButton(int slot)
+    {
+        showConfirmBox(false);
+        LoadFromJson(dataSlot);
+    }
+
+    public void noButton()
+    {
+        showConfirmBox(false);
+    }
+
     public void LoadData1()
     {
         Debug.Log("Save 1 is Loading...!!");
-        LoadFromJson(1);
+        showConfirmBox(true);
+        dataSlot = 1;
     }
 
     public void LoadData2()
     {
         Debug.Log("Save 2 is Loading...!!");
-        LoadFromJson(2);
+        showConfirmBox(true);
+        dataSlot = 2;
     }
 
     public void LoadData3()
     {
         Debug.Log("Save 3 is Loading...!!");
-        LoadFromJson(3);
+        showConfirmBox(true);
+        dataSlot = 3;
     }
 
     public void LoadData4()
     {
         Debug.Log("Save 4 is Loading...!!");
-        LoadFromJson(4);
+        showConfirmBox(true);
+        dataSlot = 4;
     }
 
     public void exit()
