@@ -8,15 +8,13 @@ public class SpawnGate : MonoBehaviour//,IPointerClickHandler
 {
     [SerializeField]private GateSO gateSO;
     [SerializeField]private Transform spawnPoint;
+    [SerializeField]private Transform GateNumberSystem;
 
+    private GateNumberSystem gateNumberSystem;
     // private bool start = false;
     private void Start() {
         GetComponent<Image>().sprite = gateSO.sprite;
-        // if(!start)
-        // {
-        //     click();
-        //     start = true;
-        // }
+        gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(click);
     }
@@ -25,6 +23,7 @@ public class SpawnGate : MonoBehaviour//,IPointerClickHandler
     {
         Debug.Log("click");
         Transform gateTranform = Instantiate(gateSO.prefab,spawnPoint);
+        gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.getGateNum();
         gateTranform.localPosition = Vector3.zero;
     }
 

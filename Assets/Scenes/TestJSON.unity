@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 397785414}
+    - target: {fileID: 524967915757806912, guid: 35934d8e78070cf43be199a160310274, type: 3}
+      propertyPath: GateNumberSystem
+      value: 
+      objectReference: {fileID: 1933964417}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -404,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_AnchorMax.x
@@ -701,6 +705,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 397785414}
+    - target: {fileID: 524967915757806912, guid: 35934d8e78070cf43be199a160310274, type: 3}
+      propertyPath: GateNumberSystem
+      value: 
+      objectReference: {fileID: 1933964417}
     - target: {fileID: 4241615215348113237, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -715,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1048,40 +1056,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 35464269}
-  - {fileID: 1689552315}
+  - {fileID: 1933964417}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1689552314
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1689552315}
-  m_Layer: 0
-  m_Name: Pen tool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1689552315
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689552314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1658075215}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762333474
 GameObject:
@@ -1192,6 +1169,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 397785414}
+    - target: {fileID: 524967915757806912, guid: 35934d8e78070cf43be199a160310274, type: 3}
+      propertyPath: GateNumberSystem
+      value: 
+      objectReference: {fileID: 1933964417}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1202,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1417,7 +1398,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade112e2e4a5778408859c601a43b01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1: {fileID: 11400000, guid: 85032c10e27f41346928e1a046f27712, type: 2}
+--- !u!1 &1933964416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933964417}
+  - component: {fileID: 1933964418}
+  m_Layer: 0
+  m_Name: GatesNumberSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1933964417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933964416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1658075215}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933964418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933964416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244842344c2ffae4ba9180709983e3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1937225181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1445,6 +1469,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 397785414}
+    - target: {fileID: 524967915757806912, guid: 35934d8e78070cf43be199a160310274, type: 3}
+      propertyPath: GateNumberSystem
+      value: 
+      objectReference: {fileID: 1933964417}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1455,7 +1483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
       propertyPath: m_AnchorMax.x

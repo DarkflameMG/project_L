@@ -27,7 +27,7 @@ public class GateObject : MonoBehaviour
         {
             currentState = true;
         }
-        else if(gateName.Equals("bub"))
+        else if(gateName.Equals("bulb"))
         {
             currentState = slot1;
         }
