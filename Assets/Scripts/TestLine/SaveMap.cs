@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SaveMap : MonoBehaviour
 {
+    [SerializeField]private Transform TextInput;
     private GameObject[] gates;
     private Button btn;
     private void Start() {
@@ -30,6 +31,7 @@ public class SaveMap : MonoBehaviour
             saveGate[i] = newSave;
             i++;
         }
+        allSave.missionName = TextInput.GetComponent<TMPro.TMP_InputField>().text;
         allSave.saveGates = saveGate;
         string json = JsonUtility.ToJson(allSave,true);
 
@@ -38,7 +40,8 @@ public class SaveMap : MonoBehaviour
         {
             Debug.Log(gate.posx);
         }
-        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Custom/YourCreations/test.json",json);
+        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Custom/YourCreations/"+allSave.missionName+".json",json);
+        transform.parent.gameObject.SetActive(false);
     }
 }
 
@@ -54,6 +57,7 @@ public class SaveGate
 [System.Serializable]
 public class SaveGates
 {
+    public string missionName;
     public SaveGate[] saveGates;
 }
 

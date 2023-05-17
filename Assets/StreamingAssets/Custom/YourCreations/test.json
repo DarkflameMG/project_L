@@ -1,22 +1,4 @@
 {
-    "saveGates": [
-        {
-            "gateName": "and_1",
-            "posx": 212.95037841796876,
-            "posy": 273.41778564453127,
-            "posz": 0.0
-        },
-        {
-            "gateName": "not_2",
-            "posx": -354.917236328125,
-            "posy": -10.51611328125,
-            "posz": 0.0
-        },
-        {
-            "gateName": "bulb_3",
-            "posx": 368.06231689453127,
-            "posy": -134.079833984375,
-            "posz": 0.0
-        }
-    ]
+    "missionName": "gg",
+    "saveGates": []
 }
