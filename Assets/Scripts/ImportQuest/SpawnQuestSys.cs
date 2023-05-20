@@ -15,7 +15,7 @@ public class SpawnQuestSys : MonoBehaviour
         SaveGates loadMission = JsonUtility.FromJson<SaveGates>(json);
         Debug.Log(loadMission.missionName);
         Transform thisQuest = spawnQuest();
-        thisQuest.GetComponent<SetQuestName>().setQuestName(loadMission.missionName);
+        thisQuest.GetComponent<SetQuest>().setQuestName_Data(loadMission.missionName,loadMission);
     }
 
     private void Start() {

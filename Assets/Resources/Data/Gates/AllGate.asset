@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd6655ce72326e44ab131a59b4363ab, type: 3}
+  m_Name: AllGate
+  m_EditorClassIdentifier: 
+  and: {fileID: 3079195852384303507, guid: a73e7a6eddccf324397b645a1d6ac55f, type: 3}
+  or: {fileID: 0}
+  not: {fileID: 6027748930571241568, guid: 59abdbce9dca5b0419850bd513be000f, type: 3}
+  bulb: {fileID: 6933539883709446676, guid: d22bcb98517cc254882cea054e29e0be, type: 3}
+  batterry: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
