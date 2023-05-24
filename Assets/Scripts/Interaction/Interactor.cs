@@ -14,6 +14,9 @@ public class Interactor : MonoBehaviour
     [SerializeField]private GameObject popupSystem;
     [SerializeField]private LobbyInfo lobbyInfo;
 
+    private void Start() {
+        lobbyInfo.Busy = false;
+    }
     private void Update() {
         numfound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadis, _colliders,
         interactableMask);

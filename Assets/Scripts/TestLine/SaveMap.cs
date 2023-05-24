@@ -45,19 +45,5 @@ public class SaveMap : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class SaveGate
-{
-    public string gateName;
-    public float posx;
-    public float posy;
-    public float posz;
-}
 
-[System.Serializable]
-public class SaveGates
-{
-    public string missionName;
-    public SaveGate[] saveGates;
-}
 

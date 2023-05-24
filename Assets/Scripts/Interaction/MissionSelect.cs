@@ -56,18 +56,38 @@ public class MissionSelect : MonoBehaviour
                 questListUI.SetActive(false);
             }
         }
+        else if(lobbyinfo.currentPage == Page.custom)
+        {
+            mainMenuUI.SetActive(false);
+            UI.transform.GetChild(4).gameObject.SetActive(true);
+            if(Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                lobbyinfo.Busy = false;
+                lobbyinfo.currentPage = Page.none;
+                resetUI();
+                UI.SetActive(false);
+            }
+            else if(Keyboard.current.tabKey.wasPressedThisFrame)
+            {
+                lobbyinfo.currentPage = Page.main;
+                resetUI();
+            }
+        }
     }
 
     public void run()
     {
         lobbyinfo.currentPage = Page.main;
         UI.SetActive(true);
+        resetUI();
         mainMenuUI.SetActive(true);
     }
 
     private void resetUI()
     {
+        UI.transform.GetChild(4).gameObject.SetActive(false);
         typeMenuUI.SetActive(false);
+        questListUI.SetActive(false);
         mainMenuUI.SetActive(true);
     }
 }

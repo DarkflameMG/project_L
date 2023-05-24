@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HuntingBtn : MonoBehaviour
+public class SelectBtn : MonoBehaviour
 {
     [SerializeField]private LobbyInfo lobbyinfo;
-    [SerializeField]private GameObject missionSystem;
+    [SerializeField]private Page page;
+    [SerializeField]private QuestType questType;
+
     private void Start() {
         Button btn = this.GetComponent<Button>();
         btn.onClick.AddListener(taskOnclick);
@@ -14,7 +16,7 @@ public class HuntingBtn : MonoBehaviour
 
     private void taskOnclick()
     {
-        lobbyinfo.questType = QuestType.hunt;
-        lobbyinfo.currentPage = Page.questList;
+        lobbyinfo.questType = questType;
+        lobbyinfo.currentPage = page;
     }
 }

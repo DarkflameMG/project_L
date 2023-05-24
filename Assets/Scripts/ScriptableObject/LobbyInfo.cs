@@ -8,5 +8,3 @@ public class LobbyInfo : ScriptableObject {
 }
 
 
-public enum QuestType{ none,hunt,arena,investigate }
-public enum Page{none,main,selectType,questList}

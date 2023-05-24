@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class SetQuest : MonoBehaviour
 {
@@ -22,6 +22,6 @@ public class SetQuest : MonoBehaviour
 
     private void click()
     {
-        Debug.Log(data.missionName);
+        SceneManager.LoadScene("Map1");
     }
 }

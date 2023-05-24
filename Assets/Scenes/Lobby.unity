@@ -1400,7 +1400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &478107410
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2559,7 +2559,7 @@ GameObject:
   - component: {fileID: 845343465}
   - component: {fileID: 845343464}
   - component: {fileID: 845343463}
-  - component: {fileID: 845343466}
+  - component: {fileID: 845343467}
   m_Layer: 0
   m_Name: mainMission
   m_TagString: Untagged
@@ -2670,7 +2670,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845343461}
   m_CullTransparentMesh: 1
---- !u!114 &845343466
+--- !u!114 &845343467
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2679,10 +2679,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 845343461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3308f82e331be47964f06794defdbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d3255194f8fefd4aa078f825f4e3144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyinfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  page: 2
+  questType: 0
 --- !u!1 &849204856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3237,7 @@ GameObject:
   - component: {fileID: 1027035682}
   - component: {fileID: 1027035681}
   - component: {fileID: 1027035680}
+  - component: {fileID: 1027035683}
   m_Layer: 0
   m_Name: customMission
   m_TagString: Untagged
@@ -3345,6 +3348,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027035678}
   m_CullTransparentMesh: 1
+--- !u!114 &1027035683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027035678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d3255194f8fefd4aa078f825f4e3144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyinfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  page: 4
+  questType: 0
 --- !u!1 &1040661825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3736,7 +3754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1281693230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4845,7 +4863,7 @@ GameObject:
   - component: {fileID: 1910436751}
   - component: {fileID: 1910436750}
   - component: {fileID: 1910436749}
-  - component: {fileID: 1910436752}
+  - component: {fileID: 1910436753}
   m_Layer: 0
   m_Name: Hunting
   m_TagString: Untagged
@@ -4956,7 +4974,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910436747}
   m_CullTransparentMesh: 1
---- !u!114 &1910436752
+--- !u!114 &1910436753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4965,11 +4983,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1910436747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e749f1d36a98824388019458b894160, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d3255194f8fefd4aa078f825f4e3144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyinfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
-  missionSystem: {fileID: 299533693}
+  page: 3
+  questType: 1
 --- !u!1 &1918862850
 GameObject:
   m_ObjectHideFlags: 0

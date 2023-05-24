@@ -86,4 +86,3 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     }
 }
 
-public enum SlotNo{s1,s2,output};
