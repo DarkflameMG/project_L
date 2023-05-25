@@ -12,7 +12,7 @@ public class SpawnQuestSys : MonoBehaviour
 
     private void readJson(string json)
     {
-        SaveGates loadMission = JsonUtility.FromJson<SaveGates>(json);
+        MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
         Debug.Log(loadMission.missionName);
         Transform thisQuest = spawnQuest();
         thisQuest.GetComponent<SetQuest>().setQuestName_Data(loadMission.missionName,loadMission);

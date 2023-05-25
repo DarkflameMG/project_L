@@ -14,7 +14,7 @@ public class SaveMap : MonoBehaviour
     }
     private void saveGates()
     {
-        SaveGates allSave = new SaveGates();
+        MissionInfo allSave = new MissionInfo();
         gates = GameObject.FindGameObjectsWithTag("saveable");
         SaveGate[] saveGate = new SaveGate[gates.Length];
         int i = 0;
@@ -35,7 +35,7 @@ public class SaveMap : MonoBehaviour
         allSave.saveGates = saveGate;
         string json = JsonUtility.ToJson(allSave,true);
 
-        SaveGates test = JsonUtility.FromJson<SaveGates>(json);
+        MissionInfo test = JsonUtility.FromJson<MissionInfo>(json);
         foreach(SaveGate gate in test.saveGates)
         {
             Debug.Log(gate.posx);

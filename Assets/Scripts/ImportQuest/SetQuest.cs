@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class SetQuest : MonoBehaviour
 {
+    [SerializeField]private MissionSO missionSO;
     private Transform child;
-    private SaveGates data;
+    private MissionInfo data;
     private Button btn;
     private void Awake() {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(click);
     }
-    public void setQuestName_Data(string name,SaveGates data)
+    public void setQuestName_Data(string name,MissionInfo data)
     {
         child = transform.GetChild(1);
         child.GetComponent<TMPro.TextMeshProUGUI>().text = name;
@@ -22,6 +23,7 @@ public class SetQuest : MonoBehaviour
 
     private void click()
     {
+        missionSO.missionInfo = data;
         SceneManager.LoadScene("Map1");
     }
 }

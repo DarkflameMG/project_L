@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnPuzzle : MonoBehaviour
 {
     [SerializeField]private GatesPrefabSO allGate;
-    private SaveGates puzzle;
-    public void setData(SaveGates data)
+    private MissionInfo puzzle;
+    public void setData(MissionInfo data)
     {
         puzzle = data;
     }

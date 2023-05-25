@@ -10,6 +10,7 @@ public class Player_move : MonoBehaviour
 
     private void Start() {
         transform.position = lobbyInfo.PlayerLocation;
+        lobbyInfo.Busy = false;
     }
 
     private void Update() {

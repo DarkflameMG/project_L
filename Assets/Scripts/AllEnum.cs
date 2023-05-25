@@ -23,7 +23,7 @@ public class SaveGate
 }
 
 [System.Serializable]
-public class SaveGates
+public class MissionInfo
 {
     public string missionName;
     public SaveGate[] saveGates;
