@@ -1,0 +1,47 @@
+{
+    "missionName": "And",
+    "saveGates": [
+        {
+            "gateName": "battery_1",
+            "posx": -228.72442626953126,
+            "posy": 105.16070556640625,
+            "posz": 0.0
+        },
+        {
+            "gateName": "and_2",
+            "posx": 78.87054443359375,
+            "posy": -23.6611328125,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_3",
+            "posx": 467.96502685546877,
+            "posy": 7.88702392578125,
+            "posz": 0.0
+        },
+        {
+            "gateName": "CLine(Clone)",
+            "posx": 0.0,
+            "posy": 0.0,
+            "posz": 0.0
+        },
+        {
+            "gateName": "battery_4",
+            "posx": -231.35345458984376,
+            "posy": -78.8704833984375,
+            "posz": 0.0
+        },
+        {
+            "gateName": "CLine(Clone)",
+            "posx": 0.0,
+            "posy": 0.0,
+            "posz": 0.0
+        },
+        {
+            "gateName": "CLine(Clone)",
+            "posx": 0.0,
+            "posy": 0.0,
+            "posz": 0.0
+        }
+    ]
+}

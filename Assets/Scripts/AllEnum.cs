@@ -12,6 +12,8 @@ public enum SlotNo{s1,s2,output};
 public enum QuestType{ none,hunt,arena,investigate }
 public enum Page{none,main,selectType,questList,custom}
 
+public enum Stat{atk,def,spd,hp,sp}
+
 
 [System.Serializable]
 public class SaveGate
@@ -27,5 +29,13 @@ public class MissionInfo
 {
     public string missionName;
     public SaveGate[] saveGates;
-    // public int map;
+    public int map;
+    public Rewards reward;
+    public string detail;
+}
+
+[System.Serializable]
+public class Rewards
+{
+
 }

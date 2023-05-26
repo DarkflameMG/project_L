@@ -959,7 +959,7 @@ MonoBehaviour:
     m_Bits: 64
   numfound: 0
   popupSystem: {fileID: 0}
-  lobbyInfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!114 &1088125325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   gameInput: {fileID: 1451226607}
-  lobbyInfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!4 &1088125326
 Transform:
   m_ObjectHideFlags: 0
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2bc32d3fa1bf4f4caabca9058868901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionInfo: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1451226605
 GameObject:
   m_ObjectHideFlags: 0
