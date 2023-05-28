@@ -1138,6 +1138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+  lobby: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
 --- !u!1 &1451226605
 GameObject:
   m_ObjectHideFlags: 0
