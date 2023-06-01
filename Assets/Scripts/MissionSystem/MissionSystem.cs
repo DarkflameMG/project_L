@@ -27,7 +27,7 @@ public class MissionSystem : MonoBehaviour
 
     private void completeMission()
     {
-        lobby.PlayerLocation = new Vector3(0,0,-7.84f);
-        SceneManager.LoadScene("Lobby");
+        // lobby.PlayerLocation = new Vector3(0,0,-7.84f);
+        // SceneManager.LoadScene("Lobby");
     }
 }

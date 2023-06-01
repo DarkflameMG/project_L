@@ -10,7 +10,7 @@ public class AllEnum : MonoBehaviour
 public enum SlotNo{s1,s2,output};
 
 public enum QuestType{ none,hunt,arena,investigate }
-public enum Page{none,main,selectType,questList,custom}
+public enum Page{none,main,selectType,questList,custom,mainUp,up,mod}
 
 public enum Stat{atk,def,spd,hp,sp}
 
@@ -36,6 +36,12 @@ public class MissionInfo
 
 [System.Serializable]
 public class Rewards
+{
+
+}
+
+[System.Serializable]
+public class UpgradeForm
 {
 
 }
