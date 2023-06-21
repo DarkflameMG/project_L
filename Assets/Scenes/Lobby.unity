@@ -3370,7 +3370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 878869901}
   m_Layer: 6
-  m_Name: WarpGate
+  m_Name: TrainingYard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
