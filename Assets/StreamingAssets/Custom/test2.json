@@ -1,0 +1,26 @@
+{
+    "missionName": "test2",
+    "saveGates": [
+        {
+            "gateName": "not_1",
+            "posx": 0.0,
+            "posy": 0.0,
+            "posz": 0.0
+        },
+        {
+            "gateName": "battery_2",
+            "posx": -337.203125,
+            "posy": 0.0,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_3",
+            "posx": 391.820556640625,
+            "posy": 2.3746337890625,
+            "posz": 0.0
+        }
+    ],
+    "map": 0,
+    "reward": {},
+    "detail": ""
+}

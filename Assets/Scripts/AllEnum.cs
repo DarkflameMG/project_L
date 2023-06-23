@@ -41,7 +41,8 @@ public class Rewards
 }
 
 [System.Serializable]
-public class UpgradeForm
+public class PuzzleInfo
 {
-
+    public string puzzleName;
+    public SaveGate[] saveGates;
 }
