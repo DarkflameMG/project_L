@@ -24,6 +24,6 @@ public class SetQuest : MonoBehaviour
     private void click()
     {
         missionSO.missionInfo = data;
-        SceneManager.LoadScene("Map1");
+        SceneManager.LoadScene("TestMap");
     }
 }

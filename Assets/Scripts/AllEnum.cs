@@ -29,9 +29,9 @@ public class MissionInfo
 {
     public string missionName;
     public SaveGate[] saveGates;
-    public int map;
     public Rewards reward;
     public string detail;
+    public MapInfo map;
 }
 
 [System.Serializable]
@@ -45,4 +45,22 @@ public class PuzzleInfo
 {
     public string puzzleName;
     public SaveGate[] saveGates;
+}
+
+[System.Serializable]
+public class MapInfo
+{
+    public int wide;
+    public int high;
+    public int[] startPoint;
+    public RoomDetail[] rooms;
+}
+
+[System.Serializable]
+public class RoomDetail
+{
+    public int x;
+    public int y;
+    public string type;
+    public string ObjID;
 }
