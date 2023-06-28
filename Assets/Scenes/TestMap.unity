@@ -394,7 +394,7 @@ MonoBehaviour:
     m_Bits: 64
   numfound: 0
   popupSystem: {fileID: 575046738}
-  lobbyInfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!114 &222783629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   gameInput: {fileID: 1654710782}
-  lobbyInfo: {fileID: 11400000, guid: 2523c60078a975444a3e3dd5a1e25de0, type: 2}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1 &553936189
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2683971c39f7c74c8fe0476c564c6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 981823168}
+  popup: {fileID: 1943202345}
 --- !u!1 &636483076
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e73cdc6652f5843b670e77e86651bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapLoc: {fileID: 11400000, guid: a00fdd0297f4167469e2b0ddeea7001e, type: 2}
+  mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1 &1567136599
 GameObject:
   m_ObjectHideFlags: 0

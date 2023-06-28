@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class MapSystem : MonoBehaviour
 {
-    private int current_x;
-    private int current_y;
+    [SerializeField]MapLocSO mapLoc;
+    [SerializeField]LobbyInfo mapInfo;
 
-    public void updatePos(int x,int y)
+    public void setStartLoc(int x,int y)
     {
-        current_x += x;
-        current_y += y;
+        mapLoc.current_x = x;
+        mapLoc.current_y = y;
+    }
+
+    public void changeRoom()
+    {
+        mapInfo.Busy = false;
     }
 }
