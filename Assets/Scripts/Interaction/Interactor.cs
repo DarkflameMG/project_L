@@ -29,8 +29,10 @@ public class Interactor : MonoBehaviour
             if(interactable != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
                 lobbyInfo.PlayerLocation = transform.position;
-                lobbyInfo.Busy = true;
-                interactable.Interact(this);
+                if(interactable.Interact(this))
+                {
+                    lobbyInfo.Busy = true;
+                }
             }
         }
         else if(numfound == 0)

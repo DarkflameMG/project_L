@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24131edee852fe43bf8e2df075cd90e, type: 3}
   m_Name: Map1
   m_EditorClassIdentifier: 
-  PlayerLocation: {x: -3.3210807, y: 0, z: -1.3684893}
+  PlayerLocation: {x: 1.9987968, y: 0, z: -2.1591845}
   Busy: 0
   currentPage: 0
   questType: 1

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: MapLoc
   m_EditorClassIdentifier: 
   current_x: 0
-  current_y: 0
+  current_y: 1
+  max_x: 2
+  max_y: 2

@@ -8,17 +8,30 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private int delta_x;
     [SerializeField]private int delta_y;
     private GameObject popupSystem;
+    private MapSystem mapSystem;
     private void Awake() {
         popupSystem = GameObject.Find("PopupSystem");
+        mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
     }
 
     public string interactionPrompt => throw new System.NotImplementedException();
 
     public bool Interact(Interactor interactor)
     {
-        mapLoc.current_x += delta_x;
-        mapLoc.current_y += delta_y;
-        return true;
+        int x = mapLoc.current_x + delta_x;
+        int y = mapLoc.current_y + delta_y;
+
+        if(0 > x || 0 > y || x > mapLoc.max_x-1 || y > mapLoc.max_y-1)
+        {
+            // nothing happen
+        }
+        else
+        {
+            mapLoc.current_x = x;
+            mapLoc.current_y = y;
+            mapSystem.changeRoom();
+        }
+        return false;
     }
 
     public bool ShowPopup()
@@ -26,4 +39,5 @@ public class Doors : MonoBehaviour,IInteractable
         popupSystem.GetComponent<Popups>().showPopup("Open");
         return true;
     }
+    
 }
