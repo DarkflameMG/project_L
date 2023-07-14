@@ -7,6 +7,7 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private MapLocSO mapLoc;
     [SerializeField]private int delta_x;
     [SerializeField]private int delta_y;
+    [SerializeField]private RoomSide side;
     private GameObject popupSystem;
     private MapSystem mapSystem;
     private void Awake() {
@@ -29,7 +30,7 @@ public class Doors : MonoBehaviour,IInteractable
         {
             mapLoc.current_x = x;
             mapLoc.current_y = y;
-            mapSystem.changeRoom();
+            mapSystem.changeRoom(side);
         }
         return false;
     }

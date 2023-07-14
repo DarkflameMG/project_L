@@ -113,6 +113,7 @@ MonoBehaviour:
   mapLoc: {fileID: 11400000, guid: a00fdd0297f4167469e2b0ddeea7001e, type: 2}
   delta_x: 0
   delta_y: 1
+  side: 1
 --- !u!1 &301363852678691170
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +227,7 @@ MonoBehaviour:
   mapLoc: {fileID: 11400000, guid: a00fdd0297f4167469e2b0ddeea7001e, type: 2}
   delta_x: 1
   delta_y: 0
+  side: 3
 --- !u!1 &1359294921600657209
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +341,7 @@ MonoBehaviour:
   mapLoc: {fileID: 11400000, guid: a00fdd0297f4167469e2b0ddeea7001e, type: 2}
   delta_x: -1
   delta_y: 0
+  side: 2
 --- !u!1 &1468079846168845463
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +455,7 @@ MonoBehaviour:
   mapLoc: {fileID: 11400000, guid: a00fdd0297f4167469e2b0ddeea7001e, type: 2}
   delta_x: 0
   delta_y: -1
+  side: 0
 --- !u!1 &1954239839389155654
 GameObject:
   m_ObjectHideFlags: 0
