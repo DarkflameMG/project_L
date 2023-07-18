@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 7580902477541912168}
   m_Layer: 5
   m_Name: CLine
-  m_TagString: saveable
+  m_TagString: line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

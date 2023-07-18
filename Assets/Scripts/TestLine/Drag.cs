@@ -82,4 +82,9 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     {
         return currentSlot.GetComponent<Slot>().getSlotType();
     }
+
+    public Transform getGate()
+    {
+        return currentSlot;
+    }
 }

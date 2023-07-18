@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateSO: {fileID: 0}
   spawnPoint: {fileID: 0}
+  GateNumberSystem: {fileID: 0}

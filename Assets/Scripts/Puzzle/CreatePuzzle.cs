@@ -13,34 +13,38 @@ public class CreatePuzzle : MonoBehaviour
     {
         MissionInfo loadPuzzle = JsonUtility.FromJson<MissionInfo>(json); // fix for puzzle leter
         
-        Create(loadPuzzle.saveGates);
+        CreateGate(loadPuzzle.saveGates);
     }
     public void Start() {
-        readJson(File.ReadAllText(Application.streamingAssetsPath+"/Custom/test2.json"));
+        readJson(File.ReadAllText(Application.streamingAssetsPath+"/Custom/And.json"));
     }
-    private void Create(SaveGate[] data)
+
+    private void CreateGate(SaveGate[] data)
     {
         foreach(SaveGate gate in data)
         {
             string type = gate.gateName.Split (delimiterChars)[0];
-            RectTransform pos = spawnPoint.GetComponent<RectTransform>();//dummy
+            RectTransform pos ;
+            Transform gateObj = spawnPoint;
             Debug.Log(type);
             if(type.Equals("battery"))
             {
-                pos = Instantiate(allGate.batterry,spawnPoint).GetComponent<RectTransform>();
+                gateObj = Instantiate(allGate.batterry,spawnPoint);
             }
             else if(type.Equals("not"))
             {
-                pos = Instantiate(allGate.not,spawnPoint).GetComponent<RectTransform>();
+                gateObj = Instantiate(allGate.not,spawnPoint);
             }
             else if(type.Equals("bulb"))
             {
-                pos = Instantiate(allGate.bulb,spawnPoint).GetComponent<RectTransform>();
+                gateObj = Instantiate(allGate.bulb,spawnPoint);
             }
             else if(type.Equals("and"))
             {
-                pos = Instantiate(allGate.and,spawnPoint).GetComponent<RectTransform>();
+                gateObj = Instantiate(allGate.and,spawnPoint);
             }
+            gateObj.name = gate.gateName;
+            pos = gateObj.GetComponent<RectTransform>();
             pos.anchoredPosition = new Vector2(gate.posx,gate.posy);
         }
     }

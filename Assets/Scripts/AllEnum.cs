@@ -31,9 +31,23 @@ public class MissionInfo
 {
     public string missionName;
     public SaveGate[] saveGates;
+    public Lines[] lines;
     public Rewards reward;
     public string detail;
     public MapInfo map;
+}
+
+[System.Serializable]
+public class Lines
+{
+   public float pos1X;
+   public float pos2X;
+   public float pos1Y;
+   public float pos2Y;
+   public string c1Name;
+   public SlotNo c1Type;
+   public string c2Name;
+   public SlotNo c2Type;
 }
 
 [System.Serializable]
