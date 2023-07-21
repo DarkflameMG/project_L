@@ -45,7 +45,6 @@ public class LoadData : MonoBehaviour
     private void Awake()
     {
 
-
         //load slot 1
         try
         {
@@ -61,7 +60,7 @@ public class LoadData : MonoBehaviour
             Debug.Log("Not save data file....");
             Name1.text = "No data";
             Gold1.text = "";
-            btn1.enabled = false;
+            // btn1.enabled = false;
         }
 
         //load slot 2
@@ -79,7 +78,7 @@ public class LoadData : MonoBehaviour
             Debug.Log("Not save data file....");
             Name2.text = "No data";
             Gold2.text = "";
-            btn2.enabled = false;
+            // btn2.enabled = false;
         }
 
         //load slot 3
@@ -98,7 +97,7 @@ public class LoadData : MonoBehaviour
             Debug.Log("Not save data file....");
             Name3.text = "No data";
             Gold3.text = "";
-            btn3.enabled = false;
+            // btn3.enabled = false;
         }
 
         //load slot 4
@@ -116,7 +115,7 @@ public class LoadData : MonoBehaviour
             Debug.Log("Not save data file....");
             Name4.text = "No data";
             Gold4.text = "";
-            btn4.enabled = false;
+            // btn4.enabled = false;
         }
 
         

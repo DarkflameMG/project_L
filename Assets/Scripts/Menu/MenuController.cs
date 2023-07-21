@@ -13,6 +13,9 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private GameObject LoadData;
 
+    [SerializeField]
+    private GameObject NewSave;
+
     public void con()
     {
         Debug.Log("Contiue clicked...!");
@@ -22,7 +25,8 @@ public class MenuController : MonoBehaviour
     public void newGame()
     {
         Debug.Log("New Game clicked...!");
-        SceneManager.LoadScene("Lobby");
+        NewSave.SetActive(true);
+        //SceneManager.LoadScene("Lobby");
     }
 
     public void options()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
 {
@@ -33,6 +33,19 @@ public class SaveData : MonoBehaviour
 
     }
 
+    public void NewGameToJson(int slot,TMP_InputField name)
+    {
+        PlayerData newGame = new PlayerData();
+        newGame.SlotNumber = slot;
+        newGame.Name = name.text;
+        string PlayerDataJson = JsonUtility.ToJson(newGame);
+        string filePath = Application.persistentDataPath+ "/PlayerData" + slot + ".json";
+        //string filePath = Application.persistentDataPath + "/PlayerData2.json";
+        Debug.Log("FilePath = \"" + filePath + "\"");
+        System.IO.File.WriteAllText(filePath, PlayerDataJson);
+        Debug.Log("Save Data to slot " + slot + " Complete...!!");
+    }
+
     public void SaveToJson()
     {
         string PlayerDataJson = JsonUtility.ToJson(py);
@@ -58,6 +71,7 @@ public class SaveData : MonoBehaviour
         py.Position = playerData._position;
 
         Debug.Log("Load Data from slot " + slot + "  Complete...!!");
+        SceneManager.LoadScene("Lobby");
     }
 
     
@@ -69,7 +83,16 @@ public class SaveData : MonoBehaviour
     private GameObject LoadFile;
 
     [SerializeField]
+    private GameObject NewFile;
+
+    [SerializeField]
     public GameObject confirmBox;
+
+    [SerializeField]
+    public GameObject confirmBox2;
+
+    [SerializeField]
+    public TMP_InputField Name;
 
     public int dataSlot;
 
@@ -78,15 +101,29 @@ public class SaveData : MonoBehaviour
         confirmBox.SetActive(op);
     }
 
-    public void yesButton(int slot)
+    public void showConfirmBox2(bool op)
+    {
+        confirmBox2.SetActive(op);
+
+    }
+
+    public void yesButton()
     {
         showConfirmBox(false);
-        LoadFromJson(dataSlot);
+        LoadFromJson(this.dataSlot);
+    }
+
+    public void yesToNewButton()
+    {
+        showConfirmBox2(false);
+        NewGameToJson(this.dataSlot,Name);
+        SceneManager.LoadScene("Lobby");
     }
 
     public void noButton()
     {
         showConfirmBox(false);
+        showConfirmBox2(false);
     }
 
     public void LoadData1()
@@ -117,9 +154,42 @@ public class SaveData : MonoBehaviour
         dataSlot = 4;
     }
 
+    public void NewData1()
+    {
+        Debug.Log("New Save 1...!!");
+        showConfirmBox2(true);
+        dataSlot = 1;
+    }
+
+    public void NewData2()
+    {
+        Debug.Log("New Save 2...!!");
+        showConfirmBox2(true);
+        dataSlot = 2;
+    }
+
+    public void NewData3()
+    {
+        Debug.Log("New Save 3...!!");
+        showConfirmBox2(true);
+        dataSlot = 3;
+    }
+    
+    public void NewData4()
+    {
+        Debug.Log("New Save 44...!!");
+        showConfirmBox2(true);
+        dataSlot = 4;
+    }
+
     public void exit()
     {
         LoadFile.SetActive(false);
+    }
+
+    public void exit2()
+    {
+        NewFile.SetActive(false);
     }
 }
 

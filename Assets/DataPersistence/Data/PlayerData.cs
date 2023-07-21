@@ -25,7 +25,8 @@ public class PlayerData : ScriptableObject
         _slotNumber = 0;
         _name = null;
         _position = Vector3.zero;
-        _inventory = null;
+        _inventory = new Inventory();
+        _inventory.goldCoins = 0;
     }
     public int SlotNumber
     {
