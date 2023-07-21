@@ -8,6 +8,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     // [SerializeField]private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private bool dragable = true;
 
     private void Awake() {
         rectTransform = transform.parent.GetComponent<RectTransform>();
@@ -21,18 +22,32 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Debug.Log("begin");
-        canvasGroup.blocksRaycasts = false;
+        if(dragable)
+        {
+            canvasGroup.blocksRaycasts = false;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         // Debug.Log("end");
-        canvasGroup.blocksRaycasts = true;
+        if(dragable)
+        {
+            canvasGroup.blocksRaycasts = true;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta ;/// canvas.scaleFactor;
-        // Debug.Log( rectTransform.anchoredPosition);
+        if(dragable)
+        {
+            rectTransform.anchoredPosition += eventData.delta ;/// canvas.scaleFactor;
+            // Debug.Log( rectTransform.anchoredPosition);
+        }
+    }
+
+    public void setDragable(bool data)
+    {
+        dragable = data;
     }
 }

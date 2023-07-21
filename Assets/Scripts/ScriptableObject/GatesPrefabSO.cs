@@ -10,4 +10,5 @@ public class GatesPrefabSO : ScriptableObject
     public Transform not;
     public Transform bulb;
     public Transform batterry;
+    public Transform line;
 }

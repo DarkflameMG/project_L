@@ -11,6 +11,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     [SerializeField]private bool isPointer1;
     private bool isValid = false;
     private Transform currentSlot;
+    private bool dragable = true;
 
     private void Awake() {
         rectTransform = GetComponent<RectTransform>();
@@ -29,30 +30,44 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Debug.Log("begin");
-        canvasGroup.blocksRaycasts = false;
-        isValid = false;
-        currentSlot.GetComponent<Slot>().slotFree();
-        currentSlot = null;
+        if(dragable)
+        {
+            canvasGroup.blocksRaycasts = false;
+            isValid = false;
+            currentSlot.GetComponent<Slot>().slotFree();
+            currentSlot = null;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         // Debug.Log("end");
-        canvasGroup.blocksRaycasts = true;
-        if(!isValid)
+        if(dragable)
         {
-            Destroy(transform.parent.gameObject);
+            canvasGroup.blocksRaycasts = true;
+            if(!isValid)
+            {
+                Destroy(transform.parent.gameObject);
+            }
         }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if(dragable)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
         // Debug.Log( rectTransform.anchoredPosition);
     }
 
     public void setValid(Transform slot){
         isValid = true;
+        currentSlot = slot;
+    }
+
+    public void setSlotPuzzle(Transform slot)
+    {
         currentSlot = slot;
     }
 
@@ -86,5 +101,10 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     public Transform getGate()
     {
         return currentSlot;
+    }
+
+    public void setDragable(bool data)
+    {
+        dragable = data;
     }
 }

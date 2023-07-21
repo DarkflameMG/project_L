@@ -84,5 +84,10 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     {
         return slotNo;
     }
+
+    public void setLine(Transform line)
+    {
+        currentLine = line;
+    }
 }
 

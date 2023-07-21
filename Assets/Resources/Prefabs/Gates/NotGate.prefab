@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4890438175661328311}
   - component: {fileID: 7576197773127673008}
   m_Layer: 5
-  m_Name: backCPoint
+  m_Name: s1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1466966053774203972}
   - component: {fileID: 8837283906252969743}
   m_Layer: 5
-  m_Name: frontCPoint
+  m_Name: output
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

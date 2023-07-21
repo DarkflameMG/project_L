@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allGate: {fileID: 11400000, guid: 1bbe603f9e312054b8f74066762a6cc4, type: 2}
   spawnPoint: {fileID: 125094729}
+  spawnLine: {fileID: 2063860703}
 --- !u!1 &125094728
 GameObject:
   m_ObjectHideFlags: 0

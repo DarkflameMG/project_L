@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6649663991118470557}
   - component: {fileID: 829486796217225063}
   m_Layer: 5
-  m_Name: backCPoint
+  m_Name: s1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 2785803391484877993}
   - component: {fileID: 8495713220894189215}
   m_Layer: 5
-  m_Name: frontCPoint
+  m_Name: output
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 7402783193884775156}
   - component: {fileID: 3714026566429133019}
   m_Layer: 5
-  m_Name: backCPoint (1)
+  m_Name: s2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
