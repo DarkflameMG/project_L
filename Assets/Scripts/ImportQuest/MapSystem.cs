@@ -25,7 +25,7 @@ public class MapSystem : MonoBehaviour
         mapspawn = spawnLoc;
     }
 
-    public void changeRoom(RoomSide side)
+    public void ChangeRoom(RoomSide side)
     {
         mapInfo.Busy = false;
         Debug.Log(currentRoom);

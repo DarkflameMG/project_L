@@ -30,7 +30,7 @@ public class Doors : MonoBehaviour,IInteractable
         {
             mapLoc.current_x = x;
             mapLoc.current_y = y;
-            mapSystem.changeRoom(side);
+            mapSystem.ChangeRoom(side);
         }
         return false;
     }

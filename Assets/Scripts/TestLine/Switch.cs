@@ -16,7 +16,7 @@ public class Switch : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             state = !state;
-            Debug.Log(state);
+            // Debug.Log(state);
             UpdateState();
         }
     }

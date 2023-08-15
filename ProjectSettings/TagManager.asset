@@ -8,6 +8,7 @@ TagManager:
   - Object
   - saveable
   - line
+  - bulb
   layers:
   - Default
   - TransparentFX

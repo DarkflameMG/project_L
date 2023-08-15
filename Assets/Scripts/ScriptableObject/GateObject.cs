@@ -11,7 +11,10 @@ public class GateObject : MonoBehaviour
     }
     private bool currentState = false;
     private bool slot1 = false;
+
     private bool switchState = false;
+
+    private bool isPuzzleStart = false;
     // private int slot2 = 2;
 
     public GateSO GetGateSO()
@@ -62,5 +65,15 @@ public class GateObject : MonoBehaviour
     public void SetSlot2(bool value)
     {
         slot1 = value;
+    }
+
+    public bool GetIsPuzzle()
+    {
+        return isPuzzleStart;
+    }
+
+    public void SetIsPuzzle(bool value)
+    {
+        isPuzzleStart = value;
     }
 }

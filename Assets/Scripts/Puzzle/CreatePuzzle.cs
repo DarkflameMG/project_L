@@ -10,12 +10,14 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]GatesPrefabSO allGate;
     [SerializeField]Transform spawnPoint;
     [SerializeField]Transform spawnLine;
+    [SerializeField]GameObject winSystem;
     private void readJson(string json)
     {
         MissionInfo loadPuzzle = JsonUtility.FromJson<MissionInfo>(json); // fix for puzzle leter
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);
+        winSystem.GetComponent<WinSystem>().StartGame();
     }
     public void Start() {
         readJson(File.ReadAllText(Application.streamingAssetsPath+"/Custom/00.json"));
@@ -28,7 +30,6 @@ public class CreatePuzzle : MonoBehaviour
             string type = gate.gateName.Split (delimiterChars)[0];
             RectTransform pos ;
             Transform gateObj = spawnPoint;
-            Debug.Log(type);
             if(type.Equals("battery"))
             {
                 gateObj = Instantiate(allGate.batterry,spawnPoint);
@@ -40,6 +41,7 @@ public class CreatePuzzle : MonoBehaviour
             else if(type.Equals("bulb"))
             {
                 gateObj = Instantiate(allGate.bulb,spawnPoint);
+                gateObj.gameObject.tag = "bulb";
             }
             else if(type.Equals("and"))
             {
@@ -53,6 +55,7 @@ public class CreatePuzzle : MonoBehaviour
             pos = gateObj.GetComponent<RectTransform>();
             pos.anchoredPosition = new Vector2(gate.posx,gate.posy);
             gateObj.Find("Image").GetComponent<DragDrop>().setDragable(false);
+            gateObj.GetComponent<GateObject>().SetIsPuzzle(true);
         }
     }
 
