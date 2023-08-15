@@ -11,6 +11,7 @@ public class GateObject : MonoBehaviour
     }
     private bool currentState = false;
     private bool slot1 = false;
+    private bool switchState = false;
     // private int slot2 = 2;
 
     public GateSO GetGateSO()
@@ -18,10 +19,16 @@ public class GateObject : MonoBehaviour
         return gateSO;
     }
 
-    public bool getCurrentState()
+    public bool GetCurrentState()
     {
         return currentState;
     }
+
+    public void SetSwtichState(bool state)
+    {
+        switchState = state;
+    }
+
     private void Update() {
         if(gateName.Equals("battery"))
         {
@@ -34,6 +41,17 @@ public class GateObject : MonoBehaviour
         else if(gateName.Equals("not"))
         {
             currentState = !slot1;
+        }
+        else if(gateName.Equals("switch"))
+        {
+            if(switchState)
+            {
+                currentState = slot1;
+            }
+            else
+            {
+                currentState = false;
+            }
         }
     }
 

@@ -15,7 +15,7 @@ public class SwitchLight : MonoBehaviour
 
     private void Update() {
         gateObject = transform.parent.GetComponent<GateObject>();
-        if(gateObject.getCurrentState())
+        if(gateObject.GetCurrentState())
         {
             img.sprite = on;
         }

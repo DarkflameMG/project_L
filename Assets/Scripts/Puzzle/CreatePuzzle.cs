@@ -45,6 +45,10 @@ public class CreatePuzzle : MonoBehaviour
             {
                 gateObj = Instantiate(allGate.and,spawnPoint);
             }
+            else if(type.Equals("switch"))
+            {
+                gateObj = Instantiate(allGate.switchs,spawnPoint);
+            }
             gateObj.name = gate.gateName;
             pos = gateObj.GetComponent<RectTransform>();
             pos.anchoredPosition = new Vector2(gate.posx,gate.posy);

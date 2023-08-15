@@ -77,7 +77,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
 
     public bool getCurrentState()
     {
-        return transform.parent.GetComponent<GateObject>().getCurrentState();
+        return transform.parent.GetComponent<GateObject>().GetCurrentState();
     }
 
     public SlotNo getSlotType()

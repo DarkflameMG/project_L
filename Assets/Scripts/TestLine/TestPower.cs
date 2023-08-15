@@ -12,6 +12,6 @@ public class TestPower : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         // Debug.Log("power : 0");
-        Debug.Log(parentGate.GetGateSO().gateName+" : "+parentGate.getCurrentState());
+        Debug.Log(parentGate.GetGateSO().gateName+" : "+parentGate.GetCurrentState());
     }
 }
