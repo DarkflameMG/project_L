@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8694151298475515365}
   - component: {fileID: 8694151298475515362}
   - component: {fileID: 8694151298475515363}
-  m_Layer: 0
+  - component: {fileID: 4176296200800575611}
+  - component: {fileID: 5758739135284743189}
+  m_Layer: 6
   m_Name: TestPuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,3 +99,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4176296200800575611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694151298475515361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fcab7f164fba94aac13da8f8dd1b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: 
+--- !u!114 &5758739135284743189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8694151298475515361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac792dd384a9b04c976bb9f001ff93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -69,7 +69,7 @@ public class SaveMap : MonoBehaviour
         {
             Debug.Log(gate.posx);
         }
-        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Custom/"+allSave.missionName+".json",json);
+        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Puzzle/"+allSave.missionName+".json",json);
         transform.parent.gameObject.SetActive(false);
     }
 }

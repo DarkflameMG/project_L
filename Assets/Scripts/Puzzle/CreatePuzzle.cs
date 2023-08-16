@@ -11,7 +11,7 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]Transform spawnPoint;
     [SerializeField]Transform spawnLine;
     [SerializeField]GameObject winSystem;
-    private void readJson(string json)
+    private void ReadJson(string json)
     {
         MissionInfo loadPuzzle = JsonUtility.FromJson<MissionInfo>(json); // fix for puzzle leter
         
@@ -19,8 +19,9 @@ public class CreatePuzzle : MonoBehaviour
         CreateLine(loadPuzzle.lines);
         winSystem.GetComponent<WinSystem>().StartGame();
     }
-    public void Start() {
-        readJson(File.ReadAllText(Application.streamingAssetsPath+"/Custom/00.json"));
+    public void StartGame()
+    {
+        ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/00.json"));
     }
 
     private void CreateGate(SaveGate[] data)

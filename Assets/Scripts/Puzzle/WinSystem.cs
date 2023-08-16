@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class WinSystem : MonoBehaviour
 {
+    [SerializeField]Transform puzzleScene;
+    [SerializeField]LobbyInfo mapInfo;
     private GameObject[] bulbs;
     private bool winCond = false;
+    private bool isStart = false;
 
     public void StartGame()
     {
         bulbs = GameObject.FindGameObjectsWithTag("bulb");
-        Debug.Log(bulbs.Length);
+        isStart = true;
     }
 
     private void Update() {
-        if(!winCond)
+        if(!winCond && isStart)
         {
             CheckWinCond();
         }
@@ -31,6 +34,8 @@ public class WinSystem : MonoBehaviour
         if(winCond)
         {
             Debug.Log("Win");
+            puzzleScene.gameObject.SetActive(false);
+            mapInfo.Busy = false;
         }
     }
 
