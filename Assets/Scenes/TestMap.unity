@@ -373,7 +373,7 @@ Transform:
   - {fileID: 19375283}
   - {fileID: 1702690896}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &222783628
 MonoBehaviour:
@@ -719,7 +719,7 @@ Transform:
   m_Children:
   - {fileID: 1205948174}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 19.57, y: 0, z: 0}
 --- !u!1 &981823168
 GameObject:
@@ -790,7 +790,7 @@ Transform:
   - {fileID: 1654710781}
   - {fileID: 575046739}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1075044002
 GameObject:
@@ -858,7 +858,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1157006158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157006159}
+  m_Layer: 0
+  m_Name: ObjSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157006159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157006158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.512346, y: -2.329214, z: 3.2744102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205948173
 GameObject:
@@ -991,6 +1022,8 @@ MonoBehaviour:
   mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
   allRoom: {fileID: 11400000, guid: e199a35fbb4981a438dba6b9293d22b7, type: 2}
   player: {fileID: 222783627}
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+  allObj: {fileID: 11400000, guid: 637d321e615782d4e9741908746bd730, type: 2}
 --- !u!1 &1567136599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1130,7 @@ Transform:
   - {fileID: 553936190}
   - {fileID: 1749679942}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702690895
 GameObject:

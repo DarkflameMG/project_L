@@ -8,7 +8,7 @@ public class MissionSystem : MonoBehaviour
 {
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private LobbyInfo lobby;
-    public void setCurerntMission(MissionInfo data)
+    public void SetCurerntMission(MissionInfo data)
     {
         missionSO.missionInfo = data;
     }

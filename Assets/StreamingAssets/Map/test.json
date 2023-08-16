@@ -1,0 +1,31 @@
+{
+    "missionName": "gg",
+    "saveGates": [],
+    "map" : {
+        "wide" : 1,
+        "high" : 3,
+        "startPoint" : [0,2],
+        "rooms" : [
+            {
+                "x" : 0,
+                "y" : 2,
+                "type" : "start"
+            },
+            {
+                "x" : 0,
+                "y" : 1,
+                "type" : "start",
+                "objs" : [
+                    {
+                        "posx" : 0,
+                        "posy" : 0,
+                        "posz" : 0,
+                        "type" : "puzzle",
+                        "puzzleName" : "00"
+                    }
+
+                ]
+            }
+        ]
+    }
+}

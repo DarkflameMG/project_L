@@ -8,18 +8,23 @@ public class MapSystem : MonoBehaviour
     [SerializeField]LobbyInfo mapInfo;
     [SerializeField]RoomsSO allRoom;
     [SerializeField]Transform player;
+    [SerializeField]MissionSO missionSO;
+    [SerializeField]ObjectSO allObj;
 
     private Transform currentRoom;
     private Transform mapspawn;
-    public void setStartLoc(int x,int y,int maxX,int maxY)
+    private Transform[] roomObj;
+    private RoomDetail[] rooms;
+    public void SetStartLoc(int x,int y,int maxX,int maxY)
     {
         mapLoc.current_x = x;
         mapLoc.current_y = y;
         mapLoc.max_x = maxX;
         mapLoc.max_y = maxY;
+        rooms = missionSO.missionInfo.map.rooms;
     }
 
-    public void setStartRoom(Transform room,Transform spawnLoc)
+    public void SetStartRoom(Transform room,Transform spawnLoc)
     {
         currentRoom = room;
         mapspawn = spawnLoc;
@@ -28,10 +33,12 @@ public class MapSystem : MonoBehaviour
     public void ChangeRoom(RoomSide side)
     {
         mapInfo.Busy = false;
-        Debug.Log(currentRoom);
+        // Debug.Log(currentRoom);
         player.position = Vector3.zero;
-        Destroy(currentRoom.gameObject);
+        DestroyRoom();
         currentRoom = Instantiate(allRoom.startRoom,mapspawn);
+        SpawnObjs();
+
         if(side == RoomSide.right)
         {
             player.position = new Vector3 (-6.4f,0,0);
@@ -48,5 +55,35 @@ public class MapSystem : MonoBehaviour
         {
             player.position = new Vector3 (0,0,-7.4f);
         }
+    }
+
+    private void SpawnObjs()
+    {
+        foreach(RoomDetail room in rooms)
+        {
+            if(room.x == mapLoc.current_x && room.y == mapLoc.current_y && room.objs != null)
+            {
+                foreach(Objs obj in room.objs)
+                {
+                    roomObj = new Transform[room.objs.Length];
+                    int i = 0;
+                    if(obj.type.Equals("puzzle"))
+                    {
+                        Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
+                        puzzle.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
+                        roomObj[i] = puzzle;
+                        i++;
+                    }
+                }
+
+                break;
+            }
+        }
+    }
+
+    private void DestroyRoom()
+    {
+        Destroy(currentRoom.gameObject);
+        
     }
 }

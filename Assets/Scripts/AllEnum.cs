@@ -78,5 +78,15 @@ public class RoomDetail
     public int x;
     public int y;
     public string type;
-    public string ObjID;
+    public Objs[] objs;
+}
+
+[System.Serializable]
+public class Objs
+{
+    public float posx;
+    public float posy;
+    public float posz;
+    public string type;
+    public string puzzleName;
 }
