@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 0}
   sprite: {fileID: -778034162, guid: e6e43ff3d2ad85642a63988e4feb0084, type: 3}
   gateName: or
+  description: output is true when atleast one input is true

@@ -8,4 +8,5 @@ public class GateSO : ScriptableObject
     public Transform prefab;
     public Sprite sprite;
     public string gateName;
+    public string description;
 }

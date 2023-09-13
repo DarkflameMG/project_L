@@ -15,3 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
   sprite: {fileID: -1093565075, guid: 9b4d498bc1e8c7f418cfc4626b5a3921, type: 3}
   gateName: battery
+  description: have only true output

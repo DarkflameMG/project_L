@@ -16,10 +16,10 @@ public class SpawnGate : MonoBehaviour//,IPointerClickHandler
         GetComponent<Image>().sprite = gateSO.sprite;
         gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
         Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(click);
+        btn.onClick.AddListener(Click);
     }
 
-    private void click()
+    private void Click()
     {
         Debug.Log("click");
         Transform gateTranform = Instantiate(gateSO.prefab,spawnPoint);
@@ -32,4 +32,8 @@ public class SpawnGate : MonoBehaviour//,IPointerClickHandler
     //     // throw new System.NotImplementedException();
     //     click();
     // }
+    public GateSO GetGateSO()
+    {
+        return gateSO;
+    }
 }
