@@ -14,7 +14,6 @@ public class Tooltip : MonoBehaviour
     }
     private void OnMouseEnter() {
         TooltipManager._instance.SetAndShow(gateName,desc);
-        Debug.Log("show");
     }
     private void OnMouseExit() {
         TooltipManager._instance.Hide();

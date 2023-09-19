@@ -20,7 +20,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(slotPosition());
+        Debug.Log(SlotPosition());
     }
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -30,18 +30,30 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Debug.Log("begin");
+        // if(dragable)
+        // {
+        //     canvasGroup.blocksRaycasts = false;
+        //     isValid = false;
+        //     currentSlot.GetComponent<Slot>().SlotFree();
+        //     currentSlot = null;
+        // }
+        OnBeginDragAux();
+    }
+
+    public void OnBeginDragAux()
+    {
         if(dragable)
         {
             canvasGroup.blocksRaycasts = false;
             isValid = false;
-            currentSlot.GetComponent<Slot>().slotFree();
+            currentSlot.GetComponent<Slot>().SlotFree();
             currentSlot = null;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Debug.Log("end");
+        Debug.Log("end");
         if(dragable)
         {
             canvasGroup.blocksRaycasts = true;
@@ -61,12 +73,12 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
         // Debug.Log( rectTransform.anchoredPosition);
     }
 
-    public void setValid(Transform slot){
+    public void SetValid(Transform slot){
         isValid = true;
         currentSlot = slot;
     }
 
-    public void setSlotPuzzle(Transform slot)
+    public void SetSlotPuzzle(Transform slot)
     {
         currentSlot = slot;
     }
@@ -79,32 +91,37 @@ public class Drag : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEndDra
 
         else if(isValid)
         {
-            GetComponent<RectTransform>().anchoredPosition = slotPosition();
+            GetComponent<RectTransform>().anchoredPosition = SlotPosition();
         }
     }
 
-    private Vector2 slotPosition()
+    private Vector2 SlotPosition()
     {
         Vector2 parentSlotPosition = currentSlot.parent.GetComponent<RectTransform>().anchoredPosition;
         Vector2 currentSlotPostion = currentSlot.GetComponent<RectTransform>().anchoredPosition;
         return parentSlotPosition+currentSlotPostion;
     }
-    public bool getCurrentState()
+    public bool GetCurrentState()
     {
-        return currentSlot.GetComponent<Slot>().getCurrentState();
+        return currentSlot.GetComponent<Slot>().GetCurrentState();
     }
     public SlotNo GetSlotNo()
     {
-        return currentSlot.GetComponent<Slot>().getSlotType();
+        return currentSlot.GetComponent<Slot>().GetSlotType();
     }
 
-    public Transform getGate()
+    public Transform GetGate()
     {
         return currentSlot;
     }
 
-    public void setDragable(bool data)
+    public void SetDragable(bool data)
     {
         dragable = data;
+    }
+
+    public bool PoiterNo()
+    {
+        return isPointer1;
     }
 }

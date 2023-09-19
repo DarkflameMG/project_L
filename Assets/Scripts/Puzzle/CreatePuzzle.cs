@@ -76,13 +76,13 @@ public class CreatePuzzle : MonoBehaviour
             Transform slot1 = spawnPoint.Find(line.c1Name).Find(line.c1Type.ToString());
             Transform slot2 = spawnPoint.Find(line.c2Name).Find(line.c2Type.ToString());
 
-            point1.GetComponent<Drag>().setSlotPuzzle(slot1);
-            slot1.GetComponent<Slot>().setLine(lineObj);
-            point2.GetComponent<Drag>().setSlotPuzzle(slot2);
-            slot2.GetComponent<Slot>().setLine(lineObj);
+            point1.GetComponent<Drag>().SetSlotPuzzle(slot1);
+            slot1.GetComponent<Slot>().SetLine(lineObj);
+            point2.GetComponent<Drag>().SetSlotPuzzle(slot2);
+            slot2.GetComponent<Slot>().SetLine(lineObj);
 
-            point1.GetComponent<Drag>().setDragable(false);
-            point2.GetComponent<Drag>().setDragable(false);
+            point1.GetComponent<Drag>().SetDragable(false);
+            point2.GetComponent<Drag>().SetDragable(false);
         }
     }
 }

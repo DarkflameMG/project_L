@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     [SerializeField]private SlotNo slotNo;
     private Transform lineParent;
     private Transform currentLine;
+    private bool isPointer1 = false;
     private void Awake() {
         lineParent = GameObject.Find("spawnLine").transform;
     }
@@ -20,7 +21,8 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
         {
             Vector2 parentPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
             eventData.pointerDrag.transform.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
-            eventData.pointerDrag.transform.GetComponent<Drag>().setValid(this.transform);
+            eventData.pointerDrag.transform.GetComponent<Drag>().SetValid(this.transform);
+            isPointer1 = eventData.pointerDrag.transform.GetComponent<Drag>().PoiterNo();
             currentLine = eventData.pointerDrag.transform.parent;
         }
     }
@@ -37,11 +39,26 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
             Vector2 parentPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
             // Debug.Log(parentPosition);
             Transform newLine = Instantiate(linePre,Vector3.zero,Quaternion.identity,lineParent);
+            // newLine.GetComponent<Transform>().localPosition = Vector3.zero;
             newLine.GetChild(1).GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
             newLine.GetChild(2).GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
             eventData.pointerDrag = newLine.GetChild(2).gameObject;
             currentLine = newLine;
-            newLine.GetChild(1).GetComponent<Drag>().setValid(this.transform);
+            newLine.GetChild(1).GetComponent<Drag>().SetValid(this.transform);
+            isPointer1 = true;
+        }
+        else
+        {
+            if(isPointer1)
+            {
+                eventData.pointerDrag = currentLine.GetChild(1).gameObject;
+                currentLine.GetChild(1).GetComponent<Drag>().OnBeginDragAux();
+            }
+            else
+            {
+                eventData.pointerDrag = currentLine.GetChild(2).gameObject;
+                currentLine.GetChild(2).GetComponent<Drag>().OnBeginDragAux();
+            }
         }
     }
 
@@ -50,7 +67,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
         // throw new System.NotImplementedException();
     }
 
-    public void slotFree()
+    public void SlotFree()
     {
         currentLine = null;
     }
@@ -75,17 +92,17 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
         }
     }
 
-    public bool getCurrentState()
+    public bool GetCurrentState()
     {
         return transform.parent.GetComponent<GateObject>().GetCurrentState();
     }
 
-    public SlotNo getSlotType()
+    public SlotNo GetSlotType()
     {
         return slotNo;
     }
 
-    public void setLine(Transform line)
+    public void SetLine(Transform line)
     {
         currentLine = line;
     }

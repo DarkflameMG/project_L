@@ -9,10 +9,10 @@ public class ConfirmSave : MonoBehaviour
     private Button btn;
     private void Start() {
         btn = GetComponent<Button>();
-        btn.onClick.AddListener(confirm);
+        btn.onClick.AddListener(Confirm);
     }
 
-    private void confirm()
+    private void Confirm()
     {
         confirmUI.gameObject.SetActive(true);
     }

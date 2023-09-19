@@ -10,10 +10,10 @@ public class CancelSave : MonoBehaviour
     private Button btn;
     private void Start() {
         btn = GetComponent<Button>();
-        btn.onClick.AddListener(cancel);
+        btn.onClick.AddListener(Cancel);
     }
 
-    private void cancel()
+    private void Cancel()
     {
         TextInput.GetComponent<TMPro.TMP_InputField>().text = "";
         // Debug.Log(TextInput.GetComponent<TMPro.TMP_InputField>().text);

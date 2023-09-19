@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class SaveMap : MonoBehaviour
 {
     [SerializeField]private Transform TextInput;
+    [SerializeField]private Transform saveProgress;
     private GameObject[] gates;
     private GameObject[] lines;
     private Button btn;
     private void Start() {
         btn = GetComponent<Button>();
-        btn.onClick.AddListener(saveGates);
+        btn.onClick.AddListener(SaveGates);
     }
-    private void saveGates()
+    private void SaveGates()
     {
         MissionInfo allSave = new MissionInfo();
         gates = GameObject.FindGameObjectsWithTag("saveable");
@@ -47,11 +48,11 @@ public class SaveMap : MonoBehaviour
             newLine.pos1Y = child1.GetComponent<RectTransform>().localPosition.y;
             newLine.pos2Y = child2.GetComponent<RectTransform>().localPosition.y;
 
-            newLine.c1Name = child1.GetComponent<Drag>().getGate().parent.name;
-            newLine.c2Name = child2.GetComponent<Drag>().getGate().parent.name;
+            newLine.c1Name = child1.GetComponent<Drag>().GetGate().parent.name;
+            newLine.c2Name = child2.GetComponent<Drag>().GetGate().parent.name;
 
-            newLine.c1Type = child1.GetComponent<Drag>().getGate().GetComponent<Slot>().getSlotType();
-            newLine.c2Type = child2.GetComponent<Drag>().getGate().GetComponent<Slot>().getSlotType();
+            newLine.c1Type = child1.GetComponent<Drag>().GetGate().GetComponent<Slot>().GetSlotType();
+            newLine.c2Type = child2.GetComponent<Drag>().GetGate().GetComponent<Slot>().GetSlotType();
 
             saveLine[j] = newLine;
             j++;
@@ -71,6 +72,8 @@ public class SaveMap : MonoBehaviour
         }
         System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Puzzle/"+allSave.missionName+".json",json);
         transform.parent.gameObject.SetActive(false);
+
+        saveProgress.GetComponent<SaveProgress>().SaveProgression();
     }
 }
 
