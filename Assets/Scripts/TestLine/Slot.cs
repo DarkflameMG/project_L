@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHandler,IDragHandler
@@ -10,8 +12,10 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     private Transform lineParent;
     private Transform currentLine;
     private bool isPointer1 = false;
+    private UnityEngine.UI.Image image;
     private void Awake() {
         lineParent = GameObject.Find("spawnLine").transform;
+        image = GetComponent<UnityEngine.UI.Image>();
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -84,11 +88,13 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
             {
                 transform.parent.GetComponent<GateObject>().SetSlot2(input);
             }
+            image.color = new Color32(255,128,0,255);
         }
         else
         {
             transform.parent.GetComponent<GateObject>().SetSlot1(false);
             transform.parent.GetComponent<GateObject>().SetSlot2(false);
+            image.color = new Color32(47,255,0,255);
         }
     }
 
