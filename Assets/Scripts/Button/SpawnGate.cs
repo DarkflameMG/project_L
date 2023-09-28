@@ -4,36 +4,45 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SpawnGate : MonoBehaviour//,IPointerClickHandler
+public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
 {
     [SerializeField]private GateSO gateSO;
     [SerializeField]private Transform spawnPoint;
     [SerializeField]private Transform GateNumberSystem;
 
     private GateNumberSystem gateNumberSystem;
+    private Transform gateTranform;
+    private Canvas canvas;
     // private bool start = false;
     private void Start() {
         GetComponent<Image>().sprite = gateSO.sprite;
         gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(Click);
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        // Button btn = GetComponent<Button>();
+        // btn.onClick.AddListener(Click);
     }
 
-    private void Click()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("click");
-        Transform gateTranform = Instantiate(gateSO.prefab,spawnPoint);
-        gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.getGateNum();
-        gateTranform.localPosition = Vector3.zero;
+        Debug.Log("drag");
+        Spawn();
+        eventData.pointerDrag = gateTranform.GetChild(0).gameObject;
     }
 
-    // public void OnPointerClick(PointerEventData eventData)
-    // {
-    //     // throw new System.NotImplementedException();
-    //     click();
-    // }
+    private void Spawn()
+    {
+        gateTranform = Instantiate(gateSO.prefab,spawnPoint);
+        gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.getGateNum();
+        gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0);
+    }
+
     public GateSO GetGateSO()
     {
         return gateSO;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        
     }
 }
