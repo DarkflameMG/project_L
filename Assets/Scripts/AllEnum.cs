@@ -15,6 +15,7 @@ public enum Page{none,main,selectType,questList,custom,mainUp,up,mod}
 public enum Stat{atk,def,spd,hp,sp}
 
 public enum RoomSide{front,back,left,right}
+public enum GateType{not,and,or,batterry,bulb}
 
 
 [System.Serializable]

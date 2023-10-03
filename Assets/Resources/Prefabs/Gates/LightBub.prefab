@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 6933539883446653660}
   - component: {fileID: 1411589561279709232}
   - component: {fileID: 5708746256862551178}
-  - component: {fileID: 2721612412816225272}
   - component: {fileID: 1304175400523595506}
+  - component: {fileID: 479924869937017554}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -195,18 +195,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2721612412816225272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6933539883446653662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f6c52fb5b4f0b42820fd07b00ec966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1304175400523595506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +209,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   off: {fileID: 1064232014, guid: a3a8723237f203f41b43bab684ba6178, type: 3}
   on: {fileID: 1054818719, guid: 2f4e67bb22702b2449098952b2c6bd69, type: 3}
+--- !u!114 &479924869937017554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933539883446653662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46d6c386ea8be04aa2e074f60fdb48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allGlowGates: {fileID: 11400000, guid: 9dd96568c7b5290499500eed466823e0, type: 2}
+  gateType: 4
 --- !u!1 &6933539883709446677
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +233,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6933539883709446676}
   - component: {fileID: 9048387454493914260}
+  - component: {fileID: 3848024344670568504}
+  - component: {fileID: 3033356192376180797}
   m_Layer: 5
   m_Name: LightBub
   m_TagString: saveable
@@ -273,3 +277,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 089aa97022722b04c82ee384bf698fe7, type: 2}
+--- !u!70 &3848024344670568504
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933539883709446677}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.8989258, y: 0}
+  m_Size: {x: 101.17285, y: 101.17285}
+  m_Direction: 0
+--- !u!50 &3033356192376180797
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933539883709446677}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

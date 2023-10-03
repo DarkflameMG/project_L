@@ -101,6 +101,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3079195852384303507}
   - component: {fileID: 3466230885662796737}
+  - component: {fileID: 8822511729133117397}
+  - component: {fileID: 6187030756193908373}
   m_Layer: 5
   m_Name: AndGate
   m_TagString: saveable
@@ -145,6 +147,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 4cb2287b458121348b514a0690cf3dbe, type: 2}
+--- !u!50 &8822511729133117397
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397565373398506289}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &6187030756193908373
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397565373398506289}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4.6259465, y: 0.2893988}
+  m_Size: {x: 203.7309, y: 100.59743}
+  m_Direction: 1
 --- !u!1 &3810046392905817206
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +379,7 @@ GameObject:
   - component: {fileID: 8167381684064301952}
   - component: {fileID: 1844058843662842561}
   - component: {fileID: 3668725191549450481}
+  - component: {fileID: 8337301296262923459}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -429,3 +469,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8337301296262923459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891800166306154938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46d6c386ea8be04aa2e074f60fdb48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allGlowGates: {fileID: 11400000, guid: 9dd96568c7b5290499500eed466823e0, type: 2}
+  gateType: 1

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6976909913931149151}
   - component: {fileID: 8339586679578721323}
   - component: {fileID: 6301941260491386897}
+  - component: {fileID: 580647128850875519}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -115,6 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f6c52fb5b4f0b42820fd07b00ec966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &580647128850875519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097823777694270675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46d6c386ea8be04aa2e074f60fdb48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allGlowGates: {fileID: 11400000, guid: 9dd96568c7b5290499500eed466823e0, type: 2}
+  gateType: 3
 --- !u!1 &5518431984279742363
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +231,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6137835852763397361}
   - component: {fileID: 1293627733709053048}
+  - component: {fileID: 2126057547240046940}
+  - component: {fileID: 1214377212925089393}
   m_Layer: 5
   m_Name: Baterry
   m_TagString: saveable
@@ -258,3 +275,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: dcd6a128fc849e84680ed5fa7eb1526e, type: 2}
+--- !u!50 &2126057547240046940
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613313515652112604}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1214377212925089393
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613313515652112604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.14979553, y: -0.4494629}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 104.96866, y: 96.57922}
+  m_EdgeRadius: 0

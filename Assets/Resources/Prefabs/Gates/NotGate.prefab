@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 2132058335524285169}
   - component: {fileID: 8797495629471459727}
   - component: {fileID: 8811557206797246590}
+  - component: {fileID: 5795997161068194021}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -297,6 +298,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f6c52fb5b4f0b42820fd07b00ec966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5795997161068194021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748929673016827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46d6c386ea8be04aa2e074f60fdb48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allGlowGates: {fileID: 11400000, guid: 9dd96568c7b5290499500eed466823e0, type: 2}
+  gateType: 0
 --- !u!1 &6027748930571241569
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +322,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6027748930571241568}
   - component: {fileID: 7525498001344053266}
+  - component: {fileID: 780414060928860157}
+  - component: {fileID: 5389930970510248791}
   m_Layer: 5
   m_Name: NotGate
   m_TagString: saveable
@@ -350,3 +367,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: c75b226ef6b95f34293b65ec48dcc66a, type: 2}
+--- !u!50 &780414060928860157
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748930571241569}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &5389930970510248791
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6027748930571241569}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.3931274, y: 0.15478516}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 123.2876, y: 99.13977}
+  m_EdgeRadius: 0

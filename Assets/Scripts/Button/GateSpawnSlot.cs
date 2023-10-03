@@ -7,7 +7,7 @@ public class GateSpawnSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("drop");
+        // Debug.Log("drop");
         if(eventData.pointerDrag != null)
         {
             // Debug.Log( eventData.pointerDrag.transform.parent);
