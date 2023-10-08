@@ -15,7 +15,7 @@ public class SpawnQuestSys : MonoBehaviour
         MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
         Debug.Log(loadMission.missionName);
         Transform thisQuest = spawnQuest();
-        thisQuest.GetComponent<SetQuest>().setQuestName_Data(loadMission.missionName,loadMission);
+        thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.missionName,loadMission);
     }
 
     private void Start() {
