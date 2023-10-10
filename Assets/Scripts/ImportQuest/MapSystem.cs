@@ -10,6 +10,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField]Transform player;
     [SerializeField]MissionSO missionSO;
     [SerializeField]ObjectSO allObj;
+    [SerializeField]GameObject levelLoader;
 
     private Transform currentRoom;
     private Transform mapspawn;
@@ -32,29 +33,8 @@ public class MapSystem : MonoBehaviour
 
     public void ChangeRoom(RoomSide side)
     {
-        mapInfo.Busy = false;
-        // Debug.Log(currentRoom);
-        player.position = Vector3.zero;
-        DestroyRoom();
-        currentRoom = Instantiate(allRoom.startRoom,mapspawn);
-        SpawnObjs();
-
-        if(side == RoomSide.right)
-        {
-            player.position = new Vector3 (-6.4f,0,0);
-        }
-        else if(side == RoomSide.left)
-        {
-            player.position = new Vector3 (6.4f,0,0);
-        }
-        else if(side == RoomSide.back)
-        {
-            player.position = new Vector3 (0,0,6.4f);
-        }
-        else if(side == RoomSide.front)
-        {
-            player.position = new Vector3 (0,0,-7.4f);
-        }
+        StartCoroutine(TransitionRoom(side));
+       
     }
 
     private void SpawnObjs()
@@ -85,5 +65,36 @@ public class MapSystem : MonoBehaviour
     {
         Destroy(currentRoom.gameObject);
         
+    }
+
+    IEnumerator TransitionRoom(RoomSide side)
+    {
+        levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("End");
+
+         mapInfo.Busy = false;
+        // Debug.Log(currentRoom);
+        player.position = Vector3.zero;
+        DestroyRoom();
+        currentRoom = Instantiate(allRoom.startRoom,mapspawn);
+        SpawnObjs();
+
+        if(side == RoomSide.right)
+        {
+            player.position = new Vector3 (-6.4f,0,0);
+        }
+        else if(side == RoomSide.left)
+        {
+            player.position = new Vector3 (6.4f,0,0);
+        }
+        else if(side == RoomSide.back)
+        {
+            player.position = new Vector3 (0,0,6.4f);
+        }
+        else if(side == RoomSide.front)
+        {
+            player.position = new Vector3 (0,0,-7.4f);
+        }
     }
 }

@@ -27,4 +27,9 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(index);
     }
+
+    public Animator GetAnimator()
+    {
+        return transition;
+    }
 }

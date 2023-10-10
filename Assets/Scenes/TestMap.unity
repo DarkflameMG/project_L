@@ -340,6 +340,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19375282}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &31362075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2407935585197461938, guid: 21ff588693ef1ef4a948cccd7378bd6a, type: 3}
+  m_PrefabInstance: {fileID: 1105061020}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &155417624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1383,7 @@ MonoBehaviour:
   player: {fileID: 222783627}
   missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
   allObj: {fileID: 11400000, guid: 637d321e615782d4e9741908746bd730, type: 2}
+  levelLoader: {fileID: 31362075}
 --- !u!1 &1443770791
 GameObject:
   m_ObjectHideFlags: 0
