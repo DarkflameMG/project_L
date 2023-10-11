@@ -1,5 +1,5 @@
 {
-    "missionName": "gg",
+    "missionName": "MissionTest",
     "saveGates": [],
     "map" : {
         "wide" : 1,
@@ -24,6 +24,19 @@
                         "puzzleName" : "00"
                     }
 
+                ]
+            },
+            {
+                "x" : 0,
+                "y" : 0,
+                "type" : "start",
+                "objs" : [
+                    {
+                        "posx" : 0,
+                        "posy" : 2,
+                        "posz" : 0,
+                        "type" : "boss1"
+                    }
                 ]
             }
         ]

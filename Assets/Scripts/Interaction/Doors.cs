@@ -15,7 +15,7 @@ public class Doors : MonoBehaviour,IInteractable
         mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
     }
 
-    public string interactionPrompt => throw new System.NotImplementedException();
+    public string InteractionPrompt => throw new System.NotImplementedException();
 
     public bool Interact(Interactor interactor)
     {

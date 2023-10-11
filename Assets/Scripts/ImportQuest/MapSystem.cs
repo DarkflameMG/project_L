@@ -54,6 +54,14 @@ public class MapSystem : MonoBehaviour
                         roomObj[i] = puzzle;
                         i++;
                     }
+                    else if(obj.type.Equals("boss1"))
+                    {
+                        Debug.Log("boss!");
+                        Transform boss = Instantiate(allObj.boss1,currentRoom);
+                        boss.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
+                        roomObj[i] = boss;
+                        i++;
+                    }
                 }
 
                 break;
@@ -69,6 +77,7 @@ public class MapSystem : MonoBehaviour
 
     IEnumerator TransitionRoom(RoomSide side)
     {
+        mapInfo.Busy = true;
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("Start");
         yield return new WaitForSeconds(1);
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("End");

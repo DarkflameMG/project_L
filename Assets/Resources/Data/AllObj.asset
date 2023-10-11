@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AllObj
   m_EditorClassIdentifier: 
   puzzle: {fileID: 8694151298475515360, guid: 59d09f078c89be344a9906b2305b1ae1, type: 3}
+  boss1: {fileID: 8520013599783645461, guid: f6b4c9b7380232b40a4c666c78ae4d1e, type: 3}

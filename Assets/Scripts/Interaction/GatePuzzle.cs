@@ -7,7 +7,7 @@ public class GatePuzzle : MonoBehaviour,IInteractable
 {
     [SerializeField]private string _prompt;
     [SerializeField]private GameObject popupSystem;
-    public string interactionPrompt => _prompt;
+    public string InteractionPrompt => _prompt;
     public bool Interact(Interactor interactor)
     {
         ChangeScene();

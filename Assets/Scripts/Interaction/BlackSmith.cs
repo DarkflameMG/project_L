@@ -7,7 +7,7 @@ public class BlackSmith : MonoBehaviour,IInteractable
     [SerializeField]private string _prompt;
     [SerializeField]private GameObject popupSystem;
     [SerializeField]private GameObject UpgradeSystem;
-    public string interactionPrompt => _prompt;
+    public string InteractionPrompt => _prompt;
      public bool Interact(Interactor interactor)
     {
         Debug.Log("Found job");
