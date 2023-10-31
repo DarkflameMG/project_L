@@ -1,63 +1,7 @@
 {
     "missionName": "00",
-    "saveGates": [
-        {
-            "gateName": "not_1",
-            "posx": 0.0,
-            "posy": 0.0,
-            "posz": 0.0
-        },
-        {
-            "gateName": "battery_2",
-            "posx": -489.92803955078127,
-            "posy": 41.00714111328125,
-            "posz": 0.0
-        },
-        {
-            "gateName": "bulb_3",
-            "posx": 444.6043701171875,
-            "posy": 60.43157958984375,
-            "posz": 0.0
-        },
-        {
-            "gateName": "switch_4",
-            "posx": -172.661865234375,
-            "posy": 267.6258544921875,
-            "posz": 0.0
-        }
-    ],
-    "lines": [
-        {
-            "pos1X": -422.22802734375,
-            "pos2X": -250.3618621826172,
-            "pos1Y": 41.00714111328125,
-            "pos2Y": 267.6258544921875,
-            "c1Name": "battery_2",
-            "c1Type": 2,
-            "c2Name": "switch_4",
-            "c2Type": 0
-        },
-        {
-            "pos1X": -94.96186828613281,
-            "pos2X": -90.0,
-            "pos1Y": 267.6258544921875,
-            "pos2Y": -0.000011443999937910121,
-            "c1Name": "switch_4",
-            "c1Type": 2,
-            "c2Name": "not_1",
-            "c2Type": 0
-        },
-        {
-            "pos1X": 90.0,
-            "pos2X": 380.6043701171875,
-            "pos1Y": 0.0,
-            "pos2Y": 60.43157958984375,
-            "c1Name": "not_1",
-            "c1Type": 2,
-            "c2Name": "bulb_3",
-            "c2Type": 0
-        }
-    ],
+    "saveGates": [],
+    "lines": [],
     "reward": {},
     "detail": "",
     "map": {
