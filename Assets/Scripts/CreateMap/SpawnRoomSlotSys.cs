@@ -29,7 +29,7 @@ public class SpawnRoomSlotSys : MonoBehaviour
             Transform horizontal = Instantiate(horizontalPrefab,slotSpawnPoint);
             for(int i=0;i<width;i++)
             {
-                Instantiate(slotPrefab,horizontal);
+                Instantiate(slotPrefab,horizontal).GetComponent<RoomSlot>().SetXY(i,j);
             }
         }
     }

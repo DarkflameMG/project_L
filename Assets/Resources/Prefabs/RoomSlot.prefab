@@ -85,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8157078995223741046}
+  - component: {fileID: 5232430192799619394}
   m_Layer: 5
   m_Name: RoomSlot
   m_TagString: Untagged
@@ -113,3 +114,15 @@ RectTransform:
   m_AnchoredPosition: {x: -246, y: -351}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5232430192799619394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157078995223741047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfa71b6b7660034982f06d8527975d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
