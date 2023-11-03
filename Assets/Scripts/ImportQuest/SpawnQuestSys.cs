@@ -10,11 +10,11 @@ public class SpawnQuestSys : MonoBehaviour
     [SerializeField]private Transform QuestPrefab;
     private float i =0;
 
-    private void readJson(string json)
+    private void ReadJson(string json)
     {
         MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
         Debug.Log(loadMission.missionName);
-        Transform thisQuest = spawnQuest();
+        Transform thisQuest = SpawnQuest();
         thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.missionName,loadMission);
     }
 
@@ -22,14 +22,14 @@ public class SpawnQuestSys : MonoBehaviour
         var jsonFile = Directory.EnumerateFiles(Application.streamingAssetsPath+"/Map","*.json");
         foreach (string fileName in jsonFile)
         {
-            readJson(File.ReadAllText(fileName));
+            ReadJson(File.ReadAllText(fileName));
 
             // Debug.Log(File.ReadAllText(fileName));
         }
     }
 
 
-    private Transform spawnQuest()
+    private Transform SpawnQuest()
     {
         Transform thisQuest = Instantiate(QuestPrefab,SpawnLocation);
         thisQuest.SetLocalPositionAndRotation(new Vector3(0,i,0),Quaternion.identity);

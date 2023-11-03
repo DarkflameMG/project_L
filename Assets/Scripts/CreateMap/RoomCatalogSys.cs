@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RoomCatalogSys : MonoBehaviour
 {
     [SerializeField]private GameObject catalogUI;
     [SerializeField]private RoomPreviewSO allRoom;
+    [SerializeField]private Transform startRoomFlag;
+    [SerializeField]private Transform saveMapSys;
     private Transform currentSlot;
+    private Transform currentStartRoom;
     public void ShowUI(Transform slot)
     {
         catalogUI.SetActive(true);
@@ -27,14 +29,40 @@ public class RoomCatalogSys : MonoBehaviour
 
     public void AddRoom(RoomType type)
     {
-        Image img = currentSlot.GetChild(0).GetComponent<Image>();
         if(type == RoomType.defalut)
         {
-            img.sprite = allRoom.defalut;
+            currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.defalut);
+            ResetStartRoom();
         }
         else if(type == RoomType.room1)
         {
-            img.sprite = allRoom.room1;
+            currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.room1);
         }
+    }
+
+    public void AddStartRoom()
+    {
+        if(currentStartRoom)
+        {
+            ResetStartRoom();
+        }
+        currentStartRoom = currentSlot;
+        currentStartRoom.GetComponent<RoomSlot>().SetStartRoom(true);
+        SetFlagPos();
+
+        saveMapSys.GetComponent<SaveMapSys>().SetHaveStartRoom(true);
+    }
+
+    private void ResetStartRoom()
+    {
+        currentStartRoom.GetComponent<RoomSlot>().SetStartRoom(false);
+        startRoomFlag.GetComponent<RectTransform>().localPosition = new Vector3(1247f,66f,0);
+        
+        saveMapSys.GetComponent<SaveMapSys>().SetHaveStartRoom(false);
+    }
+
+    private void SetFlagPos()
+    {
+        startRoomFlag.GetComponent<RectTransform>().localPosition = currentSlot.GetComponent<RectTransform>().localPosition + currentSlot.parent.GetComponent<RectTransform>().localPosition;
     }
 }

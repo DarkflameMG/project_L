@@ -56,7 +56,6 @@ public class MapSystem : MonoBehaviour
                     }
                     else if(obj.type.Equals("boss1"))
                     {
-                        Debug.Log("boss!");
                         Transform boss = Instantiate(allObj.boss1,currentRoom);
                         boss.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
                         roomObj[i] = boss;
