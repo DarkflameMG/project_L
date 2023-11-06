@@ -17,7 +17,7 @@ public enum Stat{atk,def,spd,hp,sp}
 public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}
 public enum RoomType{defalut,room1}
-public enum FeatureType{none,monster,boss,puzzle,start}
+public enum FeatureType{none,monster,boss,puzzle,start,exit}
 public enum CreateMapCatalog{floor,feature}
 
 

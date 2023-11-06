@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startFlag: {fileID: 1204027694729534012, guid: d71366acc5e85e94b9d3ff8bb166354e, type: 3}
   bossFlag: {fileID: 2590509283791618036, guid: bc4c39b18f0100648a218897201ca34c, type: 3}
+  monFlag: {fileID: 2493378538970113750, guid: 84ef2e701fe448f4f9d32e787deb43a5, type: 3}
+  puzzleFlag: {fileID: 692501027827718219, guid: e7bf3b3f7c48968498e6c837b07fa6b2, type: 3}
+  exitFlag: {fileID: 7444548463545729409, guid: 651b86c364bdf3e43a2b0a1bdfc8bf12, type: 3}

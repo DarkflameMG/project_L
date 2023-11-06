@@ -11,6 +11,7 @@ public class RoomCatalogSys : MonoBehaviour
     [SerializeField]private Transform saveMapSys;
     private Transform currentSlot;
     private Transform currentStartRoom;
+    private Transform currentExitRoom;
     public void ShowUI(Transform slot)
     {
         catalogUI.SetActive(true);
@@ -43,11 +44,31 @@ public class RoomCatalogSys : MonoBehaviour
 
     public void AddRoomFeature(FeatureType type)
     {
+        if(currentSlot.GetComponent<RoomSlot>().GetRoomType() != RoomType.defalut)
+        {
+            AddRoomFeature_Aux(type);
+        }
+    }
+
+    private void AddRoomFeature_Aux(FeatureType type)
+    {
+        RoomSlot room = currentSlot.GetComponent<RoomSlot>();
+
+        if(room.GetFeatureType() == FeatureType.start)
+        {
+            currentStartRoom = null;
+        }
+        else if(room.GetFeatureType() == FeatureType.exit)
+        {
+            currentExitRoom = null;
+        }
+
+
         Transform flag = null;
-        currentSlot.GetComponent<RoomSlot>().DestroyFlag();
+        room.DestroyFlag();
         if(type == FeatureType.none)
         {
-
+            // nothing happen
         }
         else if(type == FeatureType.monster)
         {
@@ -55,7 +76,7 @@ public class RoomCatalogSys : MonoBehaviour
         }
         else if(type == FeatureType.boss)
         {
-
+            flag = allFlag.bossFlag;
         }
         else if(type == FeatureType.puzzle)
         {
@@ -70,7 +91,25 @@ public class RoomCatalogSys : MonoBehaviour
             }
             currentStartRoom = currentSlot;
         }
-        currentSlot.GetComponent<RoomSlot>().SetRoomFeature(type,flag,flagPoint);
+        else if(type == FeatureType.exit)
+        {
+            flag = allFlag.exitFlag;
+            if(currentExitRoom != null)
+            {
+                currentExitRoom.GetComponent<RoomSlot>().DestroyFlag();
+            }
+            currentExitRoom = currentSlot;
+        }
+        room.SetRoomFeature(type,flag,flagPoint);
     }
 
+    public Transform GetStartRoom()
+    {
+        return currentStartRoom;
+    }
+
+    public Transform GetExitRoom()
+    {
+        return currentExitRoom;
+    }
 }

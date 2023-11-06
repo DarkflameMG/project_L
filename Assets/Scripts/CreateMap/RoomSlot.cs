@@ -18,8 +18,8 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log(x+" "+y);
-        Debug.Log(GetComponent<RectTransform>().localPosition);
+        // Debug.Log(x+" "+y);
+        // Debug.Log(GetComponent<RectTransform>().localPosition);
         roomCatalogSys.ShowUI(this.transform);
     }
 
@@ -35,16 +35,21 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         transform.GetChild(0).GetComponent<Image>().sprite = roomPreview;
     }
 
-    // public void SetStartRoom(bool isStartRoom)
-    // {
-    //     this.isStartRoom = isStartRoom;
-    // }
+    public RoomType GetRoomType()
+    {
+        return roomType;
+    }
 
     public void SetRoomFeature(FeatureType type,Transform flag,Transform flagPoint)
     {
         featureType = type;
 
         CreateFlag(flag,flagPoint);
+    }
+
+    public FeatureType GetFeatureType()
+    {
+        return featureType;
     }
 
     private void CreateFlag(Transform flag,Transform flagPoint)
