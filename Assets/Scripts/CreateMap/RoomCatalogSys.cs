@@ -6,7 +6,8 @@ public class RoomCatalogSys : MonoBehaviour
 {
     [SerializeField]private GameObject catalogUI;
     [SerializeField]private RoomPreviewSO allRoom;
-    [SerializeField]private Transform startRoomFlag;
+    [SerializeField]private FlagsMapSO allFlag;
+    [SerializeField]private Transform flagPoint;
     [SerializeField]private Transform saveMapSys;
     private Transform currentSlot;
     private Transform currentStartRoom;
@@ -32,7 +33,7 @@ public class RoomCatalogSys : MonoBehaviour
         if(type == RoomType.defalut)
         {
             currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.defalut);
-            ResetStartRoom();
+            currentSlot.GetComponent<RoomSlot>().DestroyFlag();
         }
         else if(type == RoomType.room1)
         {
@@ -40,29 +41,36 @@ public class RoomCatalogSys : MonoBehaviour
         }
     }
 
-    public void AddStartRoom()
+    public void AddRoomFeature(FeatureType type)
     {
-        if(currentStartRoom)
+        Transform flag = null;
+        currentSlot.GetComponent<RoomSlot>().DestroyFlag();
+        if(type == FeatureType.none)
         {
-            ResetStartRoom();
+
         }
-        currentStartRoom = currentSlot;
-        currentStartRoom.GetComponent<RoomSlot>().SetStartRoom(true);
-        SetFlagPos();
+        else if(type == FeatureType.monster)
+        {
 
-        saveMapSys.GetComponent<SaveMapSys>().SetHaveStartRoom(true);
+        }
+        else if(type == FeatureType.boss)
+        {
+
+        }
+        else if(type == FeatureType.puzzle)
+        {
+
+        }
+        else if(type == FeatureType.start)
+        {
+            flag = allFlag.startFlag;
+            if(currentStartRoom != null)
+            {
+                currentStartRoom.GetComponent<RoomSlot>().DestroyFlag();
+            }
+            currentStartRoom = currentSlot;
+        }
+        currentSlot.GetComponent<RoomSlot>().SetRoomFeature(type,flag,flagPoint);
     }
 
-    private void ResetStartRoom()
-    {
-        currentStartRoom.GetComponent<RoomSlot>().SetStartRoom(false);
-        startRoomFlag.GetComponent<RectTransform>().localPosition = new Vector3(1247f,66f,0);
-        
-        saveMapSys.GetComponent<SaveMapSys>().SetHaveStartRoom(false);
-    }
-
-    private void SetFlagPos()
-    {
-        startRoomFlag.GetComponent<RectTransform>().localPosition = currentSlot.GetComponent<RectTransform>().localPosition + currentSlot.parent.GetComponent<RectTransform>().localPosition;
-    }
 }

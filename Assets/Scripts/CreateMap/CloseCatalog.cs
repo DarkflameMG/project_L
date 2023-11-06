@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CloseCatalog : MonoBehaviour
 {
+    [SerializeField]private GameObject mainCatalog;
     private Button btn;
     private void Awake() {
         btn = GetComponent<Button>();
@@ -13,6 +14,7 @@ public class CloseCatalog : MonoBehaviour
 
     private void CloseWindow()
     {
-        transform.parent.gameObject.SetActive(false);
+        mainCatalog.SetActive(false);
+        // transform.parent.gameObject.SetActive(false);
     }
 }
