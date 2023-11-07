@@ -16,7 +16,7 @@ public class SaveMap : MonoBehaviour
     }
     private void SaveGates()
     {
-        MissionInfo allSave = new MissionInfo();
+        PuzzleInfo allSave = new PuzzleInfo();
         gates = GameObject.FindGameObjectsWithTag("saveable");
         lines = GameObject.FindGameObjectsWithTag("line");
         SaveGate[] saveGate = new SaveGate[gates.Length];
@@ -60,17 +60,17 @@ public class SaveMap : MonoBehaviour
 
 
 
-        allSave.missionName = TextInput.GetComponent<TMPro.TMP_InputField>().text;
+        allSave.PuzzleName = TextInput.GetComponent<TMPro.TMP_InputField>().text;
         allSave.saveGates = saveGate;
         allSave.lines = saveLine;
         string json = JsonUtility.ToJson(allSave,true);
 
-        MissionInfo test = JsonUtility.FromJson<MissionInfo>(json);
+        PuzzleInfo test = JsonUtility.FromJson<PuzzleInfo>(json);
         foreach(SaveGate gate in test.saveGates)
         {
             Debug.Log(gate.posx);
         }
-        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Puzzle/"+allSave.missionName+".json",json);
+        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Puzzle/"+allSave.PuzzleName+".json",json);
         transform.parent.gameObject.SetActive(false);
 
         saveProgress.GetComponent<SaveProgress>().SaveProgression();

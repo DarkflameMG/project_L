@@ -12,10 +12,10 @@ public class SpawnQuestSys : MonoBehaviour
 
     private void ReadJson(string json)
     {
-        MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
-        Debug.Log(loadMission.missionName);
+        PuzzleInfo loadMission = JsonUtility.FromJson<PuzzleInfo>(json);
+        Debug.Log(loadMission.PuzzleName);
         Transform thisQuest = SpawnQuest();
-        thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.missionName,loadMission);
+        thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.PuzzleName,loadMission);
     }
 
     private void Start() {

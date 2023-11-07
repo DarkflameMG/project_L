@@ -12,6 +12,7 @@ public class SaveMapSys : MonoBehaviour
     private bool haveExitRoom = false;
     private Image startCon;
     private Image exitCon;
+    private GameObject[] rooms; 
 
     private void Awake() {
         startCon = startRoomStatusImg.GetComponent<Image>();
@@ -54,5 +55,23 @@ public class SaveMapSys : MonoBehaviour
     {
         haveExitRoom = roomCatalogSys.GetComponent<RoomCatalogSys>().GetExitRoom() != null;
         return haveExitRoom;
+    }
+
+    public void BeforeStartSave()
+    {
+        if(haveExitRoom && haveStartRoom)
+        {
+            StartSave();
+        }
+        else
+        {
+            Debug.Log("condition not fullfill");
+        }
+    }
+
+    private void StartSave()
+    {
+        rooms = GameObject.FindGameObjectsWithTag("roomSlot");
+        Debug.Log(rooms.Length);
     }
 }

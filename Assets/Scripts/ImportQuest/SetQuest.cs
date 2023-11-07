@@ -8,7 +8,7 @@ public class SetQuest : MonoBehaviour
 {
     [SerializeField]private MissionSO missionSO;
     private Transform child;
-    private MissionInfo data;
+    private PuzzleInfo data;
     private Button btn;
     private GameObject levelLoader;
     private GameObject ui;
@@ -18,7 +18,7 @@ public class SetQuest : MonoBehaviour
         btn = GetComponent<Button>();
         btn.onClick.AddListener(Click);
     }
-    public void SetQuestName_Data(string name,MissionInfo data)
+    public void SetQuestName_Data(string name,PuzzleInfo data)
     {
         child = transform.GetChild(1);
         child.GetComponent<TMPro.TextMeshProUGUI>().text = name;

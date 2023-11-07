@@ -13,7 +13,7 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]GameObject winSystem;
     private void ReadJson(string json)
     {
-        MissionInfo loadPuzzle = JsonUtility.FromJson<MissionInfo>(json); // fix for puzzle leter
+        PuzzleInfo loadPuzzle = JsonUtility.FromJson<PuzzleInfo>(json); // fix for puzzle leter
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);

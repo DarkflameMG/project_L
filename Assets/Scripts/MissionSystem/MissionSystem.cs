@@ -8,12 +8,12 @@ public class MissionSystem : MonoBehaviour
 {
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private LobbyInfo lobby;
-    public void SetCurerntMission(MissionInfo data)
+    public void SetCurerntMission(PuzzleInfo data)
     {
         missionSO.missionInfo = data;
     }
 
-    public MissionInfo GetMissionInfo()
+    public PuzzleInfo GetMissionInfo()
     {
         return missionSO.missionInfo;
     }
@@ -21,11 +21,11 @@ public class MissionSystem : MonoBehaviour
     private void Update() {
         if(Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            completeMission();
+            CompleteMission();
         }
     }
 
-    private void completeMission()
+    private void CompleteMission()
     {
         // lobby.PlayerLocation = new Vector3(0,0,-7.84f);
         // SceneManager.LoadScene("Lobby");

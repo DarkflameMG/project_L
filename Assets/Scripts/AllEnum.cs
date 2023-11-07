@@ -31,13 +31,18 @@ public class SaveGate
 }
 
 [System.Serializable]
-public class MissionInfo
+public class PuzzleInfo
 {
-    public string missionName;
+    public string PuzzleName;
     public SaveGate[] saveGates;
     public Lines[] lines;
-    public Rewards reward;
-    public string detail;
+    public MapInfo map;
+}
+
+[System.Serializable]
+public class MissionInfo
+{
+    public string MissionName;
     public MapInfo map;
 }
 
@@ -54,18 +59,18 @@ public class Lines
    public SlotNo c2Type;
 }
 
-[System.Serializable]
-public class Rewards
-{
+// [System.Serializable]
+// public class Rewards
+// {
 
-}
+// }
 
-[System.Serializable]
-public class PuzzleInfo
-{
-    public string puzzleName;
-    public SaveGate[] saveGates;
-}
+// [System.Serializable]
+// public class PuzzleInfo
+// {
+//     public string puzzleName;
+//     public SaveGate[] saveGates;
+// }
 
 [System.Serializable]
 public class MapInfo
@@ -81,7 +86,7 @@ public class RoomDetail
 {
     public int x;
     public int y;
-    public string type;
+    public FeatureType type;
     public Objs[] objs;
 }
 
