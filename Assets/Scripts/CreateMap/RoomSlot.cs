@@ -29,6 +29,14 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         this.y = y;
     }
 
+    public int[] GetXY()
+    {
+        int[] pair = new int[2];
+        pair[0] = x;
+        pair[1] = y;
+        return pair;
+    }
+
     public void SetRoomType(RoomType type,Sprite roomPreview)
     {
         roomType = type;

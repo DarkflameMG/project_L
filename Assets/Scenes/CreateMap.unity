@@ -4859,7 +4859,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConfirmBtn: 1
-  confirmUI: {fileID: 0}
+  confirmUI: {fileID: 1848120808}
+  saveMapSys: {fileID: 1723385390}
+  missionName: {fileID: 743238695}
 --- !u!1 &891550876
 GameObject:
   m_ObjectHideFlags: 0
@@ -7812,6 +7814,7 @@ MonoBehaviour:
   startRoomStatusImg: {fileID: 121066749}
   exitRoomStatusImg: {fileID: 1645477429}
   roomCatalogSys: {fileID: 1993430291}
+  spawnRoomSlotSys: {fileID: 1950863879}
 --- !u!1 &1728934771
 GameObject:
   m_ObjectHideFlags: 0
@@ -8244,6 +8247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isConfirmBtn: 0
   confirmUI: {fileID: 1848120808}
+  saveMapSys: {fileID: 0}
+  missionName: {fileID: 0}
 --- !u!1 &1814004448
 GameObject:
   m_ObjectHideFlags: 0

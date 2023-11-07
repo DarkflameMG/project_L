@@ -33,4 +33,14 @@ public class SpawnRoomSlotSys : MonoBehaviour
             }
         }
     }
+
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int GetHight()
+    {
+        return hight;
+    }
 }

@@ -8,6 +8,7 @@ public class SaveMapSys : MonoBehaviour
     [SerializeField]private Transform startRoomStatusImg;
     [SerializeField]private Transform exitRoomStatusImg;
     [SerializeField]private Transform roomCatalogSys;
+    [SerializeField]private Transform spawnRoomSlotSys;
     private bool haveStartRoom = false;
     private bool haveExitRoom = false;
     private Image startCon;
@@ -19,10 +20,10 @@ public class SaveMapSys : MonoBehaviour
         exitCon = exitRoomStatusImg.GetComponent<Image>();
     }
 
-    public void SetHaveStartRoom(bool data)
-    {
-        haveStartRoom = data;
-    }
+    // public void SetHaveStartRoom(bool data)
+    // {
+    //     haveStartRoom = data;
+    // }
 
     private void Update() 
     {
@@ -57,11 +58,11 @@ public class SaveMapSys : MonoBehaviour
         return haveExitRoom;
     }
 
-    public void BeforeStartSave()
+    public void BeforeStartSave(string missionName)
     {
         if(haveExitRoom && haveStartRoom)
         {
-            StartSave();
+            StartSave(missionName);
         }
         else
         {
@@ -69,9 +70,50 @@ public class SaveMapSys : MonoBehaviour
         }
     }
 
-    private void StartSave()
+    private void StartSave(string missionName)
     {
+        MissionInfo missionInfo = new();
+        int[] startPos = new int[2];
+        int width = spawnRoomSlotSys.GetComponent<SpawnRoomSlotSys>().GetWidth();
+        int hight = spawnRoomSlotSys.GetComponent<SpawnRoomSlotSys>().GetHight();
         rooms = GameObject.FindGameObjectsWithTag("roomSlot");
-        Debug.Log(rooms.Length);
+        RoomDetail[] roomsDetail = new RoomDetail[rooms.Length];
+
+        int i=0;
+        foreach(GameObject room in rooms)
+        {
+            RoomDetail roomDetail = new();
+
+            RoomSlot roomSlot = room.GetComponent<RoomSlot>();
+            int[] pos = roomSlot.GetXY();
+            RoomType roomType = roomSlot.GetRoomType();
+            FeatureType featureType = roomSlot.GetFeatureType();
+            if(featureType == FeatureType.start)
+            {
+                startPos = pos;
+            }
+
+            roomDetail.x = pos[0];
+            roomDetail.y = pos[1];
+            roomDetail.Ftype = featureType;
+
+            roomsDetail[i] = roomDetail;
+
+            i++;
+        }
+
+        missionInfo.MissionName = missionName;
+        missionInfo.width = width;
+        missionInfo.hight = hight;
+        missionInfo.startPos = startPos;
+        missionInfo.rooms = roomsDetail;
+
+        SaveAsJson(missionInfo);
+    }
+
+    private void SaveAsJson(MissionInfo missionInfo)
+    {
+        string json = JsonUtility.ToJson(missionInfo,true);
+        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Map/"+missionInfo.MissionName+".json",json);
     }
 }

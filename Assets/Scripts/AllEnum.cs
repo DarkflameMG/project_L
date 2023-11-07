@@ -12,8 +12,6 @@ public enum SlotNo{s1,s2,output};
 public enum QuestType{ none,hunt,arena,investigate }
 public enum Page{none,main,selectType,questList,custom,mainUp,up,mod}
 
-public enum Stat{atk,def,spd,hp,sp}
-
 public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}
 public enum RoomType{defalut,room1}
@@ -43,7 +41,10 @@ public class PuzzleInfo
 public class MissionInfo
 {
     public string MissionName;
-    public MapInfo map;
+    public int width;
+    public int hight;
+    public int[] startPos;
+    public RoomDetail[] rooms;
 }
 
 [System.Serializable]
@@ -86,7 +87,7 @@ public class RoomDetail
 {
     public int x;
     public int y;
-    public FeatureType type;
+    public FeatureType Ftype;
     public Objs[] objs;
 }
 

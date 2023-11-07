@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TestMap.unity
     guid: 0a206e43e49717149af0ecf753e1d995
   - enabled: 1
-    path: Assets/Scenes/TestJSON.unity
+    path: Assets/Scenes/CreatePuzzle.unity
     guid: 7422da552517ff340989ce1f9dac8683
   m_configObjects: {}

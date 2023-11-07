@@ -9,6 +9,7 @@ TagManager:
   - saveable
   - line
   - bulb
+  - roomSlot
   layers:
   - Default
   - TransparentFX
