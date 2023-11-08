@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class MissionSO : ScriptableObject
 {
-    public PuzzleInfo missionInfo;
+    public MissionInfo missionInfo;
 }

@@ -96,6 +96,7 @@ public class SaveMapSys : MonoBehaviour
             roomDetail.x = pos[0];
             roomDetail.y = pos[1];
             roomDetail.Ftype = featureType;
+            roomDetail.roomType = roomType;
 
             roomsDetail[i] = roomDetail;
 

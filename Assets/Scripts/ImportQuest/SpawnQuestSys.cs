@@ -12,10 +12,10 @@ public class SpawnQuestSys : MonoBehaviour
 
     private void ReadJson(string json)
     {
-        PuzzleInfo loadMission = JsonUtility.FromJson<PuzzleInfo>(json);
-        Debug.Log(loadMission.PuzzleName);
+        MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
+        Debug.Log(loadMission.MissionName);
         Transform thisQuest = SpawnQuest();
-        thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.PuzzleName,loadMission);
+        thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.MissionName,loadMission);
     }
 
     private void Start() {
@@ -23,8 +23,6 @@ public class SpawnQuestSys : MonoBehaviour
         foreach (string fileName in jsonFile)
         {
             ReadJson(File.ReadAllText(fileName));
-
-            // Debug.Log(File.ReadAllText(fileName));
         }
     }
 

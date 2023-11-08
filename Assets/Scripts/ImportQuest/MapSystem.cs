@@ -16,13 +16,17 @@ public class MapSystem : MonoBehaviour
     private Transform mapspawn;
     private Transform[] roomObj;
     private RoomDetail[] rooms;
-    public void SetStartLoc(int x,int y,int maxX,int maxY)
+
+    private void Start() {
+        player.position = Vector3.zero;
+    }
+    public void SetStartLoc(int x,int y,int width,int hight)
     {
         mapLoc.current_x = x;
         mapLoc.current_y = y;
-        mapLoc.max_x = maxX;
-        mapLoc.max_y = maxY;
-        rooms = missionSO.missionInfo.map.rooms;
+        mapLoc.width = width;
+        mapLoc.hight = hight;
+        rooms = missionSO.missionInfo.rooms;
     }
 
     public void SetStartRoom(Transform room,Transform spawnLoc)
@@ -43,6 +47,7 @@ public class MapSystem : MonoBehaviour
         {
             if(room.x == mapLoc.current_x && room.y == mapLoc.current_y && room.objs != null)
             {
+                SpawnRoom(room);
                 foreach(Objs obj in room.objs)
                 {
                     roomObj = new Transform[room.objs.Length];
@@ -85,7 +90,7 @@ public class MapSystem : MonoBehaviour
         // Debug.Log(currentRoom);
         player.position = Vector3.zero;
         DestroyRoom();
-        currentRoom = Instantiate(allRoom.startRoom,mapspawn);
+        // SpawnRoom();
         SpawnObjs();
 
         if(side == RoomSide.right)
@@ -103,6 +108,14 @@ public class MapSystem : MonoBehaviour
         else if(side == RoomSide.front)
         {
             player.position = new Vector3 (0,0,-7.4f);
+        }
+    }
+
+    private void SpawnRoom(RoomDetail room)
+    {
+        if(room.roomType == RoomType.room1)
+        {
+            currentRoom = Instantiate(allRoom.room1,mapspawn);
         }
     }
 }

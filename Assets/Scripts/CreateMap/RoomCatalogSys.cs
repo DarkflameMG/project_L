@@ -80,7 +80,7 @@ public class RoomCatalogSys : MonoBehaviour
         }
         else if(type == FeatureType.puzzle)
         {
-
+            flag = allFlag.puzzleFlag;
         }
         else if(type == FeatureType.start)
         {
@@ -111,5 +111,10 @@ public class RoomCatalogSys : MonoBehaviour
     public Transform GetExitRoom()
     {
         return currentExitRoom;
+    }
+
+    public Transform GetCurrentSlot()
+    {
+        return currentSlot;
     }
 }

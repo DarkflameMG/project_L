@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class RoomsSO : ScriptableObject
 {
-    public Transform startRoom;
+    public Transform room1;
 }

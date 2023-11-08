@@ -16,7 +16,7 @@ public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}
 public enum RoomType{defalut,room1}
 public enum FeatureType{none,monster,boss,puzzle,start,exit}
-public enum CreateMapCatalog{floor,feature}
+public enum CreateMapCatalog{floor,feature,puzzle}
 
 
 [System.Serializable]
@@ -88,6 +88,8 @@ public class RoomDetail
     public int x;
     public int y;
     public FeatureType Ftype;
+    public RoomType roomType;
+    public string puzzleName;
     public Objs[] objs;
 }
 

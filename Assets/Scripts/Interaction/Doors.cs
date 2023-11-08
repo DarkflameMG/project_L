@@ -22,7 +22,7 @@ public class Doors : MonoBehaviour,IInteractable
         int x = mapLoc.current_x + delta_x;
         int y = mapLoc.current_y + delta_y;
 
-        if(0 > x || 0 > y || x > mapLoc.max_x-1 || y > mapLoc.max_y-1)
+        if(0 > x || 0 > y || x > mapLoc.width-1 || y > mapLoc.hight-1)
         {
             // nothing happen
         }

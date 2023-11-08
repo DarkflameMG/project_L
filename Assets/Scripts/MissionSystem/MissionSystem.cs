@@ -8,12 +8,12 @@ public class MissionSystem : MonoBehaviour
 {
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private LobbyInfo lobby;
-    public void SetCurerntMission(PuzzleInfo data)
+    public void SetCurerntMission(MissionInfo data)
     {
         missionSO.missionInfo = data;
     }
 
-    public PuzzleInfo GetMissionInfo()
+    public MissionInfo GetMissionInfo()
     {
         return missionSO.missionInfo;
     }

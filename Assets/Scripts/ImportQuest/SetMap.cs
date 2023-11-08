@@ -10,11 +10,11 @@ public class SetMap : MonoBehaviour
 
     public void InitMap()
     {
-        int[] pos = missionSO.missionInfo.map.startPoint;
-        int maxX = missionSO.missionInfo.map.wide;
-        int maxY = missionSO.missionInfo.map.high;
-        this.GetComponent<MapSystem>().SetStartLoc(pos[0],pos[1],maxX,maxY);
-        this.GetComponent<MapSystem>().SetStartRoom(Instantiate(allRoom.startRoom,mapSpawn),mapSpawn);
+        int[] pos = missionSO.missionInfo.startPos;
+        int width = missionSO.missionInfo.width;
+        int hight = missionSO.missionInfo.hight;
+        this.GetComponent<MapSystem>().SetStartLoc(pos[0],pos[1],width,hight);
+        this.GetComponent<MapSystem>().SetStartRoom(Instantiate(allRoom.room1,mapSpawn),mapSpawn);
     }
 
     private void Start() 
