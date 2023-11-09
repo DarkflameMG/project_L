@@ -10,18 +10,21 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]GatesPrefabSO allGate;
     [SerializeField]Transform spawnPoint;
     [SerializeField]Transform spawnLine;
-    [SerializeField]GameObject winSystem;
+    [SerializeField]WinSystem winSystem;
+    [SerializeField]MapSystem mapSystem;
     private void ReadJson(string json)
     {
         PuzzleInfo loadPuzzle = JsonUtility.FromJson<PuzzleInfo>(json); // fix for puzzle leter
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);
-        winSystem.GetComponent<WinSystem>().StartGame();
+        winSystem.StartGame();
     }
     public void StartGame()
     {
-        ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/00.json"));
+        RoomDetail room = mapSystem.GetCurrentRoomDetail();
+        ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/"+room.puzzleName+".json"));
+        Debug.Log(room.puzzleName);
     }
 
     private void CreateGate(SaveGate[] data)

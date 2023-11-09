@@ -88,6 +88,7 @@ public class SaveMapSys : MonoBehaviour
             int[] pos = roomSlot.GetXY();
             RoomType roomType = roomSlot.GetRoomType();
             FeatureType featureType = roomSlot.GetFeatureType();
+            string puzzleName = roomSlot.GetPuzzleName();
             if(featureType == FeatureType.start)
             {
                 startPos = pos;
@@ -97,6 +98,7 @@ public class SaveMapSys : MonoBehaviour
             roomDetail.y = pos[1];
             roomDetail.Ftype = featureType;
             roomDetail.roomType = roomType;
+            roomDetail.puzzleName = puzzleName;
 
             roomsDetail[i] = roomDetail;
 

@@ -34,7 +34,7 @@ public class PuzzleInfo
     public string PuzzleName;
     public SaveGate[] saveGates;
     public Lines[] lines;
-    public MapInfo map;
+    // public MapInfo map;
 }
 
 [System.Serializable]

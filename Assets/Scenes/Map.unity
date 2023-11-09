@@ -397,7 +397,8 @@ MonoBehaviour:
   allGate: {fileID: 11400000, guid: 1bbe603f9e312054b8f74066762a6cc4, type: 2}
   spawnPoint: {fileID: 1204908770}
   spawnLine: {fileID: 180894026}
-  winSystem: {fileID: 1041376178}
+  winSystem: {fileID: 1041376180}
+  mapSystem: {fileID: 1388318478}
 --- !u!1 &180894025
 GameObject:
   m_ObjectHideFlags: 0

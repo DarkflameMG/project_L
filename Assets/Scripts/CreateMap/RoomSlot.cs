@@ -11,6 +11,7 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private RoomType roomType = RoomType.defalut;
     private FeatureType featureType = FeatureType.none;
     private Transform currentFlag;
+    private string curretPuzzleName = "none";
 
     private void Awake() {
         roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
@@ -76,5 +77,15 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
             featureType = FeatureType.none;
             Destroy(currentFlag.gameObject);
         }
+    }
+
+    public void SetCurrentPuzzle(string puzzleName)
+    {
+        curretPuzzleName = puzzleName;
+    }
+
+    public string GetPuzzleName()
+    {
+        return curretPuzzleName;
     }
 }

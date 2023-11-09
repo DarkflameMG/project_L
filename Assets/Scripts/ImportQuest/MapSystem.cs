@@ -13,8 +13,9 @@ public class MapSystem : MonoBehaviour
     [SerializeField]GameObject levelLoader;
 
     private Transform currentRoom;
+    private RoomDetail currentRoomDetail;
     private Transform mapspawn;
-    private Transform[] roomObj;
+    // private Transform[] roomObj;
     private RoomDetail[] rooms;
 
     private void Start() {
@@ -41,31 +42,37 @@ public class MapSystem : MonoBehaviour
        
     }
 
-    private void SpawnObjs()
+    private void SpawnRoom()
     {
         foreach(RoomDetail room in rooms)
         {
             if(room.x == mapLoc.current_x && room.y == mapLoc.current_y && room.objs != null)
             {
-                SpawnRoom(room);
-                foreach(Objs obj in room.objs)
+                currentRoomDetail = room;
+                SpawnFloor(room);
+                // foreach(Objs obj in room.objs)
+                // {
+                //     roomObj = new Transform[room.objs.Length];
+                //     int i = 0;
+                //     if(obj.type.Equals("puzzle"))
+                //     {
+                //         Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
+                //         puzzle.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
+                //         roomObj[i] = puzzle;
+                //         i++;
+                //     }
+                //     else if(obj.type.Equals("boss1"))
+                //     {
+                //         Transform boss = Instantiate(allObj.boss1,currentRoom);
+                //         boss.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
+                //         roomObj[i] = boss;
+                //         i++;
+                //     }
+                // }
+                if(room.Ftype == FeatureType.puzzle)
                 {
-                    roomObj = new Transform[room.objs.Length];
-                    int i = 0;
-                    if(obj.type.Equals("puzzle"))
-                    {
-                        Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
-                        puzzle.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
-                        roomObj[i] = puzzle;
-                        i++;
-                    }
-                    else if(obj.type.Equals("boss1"))
-                    {
-                        Transform boss = Instantiate(allObj.boss1,currentRoom);
-                        boss.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
-                        roomObj[i] = boss;
-                        i++;
-                    }
+                    Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
+                    puzzle.localPosition = Vector3.zero;
                 }
 
                 break;
@@ -90,8 +97,7 @@ public class MapSystem : MonoBehaviour
         // Debug.Log(currentRoom);
         player.position = Vector3.zero;
         DestroyRoom();
-        // SpawnRoom();
-        SpawnObjs();
+        SpawnRoom();
 
         if(side == RoomSide.right)
         {
@@ -111,11 +117,16 @@ public class MapSystem : MonoBehaviour
         }
     }
 
-    private void SpawnRoom(RoomDetail room)
+    private void SpawnFloor(RoomDetail room)
     {
         if(room.roomType == RoomType.room1)
         {
             currentRoom = Instantiate(allRoom.room1,mapspawn);
         }
+    }
+
+    public RoomDetail GetCurrentRoomDetail()
+    {
+        return currentRoomDetail;
     }
 }

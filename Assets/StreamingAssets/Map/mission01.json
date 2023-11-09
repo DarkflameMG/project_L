@@ -12,6 +12,7 @@
             "y": 0,
             "Ftype": 5,
             "roomType": 1,
+            "puzzleName": "none",
             "objs": []
         },
         {
@@ -19,6 +20,7 @@
             "y": 1,
             "Ftype": 3,
             "roomType": 1,
+            "puzzleName": "Puzzle00",
             "objs": []
         },
         {
@@ -26,6 +28,7 @@
             "y": 2,
             "Ftype": 4,
             "roomType": 1,
+            "puzzleName": "none",
             "objs": []
         }
     ]
