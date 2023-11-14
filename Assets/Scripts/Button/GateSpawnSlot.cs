@@ -7,9 +7,10 @@ public class GateSpawnSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        if(eventData.pointerDrag != null && eventData.pointerDrag.gameObject.name != "ScrollArea")
+        if(eventData.pointerDrag != null && eventData.pointerDrag.transform.parent.tag == "saveable")
         {
-            // Debug.Log( eventData.pointerDrag.transform.parent);
+            // eventData.pointerDrag.gameObject.name != "ScrollArea"
+            // Debug.Log( eventData.pointerDrag.transform.parent.tag);
             eventData.pointerDrag.transform.parent.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             Destroy(eventData.pointerDrag.transform.parent.gameObject);
         }

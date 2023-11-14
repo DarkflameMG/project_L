@@ -25,14 +25,14 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("drag");
+        // Debug.Log("drag");
         Spawn();
         eventData.pointerDrag = gateTranform.GetChild(0).gameObject;
     }
 
     private void Spawn()
     {
-        Debug.Log(viewPort.position);
+        // Debug.Log(viewPort.position);
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
         gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.getGateNum();
         gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;

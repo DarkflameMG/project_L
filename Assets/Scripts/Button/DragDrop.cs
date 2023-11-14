@@ -8,11 +8,18 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     // [SerializeField]private Canvas canvas;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private Transform scrollParent;
+    private Transform unscrollParent;
+    private Transform gate;
     private bool dragable = true;
 
     private void Awake() {
         rectTransform = transform.parent.GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+
+        gate = transform.parent;
+        scrollParent = GameObject.Find("spawnGate").transform;
+        unscrollParent = GameObject.Find("preSpawnGate").transform;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -25,6 +32,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         if(dragable)
         {
             canvasGroup.blocksRaycasts = false;
+            gate.SetParent(unscrollParent);
         }
     }
 
@@ -34,6 +42,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         if(dragable)
         {
             canvasGroup.blocksRaycasts = true;
+            gate.SetParent(scrollParent);
         }
     }
 
@@ -46,7 +55,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         }
     }
 
-    public void setDragable(bool data)
+    public void SetDragable(bool data)
     {
         dragable = data;
     }

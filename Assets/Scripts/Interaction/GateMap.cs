@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GatePuzzle : MonoBehaviour,IInteractable
+public class GateMap : MonoBehaviour,IInteractable
 {
     [SerializeField]private string _prompt;
     [SerializeField]private GameObject popupSystem;
@@ -22,6 +22,6 @@ public class GatePuzzle : MonoBehaviour,IInteractable
 
     private void ChangeScene()
     {
-        SceneManager.LoadScene("CreatePuzzle");
+        SceneManager.LoadScene("CreateMap");
     }
 }
