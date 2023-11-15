@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreatePuzzle.unity
     guid: 7422da552517ff340989ce1f9dac8683
+  - enabled: 1
+    path: Assets/Scenes/CreateMap.unity
+    guid: cf7ea49d75fd1cd49a04517809b99ffa
   m_configObjects: {}

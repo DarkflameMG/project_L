@@ -32,7 +32,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(currentLine);
+        // Debug.Log(currentLine);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -42,7 +42,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
             Vector2 parentPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
             // Debug.Log(parentPosition);
             Transform newLine = Instantiate(linePre,Vector3.zero,Quaternion.identity,lineParent);
-            // newLine.GetComponent<Transform>().localPosition = Vector3.zero;
+            newLine.GetComponent<Transform>().localPosition = Vector3.zero;
             newLine.GetChild(1).GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
             newLine.GetChild(2).GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+parentPosition;
             eventData.pointerDrag = newLine.GetChild(2).gameObject;

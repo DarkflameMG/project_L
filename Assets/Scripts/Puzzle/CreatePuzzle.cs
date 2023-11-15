@@ -58,7 +58,7 @@ public class CreatePuzzle : MonoBehaviour
             gateObj.name = gate.gateName;
             pos = gateObj.GetComponent<RectTransform>();
             pos.anchoredPosition = new Vector2(gate.posx,gate.posy);
-            gateObj.Find("Image").GetComponent<DragDrop>().setDragable(false);
+            gateObj.Find("Image").GetComponent<DragDrop>().SetDragable(false);
             gateObj.GetComponent<GateObject>().SetIsPuzzle(true);
         }
     }

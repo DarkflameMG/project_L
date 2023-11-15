@@ -10,20 +10,20 @@ public class Line : MonoBehaviour
    private bool currentState = false;
    private void Awake() 
    {
-        lineRenderer = GetComponent<LineRenderer>();
-        lineRenderer.positionCount = 2;
-        lineRenderer.startColor = Color.gray;
-        lineRenderer.endColor = Color.gray;
+      lineRenderer = GetComponent<LineRenderer>();
+      lineRenderer.positionCount = 2;
+      lineRenderer.startColor = Color.gray;
+      lineRenderer.endColor = Color.gray;
    }
    private void Update() 
    {
-        lineRenderer.SetPosition(0,new Vector3(point1.position.x,point1.position.y,1010f));
-        lineRenderer.SetPosition(1,new Vector3(point2.position.x,point2.position.y,1010f));
-        if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.output)
-        {
-               currentState = point1.GetComponent<Drag>().GetCurrentState();
-        }
-        else if(point2.GetComponent<Drag>().GetSlotNo() == SlotNo.output)
+      lineRenderer.SetPosition(0,new Vector3(point1.position.x,point1.position.y,1010f));
+      lineRenderer.SetPosition(1,new Vector3(point2.position.x,point2.position.y,1010f));
+      if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.output)
+      {
+        currentState = point1.GetComponent<Drag>().GetCurrentState();
+      }
+      else if(point2.GetComponent<Drag>().GetSlotNo() == SlotNo.output)
         {
                currentState = point2.GetComponent<Drag>().GetCurrentState();
         }
