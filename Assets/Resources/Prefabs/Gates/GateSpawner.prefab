@@ -78,7 +78,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -827.62, y: 224}
-  m_SizeDelta: {x: 150, y: 100}
+  m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &321838927233502533
 CanvasRenderer:
@@ -177,6 +177,7 @@ MonoBehaviour:
   gateSO: {fileID: 0}
   spawnPoint: {fileID: 0}
   GateNumberSystem: {fileID: 0}
+  viewPort: {fileID: 0}
 --- !u!61 &4558092209148512609
 BoxCollider2D:
   m_ObjectHideFlags: 0
