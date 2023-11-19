@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24131edee852fe43bf8e2df075cd90e, type: 3}
   m_Name: LobbyInfo
   m_EditorClassIdentifier: 
-  PlayerLocation: {x: -0.6208382, y: 0, z: -6.5265923}
+  PlayerLocation: {x: 0, y: 2.65, z: -7.84}
   Busy: 0
   currentPage: 0
   questType: 1

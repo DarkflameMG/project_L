@@ -7,10 +7,16 @@ public class Player_move : MonoBehaviour
     [SerializeField]private float moveSpeed = 7f;
     [SerializeField]private GameInput gameInput;
     [SerializeField]private LobbyInfo lobbyInfo;
+    public Animator animator;
+    public float groundDist;
+    public LayerMask terrainLayer;
+    public Rigidbody rb;
+    public SpriteRenderer sr;
 
     private void Start() {
         transform.position = lobbyInfo.PlayerLocation;
         lobbyInfo.Busy = false;
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     private void Update() {
@@ -54,6 +60,65 @@ public class Player_move : MonoBehaviour
             }
         }
         lobbyInfo.PlayerLocation = transform.position;
+
+        //2.5D code
+
+        RaycastHit hit;
+        Vector3 castPos = transform.position;
+        castPos.y += 1;
+
+        if(Physics.Raycast(castPos, -transform.up, out hit, Mathf.Infinity, terrainLayer))
+        {
+            if(hit.collider != null)
+            {
+                Vector3 movePos = transform.position;
+                movePos.y = hit.point.y + groundDist;
+                transform.position = movePos;
+            }
+        }
+
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+        Vector3 moveDir3 = new Vector3(x,0,y);
+        rb.velocity = moveDir3 * moveSpeed;
+
+        animator.SetFloat("speed", Mathf.Abs(x * moveSpeed));
+
+        //Animator RUN
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = 10;
+            Debug.Log("Left Shift key was pressed");
+            animator.SetBool("run", true);
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = 3;
+            Debug.Log("Left Shift key was released");
+            animator.SetBool("run", false);
+        }
+        //Animator ATTACK
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Space key was pressed");
+            animator.SetBool("attack", true);
+        }
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("Space key was pressed");
+            animator.SetBool("attack", false);
+        }
+        
+        if(x != 0 && x < 0)
+        {
+            sr.flipX = true;
+        }
+        else if(x != 0 && x > 0)
+        {
+            sr.flipX = false;
+        }
+
+
     }
 
     /* return vector 2 dimention when press key*/
