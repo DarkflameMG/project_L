@@ -31,7 +31,7 @@ public class RoomCatalogSys : MonoBehaviour
 
     public void AddRoom(RoomType type)
     {
-        if(type == RoomType.defalut)
+        if(type == RoomType.none)
         {
             currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.defalut);
             currentSlot.GetComponent<RoomSlot>().DestroyFlag();
@@ -44,7 +44,7 @@ public class RoomCatalogSys : MonoBehaviour
 
     public void AddRoomFeature(FeatureType type)
     {
-        if(currentSlot.GetComponent<RoomSlot>().GetRoomType() != RoomType.defalut)
+        if(currentSlot.GetComponent<RoomSlot>().GetRoomType() != RoomType.none)
         {
             AddRoomFeature_Aux(type);
         }

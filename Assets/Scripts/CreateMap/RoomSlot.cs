@@ -8,7 +8,7 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
 {
     private int x,y;
     private RoomCatalogSys roomCatalogSys;
-    private RoomType roomType = RoomType.defalut;
+    private RoomType roomType = RoomType.none;
     private FeatureType featureType = FeatureType.none;
     private Transform currentFlag;
     private string curretPuzzleName = "none";
