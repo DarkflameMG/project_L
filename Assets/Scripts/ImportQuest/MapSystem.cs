@@ -11,6 +11,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField]MissionSO missionSO;
     [SerializeField]ObjectSO allObj;
     [SerializeField]GameObject levelLoader;
+    [SerializeField]MiniMapSys miniMapSys;
 
     private Transform currentRoom;
     private RoomDetail currentRoomDetail;
@@ -92,6 +93,8 @@ public class MapSystem : MonoBehaviour
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("Start");
         yield return new WaitForSeconds(1);
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("End");
+
+        miniMapSys.SetCurrentRoom("Room"+mapLoc.current_x+"_"+mapLoc.current_y);
 
          mapInfo.Busy = false;
         // Debug.Log(currentRoom);

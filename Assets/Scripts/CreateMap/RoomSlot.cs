@@ -14,14 +14,20 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private string curretPuzzleName = "none";
 
     private void Awake() {
-        roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
+        if(GameObject.Find("RoomCatalogSys") != null)
+        {
+            roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         // Debug.Log(x+" "+y);
         // Debug.Log(GetComponent<RectTransform>().localPosition);
-        roomCatalogSys.ShowUI(this.transform);
+        if(roomCatalogSys != null)
+        {
+            roomCatalogSys.ShowUI(this.transform);
+        }
     }
 
     public void SetXY(int x,int y)
