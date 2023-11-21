@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MiniMapSys : MonoBehaviour
 {
@@ -10,14 +11,16 @@ public class MiniMapSys : MonoBehaviour
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private Transform horizontalPrefab;
     [SerializeField]private Transform roomSpawnPoint;
-    [SerializeField]private GameObject map;
+    [SerializeField]private Camera mapCamera;
     [SerializeField]private Transform flagCurrent;
     [SerializeField]private Transform vertical;
+    [SerializeField]private ScrollRect scrollView;
+    [SerializeField]private Transform viewPort;
     private RoomDetail[] rooms;
     private Transform currentRoom;
     private string currentRoomName;
     private int hight,width;
-    private bool mapStatus = false;
+    private bool mapStatus = true;
     private void Awake() {
         rooms = missionSO.missionInfo.rooms;
         hight = missionSO.missionInfo.hight;
@@ -34,6 +37,10 @@ public class MiniMapSys : MonoBehaviour
         if(currentRoom.name != currentRoomName)
         {
             currentRoom = GameObject.Find(currentRoomName).transform;
+        }
+        if(mapStatus)
+        {
+            CenterPosition();
         }
         UpdatePosition();
         
@@ -75,7 +82,18 @@ public class MiniMapSys : MonoBehaviour
     private void ToggleMap()
     {
         mapStatus = !mapStatus;
-        map.SetActive(mapStatus);
+        if(mapStatus)
+        {
+            mapCamera.rect = new Rect(0.8f,0,1,0.2f);
+            scrollView.horizontal = false;
+            scrollView.vertical = false;
+        }
+        else
+        {
+            mapCamera.rect = new Rect(0,0,1,1);
+            scrollView.horizontal = true;
+            scrollView.vertical = true;
+        }
     }
 
     public void UpdatePosition()
@@ -86,5 +104,10 @@ public class MiniMapSys : MonoBehaviour
     public void SetCurrentRoom(string roomName)
     {
         currentRoomName = roomName;
+    }
+
+    public void CenterPosition()
+    {
+        viewPort.localPosition = new Vector3(-flagCurrent.localPosition.x,-flagCurrent.localPosition.y);
     }
 }
