@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player_move : MonoBehaviour
@@ -82,18 +83,26 @@ public class Player_move : MonoBehaviour
         Vector3 moveDir3 = new Vector3(x,0,y);
         rb.velocity = moveDir3 * moveSpeed;
 
-        animator.SetFloat("speed", Mathf.Abs(x * moveSpeed));
+        if(x != 0 || y != 0)
+        {
+            animator.SetBool("walk", true);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
+        }
+        
 
         //Animator RUN
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            moveSpeed = 10;
+            moveSpeed = 7f;
             Debug.Log("Left Shift key was pressed");
             animator.SetBool("run", true);
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
-            moveSpeed = 3;
+            moveSpeed = 3f;
             Debug.Log("Left Shift key was released");
             animator.SetBool("run", false);
         }
