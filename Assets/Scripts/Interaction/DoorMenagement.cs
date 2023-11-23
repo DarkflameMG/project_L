@@ -19,11 +19,17 @@ public class DoorMenagement : MonoBehaviour
         doorBack = doors.GetChild(1).GetComponent<Doors>();
         doorLeft = doors.GetChild(2).GetComponent<Doors>();
         doorRight = doors.GetChild(3).GetComponent<Doors>();
+
+        CheckDoor();
+        HideDoor();
     }
 
     private void CheckDoor()
     {
-
+        front = !doorFront.CantInteract();
+        back = !doorBack.CantInteract();
+        left = !doorLeft.CantInteract();
+        right = !doorRight.CantInteract();
     }
 
     public void HideDoor()

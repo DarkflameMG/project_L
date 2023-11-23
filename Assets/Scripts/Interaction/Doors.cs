@@ -8,6 +8,8 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private int delta_x;
     [SerializeField]private int delta_y;
     [SerializeField]private RoomSide side;
+    [SerializeField]private MissionSO missionSO;
+    private RoomDetail[] rooms;
     private GameObject popupSystem;
     private MapSystem mapSystem;
     private int x,y;
@@ -46,8 +48,23 @@ public class Doors : MonoBehaviour,IInteractable
     {
         x = mapLoc.current_x + delta_x;
         y = mapLoc.current_y + delta_y;
-        bool result = 0 > x || 0 > y || x > mapLoc.width-1 || y > mapLoc.hight-1;
+        bool outOfBound = 0 > x || 0 > y || x > mapLoc.width-1 || y > mapLoc.hight-1;
+        bool noneRoomType = CheckNextRoomType(x,y) == RoomType.none;
+        bool result = outOfBound || noneRoomType;
         return result;
+    }
+
+    private RoomType CheckNextRoomType(int x,int y)
+    {
+        rooms = missionSO.missionInfo.rooms;
+        foreach(RoomDetail room in rooms)
+        {
+            if(room.x == x && room.y == y)
+            {
+                return room.roomType;
+            }
+        }
+        return RoomType.none;
     }
     
 }

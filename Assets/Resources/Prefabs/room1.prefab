@@ -114,6 +114,7 @@ MonoBehaviour:
   delta_x: 0
   delta_y: 1
   side: 1
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &301363852678691170
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +229,7 @@ MonoBehaviour:
   delta_x: 1
   delta_y: 0
   side: 3
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1359294921600657209
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +344,7 @@ MonoBehaviour:
   delta_x: -1
   delta_y: 0
   side: 2
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1468079846168845463
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +459,7 @@ MonoBehaviour:
   delta_x: 0
   delta_y: -1
   side: 0
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1954239839389155654
 GameObject:
   m_ObjectHideFlags: 0
