@@ -4934,6 +4934,7 @@ GameObject:
   - component: {fileID: 1560080385}
   - component: {fileID: 1560080384}
   - component: {fileID: 1560080383}
+  - component: {fileID: 1560080386}
   m_Layer: 5
   m_Name: hideBtn
   m_TagString: Untagged
@@ -5044,6 +5045,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560080381}
   m_CullTransparentMesh: 1
+--- !u!114 &1560080386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560080381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ec62a15c407534dbc52b39d787843b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gateSlot: {fileID: 943834978}
 --- !u!1 &1583387895
 GameObject:
   m_ObjectHideFlags: 0
