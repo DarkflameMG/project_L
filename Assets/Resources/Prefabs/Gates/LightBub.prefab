@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 5708746256862551178}
   - component: {fileID: 1304175400523595506}
   - component: {fileID: 479924869937017554}
+  - component: {fileID: 4639578672062119873}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -223,6 +224,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allGlowGates: {fileID: 11400000, guid: 9dd96568c7b5290499500eed466823e0, type: 2}
   gateType: 4
+--- !u!114 &4639578672062119873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6933539883446653662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7408475209e9bef4cbcfafcbe8656fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6933539883709446677
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 089aa97022722b04c82ee384bf698fe7, type: 2}
+  isHolder: 0
 --- !u!70 &3848024344670568504
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,17 +5,17 @@ using UnityEngine;
 public class GateObject : MonoBehaviour
 {
     [SerializeField]private GateSO gateSO;
+    [SerializeField]private bool isHolder = false;
     private string gateName;
     private void Awake() {
         gateName = gateSO.gateName;
     }
     private bool currentState = false;
     private bool slot1 = false;
-
+    private bool slot2 = false;
     private bool switchState = false;
-
     private bool isPuzzleStart = false;
-    // private int slot2 = 2;
+    private Transform holder;
 
     public GateSO GetGateSO()
     {
@@ -45,6 +45,10 @@ public class GateObject : MonoBehaviour
         {
             currentState = !slot1;
         }
+        else if(gateName.Equals("and"))
+        {
+            currentState = slot1 && slot2;
+        }
         else if(gateName.Equals("switch"))
         {
             if(switchState)
@@ -56,6 +60,13 @@ public class GateObject : MonoBehaviour
                 currentState = false;
             }
         }
+
+
+
+        if(holder != null)
+        {
+            GetComponent<RectTransform>().anchoredPosition = holder.GetComponent<RectTransform>().anchoredPosition;
+        }
     }
 
     public void SetSlot1(bool value)
@@ -64,7 +75,7 @@ public class GateObject : MonoBehaviour
     }
     public void SetSlot2(bool value)
     {
-        slot1 = value;
+        slot2 = value;
     }
 
     public bool GetIsPuzzle()
@@ -75,5 +86,15 @@ public class GateObject : MonoBehaviour
     public void SetIsPuzzle(bool value)
     {
         isPuzzleStart = value;
+    }
+
+    public void SetHolder(Transform holder)
+    {
+        this.holder = holder;
+    }
+
+    public bool GetIsHolder()
+    {
+        return isHolder;
     }
 }

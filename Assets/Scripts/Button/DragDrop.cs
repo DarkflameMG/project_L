@@ -43,6 +43,10 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         {
             canvasGroup.blocksRaycasts = true;
             gate.SetParent(scrollParent);
+            if(gate.GetComponent<GateObject>().GetIsHolder())
+            {
+                gate.SetAsFirstSibling();
+            }
         }
     }
 
