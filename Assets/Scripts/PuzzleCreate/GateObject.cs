@@ -6,6 +6,9 @@ public class GateObject : MonoBehaviour
 {
     [SerializeField]private GateSO gateSO;
     [SerializeField]private bool isHolder = false;
+    [SerializeField]private Transform s1;
+    [SerializeField]private Transform s2;
+    [SerializeField]private Transform output;
     private string gateName;
     private void Awake() {
         gateName = gateSO.gateName;
@@ -16,6 +19,7 @@ public class GateObject : MonoBehaviour
     private bool switchState = false;
     private bool isPuzzleStart = false;
     private Transform holder;
+    private Transform holded;
 
     public GateSO GetGateSO()
     {
@@ -62,7 +66,6 @@ public class GateObject : MonoBehaviour
         }
 
 
-
         if(holder != null)
         {
             GetComponent<RectTransform>().anchoredPosition = holder.GetComponent<RectTransform>().anchoredPosition;
@@ -92,9 +95,73 @@ public class GateObject : MonoBehaviour
     {
         this.holder = holder;
     }
+    public void SetHolded(Transform holded)
+    {
+        this.holded = holded;
+    }
+
+    public Transform GetHolded()
+    {
+        return holded;
+    }
+    public Transform GetHolder()
+    {
+        return holder;
+    }
 
     public bool GetIsHolder()
     {
         return isHolder;
+    }
+
+    public Transform GetS1()
+    {
+        return s1;
+    }
+
+    public Transform GetS2()
+    {
+        return s2;
+    }
+
+    public Transform GetOutput()
+    {
+        return  output;
+    }
+
+    public void HideSlot()
+    {
+        if(s1 != null)
+        {
+            s1.gameObject.SetActive(false);
+        }
+
+        if(s2 != null)
+        {
+            s2.gameObject.SetActive(false);
+        }
+
+        if(output != null)
+        {
+            output.gameObject.SetActive(false);
+        }
+    }
+
+    public void UnHideSlot()
+    {
+        if(s1 != null)
+        {
+            s1.gameObject.SetActive(true);
+        }
+
+        if(s2 != null)
+        {
+            s2.gameObject.SetActive(true);
+        }
+
+        if(output != null)
+        {
+            output.gameObject.SetActive(true);
+        }
     }
 }

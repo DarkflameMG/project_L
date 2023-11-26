@@ -8,34 +8,20 @@ public class Holder : MonoBehaviour, IDropHandler
     private Transform holded;
     public void OnDrop(PointerEventData eventData)
     {
-        if(eventData.pointerDrag != null && !eventData.pointerDrag.transform.parent.GetComponent<GateObject>().GetIsHolder())
+        Transform gate = eventData.pointerDrag.transform.parent;
+        if(eventData.pointerDrag != null && !gate.GetComponent<GateObject>().GetIsHolder() && holded == null)
         {
-            eventData.pointerDrag.transform.parent.GetComponent<RectTransform>().anchoredPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
-            eventData.pointerDrag.transform.parent.GetComponent<GateObject>().SetHolder(transform.parent);
-            SetChildDragable( eventData.pointerDrag.transform.parent);
+            gate.GetComponent<RectTransform>().anchoredPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
+            gate.GetComponent<GateObject>().SetHolder(transform.parent);
+            gate.GetComponent<GateObject>().HideSlot();
+            holded = gate;
+            transform.parent.GetComponent<GateObject>().SetHolded(holded);
             transform.parent.SetAsFirstSibling();
         }
     }
 
-    private void SetChildDragable(Transform parent)
+    public void ClearHolded()
     {
-        Debug.Log("start");
-        Transform s1 = parent.Find("s1");
-        Transform s2 = parent.Find("s2");
-        Transform output = parent.Find("output");
-        if(s1 != null)
-        {
-            s1.gameObject.SetActive(false);
-        }
-
-        if(s2 != null)
-        {
-            s2.gameObject.SetActive(false);
-        }
-
-        if(output != null)
-        {
-            output.gameObject.SetActive(false);
-        }
+        holded = null;
     }
 }

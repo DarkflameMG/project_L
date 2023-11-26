@@ -31,8 +31,15 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         // Debug.Log("begin");
         if(dragable)
         {
+            Transform holder = gate.GetComponent<GateObject>().GetHolder();
             canvasGroup.blocksRaycasts = false;
             gate.SetParent(unscrollParent);
+            if(holder != null)
+            {
+                holder.GetChild(0).GetComponent<Holder>().ClearHolded();
+            }
+            gate.GetComponent<GateObject>().SetHolder(null);
+            gate.GetComponent<GateObject>().UnHideSlot();
         }
     }
 

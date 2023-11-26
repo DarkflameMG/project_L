@@ -148,6 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 4cb2287b458121348b514a0690cf3dbe, type: 2}
   isHolder: 0
+  s1: {fileID: 7343259566972342423}
+  s2: {fileID: 9064686469727116456}
+  output: {fileID: 2168516062190155213}
 --- !u!50 &8822511729133117397
 Rigidbody2D:
   serializedVersion: 4

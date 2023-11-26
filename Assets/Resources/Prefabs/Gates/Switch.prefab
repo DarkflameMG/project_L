@@ -380,6 +380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 98b9f99eb57e2004ead0b2066c6c6eea, type: 2}
   isHolder: 0
+  s1: {fileID: 8339780973226515951}
+  s2: {fileID: 0}
+  output: {fileID: 929911676110883085}
 --- !u!58 &6744063971708243734
 CircleCollider2D:
   m_ObjectHideFlags: 0
