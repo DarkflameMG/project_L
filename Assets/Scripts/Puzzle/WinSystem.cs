@@ -5,6 +5,7 @@ using UnityEngine;
 public class WinSystem : MonoBehaviour
 {
     [SerializeField]Transform puzzleScene;
+    [SerializeField]Transform puzzleTool;
     [SerializeField]LobbyInfo mapInfo;
     private GameObject[] bulbs;
     private bool winCond = false;
@@ -35,6 +36,7 @@ public class WinSystem : MonoBehaviour
         {
             Debug.Log("Win");
             puzzleScene.gameObject.SetActive(false);
+            puzzleTool.gameObject.SetActive(false);
             mapInfo.Busy = false;
         }
     }

@@ -264,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6416283619166477125}
   - component: {fileID: 7580902477541912168}
+  - component: {fileID: 9109879606705419438}
   m_Layer: 5
   m_Name: CLine
   m_TagString: line
@@ -306,6 +307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab682032550e0594ba5bee40ba55076b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &9109879606705419438
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416283619166477124}
+  m_CullTransparentMesh: 1
 --- !u!1 &6416283619343798872
 GameObject:
   m_ObjectHideFlags: 0

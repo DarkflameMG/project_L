@@ -7,7 +7,7 @@ public class GateNumberSystem : MonoBehaviour
     private int numberOfGate = 0;
     // private int numberOfLine = 0;
 
-    public int getGateNum()
+    public int GetGateNum()
     {
         numberOfGate++;
         return numberOfGate;

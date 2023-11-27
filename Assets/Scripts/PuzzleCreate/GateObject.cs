@@ -47,11 +47,11 @@ public class GateObject : MonoBehaviour
         }
         else if(gateName.Equals("not"))
         {
-            currentState = !slot1;
+            NotOp();
         }
         else if(gateName.Equals("and"))
         {
-            currentState = slot1 && slot2;
+            AndOp();
         }
         else if(gateName.Equals("switch"))
         {
@@ -64,14 +64,45 @@ public class GateObject : MonoBehaviour
                 currentState = false;
             }
         }
-
+        else if(gateName.Equals("holder2"))
+        {
+            Holder2Op();
+        }
 
         if(holder != null)
         {
             GetComponent<RectTransform>().anchoredPosition = holder.GetComponent<RectTransform>().anchoredPosition;
         }
     }
+    private void NotOp()
+    {
+        currentState = !slot1;
+    }
+    private void AndOp()
+    {
+        currentState = slot1 && slot2;
+    }
+    private void Holder2Op()
+    {
+        if(holded != null)
+        {
+            GateObject holdGate = holded.GetComponent<GateObject>();
+            string name = holdGate.GetGateName();
+            if(name.Equals("and"))
+            {
+                AndOp();
+            }
+        }
+        else
+        {
+            currentState = false;
+        }
+    }
 
+    public string GetGateName()
+    {
+        return gateName;
+    }
     public void SetSlot1(bool value)
     {
         slot1 = value;

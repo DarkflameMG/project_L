@@ -23,5 +23,6 @@ public class Holder : MonoBehaviour, IDropHandler
     public void ClearHolded()
     {
         holded = null;
+        transform.parent.GetComponent<GateObject>().SetHolded(null);
     }
 }

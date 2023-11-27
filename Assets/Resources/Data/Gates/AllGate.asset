@@ -18,4 +18,6 @@ MonoBehaviour:
   bulb: {fileID: 6933539883709446676, guid: d22bcb98517cc254882cea054e29e0be, type: 3}
   batterry: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
   switchs: {fileID: 4736880701113164334, guid: fd2ca73ee60edf548bb4e409978fb8fb, type: 3}
+  holder1: {fileID: 7184902308531542672, guid: 0e22c4c4b413eeb43a9e47cd4a8faf25, type: 3}
+  holder2: {fileID: 7184902308531542672, guid: ef076c72764efa749bc548b21d2f34af, type: 3}
   line: {fileID: 6416283619166477125, guid: 077e8994a10769a46b1a6e769716a84f, type: 3}

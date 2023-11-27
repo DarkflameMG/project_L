@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f357a9465b77b41a2dd5d0ed76239a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateSO: {fileID: 11400000, guid: ee7510901d70dd14491259cc722e34d9, type: 2}
+  gateSO: {fileID: 11400000, guid: ea9257597e3f1844e84c6b07bf373b5d, type: 2}
   isHolder: 1
   s1: {fileID: 4788289293616990604}
   s2: {fileID: 6985337997182611228}
