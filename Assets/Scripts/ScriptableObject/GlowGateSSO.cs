@@ -9,6 +9,7 @@ public class GlowGateSSO : ScriptableObject
     public Sprite or;
     public Sprite not;
     public Sprite bulb;
-    public Sprite batterry;
+    public Sprite highVolt;
+    public Sprite lowVolt;
     public Sprite switchs;
 }

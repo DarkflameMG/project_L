@@ -34,9 +34,9 @@ public class CreatePuzzle : MonoBehaviour
             string type = gate.gateName.Split (delimiterChars)[0];
             RectTransform pos ;
             Transform gateObj = spawnPoint;
-            if(type.Equals("battery"))
+            if(type.Equals("high volt"))
             {
-                gateObj = Instantiate(allGate.batterry,spawnPoint);
+                gateObj = Instantiate(allGate.highVolt,spawnPoint);
             }
             else if(type.Equals("not"))
             {

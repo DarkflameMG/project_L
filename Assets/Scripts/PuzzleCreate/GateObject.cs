@@ -37,7 +37,7 @@ public class GateObject : MonoBehaviour
     }
 
     private void Update() {
-        if(gateName.Equals("battery"))
+        if(gateName.Equals("high volt"))
         {
             currentState = true;
         }
@@ -52,6 +52,10 @@ public class GateObject : MonoBehaviour
         else if(gateName.Equals("and"))
         {
             AndOp();
+        }
+        else if(gateName.Equals("or"))
+        {
+            OrOp();
         }
         else if(gateName.Equals("switch"))
         {
@@ -82,6 +86,10 @@ public class GateObject : MonoBehaviour
     {
         currentState = slot1 && slot2;
     }
+    private void OrOp()
+    {
+        currentState = slot1 || slot2;
+    }
     private void Holder2Op()
     {
         if(holded != null)
@@ -91,6 +99,10 @@ public class GateObject : MonoBehaviour
             if(name.Equals("and"))
             {
                 AndOp();
+            }
+            else if(name.Equals("or"))
+            {
+                OrOp();
             }
         }
         else

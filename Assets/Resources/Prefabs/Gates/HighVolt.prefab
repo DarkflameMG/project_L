@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 2126057547240046940}
   - component: {fileID: 1214377212925089393}
   m_Layer: 5
-  m_Name: Baterry
+  m_Name: HighVolt
   m_TagString: saveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

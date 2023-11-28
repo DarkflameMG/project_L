@@ -16,5 +16,6 @@ MonoBehaviour:
   or: {fileID: 2014611801, guid: 39a5634c1245b194aa6b9561980e3945, type: 3}
   not: {fileID: -44168086, guid: cffc8ec26dca74743be027bc34f10915, type: 3}
   bulb: {fileID: -1984880466, guid: 959de8b211ea5ee49827cb274e6c283a, type: 3}
-  batterry: {fileID: 1979079894, guid: 1cc9c61b70f1a5a4582332a4ab4c65e0, type: 3}
-  switchs: {fileID: 0}
+  highVolt: {fileID: 1979079894, guid: 1cc9c61b70f1a5a4582332a4ab4c65e0, type: 3}
+  lowVolt: {fileID: -465393093, guid: cb88c3c012c6ce94cb1a6c3f73f35009, type: 3}
+  switchs: {fileID: 548328498, guid: df68c3fef0081da42865e67571b6f2bf, type: 3}

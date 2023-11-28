@@ -26,7 +26,7 @@ public class GateHighlight : MonoBehaviour
        }
        if(gateType == GateType.batterry)
        {
-        GetComponent<Image>().sprite = allGlowGates.batterry;
+        GetComponent<Image>().sprite = allGlowGates.highVolt;
        }
        if(gateType == GateType.not)
        {
