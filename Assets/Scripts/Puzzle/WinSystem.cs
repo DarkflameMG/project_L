@@ -1,30 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinSystem : MonoBehaviour
 {
-    [SerializeField]Transform puzzleScene;
-    [SerializeField]Transform puzzleTool;
-    [SerializeField]LobbyInfo mapInfo;
+    [SerializeField]private Transform puzzleScene;
+    [SerializeField]private Transform puzzleTool;
+    [SerializeField]private LobbyInfo mapInfo;
+    [SerializeField]private GameObject mapUI;
     private GameObject[] bulbs;
     private bool winCond = false;
     private bool isStart = false;
+    private Button btn;
 
-    public void StartGame()
+    public void Awake()
     {
+        btn = GetComponent<Button>();
         bulbs = GameObject.FindGameObjectsWithTag("bulb");
         isStart = true;
+        btn.onClick.AddListener(CheckWinCond);
     }
 
-    private void Update() {
-        if(!winCond && isStart)
-        {
-            CheckWinCond();
-        }
-    }
     public void CheckWinCond()
     {
+        // Debug.Log("check");
         winCond = true;
         foreach(GameObject bulb in bulbs)
         {
@@ -34,7 +34,8 @@ public class WinSystem : MonoBehaviour
         }
         if(winCond)
         {
-            Debug.Log("Win");
+            // Debug.Log("Win");
+            mapUI.SetActive(true);
             puzzleScene.gameObject.SetActive(false);
             puzzleTool.gameObject.SetActive(false);
             mapInfo.Busy = false;

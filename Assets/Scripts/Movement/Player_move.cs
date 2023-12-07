@@ -15,12 +15,20 @@ public class Player_move : MonoBehaviour
     public SpriteRenderer sr;
 
     private void Start() {
-        transform.position = lobbyInfo.PlayerLocation;
+        // transform.position = lobbyInfo.PlayerLocation;
         lobbyInfo.Busy = false;
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
     private void Update() {
+      if(!lobbyInfo.Busy)
+      {
+        Move();
+      }
+    }
+
+   private void Move()
+   {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = Vector2To3(inputVector);
 
@@ -29,8 +37,6 @@ public class Player_move : MonoBehaviour
         float playerHigh = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up*playerHigh, playerRadius, moveDir, moveDistance);
         // Debug.Log(Physics.Raycast(transform.position, moveDir, playerRadius));
-        if(!lobbyInfo.Busy)
-        {
             if(!canMove)
             {
             //Cannot move towards moveDir
@@ -59,7 +65,6 @@ public class Player_move : MonoBehaviour
             {
             transform.position += moveDir * moveDistance;
             }
-        }
         lobbyInfo.PlayerLocation = transform.position;
 
         //2.5D code
@@ -127,31 +132,7 @@ public class Player_move : MonoBehaviour
             sr.flipX = false;
         }
 
-
-    }
-
-    /* return vector 2 dimention when press key*/
-    // private Vector2 VectorOnPush()
-    // {
-    //     Vector2 inputVector = new Vector2(0,0);
-    //     if(Input.GetKey(KeyCode.W))
-    //     {
-    //         inputVector.y = +1;
-    //     }
-    //     if(Input.GetKey(KeyCode.A))
-    //     {
-    //         inputVector.x = -1;
-    //     }
-    //     if(Input.GetKey(KeyCode.S))
-    //     {
-    //         inputVector.y = -1;
-    //     }
-    //     if(Input.GetKey(KeyCode.D))
-    //     {
-    //         inputVector.x = +1;
-    //     }
-    //     return inputVector;
-    // }
+   }
     
     /* tranform vector2 to vector 3 dimention*/
     private Vector3 Vector2To3(Vector2 v2)

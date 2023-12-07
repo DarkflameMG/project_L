@@ -1,0 +1,29 @@
+{
+    "PuzzleName": "puzzle0",
+    "saveGates": [
+        {
+            "gateName": "high volt_1",
+            "posx": -102.019287109375,
+            "posy": 27.96002197265625,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_2",
+            "posx": 327.8221740722656,
+            "posy": 26.099245071411134,
+            "posz": 0.0
+        }
+    ],
+    "lines": [
+        {
+            "pos1X": -66.519287109375,
+            "pos2X": 291.8221435546875,
+            "pos1Y": 27.96002197265625,
+            "pos2Y": 26.099245071411134,
+            "c1Name": "high volt_1",
+            "c1Type": 2,
+            "c2Name": "bulb_2",
+            "c2Type": 0
+        }
+    ]
+}

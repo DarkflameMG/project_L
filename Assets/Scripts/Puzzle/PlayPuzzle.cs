@@ -7,13 +7,15 @@ public class PlayPuzzle : MonoBehaviour
     [SerializeField]Transform puzzleScene;
     [SerializeField]Transform puzzleTool;
     [SerializeField]Transform createPuzzleSys;
-    [SerializeField]Transform winSystem;
+    [SerializeField]LobbyInfo mapInfo;
+    [SerializeField]GameObject mapUI;
 
     public void StartPuzzle()
     {
         puzzleScene.gameObject.SetActive(true);
         puzzleTool.gameObject.SetActive(true);
         createPuzzleSys.GetComponent<CreatePuzzle>().StartGame();
-        winSystem.GetComponent<WinSystem>().StartGame();
+        mapUI.SetActive(false);
+        mapInfo.Busy = true;
     }
 }
