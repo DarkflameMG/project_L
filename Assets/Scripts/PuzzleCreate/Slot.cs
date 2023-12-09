@@ -78,7 +78,7 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     private void Update() {
         if(currentLine != null)
         {
-            bool input = currentLine.GetComponent<PowerLine>().getCurrentState();
+            bool input = currentLine.GetComponent<IPowerLine>().GetCurrentState();
             if(slotNo == SlotNo.s1)
             {
                 transform.parent.GetComponent<GateObject>().SetSlot1(input);

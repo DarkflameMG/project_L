@@ -90,6 +90,8 @@ public class CreatePuzzle : MonoBehaviour
 
             point1.GetComponent<Drag>().SetDragable(false);
             point2.GetComponent<Drag>().SetDragable(false);
+
+            lineObj.GetComponent<PowerLine2>().CreateLine();
         }
     }
 }

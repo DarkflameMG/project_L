@@ -828,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69db7845aa09a5844a6c720e5fe16422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allGate: {fileID: 11400000, guid: 1bbe603f9e312054b8f74066762a6cc4, type: 2}
+  allGate: {fileID: 11400000, guid: 8c5e083bd418de448b32a82a453ed9c5, type: 2}
   spawnPoint: {fileID: 1204908770}
   spawnLine: {fileID: 180894026}
   mapSystem: {fileID: 1388318478}
@@ -5578,6 +5578,8 @@ MonoBehaviour:
   puzzleTool: {fileID: 1424962886}
   mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
   mapUI: {fileID: 0}
+  lines: {fileID: 0}
+  gates: {fileID: 0}
 --- !u!1 &1049097157
 GameObject:
   m_ObjectHideFlags: 0
@@ -6466,6 +6468,8 @@ MonoBehaviour:
   puzzleTool: {fileID: 1424962886}
   mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
   mapUI: {fileID: 598801250}
+  lines: {fileID: 180894026}
+  gates: {fileID: 0}
 --- !u!1 &1157006158
 GameObject:
   m_ObjectHideFlags: 0

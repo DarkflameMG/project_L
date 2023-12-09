@@ -2,15 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerLine : MonoBehaviour
+public class PowerLine : MonoBehaviour,IPowerLine
 {
     private bool currentState = false;
-    public bool getCurrentState()
+    public bool GetCurrentState()
     {
         return currentState;
     }
-    public void setState(bool state)
+    public void SetState(bool state)
     {
         currentState = state;
+    }
+    public void RunLine()
+    {
+        //noting
+    }
+
+    public void StopLine()
+    {
+        //noting
     }
 }

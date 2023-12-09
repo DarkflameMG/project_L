@@ -27,7 +27,7 @@ public class Line : MonoBehaviour
         {
                currentState = point2.GetComponent<Drag>().GetCurrentState();
         }
-        transform.parent.GetComponent<PowerLine>().setState(currentState);
+        transform.parent.GetComponent<IPowerLine>().SetState(currentState);
         if(currentState)
         {
           lineRenderer.startColor = Color.yellow;
@@ -43,9 +43,5 @@ public class Line : MonoBehaviour
    public bool GetCurrentState()
    {
      return currentState;
-   }
-
-   private void OnMouseEnter() {
-     Debug.Log("line detect");
    }
 }
