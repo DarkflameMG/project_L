@@ -5,61 +5,122 @@ using UnityEngine.UI;
 
 public class WinSystem : MonoBehaviour
 {
-    [SerializeField]private Transform puzzleScene;
-    [SerializeField]private Transform puzzleTool;
+    [SerializeField]private GameObject puzzleScene;
+    [SerializeField]private GameObject puzzleTool;
     [SerializeField]private LobbyInfo mapInfo;
     [SerializeField]private GameObject mapUI;
     [SerializeField]private Transform lines;
     [SerializeField]private Transform gates;
+
+    [SerializeField]private GameObject playIcon;
+    [SerializeField]private GameObject pauseIcon;
+    [SerializeField]private GameObject exitIcon;
     private bool winCond = false;
     private bool isStart = false;
     private bool isPlay = true;
     private Button btn;
+    private GameObject currentIcon;
 
     public void Awake()
     {
         btn = GetComponent<Button>();
         // bulbs = gates.fin
         isStart = true;
-        btn.onClick.AddListener(CheckWinCond);
+        btn.onClick.AddListener(TriggleCheck);
+        currentIcon = playIcon;
     }
 
-    public void CheckWinCond()
+    public void TriggleCheck()
     {
-        // Debug.Log(bulbs.Length);
-        // winCond = true;
-        // foreach(GameObject bulb in bulbs)
-        // {
-        //     // Debug.Log("11111");
-        //     Debug.Log(bulb.GetComponent<GateObject>().GetCurrentState());
-        //     // winCond = winCond && bulb.GetComponent<GateObject>().GetCurrentState();
-        //     // if(!winCond)
-        //     //     break;
-        // }
-        // if(winCond)
-        // {
-        //     // Debug.Log("Win");
-        //     mapUI.SetActive(true);
-        //     puzzleScene.gameObject.SetActive(false);
-        //     puzzleTool.gameObject.SetActive(false);
-        //     mapInfo.Busy = false;
-        // }
+        if(!winCond)
+        {
+            CheckWinCond();
+        }
+        else
+        {
+            Exit();
+        }
+        ChangeIcon();
+      
+    }
 
+    private void DestroyGates()
+    {
+        int gateCount = gates.childCount;
+        for(int i=0;i<gateCount;i++)
+        {
+            GameObject gate = gates.GetChild(i).gameObject;
+            Destroy(gate);
+        }
+    }
+    private void DestroyLines()
+    {
+        int lineCount = lines.childCount;
+        for(int i=0;i<lineCount;i++)
+        {
+            GameObject line = lines.GetChild(i).gameObject;
+            Destroy(line);
+        }
+    }
+
+    private void Exit()
+    {
+        DestroyGates();
+        DestroyLines();
+        puzzleScene.SetActive(false);
+        puzzleTool.SetActive(false);
+        mapInfo.Busy = false;
+    }
+    private void CheckWinCond()
+    {
+        winCond = true;
         int childCount = lines.childCount;
         for(int i=0;i<childCount;i++)
         {
-            Transform line = lines.GetChild(i);
+            PowerLine2 line = lines.GetChild(i).GetComponent<PowerLine2>();
             if(isPlay)
             {
-                line.GetComponent<PowerLine2>().RunLine();
+                line.RunLine();
+                if(line.GetExpectBool() != line.GetCurrentState())
+                {
+                    winCond = false;
+                }
             }
             else
             {
-                line.GetComponent<PowerLine2>().StopLine();
+                line.StopLine();
             }
+        }
+
+        if(winCond && isPlay)
+        {
+            // Debug.Log("win");
+        }
+        else if(isPlay)
+        {
+            // Debug.Log("wrong");
         }
 
         isPlay = !isPlay;
     }
 
+    private void ChangeIcon()
+    {
+        currentIcon.SetActive(false);
+        if(winCond)
+        {
+            exitIcon.SetActive(true);
+            currentIcon = exitIcon;
+        }
+        else if(isPlay)
+        {
+            playIcon.SetActive(true);
+            currentIcon = playIcon;
+        }
+        else
+        {
+            pauseIcon.SetActive(true);
+            currentIcon = pauseIcon;
+        }
+    }
 }

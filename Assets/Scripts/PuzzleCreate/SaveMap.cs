@@ -54,6 +54,8 @@ public class SaveMap : MonoBehaviour
             newLine.c1Type = child1.GetComponent<Drag>().GetGate().GetComponent<Slot>().GetSlotType();
             newLine.c2Type = child2.GetComponent<Drag>().GetGate().GetComponent<Slot>().GetSlotType();
 
+            newLine.expectBool = line.GetComponent<PowerLine>().GetCurrentState();
+
             saveLine[j] = newLine;
             j++;
         }

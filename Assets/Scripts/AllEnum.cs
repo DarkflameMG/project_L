@@ -58,6 +58,7 @@ public class Lines
    public SlotNo c1Type;
    public string c2Name;
    public SlotNo c2Type;
+   public bool expectBool;
 }
 
 // [System.Serializable]

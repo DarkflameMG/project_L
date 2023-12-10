@@ -7,6 +7,7 @@ public class PowerLine2 : MonoBehaviour,IPowerLine
     [SerializeField]private Line2Tone line1;
     [SerializeField]private Line2Tone line2;
     private bool currentState = false;
+    private bool expectBool = false;
     public bool GetCurrentState()
     {
         return currentState;
@@ -32,5 +33,14 @@ public class PowerLine2 : MonoBehaviour,IPowerLine
         currentState = false;
         line1.StopLine();
         line2.StopLine();
+    }
+
+    public void SetExpectBool(bool expect)
+    {
+        expectBool = expect;
+    }
+    public bool GetExpectBool()
+    {
+        return expectBool;
     }
 }
