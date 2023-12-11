@@ -68,7 +68,11 @@ public class GateObject : MonoBehaviour
                 currentState = false;
             }
         }
-        else if(gateName.Equals("holder2"))
+        else if(gateName.Equals("placeholder1"))
+        {
+            Holder1Op();
+        }
+        else if(gateName.Equals("placeholder2"))
         {
             Holder2Op();
         }
@@ -110,7 +114,22 @@ public class GateObject : MonoBehaviour
             currentState = false;
         }
     }
-
+    private void Holder1Op()
+    {
+        if(holded != null)
+        {
+            GateObject holdGate = holded.GetComponent<GateObject>();
+            string name = holdGate.GetGateName();
+            if(name.Equals("not"))
+            {
+                NotOp();
+            }
+        }
+        else
+        {
+            currentState = false;
+        }
+    }
     public string GetGateName()
     {
         return gateName;

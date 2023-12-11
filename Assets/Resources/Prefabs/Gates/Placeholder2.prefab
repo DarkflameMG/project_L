@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 1005433400403913947}
   - component: {fileID: 1853922470488909716}
   m_Layer: 5
-  m_Name: Holder2
+  m_Name: Placeholder2
   m_TagString: saveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
