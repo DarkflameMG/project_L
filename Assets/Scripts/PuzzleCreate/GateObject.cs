@@ -41,6 +41,10 @@ public class GateObject : MonoBehaviour
         {
             currentState = true;
         }
+        else if(gateName.Equals("line"))
+        {
+            currentState = slot1;
+        }
         else if(gateName.Equals("bulb"))
         {
             currentState = slot1;
@@ -123,6 +127,10 @@ public class GateObject : MonoBehaviour
             if(name.Equals("not"))
             {
                 NotOp();
+            }
+            else if(name.Equals("line"))
+            {
+                currentState = slot1;
             }
         }
         else
