@@ -17,6 +17,7 @@ public class Holder : MonoBehaviour, IDropHandler
             holded = gate;
             transform.parent.GetComponent<GateObject>().SetHolded(holded);
             transform.parent.SetAsFirstSibling();
+            gate.tag = "Untagged";
         }
     }
 

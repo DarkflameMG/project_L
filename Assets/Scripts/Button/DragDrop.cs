@@ -37,6 +37,7 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
             if(holder != null)
             {
                 holder.GetChild(0).GetComponent<Holder>().ClearHolded();
+                transform.parent.tag = "saveable";
             }
             gate.GetComponent<GateObject>().SetHolder(null);
             gate.GetComponent<GateObject>().UnHideSlot();
