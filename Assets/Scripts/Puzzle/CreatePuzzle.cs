@@ -10,7 +10,7 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]GatesPrefabSO allGate;
     [SerializeField]Transform spawnPoint;
     [SerializeField]Transform spawnLine;
-    // [SerializeField]WinSystem winSystem;
+    [SerializeField]WinSystem winSystem;
     [SerializeField]MapSystem mapSystem;
     private void ReadJson(string json)
     {
@@ -18,7 +18,7 @@ public class CreatePuzzle : MonoBehaviour
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);
-        // winSystem.StartGame();
+        winSystem.ReState();
     }
     public void StartGame()
     {
@@ -55,7 +55,11 @@ public class CreatePuzzle : MonoBehaviour
             {
                 gateObj = Instantiate(allGate.switchs,spawnPoint);
             }
-            else if(type.Equals("holder2"))
+            else if(type.Equals("placeholder1"))
+            {
+                gateObj = Instantiate(allGate.holder1,spawnPoint);
+            }
+            else if(type.Equals("placeholder2"))
             {
                 gateObj = Instantiate(allGate.holder2,spawnPoint);
             }

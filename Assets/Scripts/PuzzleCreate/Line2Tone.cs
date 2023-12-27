@@ -13,6 +13,7 @@ public class Line2Tone : MonoBehaviour
     public void RunLine()
     {
         currentState = input.GetComponent<Drag>().GetCurrentState();
+        Debug.Log(input.GetComponent<Drag>().GetGate().name);
         transform.parent.GetComponent<PowerLine2>().SetState(currentState);
         ChangeColor();
     }

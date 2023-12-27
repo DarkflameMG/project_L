@@ -1,0 +1,43 @@
+{
+    "MissionName": "map1",
+    "width": 1,
+    "hight": 4,
+    "startPos": [
+        0,
+        3
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 5,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": []
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "puzzle1",
+            "objs": []
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "puzzle0",
+            "objs": []
+        },
+        {
+            "x": 0,
+            "y": 3,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": []
+        }
+    ]
+}

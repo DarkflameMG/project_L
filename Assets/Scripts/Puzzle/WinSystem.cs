@@ -15,8 +15,9 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject playIcon;
     [SerializeField]private GameObject pauseIcon;
     [SerializeField]private GameObject exitIcon;
-    private bool winCond = false;
-    private bool isStart = false;
+    private List<PowerLine2> wrongLines;
+    private bool winCond = true;
+    private bool isWin = false;
     private bool isPlay = true;
     private Button btn;
     private GameObject currentIcon;
@@ -25,14 +26,16 @@ public class WinSystem : MonoBehaviour
     {
         btn = GetComponent<Button>();
         // bulbs = gates.fin
-        isStart = true;
         btn.onClick.AddListener(TriggleCheck);
         currentIcon = playIcon;
     }
 
     public void TriggleCheck()
     {
-        if(!winCond)
+        // Debug.Log(winCond);
+        // Debug.Log(isWin);
+        // Debug.Log(isPlay);
+        if(!isWin)
         {
             CheckWinCond();
         }
@@ -73,7 +76,6 @@ public class WinSystem : MonoBehaviour
     }
     private void CheckWinCond()
     {
-        winCond = true;
         int childCount = lines.childCount;
         for(int i=0;i<childCount;i++)
         {
@@ -84,6 +86,7 @@ public class WinSystem : MonoBehaviour
                 if(line.GetExpectBool() != line.GetCurrentState())
                 {
                     winCond = false;
+                    wrongLines.Add(line);
                 }
             }
             else
@@ -94,12 +97,13 @@ public class WinSystem : MonoBehaviour
 
         if(winCond && isPlay)
         {
-            // Debug.Log("win");
+            isWin = true;
+            // ChangeIcon();
         }
-        else if(isPlay)
-        {
-            // Debug.Log("wrong");
-        }
+        // else if(isPlay)
+        // {
+        //     ChangeIcon();
+        // }
 
         isPlay = !isPlay;
     }
@@ -122,5 +126,16 @@ public class WinSystem : MonoBehaviour
             pauseIcon.SetActive(true);
             currentIcon = pauseIcon;
         }
+    }
+
+    public void ReState()
+    {
+        currentIcon.SetActive(false);
+        currentIcon = playIcon;
+        playIcon.SetActive(true);
+        winCond = true;
+        isWin = false;
+        isPlay = true;
+        wrongLines = new List<PowerLine2>();
     }
 }

@@ -21,6 +21,10 @@ public class GateObject : MonoBehaviour
     private Transform holder;
     private Transform holded;
 
+    private void OnMouseDown() {
+        Debug.Log(gateName +" "+ currentState);
+    }
+
     public GateSO GetGateSO()
     {
         return gateSO;
