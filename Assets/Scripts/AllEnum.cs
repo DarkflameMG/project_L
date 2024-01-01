@@ -103,3 +103,16 @@ public class Objs
     public string type;
     public string puzzleName;
 }
+
+[System.Serializable]
+public class TruthTable
+{
+   public int[] X1;
+   public int[] X2;
+   public int[] X3;
+   public int[] X4;
+   public int[] Y1;
+   public int[] Y2;
+   public int[] Y3;
+   public int[] Y4;
+}
