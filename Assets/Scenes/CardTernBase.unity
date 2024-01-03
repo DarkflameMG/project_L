@@ -383,7 +383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &703299644
 Transform:
   m_ObjectHideFlags: 0
@@ -925,6 +925,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleField: {fileID: 848895667}
   cards: {fileID: 2044527447255879207, guid: 4632ecb1c628e45efbd9c03d1ac76ced, type: 3}
+  sprites:
+  - {fileID: 499312451, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
+  - {fileID: -1552763844, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
+  - {fileID: 807884037, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
+  - {fileID: 81265069, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
 --- !u!114 &1018576995
 MonoBehaviour:
   m_ObjectHideFlags: 0
