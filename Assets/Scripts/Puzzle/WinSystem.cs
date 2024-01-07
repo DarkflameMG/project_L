@@ -21,13 +21,17 @@ public class WinSystem : MonoBehaviour
     private bool isPlay = true;
     private Button btn;
     private GameObject currentIcon;
+    private List<GameObject> bulbs;
 
     public void Awake()
     {
         btn = GetComponent<Button>();
-        // bulbs = gates.fin
         btn.onClick.AddListener(TriggleCheck);
         currentIcon = playIcon;
+    }
+    public void SetBulbs(List<GameObject> data)
+    {
+        bulbs = data;
     }
 
     public void TriggleCheck()
@@ -83,15 +87,43 @@ public class WinSystem : MonoBehaviour
             if(isPlay)
             {
                 line.RunLine();
-                if(line.GetExpectBool() != line.GetCurrentState())
-                {
-                    winCond = false;
-                    wrongLines.Add(line);
-                }
+                // if(line.GetExpectBool() != line.GetCurrentState())
+                // {
+                //     winCond = false;
+                //     wrongLines.Add(line);
+                // }
             }
             else
             {
                 line.StopLine();
+            }
+        }
+        
+        StartCoroutine(CheckBulbs());
+        // if(winCond && isPlay)
+        // {
+        //     isWin = true;
+        //     // ChangeIcon();
+        // }
+        // // else if(isPlay)
+        // // {
+        // //     ChangeIcon();
+        // // }
+
+        // isPlay = !isPlay;
+    }
+
+    IEnumerator CheckBulbs()
+    {
+        yield return new WaitForSeconds(0.1f);
+        winCond = true;
+        foreach(GameObject bulb in bulbs)
+        {
+            Debug.Log(bulb.GetComponent<GateObject>().GetCurrentState());
+            if(!bulb.GetComponent<GateObject>().GetCurrentState())
+            {
+                winCond = false;
+                break;
             }
         }
 
