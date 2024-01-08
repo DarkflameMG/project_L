@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd6655ce72326e44ab131a59b4363ab, type: 3}
   m_Name: AllGateV2
   m_EditorClassIdentifier: 
-  and: {fileID: 3079195852384303507, guid: a73e7a6eddccf324397b645a1d6ac55f, type: 3}
-  or: {fileID: 0}
-  not: {fileID: 6027748930571241568, guid: 59abdbce9dca5b0419850bd513be000f, type: 3}
+  and: {fileID: 3079195852384303507, guid: 91bb626fb8cbc654b80efa97b648ce92, type: 3}
+  or: {fileID: 3079195852384303507, guid: 7352e9c95e4a1c34eaf1899f2a4657d3, type: 3}
+  not: {fileID: 6027748930571241568, guid: 44b9b304a4925a348960a8fe4f7f3875, type: 3}
   bulb: {fileID: 6933539883709446676, guid: d22bcb98517cc254882cea054e29e0be, type: 3}
   highVolt: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
   lowVolt: {fileID: 0}

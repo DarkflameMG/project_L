@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201bd86819ea81843bd4c39013e4f8c6, type: 3}
+  m_Name: andGateV2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3079195852384303507, guid: 91bb626fb8cbc654b80efa97b648ce92, type: 3}
+  sprite: {fileID: -609539793, guid: 97d312ac87494a3449a114277ba02661, type: 3}
+  gateName: and
+  description: output is true when input is true together

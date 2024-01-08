@@ -20,6 +20,7 @@ public class GateObject : MonoBehaviour
     private bool isPuzzleStart = false;
     private Transform holder;
     private Transform holded;
+    private Transform preSpawnPoint;
 
     private void OnMouseDown() {
         Debug.Log(gateName +" "+ currentState);
@@ -237,5 +238,16 @@ public class GateObject : MonoBehaviour
         {
             output.gameObject.SetActive(true);
         }
+    }
+
+    public void SetPreSpawnPoint(Transform point)
+    {
+        preSpawnPoint = point;
+        Debug.Log("set "+preSpawnPoint);
+    }
+
+    public Transform GetPreSpawnPoint()
+    {
+        return preSpawnPoint;
     }
 }

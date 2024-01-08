@@ -36,6 +36,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
         gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.GetGateNum();
         gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;
+        gateTranform.GetComponent<GateObject>().SetPreSpawnPoint(spawnPoint);
     }
 
     public GateSO GetGateSO()
