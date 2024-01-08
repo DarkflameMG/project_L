@@ -33,12 +33,12 @@ public class WinSystem : MonoBehaviour
     {
         bulbs = data;
     }
+    private void Update() {
+        // ChangeIcon();
+    }
 
     public void TriggleCheck()
     {
-        // Debug.Log(winCond);
-        // Debug.Log(isWin);
-        // Debug.Log(isPlay);
         if(!isWin)
         {
             CheckWinCond();
@@ -47,8 +47,10 @@ public class WinSystem : MonoBehaviour
         {
             Exit();
         }
-        ChangeIcon();
-      
+        // ChangeIcon();
+        // Debug.Log(winCond+" w");
+        // Debug.Log(isWin+" iw");
+        // Debug.Log(isPlay+" ip");
     }
 
     private void DestroyGates()
@@ -87,11 +89,6 @@ public class WinSystem : MonoBehaviour
             if(isPlay)
             {
                 line.RunLine();
-                // if(line.GetExpectBool() != line.GetCurrentState())
-                // {
-                //     winCond = false;
-                //     wrongLines.Add(line);
-                // }
             }
             else
             {
@@ -100,17 +97,6 @@ public class WinSystem : MonoBehaviour
         }
         
         StartCoroutine(CheckBulbs());
-        // if(winCond && isPlay)
-        // {
-        //     isWin = true;
-        //     // ChangeIcon();
-        // }
-        // // else if(isPlay)
-        // // {
-        // //     ChangeIcon();
-        // // }
-
-        // isPlay = !isPlay;
     }
 
     IEnumerator CheckBulbs()
@@ -130,20 +116,15 @@ public class WinSystem : MonoBehaviour
         if(winCond && isPlay)
         {
             isWin = true;
-            // ChangeIcon();
         }
-        // else if(isPlay)
-        // {
-        //     ChangeIcon();
-        // }
-
         isPlay = !isPlay;
+        ChangeIcon();
     }
 
     private void ChangeIcon()
     {
         currentIcon.SetActive(false);
-        if(winCond)
+        if(isWin)
         {
             exitIcon.SetActive(true);
             currentIcon = exitIcon;
