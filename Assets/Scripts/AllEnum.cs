@@ -17,6 +17,7 @@ public enum GateType{not,and,or,batterry,bulb}
 public enum RoomType{none,room1}
 public enum FeatureType{none,monster,boss,puzzle,start,exit}
 public enum CreateMapCatalog{floor,feature,puzzle}
+public enum MenuBtn{lobby,map,puzzle,none}
 
 
 [System.Serializable]

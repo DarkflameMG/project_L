@@ -12,12 +12,22 @@ public class ExitSystem : MonoBehaviour
         exitMenu.SetActive(true);
     }
 
-    public void ConfirmExit()
+    public void ToLobby()
     {
         SceneManager.LoadScene("Lobby");
     }
 
-    public void CancelExit()
+    public void ToMap()
+    {
+        SceneManager.LoadScene("CreateMap");
+    }
+
+    public void ToPuzzle()
+    {
+        SceneManager.LoadScene("CreatePuzzle");
+    }
+
+    public void CancelMenu()
     {
         exitMenu.SetActive(false);
     }
