@@ -108,12 +108,8 @@ public class Objs
 [System.Serializable]
 public class TruthTable
 {
-   public int[] X1;
-   public int[] X2;
-   public int[] X3;
-   public int[] X4;
-   public int[] Y1;
-   public int[] Y2;
-   public int[] Y3;
-   public int[] Y4;
+   public int input;
+   public int output;
+   public string[] columnName;
+   public string[][] rows;
 }

@@ -15,7 +15,7 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject playIcon;
     [SerializeField]private GameObject pauseIcon;
     [SerializeField]private GameObject exitIcon;
-    private List<PowerLine2> wrongLines;
+    // private List<PowerLine2> wrongLines;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
@@ -47,10 +47,6 @@ public class WinSystem : MonoBehaviour
         {
             Exit();
         }
-        // ChangeIcon();
-        // Debug.Log(winCond+" w");
-        // Debug.Log(isWin+" iw");
-        // Debug.Log(isPlay+" ip");
     }
 
     private void DestroyGates()
@@ -149,6 +145,6 @@ public class WinSystem : MonoBehaviour
         winCond = true;
         isWin = false;
         isPlay = true;
-        wrongLines = new List<PowerLine2>();
+        // wrongLines = new List<PowerLine2>();
     }
 }
