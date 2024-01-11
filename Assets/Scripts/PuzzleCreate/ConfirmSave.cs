@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class ConfirmSave : MonoBehaviour
 {
-    [SerializeField]private Transform confirmUI;
+    [SerializeField]protected Transform confirmUI;
     private Button btn;
     private void Start() {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(Confirm);
     }
 
-    private void Confirm()
+    protected virtual void Confirm()
     {
         confirmUI.gameObject.SetActive(true);
     }

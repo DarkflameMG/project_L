@@ -250,4 +250,9 @@ public class GateObject : MonoBehaviour
     {
         return preSpawnPoint;
     }
+
+    public void SetState(bool data)
+    {
+        currentState = data;
+    }
 }
