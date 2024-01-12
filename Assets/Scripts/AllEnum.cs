@@ -111,5 +111,5 @@ public class TruthTable
    public int input;
    public int output;
    public string[] columnName;
-   public string[][] rows;
+   public int[][] rows;
 }
