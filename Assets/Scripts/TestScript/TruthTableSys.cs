@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using TMPro;
 using UnityEngine;
 
 public class TruthTableSys : MonoBehaviour
@@ -18,11 +19,39 @@ public class TruthTableSys : MonoBehaviour
 
     private void SpawnCell()
     {
+        Transform cell;
         currentRow = Instantiate(rowPrefab,spawnPoint);
         int columnCount = table.input+table.output;
         int rowCount = table.rows.Length;
-        Debug.Log(columnCount);
-        Debug.Log(rowCount);
+
+        //in out
+        cell = Instantiate(cellPrefab,currentRow);
+        cell.GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.input,100f);
+        cell.Find("Image").GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.input-5,100f);
+        cell.Find("text").GetComponent<TMP_Text>().text = "Input";
+        cell = Instantiate(cellPrefab,currentRow);
+        cell.GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output,100f);
+        cell.Find("Image").GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output-5,100f);
+        cell.Find("text").GetComponent<TMP_Text>().text = "Output";
+
+        currentRow = Instantiate(rowPrefab,spawnPoint);
+        //header
+        for(int i=0;i<columnCount;i++)
+        {
+            cell = Instantiate(cellPrefab,currentRow);
+            cell.Find("text").GetComponent<TMP_Text>().text = table.columnName[i];
+        }
+
+        for(int j = 0;j < rowCount; j++)
+        {
+            currentRow = Instantiate(rowPrefab,spawnPoint);
+            int[] row = table.rows[j];
+            for(int i=0;i<columnCount;i++)
+            {
+                cell = Instantiate(cellPrefab,currentRow);
+                cell.Find("text").GetComponent<TMP_Text>().text = row[i].ToString();
+            }
+        }
     }
 
     // public void SetTable(TruthTable table)
