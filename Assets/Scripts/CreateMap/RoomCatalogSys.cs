@@ -9,6 +9,7 @@ public class RoomCatalogSys : MonoBehaviour
     [SerializeField]private FlagsMapSO allFlag;
     [SerializeField]private Transform flagPoint;
     [SerializeField]private Transform saveMapSys;
+    [SerializeField]private SaveConfig saveConfig;
     private Transform currentSlot;
     private Transform currentStartRoom;
     private Transform currentExitRoom;
@@ -16,6 +17,7 @@ public class RoomCatalogSys : MonoBehaviour
     {
         catalogUI.SetActive(true);
         SetCurerntSlot(slot);
+        saveConfig.UpdateInput();
     }
 
     public void CloseUI()

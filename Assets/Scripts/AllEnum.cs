@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,7 @@ public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}
 public enum RoomType{none,room1}
 public enum FeatureType{none,monster,boss,puzzle,start,exit}
-public enum CreateMapCatalog{floor,feature,puzzle}
+public enum CreateMapCatalog{floor,feature,puzzle,cofig}
 public enum MenuBtn{lobby,map,puzzle,none}
 
 
@@ -46,6 +47,7 @@ public class MissionInfo
     public int hight;
     public int[] startPos;
     public RoomDetail[] rooms;
+    public List<String> truthTables;
 }
 
 [System.Serializable]
@@ -93,6 +95,7 @@ public class RoomDetail
     public RoomType roomType;
     public string puzzleName;
     public Objs[] objs;
+    public LogicGateConfig config;
 }
 
 [System.Serializable]
@@ -108,8 +111,19 @@ public class Objs
 [System.Serializable]
 public class TruthTable
 {
+   public string tableName;
    public int input;
    public int output;
    public string[] columnName;
    public int[][] rows;
+}
+
+[System.Serializable]
+public class LogicGateConfig
+{
+    public int line;
+    public int not;
+    public int and;
+    public int or;
+
 }

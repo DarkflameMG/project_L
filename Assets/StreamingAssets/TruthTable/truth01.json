@@ -1,4 +1,5 @@
 {
+    "tableName": "truth01",
     "input" : 2,
     "output" : 1,
     "columnName" : ["A","B","X"],

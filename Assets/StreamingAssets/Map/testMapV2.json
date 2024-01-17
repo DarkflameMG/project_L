@@ -1,0 +1,56 @@
+{
+    "MissionName": "testMapV2",
+    "width": 1,
+    "hight": 3,
+    "startPos": [
+        0,
+        2
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 5,
+            "roomType": 1,
+            "puzzleName": "truth01",
+            "objs": [],
+            "config": {
+                "line": 3,
+                "not": 3,
+                "and": 3,
+                "or": 3
+            }
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "AndPuzzle",
+            "objs": [],
+            "config": {
+                "line": 4,
+                "not": 4,
+                "and": 4,
+                "or": 4
+            }
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            }
+        }
+    ],
+    "truthTables": [
+        "truth01"
+    ]
+}

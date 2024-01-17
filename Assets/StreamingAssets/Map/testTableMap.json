@@ -1,0 +1,38 @@
+{
+    "MissionName": "testTableMap",
+    "width": 1,
+    "hight": 3,
+    "startPos": [
+        0,
+        2
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 5,
+            "roomType": 1,
+            "puzzleName": "truth01",
+            "objs": []
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "AndPuzzle",
+            "objs": []
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": []
+        }
+    ],
+    "truthTables": [
+        "truth01"
+    ]
+}

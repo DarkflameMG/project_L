@@ -11,9 +11,11 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private RoomType roomType = RoomType.none;
     private FeatureType featureType = FeatureType.none;
     private Transform currentFlag;
+    private LogicGateConfig config;
     private string curretPuzzleName = "none";
 
     private void Awake() {
+        config = new();
         if(GameObject.Find("RoomCatalogSys") != null)
         {
             roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
@@ -93,5 +95,14 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     public string GetPuzzleName()
     {
         return curretPuzzleName;
+    }
+
+    public void SetConfig(LogicGateConfig data)
+    {
+        config = data;
+    }
+    public LogicGateConfig GetConfig()
+    {
+        return config;
     }
 }
