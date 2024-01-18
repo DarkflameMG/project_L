@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,5 +25,10 @@ public class AddNameIO : MonoBehaviour
             inputNameUI.SetActive(true);
             inputNameUI.GetComponent<Container>().SetItem(gameObject);
         }
+    }
+
+    public String GetName()
+    {
+        return tmpText.text;
     }
 }

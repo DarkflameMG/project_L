@@ -10,6 +10,8 @@ TagManager:
   - line
   - bulb
   - roomSlot
+  - TableInput
+  - TableOutput
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - UI
   - Interactable
   - Terrain
-  - 
+  - FrontUI
   - 
   - 
   - 
@@ -46,4 +48,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1559714395
+    locked: 0
+  - name: FrontUI
+    uniqueID: 2022885251
     locked: 0

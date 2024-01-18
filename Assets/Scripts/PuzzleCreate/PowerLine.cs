@@ -22,4 +22,8 @@ public class PowerLine : MonoBehaviour,IPowerLine
     {
         //noting
     }
+
+    private void Update() {
+        // Debug.Log(currentState);
+    }
 }

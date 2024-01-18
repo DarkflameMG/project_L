@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class CuurentTruthTableSO : ScriptableObject
 {
-    public TruthTable table;
+    public string tableName;
 }

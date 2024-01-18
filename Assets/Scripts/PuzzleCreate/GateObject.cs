@@ -23,7 +23,7 @@ public class GateObject : MonoBehaviour
     private Transform preSpawnPoint;
 
     private void OnMouseDown() {
-        Debug.Log(gateName +" "+ currentState);
+        Debug.Log(gateName +" "+ currentState +" slot"+slot1);
     }
 
     public GateSO GetGateSO()
@@ -50,7 +50,7 @@ public class GateObject : MonoBehaviour
         {
             currentState = slot1;
         }
-        else if(gateName.Equals("bulb"))
+        else if(gateName.Equals("bulb") || gateName.Equals("output"))
         {
             currentState = slot1;
         }

@@ -15,7 +15,7 @@ public class Line : MonoBehaviour
       lineRenderer.startColor = Color.gray;
       lineRenderer.endColor = Color.gray;
    }
-   private void Update() 
+   protected virtual void Update() 
    {
       PositionUpdate();
    }

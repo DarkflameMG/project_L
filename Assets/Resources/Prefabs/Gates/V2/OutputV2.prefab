@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7668565599376215250}
   m_Layer: 5
   m_Name: OutputV2
-  m_TagString: saveable
+  m_TagString: TableOutput
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f357a9465b77b41a2dd5d0ed76239a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateSO: {fileID: 11400000, guid: 4cb2287b458121348b514a0690cf3dbe, type: 2}
+  gateSO: {fileID: 11400000, guid: 4102d5dec37e2d64a832c1379d736f2d, type: 2}
   isHolder: 0
   s1: {fileID: 0}
   s2: {fileID: 0}
