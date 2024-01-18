@@ -10,8 +10,24 @@ public class TruthTableSys : MonoBehaviour
     [SerializeField]private Transform cellPrefab;
     [SerializeField]private Transform rowPrefab;
     [SerializeField]private Transform spawnPoint;
+    [SerializeField]private GameObject tableUI;
     private Transform currentRow;
     private TruthTable table;
+    private bool state = false;
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchUI();
+        }
+    }
+
+    private void SwitchUI()
+    {
+        state = !state;
+        tableUI.SetActive(state);
+    }
+
     private void Awake() {
         ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/TruthTable/truth01"+".json"));
         SpawnCell();

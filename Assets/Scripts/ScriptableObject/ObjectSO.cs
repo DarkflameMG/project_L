@@ -6,5 +6,5 @@ using UnityEngine;
 public class ObjectSO : ScriptableObject
 {
     public Transform puzzle;
-    public Transform boss1;
+    public Transform finalPuzzle;
 }
