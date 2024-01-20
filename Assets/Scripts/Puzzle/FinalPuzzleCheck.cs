@@ -18,6 +18,7 @@ public class FinalPuzzleCheck : MonoBehaviour
     private TruthTable table;
     private GameObject[] inputs;
     private GameObject[] outputs;
+    private int[] wrongRow;
     private bool isPass;
     // private Transform
     private Button btn;
@@ -55,6 +56,7 @@ public class FinalPuzzleCheck : MonoBehaviour
 
     private IEnumerator CheckLoop()
     {
+        StatusUI.GetComponent<StatusUI>().Delete();
         statusText.text = "Checking...";
         if(inputs.Length != 0)
         {
@@ -99,6 +101,7 @@ public class FinalPuzzleCheck : MonoBehaviour
                     if(truth != output.GetComponent<GateObject>().GetCurrentState())
                     {
                         isPass = false;
+                        wrongRow = row;
                         break;
                     }
                 }
@@ -112,6 +115,7 @@ public class FinalPuzzleCheck : MonoBehaviour
         else
         {
             statusText.text = "Fail";
+            StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow);
         }
     }
 }
