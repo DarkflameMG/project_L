@@ -31,11 +31,18 @@ public class StatusUI : MonoBehaviour
             cell.Find("text").GetComponent<TMP_Text>().text = name;
         }
 
-        //wrong row
-        foreach(int data in row)
+        try
         {
-            cell = Instantiate(cellPrefab,truthRow);
-            cell.Find("text").GetComponent<TMP_Text>().text = data.ToString();
+            //wrong row
+            foreach(int data in row)
+            {
+                cell = Instantiate(cellPrefab,truthRow);
+                cell.Find("text").GetComponent<TMP_Text>().text = data.ToString();
+            }
+        }
+        catch
+        {
+
         }
     }
 

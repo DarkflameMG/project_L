@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201bd86819ea81843bd4c39013e4f8c6, type: 3}
-  m_Name: LowVolt
+  m_Name: NorGate
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6137835852763397361, guid: d3b851461b701cf4c93ebd9d0e5bd1ca, type: 3}
-  sprite: {fileID: -1619255077, guid: 9a108d8f257f74a4daf0e1c4743ca364, type: 3}
-  gateName: low volt
+  prefab: {fileID: 3079195852384303507, guid: 5b03128c1cb52de4f94b4ce33d8c8d7c, type: 3}
+  sprite: {fileID: 377829021, guid: f0417ac85443e0c4da175916276a5a96, type: 3}
+  gateName: nor
   description: 

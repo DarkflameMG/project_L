@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject playIcon;
     [SerializeField]private GameObject pauseIcon;
     [SerializeField]private GameObject exitIcon;
+    [SerializeField]private GameObject statusUI;
+    [SerializeField]private TMP_Text statusText;
     // private List<PowerLine2> wrongLines;
     private bool winCond = true;
     private bool isWin = false;
@@ -57,6 +60,7 @@ public class WinSystem : MonoBehaviour
             GameObject gate = gates.GetChild(i).gameObject;
             Destroy(gate);
         }
+        statusUI.SetActive(false);
     }
     private void DestroyLines()
     {
@@ -124,16 +128,24 @@ public class WinSystem : MonoBehaviour
         {
             exitIcon.SetActive(true);
             currentIcon = exitIcon;
+
+            statusUI.SetActive(true);
+            statusText.text = "Pass";
         }
         else if(isPlay)
         {
             playIcon.SetActive(true);
             currentIcon = playIcon;
+
+            statusUI.SetActive(false);
         }
         else
         {
             pauseIcon.SetActive(true);
             currentIcon = pauseIcon;
+
+            statusUI.SetActive(true);
+            statusText.text = "Fail";
         }
     }
 
