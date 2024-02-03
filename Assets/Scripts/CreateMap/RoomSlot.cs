@@ -13,12 +13,18 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private Transform currentFlag;
     private LogicGateConfig config;
     private string curretPuzzleName = "none";
+    private AddDoorSys addDoorSys;
 
     private void Awake() {
         config = new();
         if(GameObject.Find("RoomCatalogSys") != null)
         {
             roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
+        }
+
+        if(GameObject.Find("AddDoorSys") != null)
+        {
+            addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
         }
     }
 
@@ -50,6 +56,12 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     {
         roomType = type;
         transform.GetChild(0).GetComponent<Image>().sprite = roomPreview;
+        bool activated = true;
+        if(type == RoomType.none)
+        {
+            activated = false;
+        }
+        addDoorSys.SetDoorAround(transform,activated);
     }
 
     public RoomType GetRoomType()
