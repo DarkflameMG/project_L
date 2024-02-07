@@ -14,8 +14,7 @@ public class CatalogChangeSys : MonoBehaviour
     [SerializeField]private GameObject mismatchPuzzleUI;
     [SerializeField]private GameObject puzzleBtn;
     [SerializeField]private GameObject configUI;
-    [SerializeField]private GameObject listOfConfigUI;
-    [SerializeField]private GameObject config404UI;
+    [SerializeField]private GameObject doorUI;
     [SerializeField]private RoomCatalogSys roomCatalogSys;
     [SerializeField]private TMP_Text puzzleName;
     [SerializeField]private TMP_Text puzzleHeader;
@@ -29,7 +28,6 @@ public class CatalogChangeSys : MonoBehaviour
         {
             puzzleName.text = roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlot>().GetPuzzleName();
             ChoosePuzzleUI();
-            CheckConfigUI();
         }
     }
 
@@ -52,11 +50,10 @@ public class CatalogChangeSys : MonoBehaviour
             currentCatalogUI = mainPuzzleUI;
             ChoosePuzzleUI();
         }
-        else if(type == CreateMapCatalog.cofig)
+        else if(type == CreateMapCatalog.door)
         {
             configUI.SetActive(true);
             currentCatalogUI = configUI;
-            CheckConfigUI();
         }
     }
 
@@ -82,25 +79,6 @@ public class CatalogChangeSys : MonoBehaviour
         {
             puzzleUI.SetActive(false);
             mismatchPuzzleUI.SetActive(true);
-        }
-    }
-
-    private void CheckConfigUI()
-    {
-         if(roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlot>().GetFeatureType() == FeatureType.puzzle)
-        {
-            listOfConfigUI.SetActive(true);
-            config404UI.SetActive(false);
-        }
-        else if(roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlot>().GetFeatureType() == FeatureType.exit)
-        {
-            listOfConfigUI.SetActive(true);
-            config404UI.SetActive(false);
-        }
-        else
-        {
-            listOfConfigUI.SetActive(false);
-            config404UI.SetActive(true);
         }
     }
 }
