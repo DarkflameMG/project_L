@@ -6,6 +6,10 @@ public class AddDoorSys : MonoBehaviour
 {
     [SerializeField]private Transform slots;
     private bool activated;
+    private Transform[] roomAround;
+    private void Awake() {
+        roomAround = new Transform[4];
+    }
     public void SetDoorAround(Transform currentRoom,bool show)
     {
         activated = show;
@@ -38,6 +42,7 @@ public class AddDoorSys : MonoBehaviour
         if(x-1 >= 0)
         {
             Transform leftRoom = line1.GetChild(x-1);
+            roomAround[2] = leftRoom;
             RoomSlot leftRoomSlot = leftRoom.GetComponent<RoomSlot>();
             RoomSlotDoor lr = leftRoom.GetComponent<RoomSlotDoor>();
             SetDoor(roomSlotDoor,lr,RoomSide.left,RoomSide.right,leftRoomSlot.GetRoomType(),activated);
@@ -54,6 +59,7 @@ public class AddDoorSys : MonoBehaviour
         if(x+1 < columnCount)
         {
             Transform rightRoom = line1.GetChild(x+1);
+            roomAround[3] = rightRoom;
             RoomSlot rightRoomSlot = rightRoom.GetComponent<RoomSlot>();
             RoomSlotDoor rr = rightRoom.GetComponent<RoomSlotDoor>();
             SetDoor(roomSlotDoor,rr,RoomSide.right,RoomSide.left,rightRoomSlot.GetRoomType(),activated);
@@ -70,6 +76,7 @@ public class AddDoorSys : MonoBehaviour
         {
             line0 = slots.GetChild(y-1);
             Transform upRoom = line0.GetChild(x);
+            roomAround[0] = upRoom;
             RoomSlot upRoomSlot = upRoom.GetComponent<RoomSlot>();
             RoomSlotDoor ur = upRoom.GetComponent<RoomSlotDoor>();
             SetDoor(roomSlotDoor,ur,RoomSide.front,RoomSide.back,upRoomSlot.GetRoomType(),activated);
@@ -87,9 +94,15 @@ public class AddDoorSys : MonoBehaviour
         {
             line2 = slots.GetChild(y+1);
             Transform downRoom = line2.GetChild(x);
+            roomAround[1] = downRoom;
             RoomSlot downRoomSlot = downRoom.GetComponent<RoomSlot>();
             RoomSlotDoor dr = downRoom.GetComponent<RoomSlotDoor>();
             SetDoor(roomSlotDoor,dr,RoomSide.back,RoomSide.front,downRoomSlot.GetRoomType(),activated);
         }
+    }
+
+    public Transform[] GetRoomAround()
+    {
+        return roomAround;
     }
 }

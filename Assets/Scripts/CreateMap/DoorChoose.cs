@@ -18,8 +18,14 @@ public class DoorChoose : MonoBehaviour
     [SerializeField]private GameObject leftDoor;
     [SerializeField]private GameObject rightDoor;
     private RoomSlotDoor doors;
+    private void Awake() {
+        top.onValueChanged.AddListener(delegate{UpdateDoorFeature(RoomSide.front,top.value);});
+        down.onValueChanged.AddListener(delegate{UpdateDoorFeature(RoomSide.back,down.value);});
+        left.onValueChanged.AddListener(delegate{UpdateDoorFeature(RoomSide.left,left.value);});
+        right.onValueChanged.AddListener(delegate{UpdateDoorFeature(RoomSide.right,right.value);});
+    }
     private void Update() {
-        CheckTopdown();
+        CheckDropdown();
         if(doors != null)
         {
             CheckDoors();
@@ -83,6 +89,7 @@ public class DoorChoose : MonoBehaviour
     public void SetUp(Transform room)
     {
         doors = room.GetComponent<RoomSlotDoor>();
+        UpdateDropDown();
     }
 
     private void CheckDoors()
@@ -94,42 +101,57 @@ public class DoorChoose : MonoBehaviour
         SetHideTab(RoomSide.right,bools[3]);
     }
 
-    private void CheckTopdown()
+    private void CheckDropdown()
     {
-        if(top.value == 2)
+        if(top.value == 1)
         {
             ShowKeyTab(RoomSide.front,true);
         }
-        else if(top.value != 2)
+        else if(top.value != 1)
         {
             ShowKeyTab(RoomSide.front,false);
         }
 
-        if(down.value == 2)
+        if(down.value == 1)
         {
             ShowKeyTab(RoomSide.back,true);
         }
-        else if(down.value != 2)
+        else if(down.value != 1)
         {
             ShowKeyTab(RoomSide.back,false);
         }
 
-        if(left.value == 2)
+        if(left.value == 1)
         {
             ShowKeyTab(RoomSide.left,true);
         }
-        else if(left.value != 2)
+        else if(left.value != 1)
         {
             ShowKeyTab(RoomSide.left,false);
         }
 
-        if(right.value == 2)
+        if(right.value == 1)
         {
             ShowKeyTab(RoomSide.right,true);
         }
-        else if(right.value != 2)
+        else if(right.value != 1)
         {
             ShowKeyTab(RoomSide.right,false);
         }
+    }
+
+    public void UpdateDropDown()
+    {
+        int[] feature = doors.GetDoorFeature();
+        top.SetValueWithoutNotify(feature[0]);
+        down.SetValueWithoutNotify(feature[1]);
+        left.SetValueWithoutNotify(feature[2]);
+        right.SetValueWithoutNotify(feature[3]);
+    }
+
+    private void UpdateDoorFeature(RoomSide side,int value)
+    {
+        Debug.Log("UpdateDoors");
+        doors.SetDoorFeature(side,value);
     }
 }

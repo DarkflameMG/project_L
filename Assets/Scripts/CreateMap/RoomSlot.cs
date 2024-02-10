@@ -14,6 +14,7 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private LogicGateConfig config;
     private string curretPuzzleName = "none";
     private AddDoorSys addDoorSys;
+    private Transform[] roomAround;
 
     private void Awake() {
         config = new();
@@ -62,6 +63,7 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
             activated = false;
         }
         addDoorSys.SetDoorAround(transform,activated);
+        roomAround = addDoorSys.GetRoomAround();
     }
 
     public RoomType GetRoomType()
@@ -116,5 +118,10 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     public LogicGateConfig GetConfig()
     {
         return config;
+    }
+
+    public Transform[] GetRoomAround()
+    {
+        return roomAround;
     }
 }

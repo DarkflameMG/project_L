@@ -2904,11 +2904,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Hide
-      m_Image: {fileID: 0}
     - m_Text: Unlocked
       m_Image: {fileID: 0}
     - m_Text: Locked
+      m_Image: {fileID: 0}
+    - m_Text: Hide
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14779,11 +14779,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Hide
-      m_Image: {fileID: 0}
     - m_Text: Unlocked
       m_Image: {fileID: 0}
     - m_Text: Locked
+      m_Image: {fileID: 0}
+    - m_Text: Hide
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15341,11 +15341,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Hide
-      m_Image: {fileID: 0}
     - m_Text: Unlocked
       m_Image: {fileID: 0}
     - m_Text: Locked
+      m_Image: {fileID: 0}
+    - m_Text: Hide
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19711,11 +19711,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Hide
-      m_Image: {fileID: 0}
     - m_Text: Unlocked
       m_Image: {fileID: 0}
     - m_Text: Locked
+      m_Image: {fileID: 0}
+    - m_Text: Hide
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
