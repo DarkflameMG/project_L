@@ -66,6 +66,11 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         roomAround = addDoorSys.GetRoomAround();
     }
 
+    public void SetRoomAround()
+    {
+        roomAround = addDoorSys.GetRoomAround();
+    }
+
     public RoomType GetRoomType()
     {
         return roomType;

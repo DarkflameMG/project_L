@@ -7,11 +7,9 @@ public class AddDoorSys : MonoBehaviour
     [SerializeField]private Transform slots;
     private bool activated;
     private Transform[] roomAround;
-    private void Awake() {
-        roomAround = new Transform[4];
-    }
     public void SetDoorAround(Transform currentRoom,bool show)
     {
+        roomAround = new Transform[4];
         activated = show;
         //same row
         LeftSide(currentRoom,activated);

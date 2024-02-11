@@ -93,7 +93,7 @@ public class RoomSlotDoor : MonoBehaviour
             doorsFeature[0] = value;
             if(roomAround[0] != null)
             {
-                roomAround[0].GetComponent<RoomSlotDoor>().SetDoorFeature(RoomSide.back,value);
+                roomAround[0].GetComponent<RoomSlotDoor>().SetOtherDoorFeature(RoomSide.back,value);
             }
         }
         else if(side == RoomSide.back)
@@ -101,7 +101,7 @@ public class RoomSlotDoor : MonoBehaviour
             doorsFeature[1] = value;
             if(roomAround[1] != null)
             {
-                roomAround[1].GetComponent<RoomSlotDoor>().SetDoorFeature(RoomSide.front,value);
+                roomAround[1].GetComponent<RoomSlotDoor>().SetOtherDoorFeature(RoomSide.front,value);
             }
         }
         else if(side == RoomSide.left)
@@ -109,7 +109,7 @@ public class RoomSlotDoor : MonoBehaviour
             doorsFeature[2] = value;
             if(roomAround[2] != null)
             {
-                roomAround[2].GetComponent<RoomSlotDoor>().SetDoorFeature(RoomSide.right,value);   
+                roomAround[2].GetComponent<RoomSlotDoor>().SetOtherDoorFeature(RoomSide.right,value);   
             }
         }
         else if(side == RoomSide.right)
@@ -117,8 +117,31 @@ public class RoomSlotDoor : MonoBehaviour
             doorsFeature[3] = value;
             if(roomAround[3] != null)
             {
-                roomAround[3].GetComponent<RoomSlotDoor>().SetDoorFeature(RoomSide.left,value);
+                roomAround[3].GetComponent<RoomSlotDoor>().SetOtherDoorFeature(RoomSide.left,value);
             }  
+        }
+
+        DoorColor(side,value);
+    }
+
+    public void SetOtherDoorFeature(RoomSide side,int value)
+    {
+        Debug.Log("OK");
+        if(side == RoomSide.front)
+        {
+            doorsFeature[0] = value;
+        }
+        else if(side == RoomSide.back)
+        {
+            doorsFeature[1] = value;
+        }
+        else if(side == RoomSide.left)
+        {
+            doorsFeature[2] = value;
+        }
+        else if(side == RoomSide.right)
+        {
+            doorsFeature[3] = value;
         }
 
         DoorColor(side,value);
