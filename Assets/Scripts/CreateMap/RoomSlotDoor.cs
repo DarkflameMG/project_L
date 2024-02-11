@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomSlotDoor : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class RoomSlotDoor : MonoBehaviour
     [SerializeField]private GameObject right;
     private bool[] doorsActive;
     private int[] doorsFeature;
+    private Color green = new Color32(64,255,0,255);
+    private Color red = new Color32(255,144,0,255);
     private Transform[] roomAround;
     AddDoorSys addDoorSys;
     private void Awake() {
@@ -149,6 +152,7 @@ public class RoomSlotDoor : MonoBehaviour
 
     private void DoorColor(RoomSide side,int value)
     {
+        bool isLocked = false;
         if(value == 0)
         {
             HideOrShowDoor(side,true);
@@ -156,10 +160,38 @@ public class RoomSlotDoor : MonoBehaviour
         else if(value == 1)
         {
             HideOrShowDoor(side,true);
+            isLocked = true;
         }
         else if(value == 2)
         {
             HideOrShowDoor(side,false);
+        }
+        ChangeColor(side,isLocked);
+    }
+
+    private void ChangeColor(RoomSide side,bool isLocked)
+    {
+        Color newColor = green;
+        if(isLocked)
+        {
+            newColor = red;
+        }
+
+        if(side == RoomSide.front)
+        {
+            front.GetComponent<Image>().color = newColor;
+        }
+        else if(side == RoomSide.back)
+        {
+            back.GetComponent<Image>().color = newColor;
+        }
+        else if(side == RoomSide.left)
+        {
+            left.GetComponent<Image>().color = newColor;
+        }
+        else if(side == RoomSide.right)
+        {
+            right.GetComponent<Image>().color = newColor;
         }
     }
 }

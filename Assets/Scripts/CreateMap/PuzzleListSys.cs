@@ -8,8 +8,10 @@ using Newtonsoft.Json;
 public class PuzzleListSys : MonoBehaviour
 {
     [SerializeField]private Transform puzzleListPrefab;
+    [SerializeField]private Transform puzzleKeyListPrefab;
     [SerializeField]private Transform listSpawnPoint;
     [SerializeField]private Transform truthTablePoint;
+    [SerializeField]private Transform keySpawnPoint;
 
     private void Start() {
         ReadFileName();
@@ -23,7 +25,7 @@ public class PuzzleListSys : MonoBehaviour
             PList.GetChild(0).GetComponent<TMP_Text>().text = puzzleInfo.PuzzleName;
         }
     }
-    private void SpawnListV2(TruthTable table, Transform spawnPoint)
+    private void SpawnListTruthTable(TruthTable table, Transform spawnPoint)
     {
         if(table.tableName != null)
         {
@@ -57,6 +59,6 @@ public class PuzzleListSys : MonoBehaviour
     private void ReadJsonV2(string json, Transform spawnPoint)
     {
         TruthTable loadTable = JsonConvert.DeserializeObject<TruthTable>(json);
-        SpawnListV2(loadTable,spawnPoint);
+        SpawnListTruthTable(loadTable,spawnPoint);
     }
 }

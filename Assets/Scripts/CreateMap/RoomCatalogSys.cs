@@ -76,10 +76,6 @@ public class RoomCatalogSys : MonoBehaviour
         {
 
         }
-        else if(type == FeatureType.boss)
-        {
-            flag = allFlag.bossFlag;
-        }
         else if(type == FeatureType.puzzle)
         {
             flag = allFlag.puzzleFlag;
