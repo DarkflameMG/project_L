@@ -23,6 +23,10 @@ public class PuzzleListSys : MonoBehaviour
             Transform PList = Instantiate(puzzleListPrefab,spawnPoint);
             PList.name = puzzleInfo.PuzzleName;
             PList.GetChild(0).GetComponent<TMP_Text>().text = puzzleInfo.PuzzleName;
+
+            Transform KeyList = Instantiate(puzzleKeyListPrefab,keySpawnPoint);
+            KeyList.name = puzzleInfo.PuzzleName;
+            KeyList.Find("name").GetComponent<TMP_Text>().text = puzzleInfo.PuzzleName;
         }
     }
     private void SpawnListTruthTable(TruthTable table, Transform spawnPoint)

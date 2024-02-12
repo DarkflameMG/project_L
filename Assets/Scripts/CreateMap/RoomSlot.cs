@@ -36,6 +36,8 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         if(roomCatalogSys != null)
         {
             roomCatalogSys.ShowUI(this.transform);
+            addDoorSys.CloseKeyUI();
+            // Debug.Log("front:"+(roomAround[0]!=null)+"   back:"+(roomAround[1]!=null)+"   left:"+(roomAround[2]!=null)+"   right:"+(roomAround[3]!=null));
         }
     }
 
@@ -63,12 +65,14 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
             activated = false;
         }
         addDoorSys.SetDoorAround(transform,activated);
-        roomAround = addDoorSys.GetRoomAround();
+        // roomAround = addDoorSys.GetRoomAround();
     }
 
     public void SetRoomAround()
     {
+        addDoorSys.SetDoorAround(transform,false);
         roomAround = addDoorSys.GetRoomAround();
+        GetComponent<RoomSlotDoor>().SetRoomAround(roomAround);
     }
 
     public RoomType GetRoomType()

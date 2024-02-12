@@ -11,14 +11,25 @@ public class RoomSlotDoor : MonoBehaviour
     [SerializeField]private GameObject right;
     private bool[] doorsActive;
     private int[] doorsFeature;
+    private string[] key;
     private Color green = new Color32(64,255,0,255);
     private Color red = new Color32(255,144,0,255);
     private Transform[] roomAround;
     AddDoorSys addDoorSys;
     private void Awake() {
         addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
+        roomAround = new Transform[4];
         doorsActive = new bool[4];
         doorsFeature = new int[4];
+        key = new string[4];
+        key[0] = "";
+        key[1] = "";
+        key[2] = "";
+        key[3] = "";
+    }
+    public void SetRoomAround(Transform[] rooms)
+    {
+        roomAround = rooms;
     }
 
     public void ShowDoor(RoomSide side,bool activate)
@@ -89,8 +100,7 @@ public class RoomSlotDoor : MonoBehaviour
 
     public void SetDoorFeature(RoomSide side,int value)
     {
-        roomAround = GetComponent<RoomSlot>().GetRoomAround();
-        Debug.Log(roomAround.Length);
+        // roomAround = GetComponent<RoomSlot>().GetRoomAround();
         if(side == RoomSide.front)
         {
             doorsFeature[0] = value;
@@ -129,7 +139,6 @@ public class RoomSlotDoor : MonoBehaviour
 
     public void SetOtherDoorFeature(RoomSide side,int value)
     {
-        Debug.Log("OK");
         if(side == RoomSide.front)
         {
             doorsFeature[0] = value;
@@ -156,6 +165,7 @@ public class RoomSlotDoor : MonoBehaviour
         if(value == 0)
         {
             HideOrShowDoor(side,true);
+            SetDoorKey(side,"");
         }
         else if(value == 1)
         {
@@ -165,6 +175,7 @@ public class RoomSlotDoor : MonoBehaviour
         else if(value == 2)
         {
             HideOrShowDoor(side,false);
+            SetDoorKey(side,"");
         }
         ChangeColor(side,isLocked);
     }
@@ -193,5 +204,74 @@ public class RoomSlotDoor : MonoBehaviour
         {
             right.GetComponent<Image>().color = newColor;
         }
+    }
+
+    public void SetDoorKey(RoomSide side, string name)
+    {
+        // Debug.Log("Set "+side+" name "+name);
+        if(side == RoomSide.front)
+        {
+            key[0] = name;
+            if(roomAround[0] != null)
+            {
+                roomAround[0].GetComponent<RoomSlotDoor>().SetOtherDoorKey(RoomSide.back,name);
+            }
+            else
+                Debug.Log("Other null");
+        }
+        else if(side == RoomSide.back)
+        {
+            key[1] = name;
+            if(roomAround[1] != null)
+            {
+                roomAround[1].GetComponent<RoomSlotDoor>().SetOtherDoorKey(RoomSide.front,name);
+            }
+            else
+                Debug.Log("Other null");
+        }
+        else if(side == RoomSide.left)
+        {
+            key[2] = name;
+            if(roomAround[2] != null)
+            {
+                roomAround[2].GetComponent<RoomSlotDoor>().SetOtherDoorKey(RoomSide.right,name);
+            }
+            else
+                Debug.Log("Other null");
+        }
+        else if(side == RoomSide.right)
+        {
+            key[3] = name;
+            if(roomAround[3] != null)
+            {
+                roomAround[3].GetComponent<RoomSlotDoor>().SetOtherDoorKey(RoomSide.left,name);
+            }
+            else
+                Debug.Log("Other null");
+        }
+    }
+    public void SetOtherDoorKey(RoomSide side, string name)
+    {
+        // Debug.Log("Set other "+side+" name "+name);
+        if(side == RoomSide.front)
+        {
+            key[0] = name;
+        }
+        else if(side == RoomSide.back)
+        {
+            key[1] = name;
+        }
+        else if(side == RoomSide.left)
+        {
+            key[2] = name;
+        }
+        else if(side == RoomSide.right)
+        {
+            key[3] = name;
+        }
+    }
+    public string[] GetKey()
+    {
+        return key;
     }
 }

@@ -151,7 +151,7 @@ public class DoorChoose : MonoBehaviour
 
     private void UpdateDoorFeature(RoomSide side,int value)
     {
-        Debug.Log("UpdateDoors");
+        // Debug.Log("UpdateDoors");
         doors.SetDoorFeature(side,value);
     }
 }

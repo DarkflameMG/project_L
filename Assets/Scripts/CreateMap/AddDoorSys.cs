@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddDoorSys : MonoBehaviour
 {
     [SerializeField]private Transform slots;
+    [SerializeField]private GameObject keyListUI;
     private bool activated;
     private Transform[] roomAround;
     public void SetDoorAround(Transform currentRoom,bool show)
@@ -102,5 +103,10 @@ public class AddDoorSys : MonoBehaviour
     public Transform[] GetRoomAround()
     {
         return roomAround;
+    }
+
+    public void CloseKeyUI()
+    {
+        keyListUI.SetActive(false);
     }
 }

@@ -37,14 +37,14 @@ public class SpawnRoomSlotSys : MonoBehaviour
 
     private void SetRoomAround()
     {
-        // for(int j=0;j<hight;j++)
-        // {
-        //     Transform horizontal = slotSpawnPoint.GetChild(j);
-        //     for(int i=0;i<width;i++)
-        //     {
-        //         horizontal.GetChild(i).GetComponent<RoomSlot>().SetRoomAround();
-        //     }
-        // }
+        for(int j=0;j<hight;j++)
+        {
+            Transform horizontal = slotSpawnPoint.GetChild(j);
+            for(int i=0;i<width;i++)
+            {
+                horizontal.GetChild(i).GetComponent<RoomSlot>().SetRoomAround();
+            }
+        }
     }
 
     public int GetWidth()

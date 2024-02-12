@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6353737126742187821}
   - component: {fileID: 6353737126742187820}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 6353737127234545463}
   - component: {fileID: 6353737127234545462}
   - component: {fileID: 6353737127234545461}
+  - component: {fileID: 2476945244662171627}
   m_Layer: 5
   m_Name: PuzzleKey
   m_TagString: Untagged
@@ -257,3 +258,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2476945244662171627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353737127234545459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9505545f0b9a1434abf5403513d49bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
