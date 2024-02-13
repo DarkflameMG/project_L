@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,6 +74,7 @@ public class SaveMapSys : MonoBehaviour
     private void StartSave(string missionName)
     {
         MissionInfo missionInfo = new();
+        List<string> tables = new();
         int[] startPos = new int[2];
         int width = spawnRoomSlotSys.GetComponent<SpawnRoomSlotSys>().GetWidth();
         int hight = spawnRoomSlotSys.GetComponent<SpawnRoomSlotSys>().GetHight();
@@ -88,10 +90,20 @@ public class SaveMapSys : MonoBehaviour
             int[] pos = roomSlot.GetXY();
             RoomType roomType = roomSlot.GetRoomType();
             FeatureType featureType = roomSlot.GetFeatureType();
+            LogicGateConfig config = roomSlot.GetConfig();
             string puzzleName = roomSlot.GetPuzzleName();
             if(featureType == FeatureType.start)
             {
                 startPos = pos;
+            }
+            else if(featureType == FeatureType.exit)
+            {
+                tables.Add(puzzleName);
+            }
+
+            if(featureType == FeatureType.exit || featureType == FeatureType.puzzle)
+            {
+                roomDetail.config = config;
             }
 
             roomDetail.x = pos[0];
@@ -110,6 +122,7 @@ public class SaveMapSys : MonoBehaviour
         missionInfo.hight = hight;
         missionInfo.startPos = startPos;
         missionInfo.rooms = roomsDetail;
+        missionInfo.truthTables = tables;
 
         SaveAsJson(missionInfo);
     }

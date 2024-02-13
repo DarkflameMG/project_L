@@ -9,7 +9,7 @@ public class Tooltip : MonoBehaviour
 
     private void Start() {
         GateSO gateSO = GetComponent<SpawnGate>().GetGateSO();
-        gateName = gateSO.name;
+        gateName = gateSO.gateName;
         desc = gateSO.description;
     }
     private void OnMouseEnter() {

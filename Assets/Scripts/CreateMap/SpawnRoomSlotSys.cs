@@ -20,6 +20,7 @@ public class SpawnRoomSlotSys : MonoBehaviour
         customMap.SetActive(true);
 
         GenerateSlot();
+        SetRoomAround();
     }
 
     private void GenerateSlot()
@@ -30,6 +31,18 @@ public class SpawnRoomSlotSys : MonoBehaviour
             for(int i=0;i<width;i++)
             {
                 Instantiate(slotPrefab,horizontal).GetComponent<RoomSlot>().SetXY(i,j);
+            }
+        }
+    }
+
+    private void SetRoomAround()
+    {
+        for(int j=0;j<hight;j++)
+        {
+            Transform horizontal = slotSpawnPoint.GetChild(j);
+            for(int i=0;i<width;i++)
+            {
+                horizontal.GetChild(i).GetComponent<RoomSlot>().SetRoomAround();
             }
         }
     }

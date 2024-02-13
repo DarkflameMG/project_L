@@ -7,16 +7,18 @@ public class Switch : MonoBehaviour
 {
     private bool state = false;
     private RectTransform rect;
+    private bool allowLeftClick = false;
 
     private void Awake() {
-        rect = GetComponent<RectTransform>();
+        rect = transform.Find("Image").GetComponent<RectTransform>();
         UpdateState();
     }
     private void OnMouseOver() {
-        if(Input.GetMouseButtonDown(1))
+        Debug.Log("over");
+        if(Input.GetMouseButtonDown(1) || (Input.GetMouseButtonDown(0) && allowLeftClick))
         {
             state = !state;
-            // Debug.Log(state);
+            Debug.Log(state);
             UpdateState();
         }
     }
@@ -34,6 +36,11 @@ public class Switch : MonoBehaviour
 
     private void UpdateState()
     {
-        transform.parent.GetComponent<GateObject>().SetSwtichState(state);
+        GetComponent<GateObject>().SetSwtichState(state);
+    }
+
+    public void SetAllow()
+    {
+        allowLeftClick = true;
     }
 }

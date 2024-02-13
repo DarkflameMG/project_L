@@ -11,12 +11,21 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private RoomType roomType = RoomType.none;
     private FeatureType featureType = FeatureType.none;
     private Transform currentFlag;
+    private LogicGateConfig config;
     private string curretPuzzleName = "none";
+    private AddDoorSys addDoorSys;
+    private Transform[] roomAround;
 
     private void Awake() {
+        config = new();
         if(GameObject.Find("RoomCatalogSys") != null)
         {
             roomCatalogSys = GameObject.Find("RoomCatalogSys").GetComponent<RoomCatalogSys>();
+        }
+
+        if(GameObject.Find("AddDoorSys") != null)
+        {
+            addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
         }
     }
 
@@ -27,6 +36,8 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         if(roomCatalogSys != null)
         {
             roomCatalogSys.ShowUI(this.transform);
+            addDoorSys.CloseKeyUI();
+            // Debug.Log("front:"+(roomAround[0]!=null)+"   back:"+(roomAround[1]!=null)+"   left:"+(roomAround[2]!=null)+"   right:"+(roomAround[3]!=null));
         }
     }
 
@@ -48,6 +59,20 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     {
         roomType = type;
         transform.GetChild(0).GetComponent<Image>().sprite = roomPreview;
+        bool activated = true;
+        if(type == RoomType.none)
+        {
+            activated = false;
+        }
+        addDoorSys.SetDoorAround(transform,activated);
+        // roomAround = addDoorSys.GetRoomAround();
+    }
+
+    public void SetRoomAround()
+    {
+        addDoorSys.SetDoorAround(transform,false);
+        roomAround = addDoorSys.GetRoomAround();
+        GetComponent<RoomSlotDoor>().SetRoomAround(roomAround);
     }
 
     public RoomType GetRoomType()
@@ -93,5 +118,19 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     public string GetPuzzleName()
     {
         return curretPuzzleName;
+    }
+
+    public void SetConfig(LogicGateConfig data)
+    {
+        config = data;
+    }
+    public LogicGateConfig GetConfig()
+    {
+        return config;
+    }
+
+    public Transform[] GetRoomAround()
+    {
+        return roomAround;
     }
 }

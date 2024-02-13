@@ -9,6 +9,7 @@ public class RoomCatalogSys : MonoBehaviour
     [SerializeField]private FlagsMapSO allFlag;
     [SerializeField]private Transform flagPoint;
     [SerializeField]private Transform saveMapSys;
+    [SerializeField]private DoorChoose doorChoose;
     private Transform currentSlot;
     private Transform currentStartRoom;
     private Transform currentExitRoom;
@@ -16,6 +17,7 @@ public class RoomCatalogSys : MonoBehaviour
     {
         catalogUI.SetActive(true);
         SetCurerntSlot(slot);
+        doorChoose.SetUp(currentSlot);
     }
 
     public void CloseUI()
@@ -73,10 +75,6 @@ public class RoomCatalogSys : MonoBehaviour
         else if(type == FeatureType.monster)
         {
 
-        }
-        else if(type == FeatureType.boss)
-        {
-            flag = allFlag.bossFlag;
         }
         else if(type == FeatureType.puzzle)
         {

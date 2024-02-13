@@ -12,16 +12,19 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]Transform spawnLine;
     [SerializeField]WinSystem winSystem;
     [SerializeField]MapSystem mapSystem;
+    private List<GameObject> bulbs;
     private void ReadJson(string json)
     {
         PuzzleInfo loadPuzzle = JsonUtility.FromJson<PuzzleInfo>(json); // fix for puzzle leter
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);
+        winSystem.SetBulbs(bulbs);
         winSystem.ReState();
     }
     public void StartGame()
     {
+        bulbs = new List<GameObject>();
         RoomDetail room = mapSystem.GetCurrentRoomDetail();
         ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/"+room.puzzleName+".json"));
         // Debug.Log(room.puzzleName);
@@ -46,6 +49,7 @@ public class CreatePuzzle : MonoBehaviour
             {
                 gateObj = Instantiate(allGate.bulb,spawnPoint);
                 gateObj.gameObject.tag = "bulb";
+                bulbs.Add(gateObj.gameObject);
             }
             else if(type.Equals("and"))
             {

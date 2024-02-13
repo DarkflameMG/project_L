@@ -19,7 +19,9 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
 
         gate = transform.parent;
         scrollParent = GameObject.Find("spawnGate").transform;
-        unscrollParent = GameObject.Find("preSpawnGate").transform;
+        // unscrollParent = GameObject.Find("preSpawnGate").transform;
+        // unscrollParent = transform.parent.GetComponent<GateObject>().GetPreSpawnPoint();
+        // Debug.Log(unscrollParent);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -28,7 +30,9 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Debug.Log("begin");
+        // Debug.Log(unscrollParent.name);
+        // Debug.Log(transform.parent.name);
+        unscrollParent = transform.parent.GetComponent<GateObject>().GetPreSpawnPoint();
         if(dragable)
         {
             Transform holder = gate.GetComponent<GateObject>().GetHolder();

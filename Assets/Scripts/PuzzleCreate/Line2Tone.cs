@@ -9,11 +9,17 @@ public class Line2Tone : MonoBehaviour
     [SerializeField]private bool isLine1;
     private LineRenderer lineRenderer;
     private bool currentState = false;
+    private bool isRun = false;
     private Transform input;
+    float x1,x2,y1,y2;
     public void RunLine()
     {
+        isRun = true;
+    }
+    private void RunLineAux()
+    {
         currentState = input.GetComponent<Drag>().GetCurrentState();
-        Debug.Log(input.GetComponent<Drag>().GetGate().name);
+        // Debug.Log(input.GetComponent<Drag>().GetGate().parent.name + " " + currentState);
         transform.parent.GetComponent<PowerLine2>().SetState(currentState);
         ChangeColor();
     }
@@ -21,6 +27,7 @@ public class Line2Tone : MonoBehaviour
     public void StopLine()
     {
         currentState = false;
+        isRun = false;
         ChangeColor();
     }
 
@@ -30,23 +37,6 @@ public class Line2Tone : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.startColor = Color.gray;
         lineRenderer.endColor = Color.gray;
-
-        float x1,x2,y1,y2;
-        x1 = point1.position.x;
-        x2 = point2.position.x;
-        y1 = point1.position.y;
-        y2 = point2.position.y;
-        if(isLine1)
-        {
-            lineRenderer.SetPosition(0,new Vector3(x1,y1,1010f));
-            lineRenderer.SetPosition(1,new Vector3((x1+x2)/2,(y1+y2)/2,1010f));
-        }
-        else
-        {
-            lineRenderer.SetPosition(0,new Vector3((x1+x2)/2,(y1+y2)/2,1010f));
-            lineRenderer.SetPosition(1,new Vector3(x2,y2,1010f));
-        }
-        
         if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.output)
         {
             input = point1;
@@ -68,6 +58,19 @@ public class Line2Tone : MonoBehaviour
         {
           lineRenderer.startColor = Color.gray;
           lineRenderer.endColor = Color.gray;
+        }
+    }
+
+    private void Update() {
+        x1 = point1.position.x;
+        x2 = point2.position.x;
+        y1 = point1.position.y;
+        y2 = point2.position.y;
+        lineRenderer.SetPosition(0,new Vector3(x1,y1,1010f));
+        lineRenderer.SetPosition(1,new Vector3(x2,y2,1010f));
+        if(isRun)
+        {
+            RunLineAux();
         }
     }
 }

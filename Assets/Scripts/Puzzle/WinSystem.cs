@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,26 +16,32 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject playIcon;
     [SerializeField]private GameObject pauseIcon;
     [SerializeField]private GameObject exitIcon;
-    private List<PowerLine2> wrongLines;
+    [SerializeField]private GameObject statusUI;
+    [SerializeField]private TMP_Text statusText;
+    // private List<PowerLine2> wrongLines;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
     private Button btn;
     private GameObject currentIcon;
+    private List<GameObject> bulbs;
 
     public void Awake()
     {
         btn = GetComponent<Button>();
-        // bulbs = gates.fin
         btn.onClick.AddListener(TriggleCheck);
         currentIcon = playIcon;
+    }
+    public void SetBulbs(List<GameObject> data)
+    {
+        bulbs = data;
+    }
+    private void Update() {
+        // ChangeIcon();
     }
 
     public void TriggleCheck()
     {
-        // Debug.Log(winCond);
-        // Debug.Log(isWin);
-        // Debug.Log(isPlay);
         if(!isWin)
         {
             CheckWinCond();
@@ -43,8 +50,6 @@ public class WinSystem : MonoBehaviour
         {
             Exit();
         }
-        ChangeIcon();
-      
     }
 
     private void DestroyGates()
@@ -55,6 +60,7 @@ public class WinSystem : MonoBehaviour
             GameObject gate = gates.GetChild(i).gameObject;
             Destroy(gate);
         }
+        statusUI.SetActive(false);
     }
     private void DestroyLines()
     {
@@ -83,48 +89,63 @@ public class WinSystem : MonoBehaviour
             if(isPlay)
             {
                 line.RunLine();
-                if(line.GetExpectBool() != line.GetCurrentState())
-                {
-                    winCond = false;
-                    wrongLines.Add(line);
-                }
             }
             else
             {
                 line.StopLine();
             }
         }
+        
+        StartCoroutine(CheckBulbs());
+    }
+
+    IEnumerator CheckBulbs()
+    {
+        yield return new WaitForSeconds(0.1f);
+        winCond = true;
+        foreach(GameObject bulb in bulbs)
+        {
+            Debug.Log(bulb.GetComponent<GateObject>().GetCurrentState());
+            if(!bulb.GetComponent<GateObject>().GetCurrentState())
+            {
+                winCond = false;
+                break;
+            }
+        }
 
         if(winCond && isPlay)
         {
             isWin = true;
-            // ChangeIcon();
         }
-        // else if(isPlay)
-        // {
-        //     ChangeIcon();
-        // }
-
         isPlay = !isPlay;
+        ChangeIcon();
     }
 
     private void ChangeIcon()
     {
         currentIcon.SetActive(false);
-        if(winCond)
+        if(isWin)
         {
             exitIcon.SetActive(true);
             currentIcon = exitIcon;
+
+            statusUI.SetActive(true);
+            statusText.text = "Pass";
         }
         else if(isPlay)
         {
             playIcon.SetActive(true);
             currentIcon = playIcon;
+
+            statusUI.SetActive(false);
         }
         else
         {
             pauseIcon.SetActive(true);
             currentIcon = pauseIcon;
+
+            statusUI.SetActive(true);
+            statusText.text = "Fail";
         }
     }
 
@@ -136,6 +157,6 @@ public class WinSystem : MonoBehaviour
         winCond = true;
         isWin = false;
         isPlay = true;
-        wrongLines = new List<PowerLine2>();
+        // wrongLines = new List<PowerLine2>();
     }
 }
