@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class AddCards : MonoBehaviour
 {
     [SerializeField] private Transform puzzleField;
-    [SerializeField] private GameObject cards;
+    [SerializeField] private GameObject btns;
     [SerializeField] public Sprite[] sprites;
 
     private void Awake() {
         for(int i = 0; i < 5; i++){
-            int randomIndex = Random.Range(0, sprites.Length);
-            GameObject button = Instantiate(cards, puzzleField.transform);
-            button.name = "" + i;
+            //int randomIndex = Random.Range(0, sprites.Length);
+            GameObject button = Instantiate(btns, puzzleField.transform);
+            button.name = "CardLV1_" + i;
             button.transform.SetParent(puzzleField, false);
-            button.transform.localPosition = new Vector3(-3+(i*2), 0);
-            button.GetComponent<SpriteRenderer>().sprite = sprites[randomIndex];
+
+            //button.GetComponent<Image>().sprite = sprites[randomIndex];
         }
     }
 }

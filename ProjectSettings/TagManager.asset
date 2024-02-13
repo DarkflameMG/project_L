@@ -10,6 +10,8 @@ TagManager:
   - line
   - bulb
   - roomSlot
+  - PuzzleButton
+  - Monitor
   layers:
   - Default
   - TransparentFX

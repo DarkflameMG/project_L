@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6929075325827399559}
   - component: {fileID: 7608128757606835176}
-  - component: {fileID: 1381863310888592563}
+  - component: {fileID: 3377703747285015869}
   m_Layer: 0
   m_Name: PokerCards_41
   m_TagString: Untagged
@@ -85,16 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1381863310888592563
-MonoBehaviour:
+--- !u!65 &3377703747285015869
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044527447255879207}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aacd86eac7e7c4a86bacfc95854f45da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardValue: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.8, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

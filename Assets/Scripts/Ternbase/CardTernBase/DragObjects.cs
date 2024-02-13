@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class DragObjects : MonoBehaviour
 {
-    private Vector2 mousePosition;
-    private float offsetX, offsetY;
+    private Vector3 mousePosition;
+    private float offsetX, offsetY, offsetZ;
 
     public static bool mouseButtonReleased;
 
@@ -14,15 +14,19 @@ public class DragObjects : MonoBehaviour
         mouseButtonReleased = false;
         offsetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
         offsetY = Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y;
+        offsetZ = Camera.main.ScreenToWorldPoint(Input.mousePosition).z - transform.position.z;
+        Debug.Log("mouse down");
     }
 
     private void OnMouseDrag() {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(mousePosition.x - offsetX, mousePosition.y - offsetY);
+        transform.position = new Vector3(mousePosition.x - offsetX, mousePosition.y - offsetY, offsetZ);
+        Debug.Log("Draging");
     }
 
     private void OnMouseUp() {
         mouseButtonReleased = true;
+        Debug.Log("Mouse up");
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -32,8 +36,8 @@ public class DragObjects : MonoBehaviour
         thisGameObjectName = gameObject.name.Substring(0, name.IndexOf("_"));
         collisionGameObjectName = collision.gameObject.name.Substring(0, name.IndexOf("_"));
 
-        if(mouseButtonReleased && thisGameObjectName == "Acorn" && thisGameObjectName == collisionGameObjectName){
-            Instantiate(Resources.Load("Oak_object"), transform.position, Quaternion.identity);
+        if(mouseButtonReleased && thisGameObjectName == "PokerCards" && thisGameObjectName == collisionGameObjectName){
+            Instantiate(Resources.Load("PokerCards_42"), transform.position, Quaternion.identity);
             mouseButtonReleased = false;
             Destroy(collision.gameObject);
             Destroy(gameObject);
