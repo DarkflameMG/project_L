@@ -17,7 +17,10 @@ public class RoomSlotDoor : MonoBehaviour
     private Transform[] roomAround;
     AddDoorSys addDoorSys;
     private void Awake() {
-        addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
+        if(GameObject.Find("AddDoorSys") != null)
+        {
+            addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
+        }
         roomAround = new Transform[4];
         doorsActive = new bool[4];
         doorsFeature = new int[4];

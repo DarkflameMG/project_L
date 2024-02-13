@@ -18,7 +18,9 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject exitIcon;
     [SerializeField]private GameObject statusUI;
     [SerializeField]private TMP_Text statusText;
-    // private List<PowerLine2> wrongLines;
+    [SerializeField]private GameObject tabBar;
+    [SerializeField]private KeyInventorySys keyInventorySys;
+    [SerializeField]private MapSystem mapSystem;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
@@ -78,7 +80,12 @@ public class WinSystem : MonoBehaviour
         DestroyLines();
         puzzleScene.SetActive(false);
         puzzleTool.SetActive(false);
+        mapUI.SetActive(true);
+        tabBar.SetActive(true);
         mapInfo.Busy = false;
+
+        RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
+        keyInventorySys.AddNewKey(roomDetail.puzzleName);
     }
     private void CheckWinCond()
     {
