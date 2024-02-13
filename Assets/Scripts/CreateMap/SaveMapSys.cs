@@ -85,8 +85,10 @@ public class SaveMapSys : MonoBehaviour
         foreach(GameObject room in rooms)
         {
             RoomDetail roomDetail = new();
+            DoorsDetail doorsDetail = new();
 
             RoomSlot roomSlot = room.GetComponent<RoomSlot>();
+            RoomSlotDoor roomSlotDoor = room.GetComponent<RoomSlotDoor>();
             int[] pos = roomSlot.GetXY();
             RoomType roomType = roomSlot.GetRoomType();
             FeatureType featureType = roomSlot.GetFeatureType();
@@ -106,11 +108,24 @@ public class SaveMapSys : MonoBehaviour
                 roomDetail.config = config;
             }
 
+            int[] doorsFeature = roomSlotDoor.GetDoorFeature();
+            string[] doorsKey = roomSlotDoor.GetKey();
+
+            doorsDetail.front = SetDoorState(doorsFeature[0]);
+            doorsDetail.back = SetDoorState(doorsFeature[1]);
+            doorsDetail.left = SetDoorState(doorsFeature[2]);
+            doorsDetail.right = SetDoorState(doorsFeature[3]);
+            doorsDetail.frontKey = doorsKey[0];
+            doorsDetail.backKey = doorsKey[1];
+            doorsDetail.leftKey = doorsKey[2];
+            doorsDetail.rightKey = doorsKey[3];
+
             roomDetail.x = pos[0];
             roomDetail.y = pos[1];
             roomDetail.Ftype = featureType;
             roomDetail.roomType = roomType;
             roomDetail.puzzleName = puzzleName;
+            roomDetail.doors = doorsDetail;
 
             roomsDetail[i] = roomDetail;
 
@@ -131,5 +146,18 @@ public class SaveMapSys : MonoBehaviour
     {
         string json = JsonUtility.ToJson(missionInfo,true);
         System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Map/"+missionInfo.MissionName+".json",json);
+    }
+
+    private DoorState SetDoorState(int doorsFeature)
+    {
+        if(doorsFeature == 0)
+        {
+            return DoorState.unlocked;
+        }
+        else if(doorsFeature == 1)
+        {
+            return DoorState.locked;
+        }
+        return DoorState.hide;
     }
 }
