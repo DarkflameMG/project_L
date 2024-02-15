@@ -143,3 +143,12 @@ public class LogicGateConfig
     public int or;
 
 }
+
+[System.Serializable]
+public class LockedDoors
+{
+    public int x;
+    public int y;
+    public RoomSide doorSide;
+    public bool isLocked;
+}

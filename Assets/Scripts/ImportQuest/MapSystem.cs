@@ -14,6 +14,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField]ObjectSO allObj;
     [SerializeField]GameObject levelLoader;
     [SerializeField]MiniMapSys miniMapSys;
+    [SerializeField]AllLockedDoor allLockedDoor;
 
     private Transform currentRoom;
     private RoomDetail currentRoomDetail;
@@ -39,10 +40,10 @@ public class MapSystem : MonoBehaviour
         rooms = missionSO.missionInfo.rooms;
     }
 
-    public void SetStartRoom(Transform room,Transform spawnLoc)
+    public void SetStartRoom(Transform spawnLoc)
     {
-        currentRoom = room;
         mapspawn = spawnLoc;
+        SpawnRoom();
     }
 
     public void ChangeRoom(RoomSide side)
@@ -59,25 +60,9 @@ public class MapSystem : MonoBehaviour
             {
                 currentRoomDetail = room;
                 SpawnFloor(room);
-                // foreach(Objs obj in room.objs)
-                // {
-                //     roomObj = new Transform[room.objs.Length];
-                //     int i = 0;
-                //     if(obj.type.Equals("puzzle"))
-                //     {
-                //         Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
-                //         puzzle.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
-                //         roomObj[i] = puzzle;
-                //         i++;
-                //     }
-                //     else if(obj.type.Equals("boss1"))
-                //     {
-                //         Transform boss = Instantiate(allObj.boss1,currentRoom);
-                //         boss.localPosition = new Vector3 (obj.posx,obj.posy,obj.posz);
-                //         roomObj[i] = boss;
-                //         i++;
-                //     }
-                // }
+
+                SetRoomDoor(room);
+
                 if(room.Ftype == FeatureType.puzzle)
                 {
                     Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
@@ -109,7 +94,7 @@ public class MapSystem : MonoBehaviour
 
         miniMapSys.SetCurrentRoom("Room"+mapLoc.current_x+"_"+mapLoc.current_y);
 
-         mapInfo.Busy = false;
+        mapInfo.Busy = false;
         // Debug.Log(currentRoom);
         player.position = Vector3.zero;
         DestroyRoom();
@@ -144,5 +129,15 @@ public class MapSystem : MonoBehaviour
     public RoomDetail GetCurrentRoomDetail()
     {
         return currentRoomDetail;
+    }
+
+    public void SetRoomDoor(RoomDetail room)
+    {
+        DoorMenagement doorMenagement = currentRoom.GetComponent<DoorMenagement>();
+        DoorsDetail doorsDetail = room.doors;
+        doorMenagement.SetRoomDoor(RoomSide.front,doorsDetail.front,doorsDetail.frontKey);
+        doorMenagement.SetRoomDoor(RoomSide.back,doorsDetail.back,doorsDetail.backKey);
+        doorMenagement.SetRoomDoor(RoomSide.left,doorsDetail.left,doorsDetail.leftKey);
+        doorMenagement.SetRoomDoor(RoomSide.right,doorsDetail.right,doorsDetail.rightKey);
     }
 }

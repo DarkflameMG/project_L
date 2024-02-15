@@ -1,0 +1,158 @@
+{
+    "MissionName": "map007",
+    "width": 2,
+    "hight": 3,
+    "startPos": [
+        1,
+        1
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 0,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 1,
+                "left": 2,
+                "right": 0,
+                "frontKey": "",
+                "backKey": "puzzle0",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 1,
+            "y": 0,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "puzzle0",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 0,
+                "left": 0,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "truth01",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "puzzle0",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 1,
+            "y": 1,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 0,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 0,
+            "roomType": 0,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 1,
+            "y": 2,
+            "Ftype": 0,
+            "roomType": 0,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            }
+        }
+    ],
+    "truthTables": [
+        "truth01"
+    ]
+}

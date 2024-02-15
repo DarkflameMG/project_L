@@ -9,34 +9,66 @@ public class DoorMenagement : MonoBehaviour
     private Doors doorBack;
     private Doors doorLeft;
     private Doors doorRight;
-    private bool front = true;
-    private bool back = true;
-    private bool left = true;
-    private bool right = true;
     private void Awake() 
     {
-        doorFront = doors.GetChild(0).GetComponent<Doors>();
-        doorBack = doors.GetChild(1).GetComponent<Doors>();
-        doorLeft = doors.GetChild(2).GetComponent<Doors>();
-        doorRight = doors.GetChild(3).GetComponent<Doors>();
+        doorFront = doors.Find("front").GetComponent<Doors>();
+        doorBack = doors.Find("back").GetComponent<Doors>();
+        doorLeft = doors.Find("left").GetComponent<Doors>();
+        doorRight = doors.Find("right").GetComponent<Doors>();
 
-        CheckDoor();
-        HideDoor();
+        // CheckDoor();
+        // HideDoor();
     }
 
-    private void CheckDoor()
+    // private void CheckDoor()
+    // {
+    //     front = !doorFront.CantInteract();
+    //     back = !doorBack.CantInteract();
+    //     left = !doorLeft.CantInteract();
+    //     right = !doorRight.CantInteract();
+    // }
+
+    // public void HideDoor()
+    // {
+    //     doorFront.gameObject.SetActive(front);
+    //     doorBack.gameObject.SetActive(back);
+    //     doorLeft.gameObject.SetActive(left);
+    //     doorRight.gameObject.SetActive(right);
+    // }
+
+    public void SetRoomDoor(RoomSide side,DoorState state,string key)
     {
-        front = !doorFront.CantInteract();
-        back = !doorBack.CantInteract();
-        left = !doorLeft.CantInteract();
-        right = !doorRight.CantInteract();
+        if(side == RoomSide.front)
+        {
+            SetDoorState(doorFront,state,key);
+        }
+        else if(side == RoomSide.back)
+        {
+            SetDoorState(doorBack,state,key);
+        }
+        else if(side == RoomSide.left)
+        {
+            SetDoorState(doorLeft,state,key);
+        }
+        else if(side == RoomSide.right)
+        {
+            SetDoorState(doorRight,state,key);
+        }
     }
 
-    public void HideDoor()
+    private void SetDoorState(Doors doors,DoorState state,string key)
     {
-        doorFront.gameObject.SetActive(front);
-        doorBack.gameObject.SetActive(back);
-        doorLeft.gameObject.SetActive(left);
-        doorRight.gameObject.SetActive(right);
+        if(state == DoorState.unlocked)
+        {
+            //nothing to do
+        }
+        else if(state == DoorState.locked)
+        {
+            doors.SetLocked(true,key);
+        }
+        else if(state == DoorState.hide)
+        {
+            doors.gameObject.SetActive(false);
+        }
     }
 }

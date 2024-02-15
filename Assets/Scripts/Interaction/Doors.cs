@@ -13,6 +13,8 @@ public class Doors : MonoBehaviour,IInteractable
     private GameObject popupSystem;
     private MapSystem mapSystem;
     private int x,y;
+    private bool isLocked = false;
+    private string key;
     private void Awake() {
         popupSystem = GameObject.Find("PopupSystem");
         mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
@@ -40,7 +42,8 @@ public class Doors : MonoBehaviour,IInteractable
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().showPopup("Open");
+        string text = CheckIfLocked();
+        popupSystem.GetComponent<Popups>().showPopup(text);
         return true;
     }
 
@@ -65,6 +68,21 @@ public class Doors : MonoBehaviour,IInteractable
             }
         }
         return RoomType.none;
+    }
+
+    public string CheckIfLocked()
+    {
+        if(isLocked)
+        {
+            return "Key : "+key+" require";
+        }
+        return "Open";
+    }
+
+    public void SetLocked(bool data,string key)
+    {
+        isLocked = data;
+        this.key = key;
     }
     
 }

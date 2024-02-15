@@ -337,7 +337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3505685}
   m_LocalRotation: {x: 0.16995147, y: 0, z: 0, w: 0.9854524}
-  m_LocalPosition: {x: 0, y: 1.8800001, z: -13.42}
+  m_LocalPosition: {x: 0, y: 2.8, z: -13.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7752,7 +7752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667735867}
   m_LocalRotation: {x: 0.16995147, y: 0, z: 0, w: 0.9854524}
-  m_LocalPosition: {x: 0, y: 1.8800001, z: -13.42}
+  m_LocalPosition: {x: 0, y: 2.8, z: -13.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12718,7 +12718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 1.8800001, z: -5.58}
+  m_FollowOffset: {x: 0, y: 2.8, z: -5.58}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -14510,6 +14510,7 @@ MonoBehaviour:
   allObj: {fileID: 11400000, guid: 637d321e615782d4e9741908746bd730, type: 2}
   levelLoader: {fileID: 31362075}
   miniMapSys: {fileID: 2006962843}
+  allLockedDoor: {fileID: 11400000, guid: 1a187ce126c3b4240b7a7eced2eb168b, type: 2}
 --- !u!1 &1389103077
 GameObject:
   m_ObjectHideFlags: 0
