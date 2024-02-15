@@ -9,6 +9,7 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private int delta_y;
     [SerializeField]private RoomSide side;
     [SerializeField]private MissionSO missionSO;
+    [SerializeField]private KeySO keySO;
     private RoomDetail[] rooms;
     private GameObject popupSystem;
     private MapSystem mapSystem;
@@ -27,9 +28,10 @@ public class Doors : MonoBehaviour,IInteractable
         // x = mapLoc.current_x + delta_x;
         // y = mapLoc.current_y + delta_y;
 
-        if(CantInteract())
+        if((!keySO.keys.Contains(key) && isLocked) || CantInteract())
         {
             // nothing happen
+            Debug.Log("Don't have key");
         }
         else
         {
@@ -43,7 +45,11 @@ public class Doors : MonoBehaviour,IInteractable
     public bool ShowPopup()
     {
         string text = CheckIfLocked();
-        popupSystem.GetComponent<Popups>().showPopup(text);
+        popupSystem.GetComponent<Popups>().ShowPopup(text);
+        if(isLocked)
+        {
+            popupSystem.GetComponent<Popups>().ShowKeyPopup(key,keySO.keys.Contains(key));
+        }
         return true;
     }
 
@@ -74,7 +80,7 @@ public class Doors : MonoBehaviour,IInteractable
     {
         if(isLocked)
         {
-            return "Key : "+key+" require";
+            return "Unlock";
         }
         return "Open";
     }

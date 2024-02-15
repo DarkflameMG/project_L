@@ -9,11 +9,11 @@ public class KeyInventorySys : MonoBehaviour
     [SerializeField]private GameObject inventoryUI;
     [SerializeField]private Transform keyPrefab;
     [SerializeField]private Transform keyContent;
+    [SerializeField]private KeySO keySO;
     private bool inventoryState = false;
-    private List<string> keys;
 
     private void Awake() {
-        keys = new List<string>();
+        SpawnKey();
     }
 
     private void Update() {
@@ -31,11 +31,20 @@ public class KeyInventorySys : MonoBehaviour
 
     public void AddNewKey(string name)
     {
-        if(!keys.Contains(name))
+        if(!keySO.keys.Contains(name))
         {
-            keys.Add(name);
+            keySO.keys.Add(name);
             Transform key = Instantiate(keyPrefab,keyContent);
             key.Find("text").GetComponent<TMP_Text>().text = name;
+        }
+    }
+
+    private void SpawnKey()
+    {
+        foreach(string keyS in keySO.keys)
+        {
+            Transform key = Instantiate(keyPrefab,keyContent);
+            key.Find("text").GetComponent<TMP_Text>().text = keyS;
         }
     }
 }

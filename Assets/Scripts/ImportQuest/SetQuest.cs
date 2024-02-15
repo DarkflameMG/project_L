@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SetQuest : MonoBehaviour
 {
     [SerializeField]private MissionSO missionSO;
+    [SerializeField]private KeySO keySO;
     private Transform child;
     private MissionInfo data;
     private Button btn;
@@ -30,6 +31,7 @@ public class SetQuest : MonoBehaviour
         missionSO.missionInfo = data;
         // SceneManager.LoadScene("TestMap");
         ui.SetActive(false);
+        keySO.keys = new();
         levelLoader.GetComponent<LevelLoader>().LoadMission();
     }
 }

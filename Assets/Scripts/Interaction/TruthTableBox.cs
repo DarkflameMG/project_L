@@ -22,7 +22,7 @@ public class TruthTableBox : MonoBehaviour, IInteractable
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().showPopup("Play");
+        popupSystem.GetComponent<Popups>().ShowPopup("Play");
         return true;
     }
 }

@@ -37,7 +37,7 @@ public class Interactor : MonoBehaviour
         }
         else if(numfound == 0)
         {
-            popupSystem.GetComponent<Popups>().closePopup();
+            popupSystem.GetComponent<Popups>().ClosePopup();
         }
     }
 

@@ -16,7 +16,7 @@ public class GatePuzzle : MonoBehaviour,IInteractable
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().showPopup("Enter");
+        popupSystem.GetComponent<Popups>().ShowPopup("Enter");
         return true;
     }
 
