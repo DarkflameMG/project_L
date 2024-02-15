@@ -23,7 +23,7 @@ public class KeyInventorySys : MonoBehaviour
         }
     }
 
-    private void ToggleUI()
+    public void ToggleUI()
     {
         inventoryState = !inventoryState;
         inventoryUI.SetActive(inventoryState);

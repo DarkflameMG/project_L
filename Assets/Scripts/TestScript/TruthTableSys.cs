@@ -18,11 +18,11 @@ public class TruthTableSys : MonoBehaviour
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
-            SwitchUI();
+            ToggleUI();
         }
     }
 
-    private void SwitchUI()
+    public void ToggleUI()
     {
         state = !state;
         tableUI.SetActive(state);

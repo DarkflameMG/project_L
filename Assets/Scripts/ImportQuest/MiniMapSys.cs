@@ -79,7 +79,7 @@ public class MiniMapSys : MonoBehaviour
         }
     }
 
-    private void ToggleMap()
+    public void ToggleMap()
     {
         mapStatus = !mapStatus;
         if(mapStatus)
