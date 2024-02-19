@@ -111,13 +111,13 @@ public class GameHandle : MonoBehaviour
         Debug.Log("Index = " + Index);
 
         monitors[Index].image.sprite = box;
-        action.Pop();
 
         // undo merge
-        if (box1.text == "merged" || box2.text == "merged" || box3.text == "merged")
+        if (action.Pop() == "merged")
         {
 
             Debug.Log("Undo merged");
+            Debug.Log("action Index count: " + actionIndex.Count);
 
             //open second card
             deck[actionIndex[actionIndex.Count - 1]].interactable = true;
@@ -138,8 +138,9 @@ public class GameHandle : MonoBehaviour
             if (Index == 1) box2.text = "";
             if (Index == 2) box3.text = "";
 
-            // undo action
+            
         }
+        // undo action
         else
         {
 
@@ -357,7 +358,7 @@ public class GameHandle : MonoBehaviour
         //open all card
         for (int i = 0; i < deck.Count; i++)
         {
-            Debug.Log("open card :" + i+1);
+            Debug.Log("open card :" + i + 1);
             deck[i].interactable = true;
             deck[i].image.color = new Color(1, 1, 1, 1);
         }
