@@ -17694,7 +17694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ceb380e6cbd61c4c9c206d5f9095c8c, type: 3}
+  m_Sprite: {fileID: 1803978180, guid: a347097b0f4395d48bd2645064d82c5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18480,6 +18480,8 @@ MonoBehaviour:
   exitRoomStatusImg: {fileID: 1645477429}
   roomCatalogSys: {fileID: 1993430291}
   spawnRoomSlotSys: {fileID: 1950863879}
+  cross: {fileID: 21300000, guid: a6d2a7b68a9926b4e8e9779a6abd333b, type: 3}
+  check: {fileID: 21300000, guid: 54d41d2d5d66c764c93a2a88e5e488fa, type: 3}
 --- !u!1 &1728934771
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class SaveMapSys : MonoBehaviour
     [SerializeField]private Transform exitRoomStatusImg;
     [SerializeField]private Transform roomCatalogSys;
     [SerializeField]private Transform spawnRoomSlotSys;
+    [SerializeField]private Sprite cross;
+    [SerializeField]private Sprite check;
     private bool haveStartRoom = false;
     private bool haveExitRoom = false;
     private Image startCon;
@@ -31,19 +33,23 @@ public class SaveMapSys : MonoBehaviour
         if(CheckStartRoom())
         {
             startCon.color = new Color32(0,255,0,255);
+            startCon.sprite = check;
         }   
         else if(!CheckStartRoom())
         {
             startCon.color = new Color32(255,0,0,255);
+            startCon.sprite = cross;
         } 
 
         if(CheckExitRoom())
         {
             exitCon.color = new Color32(0,255,0,255);
+            exitCon.sprite = check;
         }
         else if (!CheckExitRoom())
         {
             exitCon.color = new Color32(255,0,0,255);
+            exitCon.sprite = cross;
         }
     }
 
