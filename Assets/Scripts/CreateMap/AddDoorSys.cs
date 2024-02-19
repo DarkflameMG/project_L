@@ -29,6 +29,15 @@ public class AddDoorSys : MonoBehaviour
         {
             room1.ShowDoor(room1Side,activated);
             room2.ShowDoor(room2Side,activated);
+
+            if(activated)
+            {
+                room1.SetDoorFeature(room1Side,0);
+            }
+            else
+            {
+                room1.SetDoorFeature(room1Side,2);
+            }
         }
     }
 

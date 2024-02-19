@@ -24,7 +24,7 @@ public class MonBoss : MonoBehaviour, IInteractable
     public bool ShowPopup()
     {
         Debug.Log("show");
-        popupSystem.GetComponent<Popups>().showPopup("Fight");
+        popupSystem.GetComponent<Popups>().ShowPopup("Fight");
         return true;
     }
 }

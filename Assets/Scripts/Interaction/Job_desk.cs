@@ -18,7 +18,7 @@ public class Job_desk : MonoBehaviour,IInteractable
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().showPopup("Get Mission");
+        popupSystem.GetComponent<Popups>().ShowPopup("Get Mission");
         return true;
     }
 

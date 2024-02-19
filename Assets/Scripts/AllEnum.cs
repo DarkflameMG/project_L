@@ -19,6 +19,7 @@ public enum RoomType{none,room1}
 public enum FeatureType{none,monster,puzzle,start,exit}
 public enum CreateMapCatalog{floor,feature,puzzle,door}
 public enum MenuBtn{lobby,map,puzzle,none}
+public enum DoorState{unlocked,locked,hide}
 
 
 [System.Serializable]
@@ -96,6 +97,21 @@ public class RoomDetail
     public string puzzleName;
     public Objs[] objs;
     public LogicGateConfig config;
+    public DoorsDetail doors;
+}
+
+[System.Serializable]
+public class DoorsDetail
+{
+    public DoorState front;
+    public DoorState back;
+    public DoorState left;
+    public DoorState right;
+    public string frontKey = "";
+    public string backKey = "";
+    public string leftKey = "";
+    public string rightKey = "";
+
 }
 
 [System.Serializable]
@@ -126,4 +142,13 @@ public class LogicGateConfig
     public int and;
     public int or;
 
+}
+
+[System.Serializable]
+public class LockedDoors
+{
+    public int x;
+    public int y;
+    public RoomSide doorSide;
+    public bool isLocked;
 }

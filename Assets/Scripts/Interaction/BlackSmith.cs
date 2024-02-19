@@ -17,7 +17,7 @@ public class BlackSmith : MonoBehaviour,IInteractable
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().showPopup("Talk");
+        popupSystem.GetComponent<Popups>().ShowPopup("Talk");
         return true;
     }
 

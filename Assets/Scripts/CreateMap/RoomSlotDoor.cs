@@ -17,10 +17,15 @@ public class RoomSlotDoor : MonoBehaviour
     private Transform[] roomAround;
     AddDoorSys addDoorSys;
     private void Awake() {
-        addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
+        if(GameObject.Find("AddDoorSys") != null)
+        {
+            addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
+        }
         roomAround = new Transform[4];
         doorsActive = new bool[4];
         doorsFeature = new int[4];
+        for(int i=0;i<4;i++)
+            doorsFeature[i] = 2;
         key = new string[4];
         key[0] = "";
         key[1] = "";

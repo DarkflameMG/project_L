@@ -45,6 +45,7 @@ public class AddDoorKeySys : MonoBehaviour
     {
         RoomSlotDoor room = roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlotDoor>();
         room.SetDoorKey(currentSide,name);
+        keyListUI.SetActive(false);
     }
 
     private void SetCurrentKey()

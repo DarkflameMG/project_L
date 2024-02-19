@@ -14,7 +14,8 @@ public class SetMap : MonoBehaviour
         int width = missionSO.missionInfo.width;
         int hight = missionSO.missionInfo.hight;
         this.GetComponent<MapSystem>().SetStartLoc(pos[0],pos[1],width,hight);
-        this.GetComponent<MapSystem>().SetStartRoom(Instantiate(allRoom.room1,mapSpawn),mapSpawn);
+        // this.GetComponent<MapSystem>().SetStartRoom(Instantiate(allRoom.room1,mapSpawn),mapSpawn);
+        this.GetComponent<MapSystem>().SetStartRoom(mapSpawn);
     }
 
     private void Start() 

@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+  keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
 --- !u!114 &2390359194865604589
 MonoBehaviour:
   m_ObjectHideFlags: 0

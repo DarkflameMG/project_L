@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AllRoomPreview
   m_EditorClassIdentifier: 
   defalut: {fileID: 21300000, guid: f1ff066854524eb459e7df0cb42e8d28, type: 3}
-  room1: {fileID: 21300000, guid: 3ceb380e6cbd61c4c9c206d5f9095c8c, type: 3}
+  room1: {fileID: 838971916, guid: e125a17b3797c4546b6b2208cbaa78c7, type: 3}

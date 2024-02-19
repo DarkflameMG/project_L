@@ -74,7 +74,7 @@ public class RoomCatalogSys : MonoBehaviour
         }
         else if(type == FeatureType.monster)
         {
-
+            flag = allFlag.monFlag;
         }
         else if(type == FeatureType.puzzle)
         {
