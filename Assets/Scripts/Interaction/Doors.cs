@@ -18,7 +18,10 @@ public class Doors : MonoBehaviour,IInteractable
     private string key;
     private void Awake() {
         popupSystem = GameObject.Find("PopupSystem");
-        mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
+        if(GameObject.Find("SpawnMapSys") != null)
+        {
+            mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
+        }
     }
 
     public string InteractionPrompt => throw new System.NotImplementedException();
