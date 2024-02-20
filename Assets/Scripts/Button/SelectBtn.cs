@@ -11,10 +11,10 @@ public class SelectBtn : MonoBehaviour
 
     private void Start() {
         Button btn = this.GetComponent<Button>();
-        btn.onClick.AddListener(taskOnclick);
+        btn.onClick.AddListener(TaskOnclick);
     }
 
-    private void taskOnclick()
+    private void TaskOnclick()
     {
         lobbyinfo.questType = questType;
         lobbyinfo.currentPage = page;
