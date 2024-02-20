@@ -11,7 +11,7 @@ public class AllEnum : MonoBehaviour
 public enum SlotNo{s1,s2,output};
 
 public enum QuestType{ none,hunt,arena,investigate }
-public enum Page{none,main,selectType,questList,custom,mainUp,up,mod}
+public enum Page{none,main,mainQuest,custom,mainUp,up,mod}
 
 public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}

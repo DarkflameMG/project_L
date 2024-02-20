@@ -31,6 +31,6 @@ public class Job_desk : MonoBehaviour,IInteractable
     private void changeScene()
     {
         // SceneManager.LoadScene("MissionSelect");
-        MissionSystem.GetComponent<MissionSelect>().run();
+        MissionSystem.GetComponent<MissionSelect>().Run();
     }
 }
