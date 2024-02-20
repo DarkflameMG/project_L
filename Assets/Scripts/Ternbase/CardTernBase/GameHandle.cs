@@ -37,7 +37,8 @@ public class GameHandle : MonoBehaviour
     public List<int> actionIndex = new List<int>();
 
     public List<Sprite> newDeck = new List<Sprite>();
-
+    Vector3 temp_enemy;
+    Vector3 temp_player;
     private void Start()
     {
         SetUpTernBase();
@@ -53,6 +54,8 @@ public class GameHandle : MonoBehaviour
         enemyhealthSystem = new HealthSystem(100);
         playerHealthBar.Setup(playerhealthSystem);
         enemyHealthBar.Setup(enemyhealthSystem);
+        Vector3 temp_enemy = enemy.transform.position;
+        Vector3 temp_player = player.transform.position;
     }
 
     void GetMonitors()
@@ -285,12 +288,9 @@ public class GameHandle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerhealthSystem.GetHealth() != 0 && enemyhealthSystem.GetHealth() != 0)
-        {
-            playerAttack();
-            if (enemyhealthSystem.GetHealth() != 0) enemyAttack();
-        }
-        //Player.SetBool("Attack",false);
+        
+        if(action.Count != 3) startBtn.enabled = false;
+        else startBtn.enabled = true;
 
         if (action.Count == 0)
         {
@@ -370,10 +370,6 @@ public class GameHandle : MonoBehaviour
 
     public void playerAttack()
     {
-        //Player.SetBool("Attack",true);
-        //float randomFloat = Random.Range(0.0f, 1.0f);
-        //enemyhealthSystem.Damage((int)(randomFloat * 50));
-        //StartCoroutine(waiter());
 
         int dmg = 0;
 
@@ -442,21 +438,33 @@ public class GameHandle : MonoBehaviour
 
         reTurn();
 
-        enemyhealthSystem.Damage(dmg);
+        if(dmg != 0){
+            StartCoroutine(playerAttackAnimation());
 
-        if (enemyhealthSystem.GetHealth() != 0) enemyAttack();
-        //end game
-        if (enemyhealthSystem.GetHealth() == 0)
-        {
-            Popup.SetActive(true);
-            text.text = "Player Win..";
-            enemy.SetActive(false);
+            enemyhealthSystem.Damage(dmg);
+
+            if (enemyhealthSystem.GetHealth() != 0) StartCoroutine(enemyAttack());
+            //end game
+            if (enemyhealthSystem.GetHealth() == 0)
+            {
+                Popup.SetActive(true);
+                text.text = "Player Win..";
+                enemy.SetActive(false);
+            }
         }
+        
     }
 
-    public void enemyAttack()
+    IEnumerator enemyAttack()
     {
         float randomFloat = Random.Range(0.0f, 1.0f);
+        
+        Vector3 temp = enemy.transform.position;
+        enemy.transform.position = new Vector3(player.transform.position.x + 5,player.transform.position.y,player.transform.position.z);
+        Enemy.SetBool("attack",true);
+        yield return new WaitForSeconds(1);
+        enemy.transform.position = temp;
+        Enemy.SetBool("attack",false);
         playerhealthSystem.Damage((int)(randomFloat * 50));
         if (playerhealthSystem.GetHealth() == 0)
         {
@@ -466,10 +474,15 @@ public class GameHandle : MonoBehaviour
         }
     }
 
-    IEnumerator waiter()
+    IEnumerator playerAttackAnimation()
     {
         //Wait for 1 seconds
+        Vector3 temp = player.transform.position;
+        player.transform.position = new Vector3(enemy.transform.position.x - 5,enemy.transform.position.y,enemy.transform.position.z);
+        Player.SetBool("attack",true);
         yield return new WaitForSeconds(1);
+        player.transform.position = temp;
+        Player.SetBool("attack",false);
     }
 
 }
