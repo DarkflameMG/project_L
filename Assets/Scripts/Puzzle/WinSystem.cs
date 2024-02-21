@@ -21,6 +21,7 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private GameObject tabBar;
     [SerializeField]private KeyInventorySys keyInventorySys;
     [SerializeField]private MapSystem mapSystem;
+    [SerializeField]private PlayPuzzle playPuzzle;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
@@ -86,6 +87,7 @@ public class WinSystem : MonoBehaviour
 
         RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
         keyInventorySys.AddNewKey(roomDetail.puzzleName);
+        playPuzzle.UpdateChest();
     }
     private void CheckWinCond()
     {

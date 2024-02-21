@@ -5,8 +5,11 @@ using UnityEngine;
 public class PuzzleBox : MonoBehaviour, IInteractable
 {
     [SerializeField]private string _prompt;
+    [SerializeField]private Mesh open;
+    [SerializeField]private Mesh close;
     private GameObject popupSystem;
     private GameObject playPuzzleSys;
+    private bool canInteract = true;
     private void Awake() {
         popupSystem = GameObject.Find("PopupSystem");
         playPuzzleSys = GameObject.Find("PuzzlePlaySys");
@@ -15,14 +18,38 @@ public class PuzzleBox : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Open");
-        playPuzzleSys.GetComponent<PlayPuzzle>().StartPuzzle();
-        return true;
+        if(canInteract)
+        {
+            Debug.Log("Open");
+            playPuzzleSys.GetComponent<PlayPuzzle>().StartPuzzle(this.transform);
+            return true;
+        }
+        return false;
     }
 
     public bool ShowPopup()
     {
-        popupSystem.GetComponent<Popups>().ShowPopup("Play");
+        if(canInteract)
+        {
+            popupSystem.GetComponent<Popups>().ShowPopup("Play");
+        }
         return true;
+    }
+
+    public void SetInteract(bool data)
+    {
+        canInteract = data;
+        if(canInteract)
+        {
+            GetComponent<MeshFilter>().mesh = close;
+            GetComponent<MeshCollider>().sharedMesh = null;
+            GetComponent<MeshCollider>().sharedMesh = close;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = open;
+            GetComponent<MeshCollider>().sharedMesh = null;
+            GetComponent<MeshCollider>().sharedMesh = open;
+        }
     }
 }

@@ -10,14 +10,21 @@ public class PlayPuzzle : MonoBehaviour
     [SerializeField]LobbyInfo mapInfo;
     [SerializeField]GameObject mapUI;
     [SerializeField]GameObject tabBar;
+    private Transform currentPuzzleBox;
 
-    public void StartPuzzle()
+    public void StartPuzzle(Transform puzzleBox)
     {
+        currentPuzzleBox = puzzleBox;
         puzzleScene.gameObject.SetActive(true);
         puzzleTool.gameObject.SetActive(true);
         createPuzzleSys.GetComponent<CreatePuzzle>().StartGame();
         mapUI.SetActive(false);
         tabBar.SetActive(false);
         mapInfo.Busy = true;
+    }
+
+    public void UpdateChest()
+    {
+        currentPuzzleBox.GetComponent<PuzzleBox>().SetInteract(false);
     }
 }
