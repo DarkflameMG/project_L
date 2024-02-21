@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+
 public class GameHandle : MonoBehaviour
 {
+    public List<GameObject> monsters = new List<GameObject>();
+    public Transform room;
     public GameObject player;
     public GameObject enemy;
     public HealthBar playerHealthBar;
@@ -15,12 +18,14 @@ public class GameHandle : MonoBehaviour
     public Animator Enemy;
     public TMP_Text text;
     public GameObject Popup;
+    [SerializeField] public MonsterSO monster;
     [SerializeField] public Sprite[] spritesLV1;
     [SerializeField] public Sprite[] spritesLV2;
     [SerializeField] public Sprite[] spritesLV3;
     public Sprite box;
     public List<Button> deck = new List<Button>();
     public Button startBtn;
+    public GameObject startButton;
 
     private bool firstSelect, secondSeclect;
     private int firstSelectIndex, secondSeclectIndex;
@@ -37,25 +42,45 @@ public class GameHandle : MonoBehaviour
     public List<int> actionIndex = new List<int>();
 
     public List<Sprite> newDeck = new List<Sprite>();
-    Vector3 temp_enemy;
-    Vector3 temp_player;
+
     private void Start()
     {
-        SetUpTernBase();
         GetMonitors();
         GetButtons();
+        SetUpTurnBase();
         AddListeners();
     }
 
-    void SetUpTernBase()
+    void SetUpTurnBase()
     {
+        spawnMonster();
         Popup.SetActive(false);
         playerhealthSystem = new HealthSystem(100);
-        enemyhealthSystem = new HealthSystem(100);
+        enemyhealthSystem = new HealthSystem(monster.hp);
         playerHealthBar.Setup(playerhealthSystem);
         enemyHealthBar.Setup(enemyhealthSystem);
-        Vector3 temp_enemy = enemy.transform.position;
-        Vector3 temp_player = player.transform.position;
+
+    }
+
+    void spawnMonster()
+    {
+        foreach (GameObject mon in monsters)
+        {
+            if (mon.name == monster.monsterName)
+            {
+                Vector3 position = new Vector3((float)5.11, (float)0.03, (float)-4.778947);
+                GameObject e = Instantiate(mon, room);
+                e.transform.localPosition = position;
+                break;
+            }
+        }
+    }
+
+    void spawnPlayer()
+    {
+        Vector3 position = new Vector3((float)5.84, (float)1.49, (float)4.473684);
+        GameObject p = Instantiate(player, room);
+        p.transform.localPosition = position;
     }
 
     void GetMonitors()
@@ -93,7 +118,7 @@ public class GameHandle : MonoBehaviour
     {
         foreach (Button btn in deck)
         {
-            int randomIndex = Random.Range(0, spritesLV1.Length);
+            int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
             btn.onClick.AddListener(() => PickAPuzzle());
             btn.GetComponent<Image>().sprite = spritesLV1[randomIndex];
         }
@@ -141,7 +166,7 @@ public class GameHandle : MonoBehaviour
             if (Index == 1) box2.text = "";
             if (Index == 2) box3.text = "";
 
-            
+
         }
         // undo action
         else
@@ -288,9 +313,19 @@ public class GameHandle : MonoBehaviour
 
     private void Update()
     {
-        
-        if(action.Count != 3) startBtn.enabled = false;
-        else startBtn.enabled = true;
+
+        if (action.Count != 3)
+        {
+            startBtn.enabled = false;
+            startBtn.interactable = false;
+            startButton.SetActive(false);
+        }
+        else
+        {
+            startBtn.enabled = true;
+            startBtn.interactable = true;
+            startButton.SetActive(true);
+        }
 
         if (action.Count == 0)
         {
@@ -350,7 +385,7 @@ public class GameHandle : MonoBehaviour
         //add new card
         for (int i = newDeck.Count; i < 5; i++)
         {
-            int randomIndex = Random.Range(0, spritesLV1.Length);
+            int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
             deck[i].GetComponent<Image>().sprite = spritesLV1[randomIndex];
         }
         Debug.Log("deck : " + deck.Count);
@@ -438,9 +473,10 @@ public class GameHandle : MonoBehaviour
 
         reTurn();
 
-        if(dmg != 0){
-            StartCoroutine(playerAttackAnimation());
-
+        if (dmg != 0)
+        {
+            //StartCoroutine(playerAttackAnimation());
+            Player.Play("attack", 0, 0f);
             enemyhealthSystem.Damage(dmg);
 
             if (enemyhealthSystem.GetHealth() != 0) StartCoroutine(enemyAttack());
@@ -452,20 +488,20 @@ public class GameHandle : MonoBehaviour
                 enemy.SetActive(false);
             }
         }
-        
+
     }
 
     IEnumerator enemyAttack()
     {
-        float randomFloat = Random.Range(0.0f, 1.0f);
-        
+        // float randomFloat = Random.Range(0.0f, 1.0f);
+
         Vector3 temp = enemy.transform.position;
-        enemy.transform.position = new Vector3(player.transform.position.x + 5,player.transform.position.y,player.transform.position.z);
-        Enemy.SetBool("attack",true);
+        enemy.transform.position = new Vector3(player.transform.position.x + 5, player.transform.position.y, player.transform.position.z);
+        Enemy.SetBool("attack", true);
         yield return new WaitForSeconds(1);
         enemy.transform.position = temp;
-        Enemy.SetBool("attack",false);
-        playerhealthSystem.Damage((int)(randomFloat * 50));
+        Enemy.SetBool("attack", false);
+        playerhealthSystem.Damage(monster.attack);
         if (playerhealthSystem.GetHealth() == 0)
         {
             Popup.SetActive(true);
@@ -477,12 +513,13 @@ public class GameHandle : MonoBehaviour
     IEnumerator playerAttackAnimation()
     {
         //Wait for 1 seconds
+        Player.Play("AnimationName", -1, 0f);
         Vector3 temp = player.transform.position;
-        player.transform.position = new Vector3(enemy.transform.position.x - 5,enemy.transform.position.y,enemy.transform.position.z);
-        Player.SetBool("attack",true);
+        player.transform.position = new Vector3(enemy.transform.position.x - 5, enemy.transform.position.y, enemy.transform.position.z);
+        Player.SetBool("attack", true);
         yield return new WaitForSeconds(1);
         player.transform.position = temp;
-        Player.SetBool("attack",false);
+        Player.SetBool("attack", false);
     }
 
 }

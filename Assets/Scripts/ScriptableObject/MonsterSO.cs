@@ -8,4 +8,5 @@ public class MonsterSO : ScriptableObject
     public string monsterName;
     public int hp;
     public int attack;
+    
 }
