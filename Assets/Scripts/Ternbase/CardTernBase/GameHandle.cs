@@ -53,7 +53,7 @@ public class GameHandle : MonoBehaviour
 
     void SetUpTurnBase()
     {
-        spwanMonster();
+        spawnMonster();
         Popup.SetActive(false);
         playerhealthSystem = new HealthSystem(100);
         enemyhealthSystem = new HealthSystem(monster.hp);
@@ -62,7 +62,7 @@ public class GameHandle : MonoBehaviour
 
     }
 
-    void spwanMonster()
+    void spawnMonster()
     {
         foreach (GameObject mon in monsters)
         {
@@ -76,7 +76,7 @@ public class GameHandle : MonoBehaviour
         }
     }
 
-    void spwanPlayer()
+    void spawnPlayer()
     {
         Vector3 position = new Vector3((float)5.84, (float)1.49, (float)4.473684);
         GameObject p = Instantiate(player, room);
