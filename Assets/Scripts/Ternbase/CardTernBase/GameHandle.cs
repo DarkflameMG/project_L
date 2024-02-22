@@ -6,44 +6,57 @@ using UnityEngine.UI;
 
 public class GameHandle : MonoBehaviour
 {
-    public List<GameObject> monsters = new List<GameObject>();
     public Transform room;
+    [SerializeField] GameObject top;
+    [SerializeField] GameObject bot;
+
+    private bool battle = false;
+    [SerializeField] private GameObject boxStartBtn;
+    [SerializeField] private Button startBtn;
+
+    //Monster List
+    public List<GameObject> monsters = new List<GameObject>();
+    [SerializeField] private MonsterSO monster;
+
+    //characters
     [SerializeField] private GameObject player;
-    //private GameObject enemy;
     private HealthBar playerHealthBar;
     private HealthBar enemyHealthBar;
     private HealthSystem playerhealthSystem;
     private HealthSystem enemyhealthSystem;
     private Animator PlayerAnimation;
     private Animator EnemyAnimation;
+
+    //Pop up end game
     public TMP_Text text;
     public GameObject Popup;
-    [SerializeField] public MonsterSO monster;
+
+    //Cards sprites
     [SerializeField] public Sprite[] spritesLV1;
     [SerializeField] public Sprite[] spritesLV2;
     [SerializeField] public Sprite[] spritesLV3;
-    public Sprite box;
-    public List<Button> deck = new List<Button>();
-    public Button startBtn;
-    public GameObject startButton;
 
+    // Card blank(back card)
+    public Sprite box;
+
+    //Logic Variable
+    private bool skip = false;
     private bool firstSelect, secondSeclect;
     private int firstSelectIndex, secondSeclectIndex;
     private string firstSelectPuzzle, secondSeclectPuzzle;
+    public Stack<string> action = new Stack<string>();
+    public List<Sprite> actionSprite = new List<Sprite>();
+    public List<int> actionIndex = new List<int>();
 
+    //Deck
+    public List<Button> deck = new List<Button>();
+    public List<Sprite> newDeck = new List<Sprite>();
+
+    //Action Box
     public List<Button> monitors = new List<Button>();
     [SerializeField] public TMP_Text box1;
     [SerializeField] public TMP_Text box2;
     [SerializeField] public TMP_Text box3;
-
-    public Stack<string> action = new Stack<string>();
-
-    public List<Sprite> actionSprite = new List<Sprite>();
-    public List<int> actionIndex = new List<int>();
-
-    public List<Sprite> newDeck = new List<Sprite>();
-
-    private bool skip = false;
 
     private void Start()
     {
@@ -129,7 +142,6 @@ public class GameHandle : MonoBehaviour
         startBtn.onClick.AddListener(() => startTern());
     }
 
-
     //undo
     void PlayBack()
     {
@@ -184,9 +196,15 @@ public class GameHandle : MonoBehaviour
 
     }
 
+    void SetBtnActive(List<Button> btns, bool value)
+    {
+        foreach (Button btn in btns)
+        {
+            btn.interactable = value;
+        }
+    }
     void PickAPuzzle()
     {
-
         if (!firstSelect)
         {
 
@@ -196,7 +214,6 @@ public class GameHandle : MonoBehaviour
 
             firstSelectPuzzle = deck[firstSelectIndex].GetComponent<Image>().sprite.name;
 
-            //btns[firstSelectIndex].interactable = false;
             Debug.Log("firstSelectPuzzle : " + firstSelectPuzzle);
 
         }
@@ -226,13 +243,13 @@ public class GameHandle : MonoBehaviour
                 switch (action.Count)
                 {
                     case 1:
-                        box1.text = "merged";
+                        box1.text = "Merged";
                         break;
                     case 2:
-                        box2.text = "merged";
+                        box2.text = "Merged";
                         break;
                     case 3:
-                        box3.text = "merged";
+                        box3.text = "Merged";
                         break;
                 }
 
@@ -311,20 +328,20 @@ public class GameHandle : MonoBehaviour
 
     private void Update()
     {
-
-        if (action.Count != 3)
+        if (battle)
         {
-            startBtn.enabled = false;
+            top.SetActive(false);
+            bot.SetActive(false);
             startBtn.interactable = false;
-            startButton.SetActive(false);
+            boxStartBtn.SetActive(false);
         }
         else
         {
-            startBtn.enabled = true;
+            top.SetActive(true);
+            bot.SetActive(true);
             startBtn.interactable = true;
-            startButton.SetActive(true);
+            boxStartBtn.SetActive(true);
         }
-
         if (action.Count == 0)
         {
             monitors[0].enabled = false;
@@ -355,6 +372,7 @@ public class GameHandle : MonoBehaviour
     {
         actionIndex.Clear();
         actionSprite.Clear();
+        action.Clear();
 
         //reset monitors
         for (int i = 0; i < 3; i++)
@@ -403,12 +421,13 @@ public class GameHandle : MonoBehaviour
 
     public void playerAction()
     {
+        string skill = "1";
 
         if (!skip)
         {
             int dmg = 0;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < action.Count; i++)
             {
 
                 if (action.Pop() == "use")
@@ -417,50 +436,62 @@ public class GameHandle : MonoBehaviour
                     if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "42")
                     {
                         dmg += 5;
+                        skill = "1";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "43")
                     {
                         dmg += 5;
+                        skill = "1";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "44")
                     {
                         dmg += 5;
+                        skill = "1";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "45")
                     {
                         dmg += 5;
+                        skill = "1";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "28")
                     {
                         dmg += 20;
+                        skill = "2";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "29")
                     {
                         dmg += 20;
+                        skill = "2";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "30")
                     {
                         dmg += 25;
+                        skill = "2";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "31")
                     {
                         dmg += 30;
+                        skill = "2";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "16")
                     {
                         dmg += 50;
+                        skill = "3";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "17")
                     {
                         dmg += 50;
+                        skill = "3";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "18")
                     {
                         dmg += 50;
+                        skill = "3";
                     }
                     else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "19")
                     {
                         dmg += 50;
+                        skill = "3";
                     }
                     actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
@@ -475,46 +506,84 @@ public class GameHandle : MonoBehaviour
 
             if (dmg != 0)
             {
-                StartCoroutine(playerAttackAnimation(dmg));
+                StartCoroutine(playerAttackAnimation(dmg, skill));
             }
+            else
+            {
+                skip = true;
+            }
+        }
+        else
+        {
+            reTurn();
+            action.Clear();
+            actionSprite.Clear();
         }
 
     }
 
     void startTern()
     {
+        battle = true;
         playerAction();
-
-        if (enemyhealthSystem.GetHealth() != 0)
-        {
-            StartCoroutine(enemyAttack());
-        }
-
+        SetBtnActive(deck, false);
+        StartCoroutine(enemyAttack());
+        skip = false;
         StartCoroutine(checkGameEnd());
+        SetBtnActive(deck, true);
     }
 
     IEnumerator enemyAttack()
     {
-        yield return new WaitForSeconds(1);
-        EnemyAnimation.Play("Attack", 0, 0f);
-        playerhealthSystem.Damage(monster.attack);
-
+        if (enemyhealthSystem.GetHealth() > 0)
+        {
+            if (!skip)
+            {
+                yield return new WaitForSeconds(1);
+            }
+            Vector3 posPlayer = GameObject.Find("Player").transform.localPosition;
+            Vector3 posEnemy = GameObject.Find("Enemy").transform.localPosition;
+            GameObject.Find("Enemy").transform.localPosition = new Vector3(posPlayer.x + 3, posEnemy.y, posEnemy.z);
+            EnemyAnimation.Play("Attack", 0, 0f);
+            PlayerAnimation.Play("hurt", 0, 0f);
+            playerhealthSystem.Damage(monster.attack);
+            yield return new WaitForSeconds(1);
+            GameObject.Find("Enemy").transform.localPosition = posEnemy;
+        }
     }
 
-    IEnumerator playerAttackAnimation(int dmg)
+    IEnumerator playerAttackAnimation(int dmg, string skill)
     {
-        PlayerAnimation.Play("attack", 0, 0f);
+        // PlayerAnimation.Play("attack", 0, 0f);
+        Vector3 posPlayer = GameObject.Find("Player").transform.localPosition;
+        Vector3 posEnemy = GameObject.Find("Enemy").transform.localPosition;
+        GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
+        if (skill == "1")
+        {
+            PlayerAnimation.Play("skill1", 0, 0f);
+        }
+        else if (skill == "2")
+        {
+            PlayerAnimation.Play("skill2", 0, 0f);
+        }
+        else if (skill == "3")
+        {
+            PlayerAnimation.Play("skill3", 0, 0f);
+        }
         EnemyAnimation.Play("Hurt", 0, 0f);
         enemyhealthSystem.Damage(dmg);
         yield return new WaitForSeconds(1);
-
+        GameObject.Find("Player").transform.localPosition = posPlayer;
     }
 
     IEnumerator checkGameEnd()
     {
-
+        bool check = false;
+        Debug.Log("Player HP : " + playerhealthSystem.GetHealth());
+        Debug.Log("Enemy HP : " + enemyhealthSystem.GetHealth());
         if (enemyhealthSystem.GetHealth() == 0)
         {
+            check = true;
             EnemyAnimation.Play("Death", 0, 0f);
             yield return new WaitForSeconds(1);
             Popup.SetActive(true);
@@ -523,10 +592,23 @@ public class GameHandle : MonoBehaviour
         }
         if (playerhealthSystem.GetHealth() == 0)
         {
+            check = true;
+            PlayerAnimation.Play("Death", 0, 0f);
+            yield return new WaitForSeconds(1);
             Popup.SetActive(true);
             text.text = "Player Dead..";
-            player.SetActive(false);
+            GameObject.Find("Player").SetActive(false);
         }
+
+        if (!skip)
+        {
+            yield return new WaitForSeconds(2);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1);
+        }
+        if(!check) battle = false;
     }
 
 }
