@@ -1,39 +1,15 @@
 {
     "MissionName": "mapTestKey",
-    "width": 1,
-    "hight": 4,
+    "width": 2,
+    "hight": 2,
     "startPos": [
-        0,
-        3
+        1,
+        1
     ],
     "rooms": [
         {
             "x": 0,
             "y": 0,
-            "Ftype": 4,
-            "roomType": 1,
-            "puzzleName": "truth01",
-            "objs": [],
-            "config": {
-                "line": 0,
-                "not": 0,
-                "and": 0,
-                "or": 0
-            },
-            "doors": {
-                "front": 2,
-                "back": 0,
-                "left": 2,
-                "right": 2,
-                "frontKey": "",
-                "backKey": "",
-                "leftKey": "",
-                "rightKey": ""
-            }
-        },
-        {
-            "x": 0,
-            "y": 1,
             "Ftype": 2,
             "roomType": 1,
             "puzzleName": "puzzle1",
@@ -45,19 +21,19 @@
                 "or": 0
             },
             "doors": {
-                "front": 0,
-                "back": 0,
+                "front": 2,
+                "back": 1,
                 "left": 2,
-                "right": 2,
+                "right": 1,
                 "frontKey": "",
-                "backKey": "",
+                "backKey": "puzzle1",
                 "leftKey": "",
-                "rightKey": ""
+                "rightKey": "puzzle0"
             }
         },
         {
-            "x": 0,
-            "y": 2,
+            "x": 1,
+            "y": 0,
             "Ftype": 2,
             "roomType": 1,
             "puzzleName": "puzzle0",
@@ -69,19 +45,43 @@
                 "or": 0
             },
             "doors": {
-                "front": 0,
+                "front": 2,
                 "back": 0,
-                "left": 2,
+                "left": 1,
                 "right": 2,
                 "frontKey": "",
+                "backKey": "",
+                "leftKey": "puzzle0",
+                "rightKey": ""
+            }
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "truth01",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "puzzle1",
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
             }
         },
         {
-            "x": 0,
-            "y": 3,
+            "x": 1,
+            "y": 1,
             "Ftype": 3,
             "roomType": 1,
             "puzzleName": "none",

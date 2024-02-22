@@ -10,8 +10,10 @@ public class Popups : MonoBehaviour
     [SerializeField]private GameObject keyPopup;
     [SerializeField]private Image keyCheck;
     [SerializeField]private TMP_Text keyName;
+    [SerializeField]private Image keyImage;
     [SerializeField]private Sprite check;
     [SerializeField]private Sprite cross;
+    [SerializeField]private KeySO keySO;
 
     public void ShowPopup(string text)
     {
@@ -32,6 +34,8 @@ public class Popups : MonoBehaviour
     {
         keyPopup.SetActive(true);
         keyName.text = name;
+        int index = keySO.allKeys.IndexOf(name);
+        keyImage.color = keySO.color[index];
         if(have)
         {
             keyCheck.sprite = check;

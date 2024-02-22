@@ -68,7 +68,7 @@ public class MapSystem : MonoBehaviour
                 {
                     Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
                     puzzle.localPosition = Vector3.zero;
-                    if(keySO.keys.Contains(room.puzzleName))
+                    if(keySO.currentKeys.Contains(room.puzzleName))
                     {
                         PuzzleBox puzzleBox = puzzle.Find("chest").GetComponent<PuzzleBox>();
                         puzzleBox.SetInteract(false);

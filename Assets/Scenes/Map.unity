@@ -1709,6 +1709,17 @@ RectTransform:
   m_AnchoredPosition: {x: -325, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &143366088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6666102968431347077, guid: 41f4b0591c2c600419ca465cf1159291, type: 3}
+  m_PrefabInstance: {fileID: 258917723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151303065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6592,8 +6603,10 @@ MonoBehaviour:
   keyPopup: {fileID: 143332143}
   keyCheck: {fileID: 948298825}
   keyName: {fileID: 1704251638}
+  keyImage: {fileID: 143366088}
   check: {fileID: 21300000, guid: 54d41d2d5d66c764c93a2a88e5e488fa, type: 3}
   cross: {fileID: 21300000, guid: a6d2a7b68a9926b4e8e9779a6abd333b, type: 3}
+  keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
 --- !u!1 &575980021
 GameObject:
   m_ObjectHideFlags: 0
@@ -15393,6 +15406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4d14c071d5db548b66f11004834276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winSystem: {fileID: 1117993384}
 --- !u!1 &1361041766
 GameObject:
   m_ObjectHideFlags: 0
@@ -20663,6 +20677,7 @@ MonoBehaviour:
   keyContent: {fileID: 603003346}
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
   rewardPoint: {fileID: 717410996}
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1960703136
 GameObject:
   m_ObjectHideFlags: 0
