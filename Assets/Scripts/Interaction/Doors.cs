@@ -10,6 +10,8 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private RoomSide side;
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private KeySO keySO;
+    [SerializeField]private Mesh unlockedDoor;
+    [SerializeField]private Mesh lockedDoor;
     private RoomDetail[] rooms;
     private GameObject popupSystem;
     private MapSystem mapSystem;
@@ -31,7 +33,7 @@ public class Doors : MonoBehaviour,IInteractable
         // x = mapLoc.current_x + delta_x;
         // y = mapLoc.current_y + delta_y;
 
-        if((!keySO.keys.Contains(key) && isLocked) || CantInteract())
+        if((!keySO.currentKeys.Contains(key) && isLocked) || CantInteract())
         {
             // nothing happen
             Debug.Log("Don't have key");
@@ -51,7 +53,7 @@ public class Doors : MonoBehaviour,IInteractable
         popupSystem.GetComponent<Popups>().ShowPopup(text);
         if(isLocked)
         {
-            popupSystem.GetComponent<Popups>().ShowKeyPopup(key,keySO.keys.Contains(key));
+            popupSystem.GetComponent<Popups>().ShowKeyPopup(key,keySO.currentKeys.Contains(key));
         }
         return true;
     }
@@ -92,6 +94,14 @@ public class Doors : MonoBehaviour,IInteractable
     {
         isLocked = data;
         this.key = key;
+        if(isLocked)
+        {
+            GetComponent<MeshFilter>().mesh = lockedDoor;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = unlockedDoor;
+        }
     }
     
 }

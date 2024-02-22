@@ -6,5 +6,9 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class KeySO : ScriptableObject
 {
-    public List<String> keys;
+    public List<String> currentKeys;
+    public List<Color32> color;
+    public int currentIndex;
+    public List<String> allKeys;
+
 }

@@ -15,6 +15,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField]GameObject levelLoader;
     [SerializeField]MiniMapSys miniMapSys;
     [SerializeField]AllLockedDoor allLockedDoor;
+    [SerializeField]KeySO keySO;
 
     private Transform currentRoom;
     private RoomDetail currentRoomDetail;
@@ -67,6 +68,11 @@ public class MapSystem : MonoBehaviour
                 {
                     Transform puzzle = Instantiate(allObj.puzzle,currentRoom);
                     puzzle.localPosition = Vector3.zero;
+                    if(keySO.currentKeys.Contains(room.puzzleName))
+                    {
+                        PuzzleBox puzzleBox = puzzle.Find("chest").GetComponent<PuzzleBox>();
+                        puzzleBox.SetInteract(false);
+                    }
                 }
                 else if(room.Ftype == FeatureType.exit)
                 {

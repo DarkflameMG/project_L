@@ -31,7 +31,9 @@ public class SetQuest : MonoBehaviour
         missionSO.missionInfo = data;
         // SceneManager.LoadScene("TestMap");
         ui.SetActive(false);
-        keySO.keys = new();
+        keySO.currentKeys = new();
+        keySO.color = new();
+        keySO.currentIndex = 0;
         levelLoader.GetComponent<LevelLoader>().LoadMission();
     }
 }
