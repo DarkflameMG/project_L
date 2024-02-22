@@ -10,6 +10,8 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private RoomSide side;
     [SerializeField]private MissionSO missionSO;
     [SerializeField]private KeySO keySO;
+    [SerializeField]private Mesh unlockedDoor;
+    [SerializeField]private Mesh lockedDoor;
     private RoomDetail[] rooms;
     private GameObject popupSystem;
     private MapSystem mapSystem;
@@ -92,6 +94,14 @@ public class Doors : MonoBehaviour,IInteractable
     {
         isLocked = data;
         this.key = key;
+        if(isLocked)
+        {
+            GetComponent<MeshFilter>().mesh = lockedDoor;
+        }
+        else
+        {
+            GetComponent<MeshFilter>().mesh = unlockedDoor;
+        }
     }
     
 }

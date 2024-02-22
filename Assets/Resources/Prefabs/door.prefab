@@ -116,3 +116,5 @@ MonoBehaviour:
   side: 0
   missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
+  unlockedDoor: {fileID: -7002800478522578119, guid: 71aae269886834b4d8371099a99349b2, type: 3}
+  lockedDoor: {fileID: 7696180846141515301, guid: 9764912f963b61d4ca9c59744ac98448, type: 3}

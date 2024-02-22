@@ -22,6 +22,7 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private KeyInventorySys keyInventorySys;
     [SerializeField]private MapSystem mapSystem;
     [SerializeField]private PlayPuzzle playPuzzle;
+    [SerializeField]private KeyRewardSys keyRewardSys;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
@@ -88,6 +89,18 @@ public class WinSystem : MonoBehaviour
         RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
         keyInventorySys.AddNewKey(roomDetail.puzzleName);
         playPuzzle.UpdateChest();
+        keyRewardSys.ShowReward();
+    }
+
+    public void Escape()
+    {
+        DestroyGates();
+        DestroyLines();
+        puzzleScene.SetActive(false);
+        puzzleTool.SetActive(false);
+        mapUI.SetActive(true);
+        tabBar.SetActive(true);
+        mapInfo.Busy = false;
     }
     private void CheckWinCond()
     {
