@@ -8,14 +8,14 @@ public class GameHandle : MonoBehaviour
 {
     public List<GameObject> monsters = new List<GameObject>();
     public Transform room;
-    public GameObject player;
-    public GameObject enemy;
-    public HealthBar playerHealthBar;
-    public HealthBar enemyHealthBar;
-    HealthSystem playerhealthSystem;
-    HealthSystem enemyhealthSystem;
-    public Animator Player;
-    public Animator Enemy;
+    [SerializeField] private GameObject player;
+    //private GameObject enemy;
+    private HealthBar playerHealthBar;
+    private HealthBar enemyHealthBar;
+    private HealthSystem playerhealthSystem;
+    private HealthSystem enemyhealthSystem;
+    private Animator PlayerAnimation;
+    private Animator EnemyAnimation;
     public TMP_Text text;
     public GameObject Popup;
     [SerializeField] public MonsterSO monster;
@@ -36,12 +36,14 @@ public class GameHandle : MonoBehaviour
     [SerializeField] public TMP_Text box2;
     [SerializeField] public TMP_Text box3;
 
-    public Stack action = new Stack();
+    public Stack<string> action = new Stack<string>();
 
     public List<Sprite> actionSprite = new List<Sprite>();
     public List<int> actionIndex = new List<int>();
 
     public List<Sprite> newDeck = new List<Sprite>();
+
+    private bool skip = false;
 
     private void Start()
     {
@@ -53,13 +55,9 @@ public class GameHandle : MonoBehaviour
 
     void SetUpTurnBase()
     {
-        spawnMonster();
         Popup.SetActive(false);
-        playerhealthSystem = new HealthSystem(100);
-        enemyhealthSystem = new HealthSystem(monster.hp);
-        playerHealthBar.Setup(playerhealthSystem);
-        enemyHealthBar.Setup(enemyhealthSystem);
-
+        spawnMonster();
+        spawnPlayer();
     }
 
     void spawnMonster()
@@ -70,7 +68,12 @@ public class GameHandle : MonoBehaviour
             {
                 Vector3 position = new Vector3((float)5.11, (float)0.03, (float)-4.778947);
                 GameObject e = Instantiate(mon, room);
+                e.name = "Enemy";
                 e.transform.localPosition = position;
+                enemyhealthSystem = new HealthSystem(monster.hp);
+                enemyHealthBar = e.GetComponentInChildren<HealthBar>();
+                enemyHealthBar.Setup(enemyhealthSystem);
+                EnemyAnimation = e.GetComponent<Animator>();
                 break;
             }
         }
@@ -78,9 +81,14 @@ public class GameHandle : MonoBehaviour
 
     void spawnPlayer()
     {
-        Vector3 position = new Vector3((float)5.84, (float)1.49, (float)4.473684);
+        Vector3 position = new Vector3((float)-5.8, (float)1.49, (float)-4.778947);
         GameObject p = Instantiate(player, room);
+        p.name = "Player";
         p.transform.localPosition = position;
+        playerhealthSystem = new HealthSystem(100);
+        playerHealthBar = p.GetComponentInChildren<HealthBar>();
+        playerHealthBar.Setup(playerhealthSystem);
+        PlayerAnimation = p.GetComponent<Animator>();
     }
 
     void GetMonitors()
@@ -91,16 +99,6 @@ public class GameHandle : MonoBehaviour
         {
             monitors.Add(objects[i].GetComponent<Button>());
         }
-    }
-
-    void startTern()
-    {
-        foreach (Sprite x in actionSprite)
-        {
-            Debug.Log("action sprite : " + x);
-        }
-
-        playerAttack();
     }
 
     void GetButtons()
@@ -403,123 +401,132 @@ public class GameHandle : MonoBehaviour
         box3.text = "";
     }
 
-    public void playerAttack()
+    public void playerAction()
     {
 
-        int dmg = 0;
-
-        for (int i = 0; i < 3; i++)
+        if (!skip)
         {
+            int dmg = 0;
 
-            if (action.Pop() == "use")
+            for (int i = 0; i < 3; i++)
             {
-                // card type
-                if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "42")
+
+                if (action.Pop() == "use")
                 {
-                    dmg += 5;
+                    // card type
+                    if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "42")
+                    {
+                        dmg += 5;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "43")
+                    {
+                        dmg += 5;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "44")
+                    {
+                        dmg += 5;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "45")
+                    {
+                        dmg += 5;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "28")
+                    {
+                        dmg += 20;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "29")
+                    {
+                        dmg += 20;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "30")
+                    {
+                        dmg += 25;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "31")
+                    {
+                        dmg += 30;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "16")
+                    {
+                        dmg += 50;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "17")
+                    {
+                        dmg += 50;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "18")
+                    {
+                        dmg += 50;
+                    }
+                    else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "19")
+                    {
+                        dmg += 50;
+                    }
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "43")
+                else
                 {
-                    dmg += 5;
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "44")
-                {
-                    dmg += 5;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "45")
-                {
-                    dmg += 5;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "28")
-                {
-                    dmg += 20;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "29")
-                {
-                    dmg += 20;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "30")
-                {
-                    dmg += 25;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "31")
-                {
-                    dmg += 30;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "16")
-                {
-                    dmg += 50;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "17")
-                {
-                    dmg += 50;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "18")
-                {
-                    dmg += 50;
-                }
-                else if (actionSprite[actionSprite.Count - 1].name.Substring(11) == "19")
-                {
-                    dmg += 50;
-                }
-                actionSprite.RemoveAt(actionSprite.Count - 1);
             }
-            else
+
+            reTurn();
+
+            if (dmg != 0)
             {
-                actionSprite.RemoveAt(actionSprite.Count - 1);
-                actionSprite.RemoveAt(actionSprite.Count - 1);
-            }
-        }
-
-        reTurn();
-
-        if (dmg != 0)
-        {
-            //StartCoroutine(playerAttackAnimation());
-            Player.Play("attack", 0, 0f);
-            enemyhealthSystem.Damage(dmg);
-
-            if (enemyhealthSystem.GetHealth() != 0) StartCoroutine(enemyAttack());
-            //end game
-            if (enemyhealthSystem.GetHealth() == 0)
-            {
-                Popup.SetActive(true);
-                text.text = "Player Win..";
-                enemy.SetActive(false);
+                StartCoroutine(playerAttackAnimation(dmg));
             }
         }
 
     }
 
+    void startTern()
+    {
+        playerAction();
+
+        if (enemyhealthSystem.GetHealth() != 0)
+        {
+            StartCoroutine(enemyAttack());
+        }
+
+        StartCoroutine(checkGameEnd());
+    }
+
     IEnumerator enemyAttack()
     {
-        // float randomFloat = Random.Range(0.0f, 1.0f);
-
-        Vector3 temp = enemy.transform.position;
-        enemy.transform.position = new Vector3(player.transform.position.x + 5, player.transform.position.y, player.transform.position.z);
-        Enemy.SetBool("attack", true);
         yield return new WaitForSeconds(1);
-        enemy.transform.position = temp;
-        Enemy.SetBool("attack", false);
+        EnemyAnimation.Play("Attack", 0, 0f);
         playerhealthSystem.Damage(monster.attack);
+
+    }
+
+    IEnumerator playerAttackAnimation(int dmg)
+    {
+        PlayerAnimation.Play("attack", 0, 0f);
+        EnemyAnimation.Play("Hurt", 0, 0f);
+        enemyhealthSystem.Damage(dmg);
+        yield return new WaitForSeconds(1);
+
+    }
+
+    IEnumerator checkGameEnd()
+    {
+
+        if (enemyhealthSystem.GetHealth() == 0)
+        {
+            EnemyAnimation.Play("Death", 0, 0f);
+            yield return new WaitForSeconds(1);
+            Popup.SetActive(true);
+            text.text = "Player Win..";
+            GameObject.Find("Enemy").SetActive(false);
+        }
         if (playerhealthSystem.GetHealth() == 0)
         {
             Popup.SetActive(true);
             text.text = "Player Dead..";
             player.SetActive(false);
         }
-    }
-
-    IEnumerator playerAttackAnimation()
-    {
-        //Wait for 1 seconds
-        Player.Play("AnimationName", -1, 0f);
-        Vector3 temp = player.transform.position;
-        player.transform.position = new Vector3(enemy.transform.position.x - 5, enemy.transform.position.y, enemy.transform.position.z);
-        Player.SetBool("attack", true);
-        yield return new WaitForSeconds(1);
-        player.transform.position = temp;
-        Player.SetBool("attack", false);
     }
 
 }
