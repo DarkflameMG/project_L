@@ -25,9 +25,10 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Debug.Log("drag");
         Spawn();
-        eventData.pointerDrag = gateTranform.GetChild(0).gameObject;
+        eventData.pointerDrag = gateTranform.Find("Image").gameObject;
+        gateTranform.Find("Image").gameObject.GetComponent<DragDrop>().OnBeginDragAux();
+        // Debug.Log(eventData.pointerDrag.name);
     }
 
     private void Spawn()

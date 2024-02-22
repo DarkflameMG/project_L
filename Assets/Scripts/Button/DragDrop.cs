@@ -32,6 +32,12 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     {
         // Debug.Log(unscrollParent.name);
         // Debug.Log(transform.parent.name);
+        
+        OnBeginDragAux();
+    }
+
+    public void OnBeginDragAux()
+    {
         unscrollParent = transform.parent.GetComponent<GateObject>().GetPreSpawnPoint();
         if(dragable)
         {
