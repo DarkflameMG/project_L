@@ -111,17 +111,6 @@ public class Player_move : MonoBehaviour
             Debug.Log("Left Shift key was released");
             animator.SetBool("run", false);
         }
-        // //Animator ATTACK
-        // if(Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Debug.Log("Space key was pressed");
-        //     animator.SetBool("attack", true);
-        // }
-        // if(Input.GetKeyUp(KeyCode.Space))
-        // {
-        //     Debug.Log("Space key was pressed");
-        //     animator.SetBool("attack", false);
-        // }
         
         if(x != 0 && x < 0)
         {

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: BrownWolf
   hp: 200
-  attack: 100
+  attack: 20

@@ -32,9 +32,10 @@ public class GameHandle : MonoBehaviour
     public GameObject Popup;
 
     //Cards sprites
-    [SerializeField] public Sprite[] spritesLV1;
-    [SerializeField] public Sprite[] spritesLV2;
-    [SerializeField] public Sprite[] spritesLV3;
+    [SerializeField] private Sprite[] spritesLV1;
+    [SerializeField] private Sprite[] spritesLV2;
+    [SerializeField] private Sprite[] spritesLV3;
+    [SerializeField] private Sprite[] testCard;
 
     // Card blank(back card)
     public Sprite box;
@@ -129,9 +130,15 @@ public class GameHandle : MonoBehaviour
     {
         foreach (Button btn in deck)
         {
-            int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
             btn.onClick.AddListener(() => PickAPuzzle());
-            btn.GetComponent<Image>().sprite = spritesLV1[randomIndex];
+            // int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
+            // btn.GetComponent<Image>().sprite = spritesLV1[randomIndex];
+            
+            int randomIndex = UnityEngine.Random.Range(0, testCard.Length);
+            btn.GetComponent<Image>().sprite = testCard[randomIndex];
+            // GameObject card = Instantiate(testCard[randomIndex],btn.transform);
+            // card.transform.SetParent(btn.transform, false);
+            // card.transform.SetSiblingIndex(0);
         }
 
         foreach (Button monitor in monitors)
