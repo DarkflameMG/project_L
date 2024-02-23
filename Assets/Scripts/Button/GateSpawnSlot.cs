@@ -16,7 +16,10 @@ public class GateSpawnSlot : MonoBehaviour, IDropHandler
             gate.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
 
             string gatename = gate.GetComponent<GateObject>().GetGateName();
-            limitGateSys.IncreaseNumber(gatename);
+            if(limitGateSys != null)
+            {
+                limitGateSys.IncreaseNumber(gatename);
+            }
 
             if(gate.GetComponent<GateObject>().GetIsHolder() && gate.GetComponent<GateObject>().GetHolded() != null)
             {

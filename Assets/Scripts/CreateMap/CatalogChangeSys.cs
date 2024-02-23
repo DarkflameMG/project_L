@@ -14,7 +14,7 @@ public class CatalogChangeSys : MonoBehaviour
     [SerializeField]private GameObject mismatchPuzzleUI;
     [SerializeField]private GameObject puzzleBtn;
     [SerializeField]private GameObject configUI;
-    [SerializeField]private GameObject doorUI;
+    [SerializeField]private GameObject monUI;
     [SerializeField]private RoomCatalogSys roomCatalogSys;
     [SerializeField]private TMP_Text puzzleName;
     [SerializeField]private TMP_Text puzzleHeader;
@@ -54,6 +54,11 @@ public class CatalogChangeSys : MonoBehaviour
         {
             configUI.SetActive(true);
             currentCatalogUI = configUI;
+        }
+        else if(type == CreateMapCatalog.mon)
+        {
+            monUI.SetActive(true);
+            currentCatalogUI = monUI;
         }
     }
 

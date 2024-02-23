@@ -19,7 +19,10 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     // private bool start = false;
     private void Start() {
         GetComponent<Image>().sprite = gateSO.sprite;
-        gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
+        if(GateNumberSystem != null)
+        {
+            gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
+        }
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         if(GameObject.Find("LimitGateSys") != null)
         {
@@ -48,8 +51,15 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
             limitGateSys.DecreaseNumber(gateSO.gateName);
         }
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
-        gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.GetGateNum();
-        gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;
+        if(gateNumberSystem != null)
+        {
+            gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.GetGateNum();
+            gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;   
+        }
+        else
+        {
+            gateTranform.localPosition = Input.mousePosition + new Vector3(-1320f,0,0) - viewPort.localPosition;
+        }
         gateTranform.GetComponent<GateObject>().SetPreSpawnPoint(spawnPoint);
     }
 
