@@ -104,6 +104,7 @@ public class RoomDetail
     public Objs[] objs;
     public LogicGateConfig config;
     public DoorsDetail doors;
+    public MonsterDetail monster;
 }
 
 [System.Serializable]

@@ -100,6 +100,8 @@ public class SaveMapSys : MonoBehaviour
             FeatureType featureType = roomSlot.GetFeatureType();
             LogicGateConfig config = roomSlot.GetConfig();
             string puzzleName = roomSlot.GetPuzzleName();
+            MonsterDetail monsterDetail = roomSlot.GetCurrentMon();
+
             if(featureType == FeatureType.start)
             {
                 startPos = pos;
@@ -107,6 +109,10 @@ public class SaveMapSys : MonoBehaviour
             else if(featureType == FeatureType.exit)
             {
                 tables.Add(puzzleName);
+            }
+            else if(featureType == FeatureType.monster)
+            {
+                roomDetail.monster = monsterDetail;
             }
 
             if(featureType == FeatureType.exit || featureType == FeatureType.puzzle)

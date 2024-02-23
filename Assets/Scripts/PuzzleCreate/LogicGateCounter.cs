@@ -38,4 +38,9 @@ public class LogicGateCounter : MonoBehaviour
         }
         return int.Parse(input);
     }
+
+    public void SetImg(Sprite sprite)
+    {
+        image.sprite = sprite;
+    }
 }

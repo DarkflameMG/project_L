@@ -15,6 +15,8 @@ public class MonsterDetailSys : MonoBehaviour
     [SerializeField]private Transform rewards;
     [SerializeField]private GameObject roomcatalogUI;
     [SerializeField]private Transform gateCountPrefab;
+    [SerializeField]private MonsterImgSO monsterImgSO;
+    [SerializeField]private AllGateSpriteSO allGateSpriteSO;
 
     private void Awake() {
         saveBtn.onClick.AddListener(SaveMon);
@@ -24,6 +26,7 @@ public class MonsterDetailSys : MonoBehaviour
     {
         RoomSlot room = roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlot>();
         List<GateObjectConfig> gates = new();
+        Debug.Log(monName.text);
         MonsterDetail detail = new()
         {
             name = monName.text,
@@ -55,6 +58,7 @@ public class MonsterDetailSys : MonoBehaviour
         RoomSlot room = roomCatalogSys.GetCurrentSlot().GetComponent<RoomSlot>();
         MonsterDetail detail = room.GetCurrentMon();
         monName.text = detail.name;
+        SetMonName(detail.name);
         hp.text = detail.hp.ToString();
         atk.text = detail.atk.ToString();
 
@@ -63,6 +67,7 @@ public class MonsterDetailSys : MonoBehaviour
             LogicGateCounter counter = Instantiate(gateCountPrefab,rewards).GetComponent<LogicGateCounter>();
             counter.SetName(gate.gateName);
             counter.SetNum(gate.used);
+            SetImg(counter,gate.gateName);
         }
     }
 
@@ -73,5 +78,87 @@ public class MonsterDetailSys : MonoBehaviour
         {
             Destroy(rewards.GetChild(i).gameObject);
         }
+    }
+
+    public void SetMonName(string name)
+    {
+        monName.text = name;
+        monImg.enabled = true;
+        if(name.Equals("BrownWolf"))
+        {
+            monImg.sprite = monsterImgSO.brownWolf;
+        }
+        else
+        {
+            monImg.enabled = false;
+        }
+    }
+
+    public void SetImg(LogicGateCounter counter,string gateName)
+    {
+        Sprite newSprite = allGateSpriteSO.and;
+
+        if(gateName.Equals("and"))
+        {
+            newSprite = allGateSpriteSO.and;
+        }
+        else if(gateName.Equals("or"))
+        {
+            newSprite = allGateSpriteSO.or;
+        }
+        else if(gateName.Equals("not"))
+        {
+            newSprite = allGateSpriteSO.not;
+        }
+        else if(gateName.Equals("xor"))
+        {
+            newSprite = allGateSpriteSO.xor;
+        }
+        else if(gateName.Equals("nand"))
+        {
+            newSprite = allGateSpriteSO.nand;
+        }
+        else if(gateName.Equals("nor"))
+        {
+            newSprite = allGateSpriteSO.nor;
+        }
+        else if(gateName.Equals("xnor"))
+        {
+            newSprite = allGateSpriteSO.xnor;
+        }
+        else if(gateName.Equals("high volt"))
+        {
+            newSprite = allGateSpriteSO.highVolt;
+        }
+        else if(gateName.Equals("low volt"))
+        {
+            newSprite = allGateSpriteSO.lowVolt;
+        }
+        else if(gateName.Equals("switch"))
+        {
+            newSprite = allGateSpriteSO.switchs;
+        }
+        else if(gateName.Equals("bulb"))
+        {
+            newSprite = allGateSpriteSO.bulb;
+        }
+        else if(gateName.Equals("splitter"))
+        {
+            newSprite = allGateSpriteSO.splitter;
+        }
+        else if(gateName.Equals("placeholder1"))
+        {
+            newSprite = allGateSpriteSO.placeHolder1;
+        }
+        else if(gateName.Equals("placeholder2"))
+        {
+            newSprite = allGateSpriteSO.placeHolder2;
+        }
+        else if(gateName.Equals("line"))
+        {
+            newSprite = allGateSpriteSO.line;
+        }
+
+        counter.SetImg(newSprite);
     }
 }
