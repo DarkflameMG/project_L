@@ -158,3 +158,12 @@ public class LockedDoors
     public RoomSide doorSide;
     public bool isLocked;
 }
+
+[System.Serializable]
+public class MonsterDetail
+{
+    public string name;
+    public int hp;
+    public int atk;
+    public List<GateObjectConfig> rewards;
+}

@@ -16,6 +16,12 @@ public class LogicGateCounter : MonoBehaviour
     public void SetName(string name)
     {
         currentName = name;
+        gateName.text = currentName;
+    }
+
+    public void SetNum(int num)
+    {
+        inputField.text = num.ToString();
     }
 
     public string GetName()

@@ -10,6 +10,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     [SerializeField]private Transform spawnPoint;
     [SerializeField]private Transform GateNumberSystem;
     [SerializeField]private Transform viewPort;
+    [SerializeField]private Transform roomcatalog;
 
     private GateNumberSystem gateNumberSystem;
     private Transform gateTranform;
@@ -58,7 +59,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         }
         else
         {
-            gateTranform.localPosition = Input.mousePosition + new Vector3(-1320f,0,0) - viewPort.localPosition;
+            gateTranform.localPosition = Input.mousePosition + new Vector3(-1380f,0,0) - viewPort.localPosition - roomcatalog.localPosition;
         }
         gateTranform.GetComponent<GateObject>().SetPreSpawnPoint(spawnPoint);
     }
