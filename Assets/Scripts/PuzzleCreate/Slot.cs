@@ -13,7 +13,10 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     private bool isPointer1 = false;
     private UnityEngine.UI.Image image;
     private void Awake() {
-        lineParent = GameObject.Find("spawnLine").transform;
+        if(GameObject.Find("spawnLine") != null)
+        {
+            lineParent = GameObject.Find("spawnLine").transform;
+        }
         image = GetComponent<UnityEngine.UI.Image>();
     }
     public void OnDrop(PointerEventData eventData)

@@ -15,6 +15,8 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     private string curretPuzzleName = "none";
     private AddDoorSys addDoorSys;
     private Transform[] roomAround;
+    private MonsterDetail monster;
+    private MonsterDetailSys monsterDetailSys;
 
     private void Awake() {
         config = new();
@@ -27,6 +29,17 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         {
             addDoorSys = GameObject.Find("AddDoorSys").GetComponent<AddDoorSys>();
         }
+        if(GameObject.Find("MonsterDetailSys") != null)
+        {
+            monsterDetailSys = GameObject.Find("MonsterDetailSys").GetComponent<MonsterDetailSys>();
+            monster = new()
+            {
+                name = "",
+                hp = 0,
+                atk = 0,
+                rewards = new()
+            };
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -37,6 +50,7 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         {
             roomCatalogSys.ShowUI(this.transform);
             addDoorSys.CloseKeyUI();
+            monsterDetailSys.SetMonDetail();
             // Debug.Log("front:"+(roomAround[0]!=null)+"   back:"+(roomAround[1]!=null)+"   left:"+(roomAround[2]!=null)+"   right:"+(roomAround[3]!=null));
         }
     }
@@ -132,5 +146,15 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     public Transform[] GetRoomAround()
     {
         return roomAround;
+    }
+
+    public void SetCurrentMon(MonsterDetail detail)
+    {
+        monster = detail;
+    }
+
+    public MonsterDetail GetCurrentMon()
+    {
+        return monster;
     }
 }

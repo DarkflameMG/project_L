@@ -19,7 +19,10 @@ public class DestroyGateConfig : MonoBehaviour
     private void DestroyConfig()
     {
         string gateName = transform.parent.GetComponent<LogicGateCounter>().GetName();
-        saveUIDrop.DeletedGate(gateName);
+        if(saveUIDrop != null)
+        {
+            saveUIDrop.DeletedGate(gateName);
+        }
         Destroy(transform.parent.gameObject);
     }
 }
