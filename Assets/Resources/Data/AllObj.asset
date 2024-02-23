@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle: {fileID: 8694151298475515360, guid: 59d09f078c89be344a9906b2305b1ae1, type: 3}
   finalPuzzle: {fileID: 8694151298475515360, guid: 886dd02828e3e3e46b30d52ae73e8502, type: 3}
+  monster: {fileID: 8694151298475515360, guid: 19ce27be22533dd47880383d0f703d0e, type: 3}

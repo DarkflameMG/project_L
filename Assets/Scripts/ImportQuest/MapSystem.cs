@@ -79,6 +79,11 @@ public class MapSystem : MonoBehaviour
                     Transform puzzle = Instantiate(allObj.finalPuzzle,currentRoom);
                     puzzle.localPosition = Vector3.zero;
                 }
+                else if(room.Ftype == FeatureType.monster)
+                {
+                    Transform mon = Instantiate(allObj.monster,currentRoom);
+                    mon.localPosition = Vector3.zero;
+                }
 
                 break;
             }

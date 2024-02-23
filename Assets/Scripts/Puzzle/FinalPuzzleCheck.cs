@@ -15,6 +15,7 @@ public class FinalPuzzleCheck : MonoBehaviour
     [SerializeField]private TMP_Text statusText;
     [SerializeField]private CuurentTruthTableSO truthTableSO;
     [SerializeField]private Transform lines;
+    [SerializeField]private GameObject puzzleComplete;
     private TruthTable table;
     private GameObject[] inputs;
     private GameObject[] outputs;
@@ -110,11 +111,12 @@ public class FinalPuzzleCheck : MonoBehaviour
 
         if(isPass)
         {
-            statusText.text = "Pass";
+            statusText.text = "You Pass";
+            puzzleComplete.SetActive(true);
         }
         else
         {
-            statusText.text = "Fail";
+            statusText.text = "You Fail";
             StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow);
         }
     }
