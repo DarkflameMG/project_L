@@ -98,19 +98,19 @@ public class Player_move : MonoBehaviour
         }
         
 
-        //Animator RUN
-        // if(Input.GetKeyDown(KeyCode.LeftShift))
-        // {
-        //     moveSpeed = 7f;
-        //     Debug.Log("Left Shift key was pressed");
-        //     animator.SetBool("run", true);
-        // }
-        // if(Input.GetKeyUp(KeyCode.LeftShift))
-        // {
-        //     moveSpeed = 3f;
-        //     Debug.Log("Left Shift key was released");
-        //     animator.SetBool("run", false);
-        // }
+        // Animator RUN
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed = 7f;
+            Debug.Log("Left Shift key was pressed");
+            animator.SetBool("run", true);
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = 3f;
+            Debug.Log("Left Shift key was released");
+            animator.SetBool("run", false);
+        }
         // //Animator ATTACK
         // if(Input.GetKeyDown(KeyCode.Space))
         // {
