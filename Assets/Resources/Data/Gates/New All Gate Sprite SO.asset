@@ -19,3 +19,11 @@ MonoBehaviour:
   nand: {fileID: 928417635, guid: ffa6794632d4ad2489a5fe12097f882d, type: 3}
   nor: {fileID: 377829021, guid: f0417ac85443e0c4da175916276a5a96, type: 3}
   xnor: {fileID: 21712544, guid: 5da342c3ff3ed2543b3c71feaba99955, type: 3}
+  highVolt: {fileID: -1093565075, guid: 9b4d498bc1e8c7f418cfc4626b5a3921, type: 3}
+  lowVolt: {fileID: -1619255077, guid: 9a108d8f257f74a4daf0e1c4743ca364, type: 3}
+  switchs: {fileID: 548328498, guid: df68c3fef0081da42865e67571b6f2bf, type: 3}
+  bulb: {fileID: 1054818719, guid: 2f4e67bb22702b2449098952b2c6bd69, type: 3}
+  splitter: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
+  placeHolder1: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
+  placeHolder2: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
+  line: {fileID: -2134135850, guid: 7ab184ed76e77c04da50f16aaa36d270, type: 3}

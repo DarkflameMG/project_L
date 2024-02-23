@@ -100,7 +100,7 @@ public class CreatePuzzle : MonoBehaviour
             point2.GetComponent<Drag>().SetDragable(false);
 
             lineObj.GetComponent<PowerLine2>().CreateLine();
-            lineObj.GetComponent<PowerLine2>().SetExpectBool(line.expectBool);
+            // lineObj.GetComponent<PowerLine2>().SetExpectBool(line.expectBool);
         }
     }
 }

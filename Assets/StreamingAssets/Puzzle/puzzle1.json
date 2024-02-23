@@ -2,46 +2,50 @@
     "PuzzleName": "puzzle1",
     "saveGates": [
         {
-            "gateName": "high volt_3",
-            "posx": -343.305419921875,
-            "posy": 23.77851104736328,
+            "gateName": "high volt_1",
+            "posx": -186.4066619873047,
+            "posy": 38.27349853515625,
             "posz": 0.0
         },
         {
-            "gateName": "placeholder1_4",
-            "posx": -37.472633361816409,
-            "posy": 12.366828918457032,
+            "gateName": "placeholder1_3",
+            "posx": 47.861480712890628,
+            "posy": 40.639869689941409,
             "posz": 0.0
         },
         {
-            "gateName": "bulb_5",
-            "posx": 238.6897735595703,
-            "posy": 16.93152618408203,
+            "gateName": "bulb_4",
+            "posx": 298.69403076171877,
+            "posy": 43.00611114501953,
             "posz": 0.0
         }
     ],
     "lines": [
         {
-            "pos1X": -307.8052978515625,
-            "pos2X": -119.97262573242188,
-            "pos1Y": 23.77850341796875,
-            "pos2Y": 12.3668212890625,
-            "c1Name": "high volt_3",
+            "pos1X": -150.90664672851563,
+            "pos2X": -34.638519287109378,
+            "pos1Y": 38.27349853515625,
+            "pos2Y": 40.639869689941409,
+            "c1Name": "high volt_1",
             "c1Type": 2,
-            "c2Name": "placeholder1_4",
-            "c2Type": 0,
-            "expectBool": true
+            "c2Name": "placeholder1_3",
+            "c2Type": 0
         },
         {
-            "pos1X": 45.02737045288086,
-            "pos2X": 202.68972778320313,
-            "pos1Y": 12.3668212890625,
-            "pos2Y": 16.931520462036134,
-            "c1Name": "placeholder1_4",
+            "pos1X": 130.36148071289063,
+            "pos2X": 262.69403076171877,
+            "pos1Y": 40.639869689941409,
+            "pos2Y": 43.006107330322269,
+            "c1Name": "placeholder1_3",
             "c1Type": 2,
-            "c2Name": "bulb_5",
-            "c2Type": 0,
-            "expectBool": false
+            "c2Name": "bulb_4",
+            "c2Type": 0
+        }
+    ],
+    "configs": [
+        {
+            "gateName": "line",
+            "used": 1
         }
     ]
 }

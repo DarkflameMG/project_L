@@ -12,5 +12,13 @@ public class AllGateSpriteSO : ScriptableObject
     public Sprite nand;
     public Sprite nor;
     public Sprite xnor;
+    public Sprite highVolt;
+    public Sprite lowVolt;
+    public Sprite switchs;
+    public Sprite bulb;
+    public Sprite splitter;
+    public Sprite placeHolder1;
+    public Sprite placeHolder2;
+    public Sprite line;
 }
 
