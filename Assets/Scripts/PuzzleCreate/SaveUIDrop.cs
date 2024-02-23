@@ -98,4 +98,10 @@ public class SaveUIDrop : MonoBehaviour, IDropHandler
             Destroy(gate.gameObject);
         }
     }
+
+    public void DeletedGate(string name)
+    {
+        // int index = gatesName.IndexOf(name);
+        gatesName.Remove(name);
+    }
 }

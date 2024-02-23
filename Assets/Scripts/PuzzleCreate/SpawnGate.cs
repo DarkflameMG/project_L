@@ -13,27 +13,40 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
 
     private GateNumberSystem gateNumberSystem;
     private Transform gateTranform;
+    private bool enable = true;
     private Canvas canvas;
+    private LimitGateSys limitGateSys;
     // private bool start = false;
     private void Start() {
         GetComponent<Image>().sprite = gateSO.sprite;
         gateNumberSystem = GateNumberSystem.GetComponent<GateNumberSystem>();
         canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        if(GameObject.Find("LimitGateSys") != null)
+        {
+            limitGateSys = GameObject.Find("LimitGateSys").GetComponent<LimitGateSys>();
+        }
         // Button btn = GetComponent<Button>();
         // btn.onClick.AddListener(Click);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Spawn();
-        eventData.pointerDrag = gateTranform.Find("Image").gameObject;
-        gateTranform.Find("Image").gameObject.GetComponent<DragDrop>().OnBeginDragAux();
-        // Debug.Log(eventData.pointerDrag.name);
+        if(enable)
+        {
+            Spawn();
+            eventData.pointerDrag = gateTranform.Find("Image").gameObject;
+            gateTranform.Find("Image").gameObject.GetComponent<DragDrop>().OnBeginDragAux();
+            // Debug.Log(eventData.pointerDrag.name);
+        }
     }
 
     private void Spawn()
     {
         // Debug.Log(viewPort.position);
+        if(limitGateSys != null)
+        {
+            limitGateSys.DecreaseNumber(gateSO.gateName);
+        }
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
         gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.GetGateNum();
         gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;
@@ -48,5 +61,10 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         
+    }
+    
+    public void SetEnable(bool data)
+    {
+        enable = data;
     }
 }

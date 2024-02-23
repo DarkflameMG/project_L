@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201bd86819ea81843bd4c39013e4f8c6, type: 3}
+  m_Name: LowVoltV2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6137835852763397361, guid: 44b51b4b21a237a4092d41d4ca22d0b8, type: 3}
+  sprite: {fileID: -1619255077, guid: 9a108d8f257f74a4daf0e1c4743ca364, type: 3}
+  gateName: low volt
+  description: have only false input

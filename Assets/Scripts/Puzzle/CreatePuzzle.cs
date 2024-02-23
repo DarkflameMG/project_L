@@ -12,6 +12,7 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]Transform spawnLine;
     [SerializeField]WinSystem winSystem;
     [SerializeField]MapSystem mapSystem;
+    [SerializeField]LimitGateSys limitGateSys;
     private List<GameObject> bulbs;
     private void ReadJson(string json)
     {
@@ -19,6 +20,7 @@ public class CreatePuzzle : MonoBehaviour
         
         CreateGate(loadPuzzle.saveGates);
         CreateLine(loadPuzzle.lines);
+        SetLimit(loadPuzzle.configs);
         winSystem.SetBulbs(bulbs);
         winSystem.ReState();
     }
@@ -28,6 +30,15 @@ public class CreatePuzzle : MonoBehaviour
         RoomDetail room = mapSystem.GetCurrentRoomDetail();
         ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/"+room.puzzleName+".json"));
         // Debug.Log(room.puzzleName);
+    }
+
+    private void SetLimit(List<GateObjectConfig> gateObjectConfigs)
+    {
+        Debug.Log("StartLimit");
+        foreach(GateObjectConfig config in gateObjectConfigs)
+        {
+            limitGateSys.SetStartNum(config.gateName,config.used);
+        }
     }
 
     private void CreateGate(SaveGate[] data)
@@ -40,6 +51,10 @@ public class CreatePuzzle : MonoBehaviour
             if(type.Equals("high volt"))
             {
                 gateObj = Instantiate(allGate.highVolt,spawnPoint);
+            }
+            else if(type.Equals("low volt"))
+            {
+                gateObj = Instantiate(allGate.lowVolt,spawnPoint);
             }
             else if(type.Equals("not"))
             {
