@@ -16,8 +16,8 @@ MonoBehaviour:
   or: {fileID: 3079195852384303507, guid: 7352e9c95e4a1c34eaf1899f2a4657d3, type: 3}
   not: {fileID: 6027748930571241568, guid: 44b9b304a4925a348960a8fe4f7f3875, type: 3}
   bulb: {fileID: 6933539883709446676, guid: d22bcb98517cc254882cea054e29e0be, type: 3}
-  highVolt: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
-  lowVolt: {fileID: 0}
+  highVolt: {fileID: 6137835852763397361, guid: d73ba49273ebcb540a580184d2a2a78a, type: 3}
+  lowVolt: {fileID: 6137835852763397361, guid: 44b51b4b21a237a4092d41d4ca22d0b8, type: 3}
   switchs: {fileID: 4736880701113164334, guid: fd2ca73ee60edf548bb4e409978fb8fb, type: 3}
   holder1: {fileID: 7184902308531542672, guid: 0e22c4c4b413eeb43a9e47cd4a8faf25, type: 3}
   holder2: {fileID: 7184902308531542672, guid: ef076c72764efa749bc548b21d2f34af, type: 3}

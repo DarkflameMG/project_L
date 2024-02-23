@@ -38,8 +38,14 @@ public class PuzzleInfo
     public SaveGate[] saveGates;
     public Lines[] lines;
     // public MapInfo map;
+    public List<GateObjectConfig> configs;
 }
-
+[System.Serializable]
+public class GateObjectConfig
+{
+    public string gateName;
+    public int used;
+}
 [System.Serializable]
 public class MissionInfo
 {
@@ -62,7 +68,7 @@ public class Lines
    public SlotNo c1Type;
    public string c2Name;
    public SlotNo c2Type;
-   public bool expectBool;
+//    public bool expectBool;
 }
 
 // [System.Serializable]
