@@ -1123,22 +1123,29 @@ MonoBehaviour:
   text: {fileID: 759017613}
   Popup: {fileID: 1762193698}
   spritesLV1:
-  - {fileID: 499312451, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -1552763844, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: 807884037, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: 81265069, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
+  - {fileID: -1973828151, guid: ac8fd18628c6249b68b80934dc978463, type: 3}
+  - {fileID: 437406351, guid: 28864775cee8a4ccda66133cfbf5383f, type: 3}
+  - {fileID: 1824763928, guid: 5e5c5a112f7a8412bb6be3c512676936, type: 3}
+  - {fileID: 2023270036, guid: e17d439a02f184bef869ec09305ef6b7, type: 3}
+  - {fileID: -513363563, guid: 592ecfdc95c9841eb963cff4c93970a8, type: 3}
+  - {fileID: 863625298, guid: 83a90e672e4d54610b3d913dc09733eb, type: 3}
+  - {fileID: 251367942, guid: 0edd014cf8e754ce8a534b69e6b3ea3b, type: 3}
   spritesLV2:
-  - {fileID: 861013942, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: 1045239880, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -1820070476, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -1929075125, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
+  - {fileID: 1056793743, guid: d1c80cbd884af48888cbe63bc260e2df, type: 3}
+  - {fileID: -542189702, guid: 919542ccc883d4a8790f25d0894551ef, type: 3}
+  - {fileID: -1308450142, guid: 73e66d6f818f64d318d6fc9be67048cb, type: 3}
+  - {fileID: -886093776, guid: 0ccd64e6ffee34bbeb51796b11ea6644, type: 3}
+  - {fileID: -989639883, guid: 7b258567a661a48afa3b959a578f351b, type: 3}
+  - {fileID: -1266757078, guid: 17fcf6ac58bae4d86a189f28d09769d7, type: 3}
+  - {fileID: -2039691190, guid: 86a90f2bfef22415a9ebe84ae40bf11d, type: 3}
   spritesLV3:
-  - {fileID: 947123930, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -496637287, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -1961558040, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  - {fileID: -137936214, guid: 36149d1d40c1f461d9bcc9b51d219b43, type: 3}
-  testCard:
-  - {fileID: -657028979, guid: 0ffff0007d305437dae3c701206743e7, type: 3}
+  - {fileID: -1750127955, guid: ebbf8af1ab3c947ab9391f22711c8875, type: 3}
+  - {fileID: -600085269, guid: af60b6a8c7260438389dc284f65b9314, type: 3}
+  - {fileID: 1232472404, guid: 6f40aa03792814b378f62ca21d102637, type: 3}
+  - {fileID: -496955527, guid: ca0f623944b55491ba4e5eb467b50b4a, type: 3}
+  - {fileID: 744672880, guid: 1f50075a739b84526b7b2fa7a1cd405c, type: 3}
+  - {fileID: -2087844085, guid: 9d932f633bda54508a344216229ee0bb, type: 3}
+  - {fileID: 782290142, guid: c3024af7352c54559a3c9c14d943b2e2, type: 3}
   box: {fileID: 21300000, guid: b94089770ac4e3e45a6bf3ef62e3a8a8, type: 3}
   actionSprite: []
   actionIndex: 
@@ -1592,7 +1599,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 120, y: 180}
+  m_CellSize: {x: 170, y: 230}
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 5
