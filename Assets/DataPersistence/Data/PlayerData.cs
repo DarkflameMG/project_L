@@ -20,13 +20,17 @@ public class PlayerData : ScriptableObject
     private Inventory _inventory;
 
 
-    public void reSet()
+    public void ReSetData()
     {
+        // Debug.Log("Reset!!!!!!!!!!!!1");
         _slotNumber = 0;
         _name = null;
         _position = Vector3.zero;
-        _inventory = new Inventory();
-        _inventory.goldCoins = 0;
+        _inventory = new()
+        {
+            goldCoins = 0
+        };
+        puzzleCompleted = new();
     }
     public int SlotNumber
     {
@@ -51,5 +55,7 @@ public class PlayerData : ScriptableObject
         get { return _inventory; }
         set { _inventory = value; }
     }
+
+    public List<string> puzzleCompleted;
 
 }

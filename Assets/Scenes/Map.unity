@@ -22018,6 +22018,8 @@ GameObject:
   - component: {fileID: 1946648868}
   - component: {fileID: 1946648867}
   - component: {fileID: 1946648866}
+  - component: {fileID: 1946648869}
+  - component: {fileID: 1946648870}
   m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
@@ -22128,6 +22130,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946648864}
   m_CullTransparentMesh: 1
+--- !u!114 &1946648869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946648864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d3172036f78fe42a0d74c4753dd459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: eedf22f5c2609d740ba81ae08d5258f5, type: 2}
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+--- !u!114 &1946648870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946648864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8d3659d9294d439418d60a09f2483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  py: {fileID: 11400000, guid: eedf22f5c2609d740ba81ae08d5258f5, type: 2}
+  lockAwake: 1
+  playerData:
+    _slotNumber: 0
+    _name: 
+    _position: {x: 0, y: 0, z: 0}
+    _inventory:
+      goldCoins: 0
+      isFull: 0
+      items: []
+    completedMission: []
+  LoadFile: {fileID: 0}
+  NewFile: {fileID: 0}
+  confirmBox: {fileID: 0}
+  confirmBox2: {fileID: 0}
+  Name: {fileID: 0}
+  dataSlot: 0
 --- !u!224 &1951511548 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4786630923642478208, guid: 35934d8e78070cf43be199a160310274, type: 3}
