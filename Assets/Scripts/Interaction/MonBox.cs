@@ -27,8 +27,9 @@ public class MonBox : MonoBehaviour,IInteractable
         monsterSO.attack = monsterDetail.atk;
         fightSys.ConfirmReward();
 
-        SceneManager.LoadScene("CardTernBase");
         dontDestroyMap.MapToFight();
+        SceneManager.LoadScene("CardTernBase");
+        
         return false;
     }
 

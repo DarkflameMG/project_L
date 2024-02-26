@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: AllMonImg
   m_EditorClassIdentifier: 
   brownWolf: {fileID: 4723107735738678597, guid: 043cd49054614ea691221e006eff6136, type: 3}
+  greenSnake: {fileID: 4723107735738678597, guid: 9ec3213bba074884a730b546ddec4c29, type: 3}
+  abyssDog: {fileID: 4723107735738678597, guid: af828c1f28ba450b992d13b9ee378542, type: 3}
+  greenJelly: {fileID: 4723107735738678597, guid: 5053f8bcc3154eaeb452c7e67e5a4930, type: 3}
+  fireSalamandra: {fileID: 4723107735738678597, guid: f1ca754ceb01413fbb27adfca672f40d, type: 3}
+  blueSpirit: {fileID: 4723107735738678597, guid: ec081a99c71f4553afaf2dd7a36f48fe, type: 3}
+  blackSpider: {fileID: 4723107735738678597, guid: 394bca9a44594d99965cb76c7055c07f, type: 3}
+  greenBush: {fileID: 4723107735738678597, guid: 5bc16091f47e4e8498fff672edb4c440, type: 3}
+  royalManticora: {fileID: 4723107735738678597, guid: ca3ea8f71fc0458db45fc70cf69fa176, type: 3}
