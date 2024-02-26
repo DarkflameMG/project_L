@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonBox : MonoBehaviour,IInteractable
 {
@@ -18,7 +19,13 @@ public class MonBox : MonoBehaviour,IInteractable
     public bool Interact(Interactor interactor)
     {
         Debug.Log("Fight!!!");
+        MonsterDetail monsterDetail = mapSystem.GetCurrentRoomDetail().monster;
+        monsterSO.monsterName = monsterDetail.name;
+        monsterSO.hp = monsterDetail.hp;
+        monsterSO.attack = monsterDetail.atk;
         fightSys.ConfirmReward();
+
+        SceneManager.LoadScene("CardTernBase");
         return false;
     }
 
