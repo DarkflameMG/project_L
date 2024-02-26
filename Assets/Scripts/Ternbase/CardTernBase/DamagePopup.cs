@@ -1,21 +1,17 @@
 using UnityEngine;
-using TMPro;
 public class DamagePopup : MonoBehaviour
 {
 
-    // public static DamagePopup Create(){
-    //     Transform damagePopupTransform = Instantiate(pfDamagePopup, Vector3.zero, Quaternion.identity);
-    //     DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
-    //     damagePopup.Setup(350);
-    // }
+    [SerializeField] private GameObject pfDamagePopup;
 
-    private TextMeshPro textMesh;
+    [SerializeField] private Vector2 InitialVelocity;
 
-    private void Awake() {
-        textMesh = transform.GetComponent<TextMeshPro>();
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] float liftTime;
+
+    private void Start() {
+        rb.velocity = InitialVelocity;
+        Destroy(gameObject, liftTime);
     }
 
-    public void Setup(int damageAmount){
-        textMesh.SetText(damageAmount.ToString());
-    }
 }
