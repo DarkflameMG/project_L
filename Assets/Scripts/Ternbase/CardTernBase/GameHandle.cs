@@ -202,13 +202,6 @@ public class GameHandle : MonoBehaviour
 
     }
 
-    void SetBtnActive(List<Button> btns, bool value)
-    {
-        foreach (Button btn in btns)
-        {
-            btn.interactable = value;
-        }
-    }
     void PickAPuzzle()
     {
         if (!firstSelect)
@@ -219,6 +212,8 @@ public class GameHandle : MonoBehaviour
             firstSelectIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name.Substring(8));
 
             firstSelectPuzzle = deck[firstSelectIndex].GetComponent<Image>().sprite.name;
+
+            deck[firstSelectIndex].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
 
             Debug.Log("firstSelectPuzzle : " + firstSelectPuzzle);
 
@@ -311,7 +306,7 @@ public class GameHandle : MonoBehaviour
                 //close second card
                 deck[secondSeclectIndex].interactable = false;
                 deck[secondSeclectIndex].image.color = new Color(0, 0, 0, 0);
-
+                deck[firstSelectIndex].GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
             }
             //use card action
@@ -331,15 +326,13 @@ public class GameHandle : MonoBehaviour
                 // close second card
                 deck[secondSeclectIndex].interactable = false;
                 deck[secondSeclectIndex].image.color = new Color(0, 0, 0, 0);
-                // Debug.Log(action.Peek());
-
 
             }
             //merge fail
             else
             {
                 Debug.Log("Card not match!!");
-
+                deck[firstSelectIndex].GetComponent<Image>().color = new Color(1, 1, 1, 1);
             }
             firstSelect = false;
             secondSeclect = false;
