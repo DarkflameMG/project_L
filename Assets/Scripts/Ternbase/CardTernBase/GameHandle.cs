@@ -718,7 +718,7 @@ public class GameHandle : MonoBehaviour
             EnemyAnimation.Play("Death", 0, 0f);
             yield return new WaitForSeconds(1);
             Popup.SetActive(true);
-            text.text = "Player Win..";
+            text.text = "Player Win...<br> You take <br> And Gate.";
             GameObject.Find("Enemy").SetActive(false);
         }
         if (playerhealthSystem.GetHealth() == 0)
