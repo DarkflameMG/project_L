@@ -13,6 +13,7 @@ public class KeyInventorySys : MonoBehaviour
     [SerializeField]private KeySO keySO;
     [SerializeField]private Transform rewardPoint;
     [SerializeField]private MissionSO missionSO;
+    [SerializeField]private GateInventorySys gateInventorySys;
     private bool inventoryState = false;
     private Color32[] colors;
     int index = 0;
@@ -51,6 +52,7 @@ public class KeyInventorySys : MonoBehaviour
     {
         inventoryState = !inventoryState;
         inventoryUI.SetActive(inventoryState);
+        gateInventorySys.ReCheck();
     }
 
     public void AddNewKey(string name)

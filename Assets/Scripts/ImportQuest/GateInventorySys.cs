@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class GateInventorySys : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]private Transform gateItemSpawnPoint;
 
-    // Update is called once per frame
-    void Update()
+    public void ReCheck()
     {
-        
+        int count = gateItemSpawnPoint.childCount;
+        for(int i=0;i<count;i++)
+        {
+            GateItem gateItem = gateItemSpawnPoint.GetChild(i).GetComponent<GateItem>();
+            gateItem.Check();
+        }
     }
 }
