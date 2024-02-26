@@ -24063,6 +24063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: eedf22f5c2609d740ba81ae08d5258f5, type: 2}
   missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
+  dontDestroyMap: {fileID: 53052980}
 --- !u!114 &1946648870
 MonoBehaviour:
   m_ObjectHideFlags: 0

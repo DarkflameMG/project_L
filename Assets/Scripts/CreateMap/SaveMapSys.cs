@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,11 @@ public class SaveMapSys : MonoBehaviour
     [SerializeField]private Transform spawnRoomSlotSys;
     [SerializeField]private Sprite cross;
     [SerializeField]private Sprite check;
+
+    [SerializeField]private Image saveStatus;
+    [SerializeField]private TMP_Text saveText;
+
+
     private bool haveStartRoom = false;
     private bool haveExitRoom = false;
     private Image startCon;
@@ -74,11 +80,13 @@ public class SaveMapSys : MonoBehaviour
         else
         {
             Debug.Log("condition not fullfill");
+            StartCoroutine(CheckSaveStatus(null,true,"Missing Start or Truth table room!"));
         }
     }
 
     private void StartSave(string missionName)
     {
+        bool isFail = false;
         MissionInfo missionInfo = new();
         List<string> tables = new();
         int[] startPos = new int[2];
@@ -118,6 +126,10 @@ public class SaveMapSys : MonoBehaviour
             if(featureType == FeatureType.exit || featureType == FeatureType.puzzle)
             {
                 roomDetail.config = config;
+                if(puzzleName.Equals("none"))
+                {
+                    isFail = true;
+                }
             }
 
             int[] doorsFeature = roomSlotDoor.GetDoorFeature();
@@ -151,7 +163,9 @@ public class SaveMapSys : MonoBehaviour
         missionInfo.rooms = roomsDetail;
         missionInfo.truthTables = tables;
 
-        SaveAsJson(missionInfo);
+        // SaveAsJson(missionInfo);
+        // string failCase = 
+        StartCoroutine(CheckSaveStatus(missionInfo,isFail,"Puzzle name is none!"));
     }
 
     private void SaveAsJson(MissionInfo missionInfo)
@@ -171,5 +185,28 @@ public class SaveMapSys : MonoBehaviour
             return DoorState.locked;
         }
         return DoorState.hide;
+    }
+
+    private void CompletedSave(MissionInfo missionInfo)
+    {
+        SaveAsJson(missionInfo);
+    }
+
+    public IEnumerator CheckSaveStatus(MissionInfo missionInfo,bool isFail,string failCase)
+    {
+        saveStatus.gameObject.SetActive(true);
+        if(isFail)
+        {
+            saveStatus.color = new Color32(255,0,0,255);
+            saveText.text = "Save fail : "+failCase;
+        }
+        else
+        {
+            saveStatus.color = new Color32(0,255,0,255);
+            saveText.text = "Save Completed";
+            CompletedSave(missionInfo);
+        }
+        yield return new WaitForSeconds(5);
+        saveStatus.gameObject.SetActive(false);
     }
 }

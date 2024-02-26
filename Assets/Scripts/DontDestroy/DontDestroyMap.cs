@@ -10,6 +10,10 @@ public class DontDestroyMap : MonoBehaviour
     private void Awake() {
         DontDestroyOnLoad(map);
         DontDestroyOnLoad(gameObject);
+        if(GameObject.Find("MapScene") != null)
+        {
+            map = GameObject.Find("MapScene");
+        }
     }
 
     private void Update() {
@@ -19,6 +23,10 @@ public class DontDestroyMap : MonoBehaviour
         //     toggle = !toggle;
         //     Destroy(map);
         // }
+        if(GameObject.Find("MapScene") != null)
+        {
+            map = GameObject.Find("MapScene");
+        }
     }
 
     public void MapToFight()
