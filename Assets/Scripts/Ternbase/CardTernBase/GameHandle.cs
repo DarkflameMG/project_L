@@ -11,7 +11,7 @@ public class GameHandle : MonoBehaviour
     [SerializeField] GameObject top;
     [SerializeField] GameObject bot;
 
-    // private bool battle = false;
+    private bool battle = false;
     [SerializeField] private GameObject boxStartBtn;
     [SerializeField] private Button startBtn;
 
@@ -60,7 +60,8 @@ public class GameHandle : MonoBehaviour
     [SerializeField] public TMP_Text box2;
     [SerializeField] public TMP_Text box3;
 
-    private bool waitting = true;
+    private bool waittingForPlayer = true;
+    private bool waittingForEnemy = false;
 
     private void Start()
     {
@@ -348,20 +349,20 @@ public class GameHandle : MonoBehaviour
 
     private void Update()
     {
-        // if (battle)
-        // {
-        //     top.SetActive(false);
-        //     bot.SetActive(false);
-        //     startBtn.interactable = false;
-        //     boxStartBtn.SetActive(false);
-        // }
-        // else
-        // {
-        //     top.SetActive(true);
-        //     bot.SetActive(true);
-        //     startBtn.interactable = true;
-        //     boxStartBtn.SetActive(true);
-        // }
+        if (battle)
+        {
+            top.SetActive(false);
+            bot.SetActive(false);
+            startBtn.interactable = false;
+            boxStartBtn.SetActive(false);
+        }
+        else
+        {
+            top.SetActive(true);
+            bot.SetActive(true);
+            startBtn.interactable = true;
+            boxStartBtn.SetActive(true);
+        }
         if (action.Count == 0)
         {
             monitors[0].enabled = false;
@@ -592,18 +593,13 @@ public class GameHandle : MonoBehaviour
                     actionSprite.RemoveAt(actionSprite.Count - 1);
                     actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
-                // yield return new WaitForSeconds(1);
+                
             }
         }
-        // else
-        // {
-        //     reTurn();
-        //     action.Clear();
-        //     actionSprite.Clear();
-        // }
+        
         yield return new WaitForSeconds(1);
-        waitting = false;
-        // reTurn();
+        waittingForPlayer = false;
+        
     }
 
     void startTern()
@@ -613,20 +609,22 @@ public class GameHandle : MonoBehaviour
 
     IEnumerator waitForPlayer()
     {
-        // battle = true;
+        battle = true;
         StartCoroutine(playerAction());
-        // SetBtnActive(deck, false);
-        // yield return new WaitForSeconds(1);
-        yield return new WaitUntil(() => waitting == false);
+        yield return new WaitUntil(() => waittingForPlayer == false);
         StartCoroutine(enemyAttack());
+        yield return new WaitUntil(() => waittingForEnemy == false);
         skip = false;
-        waitting = true;
+        waittingForPlayer = true;
+        if(playerhealthSystem.GetHealth() == 0 || enemyhealthSystem.GetHealth() == 0) battle = true;
+        else battle = false;
+        yield return new WaitUntil(() => battle == false);
         reTurn();
-        // SetBtnActive(deck, true);
     }
 
     IEnumerator enemyAttack()
     {
+        waittingForEnemy = true;
         if (enemyhealthSystem.GetHealth() > 0)
         {
             // if (!skip)
@@ -643,6 +641,7 @@ public class GameHandle : MonoBehaviour
             GameObject.Find("Enemy").transform.localPosition = posEnemy;
         }
         StartCoroutine(checkGameEnd());
+        waittingForEnemy = false;
     }
 
     IEnumerator playerAttackAnimation(double dmg, string skill)

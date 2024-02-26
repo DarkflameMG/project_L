@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b60fc6b977654099f0a76ec20ec26, type: 3}
   m_Name: Monster
   m_EditorClassIdentifier: 
-  monsterName: BrownWolf
-  hp: 200
+  monsterName: BlackSpider
+  hp: 100
   attack: 20
