@@ -27,6 +27,7 @@ public class MonUISys : MonoBehaviour
             monName.text = monDetail.name;
             hp.text = monDetail.hp.ToString();
             atk.text = monDetail.atk.ToString();
+            SetMonImg(monDetail.name);
             List<GateObjectConfig> rewards = monDetail.rewards;
             fightSys.SetReward(rewards);
 
@@ -55,6 +56,38 @@ public class MonUISys : MonoBehaviour
         if(name.Equals("BrownWolf"))
         {
             monImg.sprite = monsterImgSO.brownWolf;
+        }
+        else if(name.Equals("GreenSnake"))
+        {
+            monImg.sprite = monsterImgSO.greenSnake;
+        }
+        else if(name.Equals("AbyssDog"))
+        {
+            monImg.sprite = monsterImgSO.abyssDog;
+        }
+        else if(name.Equals("GreenJelly"))
+        {
+            monImg.sprite = monsterImgSO.greenJelly;
+        }
+        else if(name.Equals("FireSalamandra"))
+        {
+            monImg.sprite = monsterImgSO.fireSalamandra;
+        }
+        else if(name.Equals("BlueSpirit"))
+        {
+            monImg.sprite = monsterImgSO.blueSpirit;
+        }
+        else if(name.Equals("BlackSpider"))
+        {
+            monImg.sprite = monsterImgSO.blackSpider;
+        }
+        else if(name.Equals("GreenBush"))
+        {
+            monImg.sprite = monsterImgSO.greenBush;
+        }
+        else if(name.Equals("RoyalManticora"))
+        {
+            monImg.sprite = monsterImgSO.royalManticora;
         }
         else
         {

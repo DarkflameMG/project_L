@@ -61,7 +61,7 @@
                 "rightKey": ""
             },
             "monster": {
-                "name": "BrownWolf",
+                "name": "RoyalManticora",
                 "hp": 10,
                 "atk": 10,
                 "rewards": [
