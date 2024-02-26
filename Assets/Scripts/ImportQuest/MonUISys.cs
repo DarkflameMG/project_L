@@ -13,6 +13,8 @@ public class MonUISys : MonoBehaviour
     [SerializeField]private Transform rewardPrefab;
     [SerializeField]private Transform spawnPoint;
     [SerializeField]private Image monImg;
+    [SerializeField]private MonsterImgSO monsterImgSO;
+    [SerializeField]private FightSys fightSys;
     private MonsterDetail monDetail;
     private bool toggle = true;
 
@@ -26,6 +28,7 @@ public class MonUISys : MonoBehaviour
             hp.text = monDetail.hp.ToString();
             atk.text = monDetail.atk.ToString();
             List<GateObjectConfig> rewards = monDetail.rewards;
+            fightSys.SetReward(rewards);
 
             foreach(GateObjectConfig a_reward in rewards)
             {
@@ -45,5 +48,17 @@ public class MonUISys : MonoBehaviour
             Destroy(spawnPoint.GetChild(i).gameObject);
         }
         toggle = true;
+    }
+
+    private void SetMonImg(string name)
+    {
+        if(name.Equals("BrownWolf"))
+        {
+            monImg.sprite = monsterImgSO.brownWolf;
+        }
+        else
+        {
+            // monImg.enabled = false;
+        }
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class FightSys : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]private RewardsSO rewardsSO;
+    private List<GateObjectConfig> rewards;
+
+    public void SetReward(List<GateObjectConfig> currentRewards)
     {
-        
+        rewards = currentRewards;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ConfirmReward()
     {
-        
+        rewardsSO.rewards = rewards;
     }
+
 }
