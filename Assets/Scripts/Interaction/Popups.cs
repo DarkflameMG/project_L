@@ -8,6 +8,8 @@ public class Popups : MonoBehaviour
 {
     [SerializeField]private GameObject popup;
     [SerializeField]private GameObject keyPopup;
+    [SerializeField]private GameObject monPopup;
+    [SerializeField]private MonUISys monUISys;
     [SerializeField]private Image keyCheck;
     [SerializeField]private TMP_Text keyName;
     [SerializeField]private Image keyImage;
@@ -28,6 +30,11 @@ public class Popups : MonoBehaviour
         {
             keyPopup.SetActive(false);
         }
+        if(monPopup != null)
+        {
+            monPopup.SetActive(false);
+            monUISys.ResetUI();
+        }
     }
 
     public void ShowKeyPopup(string name,bool have)
@@ -46,6 +53,12 @@ public class Popups : MonoBehaviour
             keyCheck.sprite = cross;
             keyCheck.color = new Color32(255,0,0,255);
         }
+    }
+
+    public void ShowMonPopup()
+    {
+        monPopup.SetActive(true);
+        monUISys.SetMonUI();
     }
     
 }
