@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class MapSystem : MonoBehaviour
 {
@@ -25,12 +23,6 @@ public class MapSystem : MonoBehaviour
 
     private void Start() {
         player.position = Vector3.zero;
-    }
-    private void Update() {
-        if(Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            SceneManager.LoadScene("Lobby");
-        }
     }
     public void SetStartLoc(int x,int y,int width,int hight)
     {
