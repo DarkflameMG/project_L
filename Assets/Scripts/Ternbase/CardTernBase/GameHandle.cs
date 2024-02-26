@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System;
-using Assets.PixelFantasy.PixelMonsters.Common.Scripts;
 
 public class GameHandle : MonoBehaviour
 {
@@ -46,7 +44,6 @@ public class GameHandle : MonoBehaviour
     public Sprite box;
 
     //Logic Variable
-    private bool skip = false;
     private bool firstSelect, secondSeclect;
     private int firstSelectIndex, secondSeclectIndex;
     private string firstSelectPuzzle, secondSeclectPuzzle;
@@ -83,9 +80,10 @@ public class GameHandle : MonoBehaviour
         setUpHP();
     }
 
-    void setUpHP(){
-        PlayerHP.text = "Play <br> HP : " + playerhealthSystem.GetHealthPercent()*100 + "%";
-        EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealthPercent()*100 + "%";
+    void setUpHP()
+    {
+        PlayerHP.text = "Play <br> HP : " + playerhealthSystem.GetHealthPercent() * 100 + "%";
+        EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealthPercent() * 100 + "%";
     }
 
     void spawnMonster()
@@ -147,7 +145,6 @@ public class GameHandle : MonoBehaviour
             btn.onClick.AddListener(() => PickAPuzzle());
             int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
             btn.GetComponent<Image>().sprite = spritesLV1[randomIndex];
-            // btn.GetComponent<Animator>().Play("Create", 0, 0f);
         }
 
         foreach (Button monitor in monitors)
@@ -199,8 +196,7 @@ public class GameHandle : MonoBehaviour
         {
 
             Debug.Log("Undo action card");
-            //deck[secondSeclectIndex].GetComponent<Image>().sprite = actionSprite[actionSprite.Count-1];
-
+    
             //open second card
             deck[actionIndex[actionIndex.Count - 1]].interactable = true;
             deck[actionIndex[actionIndex.Count - 1]].image.color = new Color(1, 1, 1, 1);
@@ -225,7 +221,7 @@ public class GameHandle : MonoBehaviour
 
             deck[firstSelectIndex].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
 
-            Debug.Log("firstSelectPuzzle : " + firstSelectPuzzle);
+            Debug.Log("firstSelectPuzzle name: " + firstSelectPuzzle);
 
         }
         else if (!secondSeclect)
@@ -237,15 +233,14 @@ public class GameHandle : MonoBehaviour
             // name
             secondSeclectPuzzle = deck[secondSeclectIndex].GetComponent<Image>().sprite.name;
 
-            Debug.Log("secondSeclectPuzzle : " + secondSeclectPuzzle);
+            Debug.Log("secondSeclectPuzzle name: " + secondSeclectPuzzle);
 
             //merge
             if (firstSelectIndex != secondSeclectIndex && firstSelectPuzzle == secondSeclectPuzzle && action.Count <= 2)
             {
 
                 action.Push("merged");
-                Debug.Log("action : " + action.Peek());
-
+                Debug.Log("action push: " + action.Peek());
 
                 actionSprite.Add(deck[firstSelectIndex].GetComponent<Image>().sprite);
                 actionSprite.Add(deck[secondSeclectIndex].GetComponent<Image>().sprite);
@@ -317,7 +312,6 @@ public class GameHandle : MonoBehaviour
                 deck[secondSeclectIndex].interactable = false;
                 deck[secondSeclectIndex].image.color = new Color(0, 0, 0, 0);
                 deck[firstSelectIndex].GetComponent<Image>().color = new Color(1, 1, 1, 1);
-
             }
             //use card action
             else if (firstSelectPuzzle == secondSeclectPuzzle && firstSelectIndex == secondSeclectIndex && action.Count <= 2)
@@ -347,11 +341,11 @@ public class GameHandle : MonoBehaviour
             firstSelect = false;
             secondSeclect = false;
         }
-
     }
 
     private void Update()
     {
+        //battle state
         if (battle)
         {
             top.SetActive(false);
@@ -368,6 +362,8 @@ public class GameHandle : MonoBehaviour
             startBtn.interactable = true;
             boxStartBtn.SetActive(true);
         }
+
+        //monitors state
         if (action.Count == 0)
         {
             monitors[0].enabled = false;
@@ -414,15 +410,14 @@ public class GameHandle : MonoBehaviour
                 newDeck.Add(deck[i].GetComponent<Image>().sprite);
             }
         }
+
         deck.Clear();
-        Debug.Log("new deck : " + newDeck.Count);
-        Debug.Log("deck : " + deck.Count);
         GetButtons();
+
         for (int i = 0; i < newDeck.Count; i++)
         {
             deck[i].GetComponent<Image>().sprite = newDeck[i];
         }
-        // Debug.Log("deck : " + deck.Count);
 
         //add new card
         for (int i = newDeck.Count; i < 5; i++)
@@ -430,12 +425,10 @@ public class GameHandle : MonoBehaviour
             int randomIndex = UnityEngine.Random.Range(0, spritesLV1.Length);
             deck[i].GetComponent<Image>().sprite = spritesLV1[randomIndex];
         }
-        // Debug.Log("deck : " + deck.Count);
 
         //open all card
         for (int i = 0; i < deck.Count; i++)
         {
-            // Debug.Log("open card :" + i + 1);
             deck[i].interactable = true;
             deck[i].image.color = new Color(1, 1, 1, 1);
         }
@@ -448,179 +441,168 @@ public class GameHandle : MonoBehaviour
     IEnumerator playerAction()
     {
         string skill;
-        int i = 0;
         List<string> newAction = new List<string>();
-        if (!skip)
+
+        while (action.Count != 0)
         {
-            Debug.Log("Action Count: " + action.Count);
-            while (action.Count != 0)
+            if (action.Pop() == "use")
             {
-                if (action.Pop() == "use")
-                {
-                    newAction.Add(actionSprite[actionSprite.Count - 1].name);
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
-                }
-                else
-                {
-                    newAction.Add("merged");
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
-                }
+                newAction.Add(actionSprite[actionSprite.Count - 1].name);
+                actionSprite.RemoveAt(actionSprite.Count - 1);
             }
-            while (newAction.Count != 0)
+            else
             {
-                Debug.Log("waitting loop: " + (i + 1) + " time.");
-                // Debug.Log("Action " + (i + 1) + " : " + action.Peek());
-                if (newAction[newAction.Count - 1] != "merged")
-                {
-                    switch (newAction[newAction.Count - 1])
-                    {
-                        //LV_1
-                        case "andLv1_0":
-                            dmg += 10;
-                            skill = "skill1";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "orLv1_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(10, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "notLv1_0":
-                            dmg += 10;
-                            skill = "0";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "nandLv1_0":
-                            dmg += 15;
-                            skill = "skill3";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "norLv1_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(15, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xorLv1_0":
-                            dmg += dmg * 0.05;
-                            PlayerAnimation.Play("buff", 0, 0f);
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xnorLv1_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation((int)(200 * 0.15), skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        //Lv_2
-                        case "andLv2_0":
-                            dmg += 25;
-                            skill = "skill1";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "orLv2_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(25, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "notLv2_0":
-                            dmg += 15;
-                            skill = "0";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "nandLv2_0":
-                            dmg += 30;
-                            skill = "skill3";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "norLv2_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(30, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xorLv2_0":
-                            dmg += dmg * 0.1;
-                            skill = "buff";
-                            StartCoroutine(playerAttackAnimation(0, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xnorLv2_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation((int)(200 * 0.35), skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        //Lv_3
-                        case "andLv3_0":
-                            dmg += 55;
-                            skill = "skill1";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "orLv3_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(55, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "notLv3_0":
-                            dmg += 25;
-                            skill = "0";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "nandLv3_0":
-                            dmg += 60;
-                            skill = "skill3";
-                            StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1);
-                            dmg = 10;
-                            break;
-                        case "norLv3_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(60, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xorLv3_0":
-                            dmg += dmg * 0.2;
-                            skill = "buff";
-                            StartCoroutine(playerAttackAnimation(0, skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                        case "xnorLv3_0":
-                            skill = "acquire";
-                            StartCoroutine(playerAttackAnimation((int)(200 * 0.8), skill));
-                            yield return new WaitForSeconds(1);
-                            break;
-                    }
-                    Debug.Log("End action :" + (i + 1));
-                    // actionSprite.RemoveAt(actionSprite.Count - 1);
-                }
-                else
-                {
-                    Debug.Log("Pop : Merged");
-                    // actionSprite.RemoveAt(actionSprite.Count - 1);
-                    // actionSprite.RemoveAt(actionSprite.Count - 1);
-                }
-                i++;
-                newAction.RemoveAt(newAction.Count - 1);
+                newAction.Add("merged");
+                actionSprite.RemoveAt(actionSprite.Count - 1);
+                actionSprite.RemoveAt(actionSprite.Count - 1);
             }
         }
 
+        while (newAction.Count != 0)
+        {
+            if (newAction[newAction.Count - 1] != "merged")
+            {
+                switch (newAction[newAction.Count - 1])
+                {
+                    //LV_1
+                    case "andLv1_0":
+                        dmg += 10;
+                        skill = "skill1";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "orLv1_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(10, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "notLv1_0":
+                        dmg += 10;
+                        skill = "0";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "nandLv1_0":
+                        dmg += 15;
+                        skill = "skill3";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "norLv1_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(15, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xorLv1_0":
+                        dmg += dmg * 0.05;
+                        skill = "buff";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xnorLv1_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation((float)(200 * 0.15), skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    //Lv_2
+                    case "andLv2_0":
+                        dmg += 25;
+                        skill = "skill1";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "orLv2_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(25, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "notLv2_0":
+                        dmg += 15;
+                        skill = "0";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "nandLv2_0":
+                        dmg += 30;
+                        skill = "skill3";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "norLv2_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(30, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xorLv2_0":
+                        dmg += dmg * 0.1;
+                        skill = "buff";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xnorLv2_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation((float)(200 * 0.35), skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    //Lv_3
+                    case "andLv3_0":
+                        dmg += 55;
+                        skill = "skill1";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "orLv3_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(55, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "notLv3_0":
+                        dmg += 25;
+                        skill = "0";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "nandLv3_0":
+                        dmg += 60;
+                        skill = "skill3";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        dmg = 10;
+                        break;
+                    case "norLv3_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation(60, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xorLv3_0":
+                        dmg += dmg * 0.2;
+                        skill = "buff";
+                        StartCoroutine(playerAttackAnimation(dmg, skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                    case "xnorLv3_0":
+                        skill = "acquire";
+                        StartCoroutine(playerAttackAnimation((float)(200 * 0.8), skill));
+                        yield return new WaitForSeconds(1);
+                        break;
+                }
+            }
+            else
+            {
+                Debug.Log("Pop : Merged");
+            }
+            newAction.RemoveAt(newAction.Count - 1);
+        }
         yield return new WaitForSeconds(1);
         waittingForPlayer = false;
-
     }
 
     void startTern()
@@ -635,7 +617,6 @@ public class GameHandle : MonoBehaviour
         yield return new WaitUntil(() => waittingForPlayer == false);
         StartCoroutine(enemyAttack());
         yield return new WaitUntil(() => waittingForEnemy == false);
-        skip = false;
         waittingForPlayer = true;
         if (playerhealthSystem.GetHealth() == 0 || enemyhealthSystem.GetHealth() == 0) battle = true;
         else battle = false;
@@ -656,6 +637,7 @@ public class GameHandle : MonoBehaviour
             PlayerAnimation.Play("hurt", 0, 0f);
             playerhealthSystem.Damage(monster.attack);
             GameObject popUp = Instantiate(pfDamagePopUp, PlayerHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, 1);
             popUp.GetComponentInChildren<TMP_Text>().text = monster.attack.ToString();
             yield return new WaitForSeconds(1);
             GameObject.Find("Enemy").transform.localPosition = posEnemy;
@@ -668,58 +650,63 @@ public class GameHandle : MonoBehaviour
     {
         Vector3 posPlayer = GameObject.Find("Player").transform.localPosition;
         Vector3 posEnemy = GameObject.Find("Enemy").transform.localPosition;
-        // GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
 
         if (skill == "skill1")
         {
             GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
             PlayerAnimation.Play("skill1", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
-            enemyhealthSystem.Damage((int)dmg);
+            enemyhealthSystem.Damage((float)dmg);
             GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, 1);
             popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
-            // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "skill2")
         {
             GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
             PlayerAnimation.Play("skill2", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
-            enemyhealthSystem.Damage((int)dmg);
+            enemyhealthSystem.Damage((float)dmg);
             GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, 1);
             popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
-            // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "skill3")
         {
             GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
             PlayerAnimation.Play("skill3", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
-            enemyhealthSystem.Damage((int)dmg);
+            enemyhealthSystem.Damage((float)dmg);
             GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, 1);
             popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
-            // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "acquire")
         {
             PlayerAnimation.Play("acquire", 0, 0f);
-            playerhealthSystem.Heal((int)dmg);
-            // yield return new WaitWhile(() => PlayerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            GameObject popUp = Instantiate(pfDamagePopUp, PlayerHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(0, 1, 0, 1);
+            popUp.GetComponentInChildren<TMP_Text>().text = "HP +" + dmg.ToString();
+            playerhealthSystem.Heal((float)dmg);
+
         }
         else if (skill == "buff")
         {
             PlayerAnimation.Play("buff", 0, 0f);
-            // yield return new WaitWhile(() => PlayerAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+            GameObject popUp = Instantiate(pfDamagePopUp, PlayerHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 0.5f, 0, 1);
+            popUp.GetComponentInChildren<TMP_Text>().text = "ATK + " + dmg.ToString();
         }
         else
         {
             GameObject.Find("Player").transform.localPosition = new Vector3(posEnemy.x - 3, posPlayer.y, posPlayer.z);
             PlayerAnimation.Play("attack", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
-            enemyhealthSystem.Damage((int)dmg);
+            enemyhealthSystem.Damage((float)dmg);
             GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().color = new Color(1, 1, 1, 1);
             popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
-            // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
+
         }
         yield return new WaitForSeconds(1);
         GameObject.Find("Player").transform.localPosition = posPlayer;
@@ -728,12 +715,10 @@ public class GameHandle : MonoBehaviour
 
     IEnumerator checkGameEnd()
     {
-        // bool check = false;
         Debug.Log("Player HP : " + playerhealthSystem.GetHealth());
         Debug.Log("Enemy HP : " + enemyhealthSystem.GetHealth());
         if (enemyhealthSystem.GetHealth() == 0)
         {
-            // check = true;
             EnemyAnimation.Play("Death", 0, 0f);
             yield return new WaitForSeconds(1);
             Popup.SetActive(true);
@@ -742,7 +727,6 @@ public class GameHandle : MonoBehaviour
         }
         if (playerhealthSystem.GetHealth() == 0)
         {
-            // check = true;
             PlayerAnimation.Play("Death", 0, 0f);
             yield return new WaitForSeconds(1);
             Popup.SetActive(true);
