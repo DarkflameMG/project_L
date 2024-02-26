@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class ReturnToMapBtn : MonoBehaviour
 {
+    [SerializeField]private GameObject turnbase;
     private Button btn;
     private DontDestroyMap dontDestroyMap;
 
     private void Awake() {
         btn = GetComponent<Button>();
-        dontDestroyMap = GameObject.Find("mapControlScript").GetComponent<DontDestroyMap>();
+        if(GameObject.Find("mapControlScript") != null)
+        {
+            dontDestroyMap = GameObject.Find("mapControlScript").GetComponent<DontDestroyMap>();
+        }
         btn.onClick.AddListener(Return);
     }
 
     private void Return()
     {
         dontDestroyMap.FightToMap();
+        Destroy(turnbase);
     }
 }

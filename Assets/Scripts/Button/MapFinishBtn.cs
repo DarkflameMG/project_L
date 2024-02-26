@@ -8,6 +8,7 @@ public class MapFinishBtn : MonoBehaviour
 {
     [SerializeField]private PlayerData playerData;
     [SerializeField]private MissionSO missionSO;
+    [SerializeField]private DontDestroyMap dontDestroyMap;
     private Button btn;
     private void Awake() {
         btn = GetComponent<Button>();
@@ -23,6 +24,8 @@ public class MapFinishBtn : MonoBehaviour
         }
         SaveData saveData = GetComponent<SaveData>();
         saveData.SaveToJsonV2(playerData);
+        dontDestroyMap.MapToLobby();
         SceneManager.LoadScene("lobby");
+        
     }
 }

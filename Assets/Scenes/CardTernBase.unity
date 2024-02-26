@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590df40ea54b9a04f8a8977a5697ef38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnbase: {fileID: 200684584}
 --- !u!1 &1018576988
 GameObject:
   m_ObjectHideFlags: 0
