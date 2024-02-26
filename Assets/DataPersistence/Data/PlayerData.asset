@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2835e035301d3144a4b7c58d68a660c, type: 3}
-  m_Name: Za
+  m_Name: PlayerData
   m_EditorClassIdentifier: 
   _slotNumber: 1
-  _name: Tonz
+  _name: gg
   _position: {x: 0, y: 0, z: 0}
   _inventory:
-    goldCoins: 1000
+    goldCoins: 0
     isFull: 0
     items: []
+  puzzleCompleted:
+  - map01

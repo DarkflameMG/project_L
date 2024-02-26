@@ -14,13 +14,13 @@ public class SpawnQuestSys : MonoBehaviour
     private void ReadJson(string json,Transform location)
     {
         MissionInfo loadMission = JsonUtility.FromJson<MissionInfo>(json);
-        Debug.Log(loadMission.MissionName);
+        // Debug.Log(loadMission.MissionName);
         Transform thisQuest = SpawnQuest(location);
         thisQuest.GetComponent<SetQuest>().SetQuestName_Data(loadMission.MissionName,loadMission);
     }
 
     private void Start() {
-        Debug.Log(Application.dataPath);
+        // Debug.Log(Application.dataPath);
         var jsonFile = Directory.EnumerateFiles(Application.streamingAssetsPath+"/Map","*.json");
         foreach (string fileName in jsonFile)
         {

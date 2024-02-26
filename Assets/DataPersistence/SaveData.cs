@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,12 +10,17 @@ public class SaveData : MonoBehaviour
 
     [SerializeField]
     public PlayerData py;
+    [SerializeField]
+    public bool lockAwake = false;
 
     public PYData playerData = new PYData();
 
     private void Awake()
     {
-        py.reSet();
+        if(!lockAwake)
+        {
+            py.ReSetData();
+        }
     }
 
     private void Update()
@@ -48,6 +54,7 @@ public class SaveData : MonoBehaviour
 
     public void SaveToJson()
     {
+        Debug.Log("StartSave");
         string PlayerDataJson = JsonUtility.ToJson(py);
         string filePath = Application.persistentDataPath+ "/PlayerData" + py.SlotNumber + ".json";
         //string filePath = Application.persistentDataPath + "/PlayerData2.json";
@@ -55,20 +62,35 @@ public class SaveData : MonoBehaviour
         System.IO.File.WriteAllText(filePath, PlayerDataJson);
         Debug.Log("Save Data to slot " + py.SlotNumber + " Complete...!!");
     }
+    public void SaveToJsonV2(PlayerData data)
+    {
+        Debug.Log("StartSave");
+        string PlayerDataJson = JsonUtility.ToJson(data);
+        string filePath = Application.persistentDataPath+ "/PlayerData" + data.SlotNumber + ".json";
+        //string filePath = Application.persistentDataPath + "/PlayerData2.json";
+        Debug.Log("FilePath = \"" + filePath + "\"");
+        System.IO.File.WriteAllText(filePath, PlayerDataJson);
+        Debug.Log("Save Data to slot " + data.SlotNumber + " Complete...!!");
+    }
 
 
     public void LoadFromJson(int slot)
     {
+        // Debug.Log("Loaddddddd");
         string filePath = Application.persistentDataPath + "/PlayerData" + slot + ".json";
         string PlayerDataJson = System.IO.File.ReadAllText(filePath);
+        Debug.Log(PlayerDataJson);
 
-        playerData = JsonUtility.FromJson<PYData>(PlayerDataJson);
+        // playerData = JsonUtility.FromJson<PYData>(PlayerDataJson);
+        playerData = JsonConvert.DeserializeObject<PYData>(PlayerDataJson);
 
+        Debug.Log(playerData.puzzleCompleted);
 
         py.SlotNumber = playerData._slotNumber;
         py.Name = playerData._name;
         py.Inventorys = playerData._inventory;
         py.Position = playerData._position;
+        py.puzzleCompleted = playerData.puzzleCompleted;
 
         Debug.Log("Load Data from slot " + slot + "  Complete...!!");
         SceneManager.LoadScene("Lobby");
@@ -203,6 +225,7 @@ public class PYData
     public string _name;
     public Vector3 _position = new Vector3();
     public Inventory _inventory = new Inventory();
+    public List<string> puzzleCompleted;
 }
 
 [System.Serializable]

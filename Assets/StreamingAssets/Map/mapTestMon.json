@@ -62,7 +62,7 @@
             },
             "monster": {
                 "name": "BrownWolf",
-                "hp": 100,
+                "hp": 200,
                 "atk": 10,
                 "rewards": [
                     {

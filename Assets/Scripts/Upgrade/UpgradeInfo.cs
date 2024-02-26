@@ -12,7 +12,7 @@ public class UpgradeInfo : MonoBehaviour
     void Awake()
     {
         TextAsset json = Resources.Load<TextAsset>("Data/Upgrade/upgradeSystem");
-        Debug.Log(json);
+        // Debug.Log(json);
         mainUp =  UI.transform.GetChild(0).gameObject;
         mod =  UI.transform.GetChild(1).gameObject;
     }

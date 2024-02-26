@@ -21,7 +21,7 @@ public class AddNameIO : MonoBehaviour
     private void OnMouseOver() {
         if(Input.GetMouseButtonDown(1))
         {
-            Debug.Log("right");
+            // Debug.Log("right");
             inputNameUI.SetActive(true);
             inputNameUI.GetComponent<Container>().SetItem(gameObject);
         }
