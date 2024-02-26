@@ -1,6 +1,7 @@
 using System;
+using TMPro;
 using UnityEngine;
-public class HealthSystem
+public class HealthSystem 
 {
     public event EventHandler OnHealthChanged;
     private int health;

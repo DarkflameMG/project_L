@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using Assets.PixelFantasy.PixelMonsters.Common.Scripts;
 
 public class GameHandle : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class GameHandle : MonoBehaviour
 
     //characters
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject pfDamagePopUp;
     private HealthBar playerHealthBar;
     private HealthBar enemyHealthBar;
     private HealthSystem playerhealthSystem;
@@ -28,6 +30,8 @@ public class GameHandle : MonoBehaviour
     private Animator PlayerAnimation;
     private Animator EnemyAnimation;
     private double dmg = 10;
+    [SerializeField] private TMP_Text PlayerHP;
+    [SerializeField] private TMP_Text EnemyHP;
 
     //Pop up end game
     public TMP_Text text;
@@ -76,6 +80,12 @@ public class GameHandle : MonoBehaviour
         Popup.SetActive(false);
         spawnMonster();
         spawnPlayer();
+        setUpHP();
+    }
+
+    void setUpHP(){
+        PlayerHP.text = "Play <br> HP : " + playerhealthSystem.GetHealthPercent()*100 + "%";
+        EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealthPercent()*100 + "%";
     }
 
     void spawnMonster()
@@ -348,6 +358,8 @@ public class GameHandle : MonoBehaviour
             bot.SetActive(false);
             startBtn.interactable = false;
             boxStartBtn.SetActive(false);
+            PlayerHP.text = "";
+            EnemyHP.text = "";
         }
         else
         {
@@ -628,6 +640,7 @@ public class GameHandle : MonoBehaviour
         if (playerhealthSystem.GetHealth() == 0 || enemyhealthSystem.GetHealth() == 0) battle = true;
         else battle = false;
         yield return new WaitUntil(() => battle == false);
+        setUpHP();
         reTurn();
     }
 
@@ -636,16 +649,14 @@ public class GameHandle : MonoBehaviour
         waittingForEnemy = true;
         if (enemyhealthSystem.GetHealth() > 0)
         {
-            // if (!skip)
-            // {
-            //     yield return new WaitForSeconds(waitting);
-            // }
             Vector3 posPlayer = GameObject.Find("Player").transform.localPosition;
             Vector3 posEnemy = GameObject.Find("Enemy").transform.localPosition;
             GameObject.Find("Enemy").transform.localPosition = new Vector3(posPlayer.x + 3, posEnemy.y, posEnemy.z);
             EnemyAnimation.Play("Attack", 0, 0f);
             PlayerAnimation.Play("hurt", 0, 0f);
             playerhealthSystem.Damage(monster.attack);
+            GameObject popUp = Instantiate(pfDamagePopUp, PlayerHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().text = monster.attack.ToString();
             yield return new WaitForSeconds(1);
             GameObject.Find("Enemy").transform.localPosition = posEnemy;
         }
@@ -665,6 +676,8 @@ public class GameHandle : MonoBehaviour
             PlayerAnimation.Play("skill1", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
             enemyhealthSystem.Damage((int)dmg);
+            GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
             // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "skill2")
@@ -673,6 +686,8 @@ public class GameHandle : MonoBehaviour
             PlayerAnimation.Play("skill2", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
             enemyhealthSystem.Damage((int)dmg);
+            GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
             // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "skill3")
@@ -681,6 +696,8 @@ public class GameHandle : MonoBehaviour
             PlayerAnimation.Play("skill3", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
             enemyhealthSystem.Damage((int)dmg);
+            GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
             // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         else if (skill == "acquire")
@@ -700,6 +717,8 @@ public class GameHandle : MonoBehaviour
             PlayerAnimation.Play("attack", 0, 0f);
             EnemyAnimation.Play("Hurt", 0, 0f);
             enemyhealthSystem.Damage((int)dmg);
+            GameObject popUp = Instantiate(pfDamagePopUp, EnemyHP.transform);
+            popUp.GetComponentInChildren<TMP_Text>().text = dmg.ToString();
             // yield return new WaitWhile(() => EnemyAnimation.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1.0f);
         }
         yield return new WaitForSeconds(1);
@@ -718,7 +737,7 @@ public class GameHandle : MonoBehaviour
             EnemyAnimation.Play("Death", 0, 0f);
             yield return new WaitForSeconds(1);
             Popup.SetActive(true);
-            text.text = "Player Win...<br> You take <br> And Gate.";
+            text.text = "Player Win...";
             GameObject.Find("Enemy").SetActive(false);
         }
         if (playerhealthSystem.GetHealth() == 0)
