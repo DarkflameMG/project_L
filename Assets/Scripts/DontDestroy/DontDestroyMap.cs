@@ -8,7 +8,7 @@ public class DontDestroyMap : MonoBehaviour
     // private bool toggle = false;
 
     private void Awake() {
-        // DontDestroyOnLoad(map);
+        DontDestroyOnLoad(map);
         DontDestroyOnLoad(gameObject);
     }
 
@@ -19,5 +19,20 @@ public class DontDestroyMap : MonoBehaviour
         //     toggle = !toggle;
         //     Destroy(map);
         // }
+    }
+
+    public void MapToFight()
+    {
+        map.SetActive(false);
+    }
+
+    public void FightToMap()
+    {
+        map.SetActive(true);
+    }
+
+    public void MapToLobby()
+    {
+        Destroy(map);
     }
 }

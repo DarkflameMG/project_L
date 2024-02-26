@@ -26,10 +26,15 @@ public class SpawnQuestSys : MonoBehaviour
         {
             ReadJson(File.ReadAllText(fileName),SpawnLocation);
         }
-        var mainQuest = Directory.EnumerateFiles(Application.dataPath+"/MissionJson","*.json");
-        foreach (string fileName in mainQuest)
+        // var mainQuest = Directory.EnumerateFiles(Application.dataPath+"/Resources/MissionJson","*.json");
+        var mainQuest = Resources.LoadAll("MissionJson",typeof(TextAsset));
+        // foreach (string fileName in mainQuest)
+        // {
+        //     ReadJson(File.ReadAllText(fileName),mainQuestLocation);
+        // }
+        foreach(Object quest in mainQuest)
         {
-            ReadJson(File.ReadAllText(fileName),mainQuestLocation);
+            ReadJson(quest.ToString(),mainQuestLocation);
         }
     }
 

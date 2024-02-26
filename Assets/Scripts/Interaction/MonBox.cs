@@ -9,10 +9,12 @@ public class MonBox : MonoBehaviour,IInteractable
     private GameObject popupSystem;
     private MapSystem mapSystem;
     private FightSys fightSys;
+    private DontDestroyMap dontDestroyMap;
     private void Awake() {
         popupSystem = GameObject.Find("PopupSystem");
         mapSystem = GameObject.Find("SpawnMapSys").GetComponent<MapSystem>();
         fightSys = GameObject.Find("FightSys").GetComponent<FightSys>();
+        dontDestroyMap = GameObject.Find("mapControlScript").GetComponent<DontDestroyMap>();
     }
     public string InteractionPrompt => throw new System.NotImplementedException();
 
@@ -26,6 +28,7 @@ public class MonBox : MonoBehaviour,IInteractable
         fightSys.ConfirmReward();
 
         SceneManager.LoadScene("CardTernBase");
+        dontDestroyMap.MapToFight();
         return false;
     }
 
