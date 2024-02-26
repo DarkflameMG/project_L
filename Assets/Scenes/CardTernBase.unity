@@ -1124,6 +1124,8 @@ MonoBehaviour:
   - {fileID: 1344187224804894081, guid: 08273d797ce24a188bd833fb9fbd3286, type: 3}
   - {fileID: 4054891035455531101, guid: 7fac2022424847409e985504b501500a, type: 3}
   - {fileID: 6716674500178954752, guid: d655e363cb8d45b6b25c05287a7ff773, type: 3}
+  - {fileID: 8158483244536726045, guid: 710e82477b1e47ddb4ca7f834fd3103c, type: 3}
+  - {fileID: 6274489734825828885, guid: bb1ffce9ae6047e3a3bff0bcf473680f, type: 3}
   monster: {fileID: 11400000, guid: 6700533713ef34a4b826a2300f0beab2, type: 2}
   player: {fileID: 144571866349991049, guid: cfa4b37f20c1543d2a348cb16632c5e6, type: 3}
   text: {fileID: 759017613}

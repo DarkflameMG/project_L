@@ -4,7 +4,6 @@ public class AddCards : MonoBehaviour
 {
     [SerializeField] private Transform puzzleField;
     [SerializeField] private GameObject btns;
-    [SerializeField] public GameObject[] sprites;
 
     private void Awake() {
         for(int i = 0; i < 5; i++){

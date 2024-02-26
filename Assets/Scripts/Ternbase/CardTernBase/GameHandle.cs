@@ -737,16 +737,6 @@ public class GameHandle : MonoBehaviour
             text.text = "Player Dead..";
             GameObject.Find("Player").SetActive(false);
         }
-
-        // if (!skip)
-        // {
-        //     yield return new WaitForSeconds(2);
-        // }
-        // else
-        // {
-        //     yield return new WaitForSeconds(1);
-        // }
-        // if (!check) battle = false;
     }
 
 }
