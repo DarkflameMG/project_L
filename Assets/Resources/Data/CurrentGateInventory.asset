@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 233116b8023acd84fbd771c33bb57099, type: 3}
-  m_Name: LogicGates
+  m_Script: {fileID: 11500000, guid: 047da38f368d4f048b1b4e61504cbcaa, type: 3}
+  m_Name: CurrentGateInventory
   m_EditorClassIdentifier: 
   and: 0
   or: 0
@@ -21,4 +21,9 @@ MonoBehaviour:
   xnor: 0
   highVolt: 0
   lowVolt: 0
+  switchs: 0
+  bulb: 0
+  splitter: 0
+  placeHolder1: 0
+  placeHolder2: 0
   line: 0
