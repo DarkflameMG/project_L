@@ -444,16 +444,31 @@ public class GameHandle : MonoBehaviour
     {
         string skill;
         int i = 0;
+        List<string> newAction = new List<string>();
         if (!skip)
         {
             Debug.Log("Action Count: " + action.Count);
             while (action.Count != 0)
             {
-                Debug.Log("waitting loop: " + (i + 1) + " time.");
-                Debug.Log("Action " + (i + 1) + " : " + action.Peek());
                 if (action.Pop() == "use")
                 {
-                    switch (actionSprite[actionSprite.Count - 1].name)
+                    newAction.Add(actionSprite[actionSprite.Count - 1].name);
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                }
+                else
+                {
+                    newAction.Add("merged");
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                }
+            }
+            while (newAction.Count != 0)
+            {
+                Debug.Log("waitting loop: " + (i + 1) + " time.");
+                // Debug.Log("Action " + (i + 1) + " : " + action.Peek());
+                if (newAction[newAction.Count - 1] != "merged")
+                {
+                    switch (newAction[newAction.Count - 1])
                     {
                         //LV_1
                         case "andLv1_0":
@@ -472,14 +487,14 @@ public class GameHandle : MonoBehaviour
                             dmg += 10;
                             skill = "0";
                             StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1); 
+                            yield return new WaitForSeconds(1);
                             dmg = 10;
                             break;
                         case "nandLv1_0":
                             dmg += 15;
                             skill = "skill3";
                             StartCoroutine(playerAttackAnimation(dmg, skill));
-                            yield return new WaitForSeconds(1); 
+                            yield return new WaitForSeconds(1);
                             dmg = 10;
                             break;
                         case "norLv1_0":
@@ -537,7 +552,7 @@ public class GameHandle : MonoBehaviour
                             break;
                         case "xnorLv2_0":
                             skill = "acquire";
-                            StartCoroutine(playerAttackAnimation((int)(200 * 0.35), skill));                            
+                            StartCoroutine(playerAttackAnimation((int)(200 * 0.35), skill));
                             yield return new WaitForSeconds(1);
                             break;
                         //Lv_3
@@ -551,7 +566,7 @@ public class GameHandle : MonoBehaviour
                         case "orLv3_0":
                             skill = "acquire";
                             StartCoroutine(playerAttackAnimation(55, skill));
-                            yield return new WaitForSeconds(1);                        
+                            yield return new WaitForSeconds(1);
                             break;
                         case "notLv3_0":
                             dmg += 25;
@@ -569,8 +584,8 @@ public class GameHandle : MonoBehaviour
                             break;
                         case "norLv3_0":
                             skill = "acquire";
-                            StartCoroutine(playerAttackAnimation(60, skill));                            
-                            yield return new WaitForSeconds(1);                            
+                            StartCoroutine(playerAttackAnimation(60, skill));
+                            yield return new WaitForSeconds(1);
                             break;
                         case "xorLv3_0":
                             dmg += dmg * 0.2;
@@ -585,21 +600,22 @@ public class GameHandle : MonoBehaviour
                             break;
                     }
                     Debug.Log("End action :" + (i + 1));
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                    // actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
                 else
                 {
                     Debug.Log("Pop : Merged");
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
-                    actionSprite.RemoveAt(actionSprite.Count - 1);
+                    // actionSprite.RemoveAt(actionSprite.Count - 1);
+                    // actionSprite.RemoveAt(actionSprite.Count - 1);
                 }
-                
+                i++;
+                newAction.RemoveAt(newAction.Count - 1);
             }
         }
-        
+
         yield return new WaitForSeconds(1);
         waittingForPlayer = false;
-        
+
     }
 
     void startTern()
@@ -616,7 +632,7 @@ public class GameHandle : MonoBehaviour
         yield return new WaitUntil(() => waittingForEnemy == false);
         skip = false;
         waittingForPlayer = true;
-        if(playerhealthSystem.GetHealth() == 0 || enemyhealthSystem.GetHealth() == 0) battle = true;
+        if (playerhealthSystem.GetHealth() == 0 || enemyhealthSystem.GetHealth() == 0) battle = true;
         else battle = false;
         yield return new WaitUntil(() => battle == false);
         reTurn();
@@ -721,16 +737,6 @@ public class GameHandle : MonoBehaviour
             text.text = "Player Dead..";
             GameObject.Find("Player").SetActive(false);
         }
-
-        // if (!skip)
-        // {
-        //     yield return new WaitForSeconds(2);
-        // }
-        // else
-        // {
-        //     yield return new WaitForSeconds(1);
-        // }
-        // if (!check) battle = false;
     }
 
 }
