@@ -1,5 +1,5 @@
 {
-    "MissionName": "map23",
+    "MissionName": "mapTestMon",
     "width": 1,
     "hight": 3,
     "startPos": [
@@ -29,14 +29,20 @@
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
             }
         },
         {
             "x": 0,
             "y": 1,
-            "Ftype": 2,
+            "Ftype": 1,
             "roomType": 1,
-            "puzzleName": "puzzle3",
+            "puzzleName": "none",
             "objs": [],
             "config": {
                 "line": 0,
@@ -53,6 +59,21 @@
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "RoyalManticora",
+                "hp": 10,
+                "atk": 10,
+                "rewards": [
+                    {
+                        "gateName": "and",
+                        "used": 5
+                    },
+                    {
+                        "gateName": "or",
+                        "used": 4
+                    }
+                ]
             }
         },
         {
@@ -77,6 +98,12 @@
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
             }
         }
     ],

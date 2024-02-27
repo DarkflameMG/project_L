@@ -46,7 +46,7 @@ public class GateObject : MonoBehaviour
         {
             currentState = true;
         }
-        else if(gateName.Equals("line") || gateName.Equals("spliter"))
+        else if(gateName.Equals("line") || gateName.Equals("splitter"))
         {
             currentState = slot1;
         }

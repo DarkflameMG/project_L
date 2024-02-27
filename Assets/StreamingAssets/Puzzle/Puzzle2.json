@@ -1,0 +1,51 @@
+{
+    "PuzzleName": "Puzzle2",
+    "saveGates": [
+        {
+            "gateName": "placeholder1_2",
+            "posx": 138.1194610595703,
+            "posy": 71.61685180664063,
+            "posz": 0.0
+        },
+        {
+            "gateName": "high volt_3",
+            "posx": -45.360389709472659,
+            "posy": 70.03511047363281,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_4",
+            "posx": 316.85418701171877,
+            "posy": 71.61682891845703,
+            "posz": 0.0
+        }
+    ],
+    "lines": [
+        {
+            "pos1X": 220.6194610595703,
+            "pos2X": 280.85418701171877,
+            "pos1Y": 71.61685180664063,
+            "pos2Y": 71.61682891845703,
+            "c1Name": "placeholder1_2",
+            "c1Type": 2,
+            "c2Name": "bulb_4",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 55.61946105957031,
+            "pos2X": -9.860382080078125,
+            "pos1Y": 71.61685180664063,
+            "pos2Y": 70.03510284423828,
+            "c1Name": "placeholder1_2",
+            "c1Type": 0,
+            "c2Name": "high volt_3",
+            "c2Type": 2
+        }
+    ],
+    "configs": [
+        {
+            "gateName": "line",
+            "used": 1
+        }
+    ]
+}

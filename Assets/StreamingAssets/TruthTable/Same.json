@@ -1,0 +1,10 @@
+{
+    "tableName": "Same",
+    "input" : 1,
+    "output" : 1,
+    "columnName" : ["A","X"],
+    "rows" : [
+        [0,0],
+        [1,1]
+    ]
+}

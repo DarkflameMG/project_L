@@ -171,7 +171,7 @@ public class SaveMapSys : MonoBehaviour
     private void SaveAsJson(MissionInfo missionInfo)
     {
         string json = JsonUtility.ToJson(missionInfo,true);
-        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/Map/"+missionInfo.MissionName+".json",json);
+        System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/CustomMap/"+missionInfo.MissionName+".json",json);
     }
 
     private DoorState SetDoorState(int doorsFeature)

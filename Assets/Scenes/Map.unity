@@ -15263,6 +15263,7 @@ MonoBehaviour:
   rowPrefab: {fileID: 5316934318616383248, guid: 37dfe8ebb13ac694ab81ce072f4138dc, type: 3}
   spawnPoint: {fileID: 1512402985}
   tableUI: {fileID: 1975007943}
+  missionSO: {fileID: 11400000, guid: 243b4c34c68ceb1458a104f55d98acc9, type: 2}
 --- !u!1 &1190500039
 GameObject:
   m_ObjectHideFlags: 0
