@@ -9,6 +9,8 @@ public class GameHandle : MonoBehaviour
     public Transform room;
     [SerializeField] GameObject top;
     [SerializeField] GameObject bot;
+    [SerializeField] GameObject infoPlayerBox;
+    [SerializeField] GameObject infoEnemyBox;
 
     private bool battle = false;
     [SerializeField] private GameObject boxStartBtn;
@@ -82,8 +84,25 @@ public class GameHandle : MonoBehaviour
 
     void setUpHP()
     {
+        infoPlayerBox.SetActive(true);
+        infoEnemyBox.SetActive(true);
+        hideInfoBox(false);
         PlayerHP.text = "Player <br> HP : " + playerhealthSystem.GetHealth() + "/" + playerhealthSystem.GetMaxHealth();
         EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealth() + "/" + enemyhealthSystem.GetMaxHealth();
+    }
+
+    void hideInfoBox(bool value)
+    {
+        if (value)
+        {
+            infoPlayerBox.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            infoEnemyBox.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            infoPlayerBox.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            infoEnemyBox.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        }
     }
 
     void spawnMonster()
@@ -196,7 +215,7 @@ public class GameHandle : MonoBehaviour
         {
 
             Debug.Log("Undo action card");
-    
+
             //open second card
             deck[actionIndex[actionIndex.Count - 1]].interactable = true;
             deck[actionIndex[actionIndex.Count - 1]].image.color = new Color(1, 1, 1, 1);
@@ -354,6 +373,7 @@ public class GameHandle : MonoBehaviour
             boxStartBtn.SetActive(false);
             PlayerHP.text = "";
             EnemyHP.text = "";
+            hideInfoBox(true);
         }
         else
         {
@@ -361,6 +381,7 @@ public class GameHandle : MonoBehaviour
             bot.SetActive(true);
             startBtn.interactable = true;
             boxStartBtn.SetActive(true);
+            hideInfoBox(false);
         }
 
         //monitors state
