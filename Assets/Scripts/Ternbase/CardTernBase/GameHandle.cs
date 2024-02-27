@@ -82,8 +82,8 @@ public class GameHandle : MonoBehaviour
 
     void setUpHP()
     {
-        PlayerHP.text = "Play <br> HP : " + playerhealthSystem.GetHealthPercent() * 100 + "%";
-        EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealthPercent() * 100 + "%";
+        PlayerHP.text = "Player <br> HP : " + playerhealthSystem.GetHealth() + "/" + playerhealthSystem.GetMaxHealth();
+        EnemyHP.text = "Enemy <br> HP : " + enemyhealthSystem.GetHealth() + "/" + enemyhealthSystem.GetMaxHealth();
     }
 
     void spawnMonster()
