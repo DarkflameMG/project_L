@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1344187224804894084}
   - component: {fileID: 4210666387171356747}
   - component: {fileID: 7618893288182674823}
+  - component: {fileID: 8313646628292474552}
   m_Layer: 0
   m_Name: FireSalamandra
   m_TagString: Untagged
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3b73bcd9bfa194207a514db9393ddc2c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,6 +121,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8313646628292474552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344187224804894081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab53e0363629e4bb5b759277aff2240d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5025675655943735044
 PrefabInstance:
   m_ObjectHideFlags: 0

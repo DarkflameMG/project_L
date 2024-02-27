@@ -15,6 +15,10 @@ public class HealthSystem
         return health;
     }
 
+    public float GetMaxHealth(){
+        return healthMax;
+    }
+
     public float GetHealthPercent(){
         return health/healthMax;
     }
