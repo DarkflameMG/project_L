@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: ad900a22a8bff7744996c544308311e9, type: 3}
   sprite: {fileID: 1436999307, guid: 5aa189e8df425194e816c21e787544b5, type: 3}
   gateName: output
-  description: output
+  description: Output right click to change name

@@ -8,7 +8,7 @@ public class AllEnum : MonoBehaviour
     
 }
 
-public enum SlotNo{s1,s2,output};
+public enum SlotNo{s1,s2,output,output2,clk};
 
 public enum QuestType{ none,hunt,arena,investigate }
 public enum Page{none,main,mainQuest,custom,mainUp,up,mod}

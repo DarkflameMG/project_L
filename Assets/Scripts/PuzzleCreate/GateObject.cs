@@ -140,6 +140,25 @@ public class GateObject : MonoBehaviour
             {
                 OrOp();
             }
+            else if(name.Equals("nand"))
+            {
+                AndOp();
+                currentState = !currentState;
+            }
+            else if(name.Equals("nor"))
+            {
+                OrOp();
+                currentState = !currentState;
+            }
+            else if(name.Equals("xor"))
+            {
+                XorOp();
+            }
+            else if(name.Equals("xnor"))
+            {
+                XorOp();
+                currentState = !currentState;
+            }
         }
         else
         {
