@@ -11,7 +11,7 @@ public class Job_desk : MonoBehaviour,IInteractable
     public string InteractionPrompt => _prompt;
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Found job");
+        // Debug.Log("Found job");
         changeScene();
         return true;
     }

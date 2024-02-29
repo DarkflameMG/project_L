@@ -147,7 +147,7 @@
             "pos1Y": 443.1697998046875,
             "pos2Y": 441.7413330078125,
             "c1Name": "splitter_4",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "splitter_7",
             "c2Type": 0
         },
@@ -157,7 +157,7 @@
             "pos1Y": 305.5588684082031,
             "pos2Y": 304.1307678222656,
             "c1Name": "splitter_5",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "splitter_8",
             "c2Type": 0
         },
@@ -169,7 +169,7 @@
             "c1Name": "splitter_9",
             "c1Type": 0,
             "c2Name": "splitter_6",
-            "c2Type": 2
+            "c2Type": 3
         },
         {
             "pos1X": 332.92279052734377,
@@ -187,7 +187,7 @@
             "pos1Y": 454.2413330078125,
             "pos2Y": 436.84271240234377,
             "c1Name": "splitter_7",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_10",
             "c2Type": 0
         },
@@ -199,7 +199,7 @@
             "c1Name": "placeholder2_10",
             "c1Type": 1,
             "c2Name": "splitter_8",
-            "c2Type": 2
+            "c2Type": 3
         },
         {
             "pos1X": 119.38946533203125,
@@ -217,7 +217,7 @@
             "pos1Y": 175.8575439453125,
             "pos2Y": 189.4815673828125,
             "c1Name": "splitter_9",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_11",
             "c2Type": 1
         },
@@ -343,10 +343,6 @@
         },
         {
             "gateName": "or",
-            "used": 2
-        },
-        {
-            "gateName": "xnor",
             "used": 2
         }
     ]

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201bd86819ea81843bd4c39013e4f8c6, type: 3}
+  m_Name: xnorGateV2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3079195852384303507, guid: a778a0a55296774498777649768d7059, type: 3}
+  sprite: {fileID: 21712544, guid: 5da342c3ff3ed2543b3c71feaba99955, type: 3}
+  gateName: xnor
+  description: output is true when 2 input are the same

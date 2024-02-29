@@ -109,7 +109,7 @@
             "pos1Y": -143.34376525878907,
             "pos2Y": -142.68031311035157,
             "c1Name": "splitter_8",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_7",
             "c2Type": 1
         },
@@ -149,7 +149,7 @@
             "pos1Y": 280.55877685546877,
             "pos2Y": -118.34376525878906,
             "c1Name": "splitter_3",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_6",
             "c2Type": 0
         },
@@ -169,7 +169,7 @@
             "pos1Y": -118.34375,
             "pos2Y": 273.3133544921875,
             "c1Name": "splitter_4",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_5",
             "c2Type": 1
         }

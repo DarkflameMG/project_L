@@ -101,7 +101,7 @@
             "pos1Y": -26.296144485473634,
             "pos2Y": -25.632715225219728,
             "c1Name": "splitter_4",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_7",
             "c2Type": 1
         },
@@ -111,7 +111,7 @@
             "pos1Y": 364.0819091796875,
             "pos2Y": 362.50048828125,
             "c1Name": "splitter_3",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_6",
             "c2Type": 0
         },
@@ -141,7 +141,7 @@
             "pos1Y": 150.85675048828126,
             "pos2Y": 1.8672847747802735,
             "c1Name": "splitter_8",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_7",
             "c2Type": 0
         },
@@ -191,7 +191,7 @@
             "pos1Y": 158.76539611816407,
             "pos2Y": 157.84715270996095,
             "c1Name": "splitter_11",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_10",
             "c2Type": 1
         },

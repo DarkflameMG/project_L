@@ -85,7 +85,7 @@
             "c1Name": "placeholder2_6",
             "c1Type": 0,
             "c2Name": "splitter_3",
-            "c2Type": 2
+            "c2Type": 3
         },
         {
             "pos1X": -150.97991943359376,
@@ -123,7 +123,7 @@
             "pos1Y": 24.3189697265625,
             "pos2Y": -213.8577117919922,
             "c1Name": "splitter_4",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_8",
             "c2Type": 1
         },

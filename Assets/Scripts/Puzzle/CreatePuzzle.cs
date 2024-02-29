@@ -35,6 +35,7 @@ public class CreatePuzzle : MonoBehaviour
     private void SetLimit(List<GateObjectConfig> gateObjectConfigs)
     {
         Debug.Log("StartLimit");
+        limitGateSys.ResetGate(false);
         foreach(GateObjectConfig config in gateObjectConfigs)
         {
             limitGateSys.SetStartNum(config.gateName,config.used);

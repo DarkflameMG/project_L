@@ -121,7 +121,7 @@
             "pos1Y": 261.57733154296877,
             "pos2Y": 260.6590881347656,
             "c1Name": "splitter_3",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_5",
             "c2Type": 1
         },
@@ -181,7 +181,7 @@
             "pos1Y": 8.194122314453125,
             "pos2Y": -69.31021118164063,
             "c1Name": "splitter_9",
-            "c1Type": 2,
+            "c1Type": 3,
             "c2Name": "placeholder2_11",
             "c2Type": 0
         },

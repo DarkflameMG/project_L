@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201bd86819ea81843bd4c39013e4f8c6, type: 3}
+  m_Name: SpliterV2
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6027748930571241568, guid: e602ad22a1039c248b200ad96bf070a5, type: 3}
+  sprite: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
+  gateName: splitter
+  description: Split input to 2 output
