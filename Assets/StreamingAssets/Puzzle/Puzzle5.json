@@ -58,5 +58,10 @@
             "c2Type": 0
         }
     ],
-    "configs": []
+    "configs": [
+        {
+            "gateName": "and",
+            "used": 1
+        }
+    ]
 }

@@ -15,4 +15,5 @@ public class GatesPrefabSO : ScriptableObject
     public Transform holder1;
     public Transform holder2;
     public Transform line;
+    public Transform splitter;
 }

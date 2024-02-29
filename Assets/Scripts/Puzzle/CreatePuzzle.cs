@@ -82,6 +82,10 @@ public class CreatePuzzle : MonoBehaviour
             {
                 gateObj = Instantiate(allGate.holder2,spawnPoint);
             }
+            else if(type.Equals("splitter"))
+            {
+                gateObj = Instantiate(allGate.splitter,spawnPoint);
+            }
             gateObj.name = gate.gateName;
             pos = gateObj.GetComponent<RectTransform>();
             pos.anchoredPosition = new Vector2(gate.posx,gate.posy);

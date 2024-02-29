@@ -22,6 +22,14 @@ public class LineV2 : Line
         {
             currentState = point2.GetComponent<Drag>().GetCurrentState();
         }
+        else if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.output2)
+        {
+            currentState = point1.GetComponent<Drag>().GetCurrentState();
+        }
+        else if(point2.GetComponent<Drag>().GetSlotNo() == SlotNo.output2)
+        {
+            currentState = point2.GetComponent<Drag>().GetCurrentState();
+        }
         ChangeColor();
    }
 

@@ -78,25 +78,30 @@ public class LimitGateSys : MonoBehaviour
 
     public void SetStartNum(string name,int num)
     {
+        ResetGate();
         if(name.Equals("and"))
         {
             andNum = num;
             and.SetActive(true);
+            and.GetComponent<SpawnGate>().SetEnable(true);
         }
         else if(name.Equals("not"))
         {
             notNum = num;
             not.SetActive(true);
+            not.GetComponent<SpawnGate>().SetEnable(true);
         }
         else if(name.Equals("or"))
         {
             orNum = num;
             or.SetActive(true);
+            or.GetComponent<SpawnGate>().SetEnable(true);
         }
         else if(name.Equals("line"))
         {
             lineNum = num;
             line.SetActive(true);
+            line.GetComponent<SpawnGate>().SetEnable(true);
         }
         SetText();
     }
@@ -107,5 +112,13 @@ public class LimitGateSys : MonoBehaviour
         not.transform.Find("number").GetComponent<TMP_Text>().text = notNum.ToString();
         or.transform.Find("number").GetComponent<TMP_Text>().text = orNum.ToString();
         line.transform.Find("number").GetComponent<TMP_Text>().text = lineNum.ToString();
+    }
+
+    private void ResetGate()
+    {
+        and.SetActive(false);
+        or.SetActive(false);
+        not.SetActive(false);
+        line.SetActive(false);
     }
 }

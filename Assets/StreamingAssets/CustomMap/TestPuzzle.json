@@ -1,5 +1,5 @@
 {
-    "MissionName": "map01",
+    "MissionName": "TestPuzzle",
     "width": 1,
     "hight": 3,
     "startPos": [
@@ -12,7 +12,7 @@
             "y": 0,
             "Ftype": 4,
             "roomType": 1,
-            "puzzleName": "truth01",
+            "puzzleName": "Table4",
             "objs": [],
             "config": {
                 "line": 0,
@@ -22,13 +22,19 @@
             },
             "doors": {
                 "front": 2,
-                "back": 1,
+                "back": 0,
                 "left": 2,
                 "right": 2,
                 "frontKey": "",
-                "backKey": "puzzle0",
+                "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
             }
         },
         {
@@ -36,7 +42,7 @@
             "y": 1,
             "Ftype": 2,
             "roomType": 1,
-            "puzzleName": "puzzle0",
+            "puzzleName": "Puzzle6",
             "objs": [],
             "config": {
                 "line": 0,
@@ -45,14 +51,20 @@
                 "or": 0
             },
             "doors": {
-                "front": 1,
+                "front": 0,
                 "back": 0,
                 "left": 2,
                 "right": 2,
-                "frontKey": "puzzle0",
+                "frontKey": "",
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
             }
         },
         {
@@ -77,10 +89,16 @@
                 "backKey": "",
                 "leftKey": "",
                 "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
             }
         }
     ],
     "truthTables": [
-        "truth01"
+        "Table4"
     ]
 }
