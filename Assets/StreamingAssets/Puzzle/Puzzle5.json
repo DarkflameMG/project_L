@@ -1,0 +1,67 @@
+{
+    "PuzzleName": "Puzzle5",
+    "saveGates": [
+        {
+            "gateName": "high volt_11",
+            "posx": -194.0424041748047,
+            "posy": 256.67852783203127,
+            "posz": 0.0
+        },
+        {
+            "gateName": "high volt_12",
+            "posx": -200.369140625,
+            "posy": 106.41474914550781,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_15",
+            "posx": 5.326515197753906,
+            "posy": 182.3381805419922,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_16",
+            "posx": 195.13323974609376,
+            "posy": 182.338134765625,
+            "posz": 0.0
+        }
+    ],
+    "lines": [
+        {
+            "pos1X": -164.8690643310547,
+            "pos2X": -77.17349243164063,
+            "pos1Y": 106.41473388671875,
+            "pos2Y": 167.3381805419922,
+            "c1Name": "high volt_12",
+            "c1Type": 2,
+            "c2Name": "placeholder2_15",
+            "c2Type": 1
+        },
+        {
+            "pos1X": -158.54238891601563,
+            "pos2X": -77.17349243164063,
+            "pos1Y": 256.67852783203127,
+            "pos2Y": 194.8381805419922,
+            "c1Name": "high volt_11",
+            "c1Type": 2,
+            "c2Name": "placeholder2_15",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 87.82650756835938,
+            "pos2X": 159.13320922851563,
+            "pos1Y": 182.3381805419922,
+            "pos2Y": 182.338134765625,
+            "c1Name": "placeholder2_15",
+            "c1Type": 2,
+            "c2Name": "bulb_16",
+            "c2Type": 0
+        }
+    ],
+    "configs": [
+        {
+            "gateName": "and",
+            "used": 1
+        }
+    ]
+}

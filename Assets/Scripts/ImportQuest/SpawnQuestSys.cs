@@ -21,7 +21,7 @@ public class SpawnQuestSys : MonoBehaviour
 
     private void Start() {
         // Debug.Log(Application.dataPath);
-        var jsonFile = Directory.EnumerateFiles(Application.streamingAssetsPath+"/Map","*.json");
+        var jsonFile = Directory.EnumerateFiles(Application.streamingAssetsPath+"/CustomMap","*.json");
         foreach (string fileName in jsonFile)
         {
             ReadJson(File.ReadAllText(fileName),SpawnLocation);

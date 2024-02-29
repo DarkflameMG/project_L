@@ -1,0 +1,134 @@
+{
+    "MissionName": "Map1",
+    "width": 1,
+    "hight": 4,
+    "startPos": [
+        0,
+        3
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "Same",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 1,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "Puzzle2",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "Puzzle2",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 1,
+                "left": 2,
+                "right": 2,
+                "frontKey": "Puzzle2",
+                "backKey": "Puzzle1",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "Puzzle1",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 0,
+                "left": 2,
+                "right": 2,
+                "frontKey": "Puzzle1",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 0,
+            "y": 3,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 0,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        }
+    ],
+    "truthTables": [
+        "Same"
+    ]
+}

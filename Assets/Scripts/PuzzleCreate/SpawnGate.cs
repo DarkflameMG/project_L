@@ -17,6 +17,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     private bool enable = true;
     private Canvas canvas;
     private LimitGateSys limitGateSys;
+    private LimitFinalGateSys limitFinalGateSys;
     // private bool start = false;
     private void Start() {
         GetComponent<Image>().sprite = gateSO.sprite;
@@ -28,6 +29,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         if(GameObject.Find("LimitGateSys") != null)
         {
             limitGateSys = GameObject.Find("LimitGateSys").GetComponent<LimitGateSys>();
+            limitFinalGateSys = GameObject.Find("LimitFinalGateSys").GetComponent<LimitFinalGateSys>();
         }
         // Button btn = GetComponent<Button>();
         // btn.onClick.AddListener(Click);
@@ -50,6 +52,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         if(limitGateSys != null)
         {
             limitGateSys.DecreaseNumber(gateSO.gateName);
+            limitFinalGateSys.DecreaseNumber(gateSO.gateName);
         }
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
         if(gateNumberSystem != null)

@@ -11,6 +11,8 @@ public class TruthTableSys : MonoBehaviour
     [SerializeField]private Transform rowPrefab;
     [SerializeField]private Transform spawnPoint;
     [SerializeField]private GameObject tableUI;
+    [SerializeField]private MissionSO missionSO;
+    [SerializeField]private PlayPuzzle playPuzzle;
     private Transform currentRow;
     private TruthTable table;
     private bool state = false;
@@ -26,10 +28,12 @@ public class TruthTableSys : MonoBehaviour
     {
         state = !state;
         tableUI.SetActive(state);
+        playPuzzle.HideMap();
     }
 
     private void Awake() {
-        ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/TruthTable/truth01"+".json"));
+        string puzzleName = missionSO.missionInfo.truthTables[0];
+        ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/TruthTable/"+puzzleName+".json"));
         SpawnCell();
     }
 

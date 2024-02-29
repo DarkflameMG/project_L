@@ -20,7 +20,7 @@ public class PuzzleBox : MonoBehaviour, IInteractable
     {
         if(canInteract)
         {
-            Debug.Log("Open");
+            // Debug.Log("Open");
             playPuzzleSys.GetComponent<PlayPuzzle>().StartPuzzle(this.transform);
             return true;
         }

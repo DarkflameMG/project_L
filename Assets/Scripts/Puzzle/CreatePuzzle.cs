@@ -35,6 +35,7 @@ public class CreatePuzzle : MonoBehaviour
     private void SetLimit(List<GateObjectConfig> gateObjectConfigs)
     {
         Debug.Log("StartLimit");
+        limitGateSys.ResetGate(false);
         foreach(GateObjectConfig config in gateObjectConfigs)
         {
             limitGateSys.SetStartNum(config.gateName,config.used);
@@ -81,6 +82,10 @@ public class CreatePuzzle : MonoBehaviour
             else if(type.Equals("placeholder2"))
             {
                 gateObj = Instantiate(allGate.holder2,spawnPoint);
+            }
+            else if(type.Equals("splitter"))
+            {
+                gateObj = Instantiate(allGate.splitter,spawnPoint);
             }
             gateObj.name = gate.gateName;
             pos = gateObj.GetComponent<RectTransform>();

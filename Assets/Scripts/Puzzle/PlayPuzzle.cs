@@ -27,4 +27,13 @@ public class PlayPuzzle : MonoBehaviour
     {
         currentPuzzleBox.GetComponent<PuzzleBox>().SetInteract(false);
     }
+
+    public void HideMap()
+    {
+        if(!mapInfo.Busy)
+        {
+            mapUI.SetActive(!mapUI.activeSelf);
+        }
+    }
+    
 }

@@ -1,0 +1,247 @@
+{
+    "PuzzleName": "Puzzle10",
+    "saveGates": [
+        {
+            "gateName": "splitter_3",
+            "posx": -189.29718017578126,
+            "posy": 351.5820617675781,
+            "posz": 0.0
+        },
+        {
+            "gateName": "splitter_4",
+            "posx": -182.97039794921876,
+            "posy": -13.796157836914063,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_5",
+            "posx": -31.12480926513672,
+            "posy": 163.35687255859376,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_6",
+            "posx": 193.47976684570313,
+            "posy": 350.0005187988281,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_7",
+            "posx": 196.64324951171876,
+            "posy": -10.63272476196289,
+            "posz": 0.0
+        },
+        {
+            "gateName": "splitter_8",
+            "posx": 93.831298828125,
+            "posy": 163.35687255859376,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_9",
+            "posx": 391.1953430175781,
+            "posy": 171.26547241210938,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_10",
+            "posx": 647.4349365234375,
+            "posy": 172.84725952148438,
+            "posz": 0.0
+        },
+        {
+            "gateName": "splitter_11",
+            "posx": 514.5696411132813,
+            "posy": 171.26547241210938,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_12",
+            "posx": 806.5407104492188,
+            "posy": 172.84701538085938,
+            "posz": 0.0
+        },
+        {
+            "gateName": "low volt_13",
+            "posx": -277.80242919921877,
+            "posy": 350.7908935546875,
+            "posz": 0.0
+        },
+        {
+            "gateName": "high volt_14",
+            "posx": -277.8025207519531,
+            "posy": -14.587005615234375,
+            "posz": 0.0
+        }
+    ],
+    "lines": [
+        {
+            "pos1X": -160.4702911376953,
+            "pos2X": -113.62472534179688,
+            "pos1Y": -1.2961559295654297,
+            "pos2Y": 148.3568115234375,
+            "c1Name": "splitter_4",
+            "c1Type": 2,
+            "c2Name": "placeholder2_5",
+            "c2Type": 1
+        },
+        {
+            "pos1X": -166.79710388183595,
+            "pos2X": -113.62472534179688,
+            "pos1Y": 339.0819091796875,
+            "pos2Y": 175.8568115234375,
+            "c1Name": "splitter_3",
+            "c1Type": 2,
+            "c2Name": "placeholder2_5",
+            "c2Type": 0
+        },
+        {
+            "pos1X": -160.4701385498047,
+            "pos2X": 114.14324951171875,
+            "pos1Y": -26.296144485473634,
+            "pos2Y": -25.632715225219728,
+            "c1Name": "splitter_4",
+            "c1Type": 3,
+            "c2Name": "placeholder2_7",
+            "c2Type": 1
+        },
+        {
+            "pos1X": -166.79710388183595,
+            "pos2X": 110.97976684570313,
+            "pos1Y": 364.0819091796875,
+            "pos2Y": 362.50048828125,
+            "c1Name": "splitter_3",
+            "c1Type": 3,
+            "c2Name": "placeholder2_6",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 51.375221252441409,
+            "pos2X": 71.33129119873047,
+            "pos1Y": 163.35687255859376,
+            "pos2Y": 163.35675048828126,
+            "c1Name": "placeholder2_5",
+            "c1Type": 2,
+            "c2Name": "splitter_8",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 116.3312759399414,
+            "pos2X": 110.97976684570313,
+            "pos1Y": 175.85675048828126,
+            "pos2Y": 335.00048828125,
+            "c1Name": "splitter_8",
+            "c1Type": 2,
+            "c2Name": "placeholder2_6",
+            "c2Type": 1
+        },
+        {
+            "pos1X": 116.3312759399414,
+            "pos2X": 114.14324951171875,
+            "pos1Y": 150.85675048828126,
+            "pos2Y": 1.8672847747802735,
+            "c1Name": "splitter_8",
+            "c1Type": 3,
+            "c2Name": "placeholder2_7",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 279.14324951171877,
+            "pos2X": 308.695068359375,
+            "pos1Y": -10.632715225219727,
+            "pos2Y": 156.26539611816407,
+            "c1Name": "placeholder2_7",
+            "c1Type": 2,
+            "c2Name": "placeholder2_9",
+            "c2Type": 1
+        },
+        {
+            "pos1X": 275.9797668457031,
+            "pos2X": 308.695068359375,
+            "pos1Y": 350.00048828125,
+            "pos2Y": 183.76539611816407,
+            "c1Name": "placeholder2_6",
+            "c1Type": 2,
+            "c2Name": "placeholder2_9",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 473.695068359375,
+            "pos2X": 492.06951904296877,
+            "pos1Y": 171.26539611816407,
+            "pos2Y": 171.26539611816407,
+            "c1Name": "placeholder2_9",
+            "c1Type": 2,
+            "c2Name": "splitter_11",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 537.0695190429688,
+            "pos2X": 564.9342651367188,
+            "pos1Y": 183.76539611816407,
+            "pos2Y": 185.34715270996095,
+            "c1Name": "splitter_11",
+            "c1Type": 2,
+            "c2Name": "placeholder2_10",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 537.0695190429688,
+            "pos2X": 564.9342651367188,
+            "pos1Y": 158.76539611816407,
+            "pos2Y": 157.84715270996095,
+            "c1Name": "splitter_11",
+            "c1Type": 3,
+            "c2Name": "placeholder2_10",
+            "c2Type": 1
+        },
+        {
+            "pos1X": 729.934326171875,
+            "pos2X": 770.540283203125,
+            "pos1Y": 172.84715270996095,
+            "pos2Y": 172.846923828125,
+            "c1Name": "placeholder2_10",
+            "c1Type": 2,
+            "c2Name": "bulb_12",
+            "c2Type": 0
+        },
+        {
+            "pos1X": -242.30242919921876,
+            "pos2X": -211.79708862304688,
+            "pos1Y": 350.7908630371094,
+            "pos2Y": 351.5819091796875,
+            "c1Name": "low volt_13",
+            "c1Type": 2,
+            "c2Name": "splitter_3",
+            "c2Type": 0
+        },
+        {
+            "pos1X": -242.30252075195313,
+            "pos2X": -205.47027587890626,
+            "pos1Y": -14.587005615234375,
+            "pos2Y": -13.79615592956543,
+            "c1Name": "high volt_14",
+            "c1Type": 2,
+            "c2Name": "splitter_4",
+            "c2Type": 0
+        }
+    ],
+    "configs": [
+        {
+            "gateName": "nor",
+            "used": 4
+        },
+        {
+            "gateName": "nand",
+            "used": 4
+        },
+        {
+            "gateName": "and",
+            "used": 2
+        },
+        {
+            "gateName": "or",
+            "used": 2
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "tableName": "Table3",
+    "input" : 2,
+    "output" : 1,
+    "columnName" : ["A","B","X"],
+    "rows" : [
+        [0,0,0],
+        [0,1,1],
+        [1,0,1],
+        [1,1,1]
+    ]
+}

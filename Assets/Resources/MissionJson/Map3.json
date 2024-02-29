@@ -1,0 +1,298 @@
+{
+    "MissionName": "Map3",
+    "width": 3,
+    "hight": 3,
+    "startPos": [
+        2,
+        2
+    ],
+    "rooms": [
+        {
+            "x": 0,
+            "y": 0,
+            "Ftype": 4,
+            "roomType": 1,
+            "puzzleName": "Table3",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 1,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "Puzzle7",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 1,
+            "y": 0,
+            "Ftype": 0,
+            "roomType": 0,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 2,
+            "y": 0,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "Puzzle7",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 1,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "Puzzle6",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 0,
+            "y": 1,
+            "Ftype": 1,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 1,
+                "left": 2,
+                "right": 0,
+                "frontKey": "Puzzle7",
+                "backKey": "Puzzle5",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "GreenSnake",
+                "hp": 80,
+                "atk": 10,
+                "rewards": [
+                    {
+                        "gateName": "or",
+                        "used": 1
+                    },
+                    {
+                        "gateName": "and",
+                        "used": 1
+                    }
+                ]
+            }
+        },
+        {
+            "x": 1,
+            "y": 1,
+            "Ftype": 1,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 2,
+                "left": 0,
+                "right": 0,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "GreenBush",
+                "hp": 40,
+                "atk": 10,
+                "rewards": [
+                    {
+                        "gateName": "not",
+                        "used": 1
+                    }
+                ]
+            }
+        },
+        {
+            "x": 2,
+            "y": 1,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "Puzzle5",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 0,
+                "left": 0,
+                "right": 2,
+                "frontKey": "Puzzle6",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 0,
+            "y": 2,
+            "Ftype": 2,
+            "roomType": 1,
+            "puzzleName": "Puzzle6",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 1,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "Puzzle5",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 1,
+            "y": 2,
+            "Ftype": 0,
+            "roomType": 0,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 2,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        },
+        {
+            "x": 2,
+            "y": 2,
+            "Ftype": 3,
+            "roomType": 1,
+            "puzzleName": "none",
+            "objs": [],
+            "config": {
+                "line": 0,
+                "not": 0,
+                "and": 0,
+                "or": 0
+            },
+            "doors": {
+                "front": 0,
+                "back": 2,
+                "left": 2,
+                "right": 2,
+                "frontKey": "",
+                "backKey": "",
+                "leftKey": "",
+                "rightKey": ""
+            },
+            "monster": {
+                "name": "",
+                "hp": 0,
+                "atk": 0,
+                "rewards": []
+            }
+        }
+    ],
+    "truthTables": [
+        "Table3"
+    ]
+}

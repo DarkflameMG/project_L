@@ -1,0 +1,145 @@
+{
+    "PuzzleName": "Puzzle7",
+    "saveGates": [
+        {
+            "gateName": "high volt_1",
+            "posx": -129.19149780273438,
+            "posy": 381.63446044921877,
+            "posz": 0.0
+        },
+        {
+            "gateName": "low volt_2",
+            "posx": -132.35504150390626,
+            "posy": 237.6977081298828,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_3",
+            "posx": 57.451690673828128,
+            "posy": 307.2935791015625,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_4",
+            "posx": 247.25820922851563,
+            "posy": 307.2935791015625,
+            "posz": 0.0
+        },
+        {
+            "gateName": "high volt_5",
+            "posx": -126.028076171875,
+            "posy": 85.85237121582031,
+            "posz": 0.0
+        },
+        {
+            "gateName": "high volt_6",
+            "posx": -126.02799987792969,
+            "posy": -58.084354400634769,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder2_8",
+            "posx": 57.45159912109375,
+            "posy": 17.838321685791017,
+            "posz": 0.0
+        },
+        {
+            "gateName": "placeholder1_9",
+            "posx": 269.402587890625,
+            "posy": 17.838258743286134,
+            "posz": 0.0
+        },
+        {
+            "gateName": "bulb_10",
+            "posx": 451.300537109375,
+            "posy": 17.8382568359375,
+            "posz": 0.0
+        }
+    ],
+    "lines": [
+        {
+            "pos1X": -93.69149780273438,
+            "pos2X": -25.048309326171876,
+            "pos1Y": 381.63446044921877,
+            "pos2Y": 319.7935791015625,
+            "c1Name": "high volt_1",
+            "c1Type": 2,
+            "c2Name": "placeholder2_3",
+            "c2Type": 0
+        },
+        {
+            "pos1X": -25.048309326171876,
+            "pos2X": -96.85504150390625,
+            "pos1Y": 292.2935791015625,
+            "pos2Y": 237.69769287109376,
+            "c1Name": "placeholder2_3",
+            "c1Type": 1,
+            "c2Name": "low volt_2",
+            "c2Type": 2
+        },
+        {
+            "pos1X": 139.95169067382813,
+            "pos2X": 211.25820922851563,
+            "pos1Y": 307.2935791015625,
+            "pos2Y": 307.2935791015625,
+            "c1Name": "placeholder2_3",
+            "c1Type": 2,
+            "c2Name": "bulb_4",
+            "c2Type": 0
+        },
+        {
+            "pos1X": -25.04840087890625,
+            "pos2X": -90.52799987792969,
+            "pos1Y": 2.8383216857910158,
+            "pos2Y": -58.0843505859375,
+            "c1Name": "placeholder2_8",
+            "c1Type": 1,
+            "c2Name": "high volt_6",
+            "c2Type": 2
+        },
+        {
+            "pos1X": -25.04840087890625,
+            "pos2X": -90.528076171875,
+            "pos1Y": 30.338321685791017,
+            "pos2Y": 85.85236358642578,
+            "c1Name": "placeholder2_8",
+            "c1Type": 0,
+            "c2Name": "high volt_5",
+            "c2Type": 2
+        },
+        {
+            "pos1X": 139.95159912109376,
+            "pos2X": 186.90255737304688,
+            "pos1Y": 17.838321685791017,
+            "pos2Y": 17.838258743286134,
+            "c1Name": "placeholder2_8",
+            "c1Type": 2,
+            "c2Name": "placeholder1_9",
+            "c2Type": 0
+        },
+        {
+            "pos1X": 351.902587890625,
+            "pos2X": 415.300537109375,
+            "pos1Y": 17.838258743286134,
+            "pos2Y": 17.8382568359375,
+            "c1Name": "placeholder1_9",
+            "c1Type": 2,
+            "c2Name": "bulb_10",
+            "c2Type": 0
+        }
+    ],
+    "configs": [
+        {
+            "gateName": "or",
+            "used": 2
+        },
+        {
+            "gateName": "not",
+            "used": 1
+        },
+        {
+            "gateName": "line",
+            "used": 1
+        }
+    ]
+}

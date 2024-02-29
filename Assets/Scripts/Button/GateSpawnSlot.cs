@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class GateSpawnSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField]private LimitGateSys limitGateSys;
+    [SerializeField]private LimitFinalGateSys limitFinalGateSys;
     public void OnDrop(PointerEventData eventData)
     {
         Transform gate = eventData.pointerDrag.transform.parent;
@@ -19,6 +20,10 @@ public class GateSpawnSlot : MonoBehaviour, IDropHandler
             if(limitGateSys != null)
             {
                 limitGateSys.IncreaseNumber(gatename);
+            }
+            if(limitFinalGateSys != null)
+            {
+                limitFinalGateSys.IncreaseNumber(gatename);
             }
 
             if(gate.GetComponent<GateObject>().GetIsHolder() && gate.GetComponent<GateObject>().GetHolded() != null)

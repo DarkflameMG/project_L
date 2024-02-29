@@ -41,7 +41,15 @@ public class Line2Tone : MonoBehaviour
         {
             input = point1;
         }
-        else
+        else if((point2.GetComponent<Drag>().GetSlotNo() == SlotNo.output))
+        {
+            input = point2;
+        }
+        else if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.output2)
+        {
+            input = point1;
+        }
+        else if((point2.GetComponent<Drag>().GetSlotNo() == SlotNo.output2))
         {
             input = point2;
         }

@@ -10,6 +10,9 @@ public class PlayFinalPuzzle : MonoBehaviour
     [SerializeField]GameObject canvasUI;
     [SerializeField]SetTableSys setTableSys;
     [SerializeField]GameObject tabBar;
+    [SerializeField]Transform spawnGate;
+    [SerializeField]Transform spawnLine; 
+    [SerializeField]private LimitFinalGateSys limitFinalGateSys;
 
     public void StartPuzzle()
     {
@@ -20,5 +23,34 @@ public class PlayFinalPuzzle : MonoBehaviour
         mapInfo.Busy = true;
 
         setTableSys.SetTable();
+
+        limitFinalGateSys.SetStartNum();
+    }
+
+    public void Escape()
+    {
+        finalPuzzleScene.gameObject.SetActive(false);
+        mapUI.SetActive(true);
+        canvasUI.SetActive(true);
+        tabBar.SetActive(true);
+        mapInfo.Busy = false;
+        DeletedAll();
+    }
+
+    private void DeletedAll()
+    {
+        int countGate = spawnGate.childCount;
+        for(int i=0;i<countGate;i++)
+        {
+            GameObject gate = spawnGate.GetChild(i).gameObject;
+            Destroy(gate);
+        }
+
+        int countLine = spawnLine.childCount;
+        for(int i=0;i<countLine;i++)
+        {
+            GameObject line = spawnLine.GetChild(i).gameObject;
+            Destroy(line);
+        }
     }
 }

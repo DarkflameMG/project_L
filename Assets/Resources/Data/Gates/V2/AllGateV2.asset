@@ -22,3 +22,4 @@ MonoBehaviour:
   holder1: {fileID: 7184902308531542672, guid: 0e22c4c4b413eeb43a9e47cd4a8faf25, type: 3}
   holder2: {fileID: 7184902308531542672, guid: ef076c72764efa749bc548b21d2f34af, type: 3}
   line: {fileID: 6416283619166477125, guid: c35ce1acc8ac8a84bb79cc0843c698f3, type: 3}
+  splitter: {fileID: 6027748930571241568, guid: e602ad22a1039c248b200ad96bf070a5, type: 3}
