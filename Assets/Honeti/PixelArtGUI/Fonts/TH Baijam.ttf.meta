@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 72f2dbf4a292f4b2e9c690b15ff78cc6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - TH Baijam
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4aa53409c1f2b4c03911e42503f5ed9d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

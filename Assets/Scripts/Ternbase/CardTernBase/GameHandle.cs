@@ -16,6 +16,16 @@ public class GameHandle : MonoBehaviour
     [SerializeField] private GameObject boxStartBtn;
     [SerializeField] private Button startBtn;
 
+    //tutorial
+    [SerializeField] private Button HelpBtn;
+    [SerializeField] private GameObject HelpBtnBox;
+    [SerializeField] private Button exitTTBtn1;
+    [SerializeField] private Button exitTTBtn2;
+    [SerializeField] private Button nextBtn;
+    [SerializeField] private Button backBtn;
+    [SerializeField] private GameObject tutorial1;
+    [SerializeField] private GameObject tutorial2;
+
     //Monster List
     public List<GameObject> monsters = new List<GameObject>();
     [SerializeField] private MonsterSO monster;
@@ -76,6 +86,8 @@ public class GameHandle : MonoBehaviour
 
     void SetUpTurnBase()
     {
+        tutorial1.SetActive(false);
+        tutorial2.SetActive(false);
         Popup.SetActive(false);
         spawnMonster();
         spawnPlayer();
@@ -172,8 +184,32 @@ public class GameHandle : MonoBehaviour
         }
 
         startBtn.onClick.AddListener(() => startTern());
+        exitTTBtn1.onClick.AddListener(() => exitTT());
+        exitTTBtn2.onClick.AddListener(() => exitTT());
+        nextBtn.onClick.AddListener(() => Next());
+        backBtn.onClick.AddListener(() => Back());
+        HelpBtn.onClick.AddListener(() => Help());
     }
 
+    void exitTT(){
+        tutorial1.SetActive(false);
+        tutorial2.SetActive(false);
+    }
+
+    void Help(){
+        tutorial1.SetActive(true);
+        tutorial2.SetActive(false);
+    }
+
+    void Next(){
+        tutorial2.SetActive(true);
+        tutorial1.SetActive(false);
+    }
+
+    void Back(){
+        tutorial2.SetActive(false);
+        tutorial1.SetActive(true);
+    }
     //undo
     void PlayBack()
     {
@@ -371,6 +407,8 @@ public class GameHandle : MonoBehaviour
             bot.SetActive(false);
             startBtn.interactable = false;
             boxStartBtn.SetActive(false);
+            HelpBtn.interactable = false;
+            HelpBtnBox.SetActive(false);
             PlayerHP.text = "";
             EnemyHP.text = "";
             hideInfoBox(true);
@@ -380,6 +418,8 @@ public class GameHandle : MonoBehaviour
             top.SetActive(true);
             bot.SetActive(true);
             startBtn.interactable = true;
+            HelpBtn.interactable = true;
+            HelpBtnBox.SetActive(true);
             boxStartBtn.SetActive(true);
             hideInfoBox(false);
         }
