@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
+using System.Linq;
 
 public class FinalPuzzleCheck : MonoBehaviour
 {
@@ -34,11 +35,27 @@ public class FinalPuzzleCheck : MonoBehaviour
     {
         isPass = false;
         StatusUI.SetActive(true);
-
+        StatusUI.GetComponent<StatusUI>().Hide();
         inputs = GameObject.FindGameObjectsWithTag("TableInput");
         outputs = GameObject.FindGameObjectsWithTag("TableOutput");
 
-       StartCoroutine(CheckLoop());
+        if(CheckInput())
+        {
+            if(CheckOutput())
+            {
+                StartCoroutine(CheckLoop());
+            }
+            else
+            {
+                statusText.text = "Output Not Match with truth table";
+                Debug.Log("Output Not Completed");
+            }
+        }
+        else
+        {
+            statusText.text = "Input Not Match with truth table";
+            Debug.Log("Input Not Completed");
+        }
 
     }
     public void SetTable()
@@ -55,6 +72,67 @@ public class FinalPuzzleCheck : MonoBehaviour
         // tableSO.table = table;
     }
 
+    private bool CheckInput()
+    {
+        int intputCount = table.input;
+        //Input Check
+        List<String> inputNames = table.columnName.Take(intputCount).ToList();
+        for(int i=0;i<intputCount;i++)
+        {
+            bool haveAllName = false;
+            string tableIntputName = table.columnName[i];
+            foreach(GameObject input in inputs)
+            {
+                string inputName = input.GetComponent<AddNameIO>().GetName();
+                if(inputName.Equals(tableIntputName))
+                {
+                    haveAllName = true;
+                }
+                if(!inputNames.Contains(inputName))
+                {
+                    return false;
+                }
+            }
+            if(!haveAllName)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool CheckOutput()
+    {
+        int intputCount = table.input;
+        int allCount = table.input+table.output;
+        List<String> outputNames = table.columnName.Skip(intputCount).Take(table.output).ToList();
+        // Debug.Log(outputNames.Count);
+        //Output Check
+        for(int i=intputCount;i<allCount;i++)
+        {
+            bool haveAllName = false;
+            string tableOutputName = table.columnName[i];
+            // Debug.Log(tableOutputName);
+            foreach(GameObject output in outputs)
+            {
+                string outputName = output.GetComponent<AddNameIO>().GetName();
+                // Debug.Log(outputName);
+                if(outputName.Equals(tableOutputName))
+                {
+                    haveAllName = true;
+                }
+                if(!outputNames.Contains(outputName))
+                {
+                    return false;
+                }
+            }
+            if(!haveAllName)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private IEnumerator CheckLoop()
     {
         StatusUI.GetComponent<StatusUI>().Delete();
@@ -116,7 +194,8 @@ public class FinalPuzzleCheck : MonoBehaviour
         }
         else
         {
-            statusText.text = "You Fail";
+            statusText.text = "You Fail this case";
+            StatusUI.GetComponent<StatusUI>().Show();
             StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow);
         }
     }

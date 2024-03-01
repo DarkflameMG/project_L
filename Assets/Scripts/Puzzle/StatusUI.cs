@@ -9,6 +9,7 @@ public class StatusUI : MonoBehaviour
     [SerializeField]private Transform columnName;
     [SerializeField]private Transform truthRow;
     [SerializeField]private Transform cellPrefab;
+    [SerializeField]private GameObject wrongTable;
 
     public void SpawnWrongRow(TruthTable table,int[] row)
     {
@@ -64,5 +65,15 @@ public class StatusUI : MonoBehaviour
         {
             Destroy(truthRow.GetChild(i).gameObject);
         }
+    }
+
+    public void Hide()
+    {
+        wrongTable.SetActive(false);
+    }
+
+    public void Show()
+    {
+        wrongTable.SetActive(true);
     }
 }
