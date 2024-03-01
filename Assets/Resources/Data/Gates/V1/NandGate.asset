@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: 527ee9f145d65e84aa2941f86dee9b3e, type: 3}
   sprite: {fileID: 928417635, guid: ffa6794632d4ad2489a5fe12097f882d, type: 3}
   gateName: nand
-  description: 
+  description: output is false only 2 input is true

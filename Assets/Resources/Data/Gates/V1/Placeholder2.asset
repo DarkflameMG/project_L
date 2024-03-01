@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 7184902308531542672, guid: ef076c72764efa749bc548b21d2f34af, type: 3}
   sprite: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
   gateName: placeholder2
-  description: 
+  description: placeholder that have 2 input 1 output
