@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Holder : MonoBehaviour, IDropHandler
 {
+    [SerializeField]private Sprite empty;
+    [SerializeField]private Sprite notEmpty;
     private Transform holded;
     public void OnDrop(PointerEventData eventData)
     {
@@ -18,6 +21,7 @@ public class Holder : MonoBehaviour, IDropHandler
             transform.parent.GetComponent<GateObject>().SetHolded(holded);
             transform.parent.SetAsFirstSibling();
             gate.tag = "Untagged";
+            GetComponent<Image>().sprite = notEmpty;
         }
     }
 
@@ -25,5 +29,6 @@ public class Holder : MonoBehaviour, IDropHandler
     {
         holded = null;
         transform.parent.GetComponent<GateObject>().SetHolded(null);
+        GetComponent<Image>().sprite = empty;
     }
 }

@@ -23,6 +23,7 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private MapSystem mapSystem;
     [SerializeField]private PlayPuzzle playPuzzle;
     [SerializeField]private KeyRewardSys keyRewardSys;
+    [SerializeField]private TutorialSys tutorialSys;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
@@ -85,6 +86,7 @@ public class WinSystem : MonoBehaviour
         mapUI.SetActive(true);
         tabBar.SetActive(true);
         mapInfo.Busy = false;
+        tutorialSys.ResetAll();
 
         RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
         keyInventorySys.AddNewKey(roomDetail.puzzleName);
@@ -153,6 +155,8 @@ public class WinSystem : MonoBehaviour
 
             statusUI.SetActive(true);
             statusText.text = "Pass";
+            RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
+            tutorialSys.ShowUI(roomDetail.puzzleName);
         }
         else if(isPlay)
         {
@@ -160,6 +164,7 @@ public class WinSystem : MonoBehaviour
             currentIcon = playIcon;
 
             statusUI.SetActive(false);
+            tutorialSys.ResetAll();
         }
         else
         {
@@ -168,6 +173,7 @@ public class WinSystem : MonoBehaviour
 
             statusUI.SetActive(true);
             statusText.text = "Fail";
+            tutorialSys.ResetAll();
         }
     }
 

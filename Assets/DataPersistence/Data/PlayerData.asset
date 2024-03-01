@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   _slotNumber: 1
-  _name: gg
+  _name: Ba
   _position: {x: 0, y: 0, z: 0}
   _inventory:
     goldCoins: 0
     isFull: 0
     items: []
   puzzleCompleted:
-  - map01
+  - Map1
+  - Map2

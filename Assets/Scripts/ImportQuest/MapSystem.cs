@@ -92,7 +92,7 @@ public class MapSystem : MonoBehaviour
     {
         mapInfo.Busy = true;
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("Start");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         levelLoader.GetComponent<LevelLoader>().GetAnimator().SetTrigger("End");
 
         miniMapSys.SetCurrentRoom("Room"+mapLoc.current_x+"_"+mapLoc.current_y);
