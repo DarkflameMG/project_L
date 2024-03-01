@@ -662,7 +662,6 @@ public class GameHandle : MonoBehaviour
             }
             newAction.RemoveAt(newAction.Count - 1);
         }
-        yield return new WaitForSeconds(1);
         waittingForPlayer = false;
     }
 
