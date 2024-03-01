@@ -303,13 +303,13 @@ TextureImporter:
       name: Ready_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 213
         y: 192
-        width: 64
-        height: 64
+        width: 24
+        height: 17
       alignment: 7
       pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0

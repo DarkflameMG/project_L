@@ -108,7 +108,7 @@ TextureImporter:
       name: xnorLv3_0
       rect:
         serializedVersion: 2
-        x: 35
+        x: 17
         y: 18
         width: 599
         height: 794
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88b47e2c09bb3468abc6b4ee4e795af9
-      internalID: 782290142
+      spriteID: 8d228119eb6ba492f8211cb6060beac2
+      internalID: 1499247085
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 52f11b710c8d44c7794fe50b5df1df2d
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      xnorLv3_0: 782290142
+      xnorLv3_0: 1499247085
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
