@@ -30,16 +30,23 @@ public class WinSystem : MonoBehaviour
     private Button btn;
     private GameObject currentIcon;
     private List<GameObject> bulbs;
+    private List<GameObject> holders;
 
     public void Awake()
     {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(TriggleCheck);
         currentIcon = playIcon;
+        holders = new();
     }
     public void SetBulbs(List<GameObject> data)
     {
         bulbs = data;
+    }
+
+    public void SetHolder(List<GameObject> data)
+    {
+        holders = data;
     }
     private void Update() {
         // ChangeIcon();
@@ -106,6 +113,11 @@ public class WinSystem : MonoBehaviour
     }
     private void CheckWinCond()
     {
+        if(holders != null)
+        {
+            Debug.Log(holders.Count);
+        }
+
         int childCount = lines.childCount;
         for(int i=0;i<childCount;i++)
         {
@@ -119,8 +131,18 @@ public class WinSystem : MonoBehaviour
                 line.StopLine();
             }
         }
+        if(CheckHolder())
+        {
+            StartCoroutine(CheckBulbs());
+        }
+        else
+        {
+            Debug.Log("Some empty");
+            winCond = false;
+            isPlay = !isPlay;
+            ChangeIcon("Empty placeholder");
+        }
         
-        StartCoroutine(CheckBulbs());
     }
 
     IEnumerator CheckBulbs()
@@ -142,10 +164,23 @@ public class WinSystem : MonoBehaviour
             isWin = true;
         }
         isPlay = !isPlay;
-        ChangeIcon();
+        ChangeIcon("Fail");
     }
 
-    private void ChangeIcon()
+    private bool CheckHolder()
+    {
+        foreach(GameObject holder in holders)
+        {
+            // Debug.Log(bulb.GetComponent<GateObject>().GetCurrentState());
+            if(!holder.transform.Find("Image").GetComponent<Holder>().IsHolded())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void ChangeIcon(string errorMs)
     {
         currentIcon.SetActive(false);
         if(isWin)
@@ -172,7 +207,7 @@ public class WinSystem : MonoBehaviour
             currentIcon = pauseIcon;
 
             statusUI.SetActive(true);
-            statusText.text = "Fail";
+            statusText.text = errorMs;
             tutorialSys.ResetAll();
         }
     }

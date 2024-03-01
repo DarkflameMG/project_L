@@ -31,4 +31,9 @@ public class Holder : MonoBehaviour, IDropHandler
         transform.parent.GetComponent<GateObject>().SetHolded(null);
         GetComponent<Image>().sprite = empty;
     }
+
+    public bool IsHolded()
+    {
+        return !(holded==null);
+    }
 }
