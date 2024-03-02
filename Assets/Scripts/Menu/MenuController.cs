@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
     private GameObject NewSave;
 
     private void Start() {
-        Screen.SetResolution(1920, 1080, true);
+        // Screen.SetResolution(1920, 1080, true);
     }
     public void con()
     {
