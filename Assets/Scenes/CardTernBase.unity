@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3262,6 +3262,9 @@ MonoBehaviour:
   deck: []
   newDeck: []
   monitors: []
+  monitor1: {fileID: 835873747}
+  monitor2: {fileID: 677142426}
+  monitor3: {fileID: 2075262316}
   box1: {fileID: 1165800591}
   box2: {fileID: 598780099}
   box3: {fileID: 1259658049}

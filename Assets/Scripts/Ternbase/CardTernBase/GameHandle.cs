@@ -69,6 +69,9 @@ public class GameHandle : MonoBehaviour
 
     //Action Box
     public List<Button> monitors = new List<Button>();
+    [SerializeField] private GameObject monitor1;
+    [SerializeField] private GameObject monitor2;
+    [SerializeField] private GameObject monitor3;
     [SerializeField] public TMP_Text box1;
     [SerializeField] public TMP_Text box2;
     [SerializeField] public TMP_Text box3;
@@ -150,12 +153,14 @@ public class GameHandle : MonoBehaviour
 
     void GetMonitors()
     {
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Monitor");
-
-        for (int i = 0; i < objects.Length; i++)
-        {
-            monitors.Add(objects[i].GetComponent<Button>());
-        }
+        // GameObject[] objects = GameObject.FindGameObjectsWithTag("Monitor");
+        // for (int i = 0; i < objects.Length; i++)
+        // {
+        //     monitors.Add(objects[i].GetComponent<Button>());
+        // }
+        monitors.Add(monitor1.GetComponent<Button>());
+        monitors.Add(monitor2.GetComponent<Button>());
+        monitors.Add(monitor3.GetComponent<Button>());
     }
 
     void GetButtons()
@@ -375,8 +380,24 @@ public class GameHandle : MonoBehaviour
                 Debug.Log("action : " + action.Peek());
 
                 //change image card to action box
-                if (action.Count <= 1) monitors[0].image.sprite = deck[secondSeclectIndex].image.sprite;
-                else monitors[action.Count - 1].image.sprite = deck[secondSeclectIndex].image.sprite;
+                // if (action.Count <= 1) monitors[0].image.sprite = deck[secondSeclectIndex].image.sprite;
+                // else monitors[action.Count - 1].image.sprite = deck[secondSeclectIndex].image.sprite;
+
+                switch(action.Count)
+                {
+                    case 0:
+                        monitors[0].image.sprite = deck[secondSeclectIndex].image.sprite;
+                    break;
+                    case 1:
+                        monitors[0].image.sprite = deck[secondSeclectIndex].image.sprite;
+                    break;
+                    case 2:
+                        monitors[1].image.sprite = deck[secondSeclectIndex].image.sprite;
+                    break;
+                    case 3:
+                        monitors[2].image.sprite = deck[secondSeclectIndex].image.sprite;
+                    break;
+                }
 
                 actionSprite.Add(deck[secondSeclectIndex].GetComponent<Image>().sprite);
                 actionIndex.Add(secondSeclectIndex);
