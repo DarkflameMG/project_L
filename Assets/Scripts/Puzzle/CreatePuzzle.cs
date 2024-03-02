@@ -14,6 +14,7 @@ public class CreatePuzzle : MonoBehaviour
     [SerializeField]MapSystem mapSystem;
     [SerializeField]LimitGateSys limitGateSys;
     private List<GameObject> bulbs;
+    private List<GameObject> holders;
     private void ReadJson(string json)
     {
         PuzzleInfo loadPuzzle = JsonUtility.FromJson<PuzzleInfo>(json); // fix for puzzle leter
@@ -22,11 +23,13 @@ public class CreatePuzzle : MonoBehaviour
         CreateLine(loadPuzzle.lines);
         SetLimit(loadPuzzle.configs);
         winSystem.SetBulbs(bulbs);
+        winSystem.SetHolder(holders);
         winSystem.ReState();
     }
     public void StartGame()
     {
         bulbs = new List<GameObject>();
+        holders = new();
         RoomDetail room = mapSystem.GetCurrentRoomDetail();
         ReadJson(File.ReadAllText(Application.streamingAssetsPath+"/Puzzle/"+room.puzzleName+".json"));
         // Debug.Log(room.puzzleName);
@@ -78,10 +81,12 @@ public class CreatePuzzle : MonoBehaviour
             else if(type.Equals("placeholder1"))
             {
                 gateObj = Instantiate(allGate.holder1,spawnPoint);
+                holders.Add(gateObj.gameObject);
             }
             else if(type.Equals("placeholder2"))
             {
                 gateObj = Instantiate(allGate.holder2,spawnPoint);
+                holders.Add(gateObj.gameObject);
             }
             else if(type.Equals("splitter"))
             {

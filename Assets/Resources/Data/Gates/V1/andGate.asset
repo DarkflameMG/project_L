@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: a73e7a6eddccf324397b645a1d6ac55f, type: 3}
   sprite: {fileID: -609539793, guid: 97d312ac87494a3449a114277ba02661, type: 3}
   gateName: and
-  description: output is true when input is true together
+  description: output is true only when 2 input is true

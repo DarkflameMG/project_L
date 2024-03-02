@@ -12,6 +12,8 @@ public class PlayFinalPuzzle : MonoBehaviour
     [SerializeField]GameObject tabBar;
     [SerializeField]Transform spawnGate;
     [SerializeField]Transform spawnLine; 
+    [SerializeField]MapSystem mapSystem;
+    [SerializeField]TutorialSys tutorialSys;
     [SerializeField]private LimitFinalGateSys limitFinalGateSys;
 
     public void StartPuzzle()
@@ -22,6 +24,8 @@ public class PlayFinalPuzzle : MonoBehaviour
         tabBar.SetActive(false);
         mapInfo.Busy = true;
 
+        RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
+        tutorialSys.ShowUI(roomDetail.puzzleName);
         setTableSys.SetTable();
 
         limitFinalGateSys.SetStartNum();

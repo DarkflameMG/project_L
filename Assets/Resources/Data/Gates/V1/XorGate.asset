@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: 3d335dcff50972f41aa70002ba0e2f01, type: 3}
   sprite: {fileID: -2105309854, guid: d14f77087aee7464088510b0aa7a2fd9, type: 3}
   gateName: xor
-  description: 
+  description: 'output is true when 2 input is not same value '

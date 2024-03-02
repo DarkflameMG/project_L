@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6137835852763397361, guid: d3b851461b701cf4c93ebd9d0e5bd1ca, type: 3}
   sprite: {fileID: -1619255077, guid: 9a108d8f257f74a4daf0e1c4743ca364, type: 3}
   gateName: low volt
-  description: 
+  description: have only false output

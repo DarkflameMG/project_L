@@ -23,22 +23,30 @@ public class WinSystem : MonoBehaviour
     [SerializeField]private MapSystem mapSystem;
     [SerializeField]private PlayPuzzle playPuzzle;
     [SerializeField]private KeyRewardSys keyRewardSys;
+    [SerializeField]private TutorialSys tutorialSys;
     private bool winCond = true;
     private bool isWin = false;
     private bool isPlay = true;
     private Button btn;
     private GameObject currentIcon;
     private List<GameObject> bulbs;
+    private List<GameObject> holders;
 
     public void Awake()
     {
         btn = GetComponent<Button>();
         btn.onClick.AddListener(TriggleCheck);
         currentIcon = playIcon;
+        holders = new();
     }
     public void SetBulbs(List<GameObject> data)
     {
         bulbs = data;
+    }
+
+    public void SetHolder(List<GameObject> data)
+    {
+        holders = data;
     }
     private void Update() {
         // ChangeIcon();
@@ -85,6 +93,7 @@ public class WinSystem : MonoBehaviour
         mapUI.SetActive(true);
         tabBar.SetActive(true);
         mapInfo.Busy = false;
+        tutorialSys.ResetAll();
 
         RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
         keyInventorySys.AddNewKey(roomDetail.puzzleName);
@@ -104,6 +113,11 @@ public class WinSystem : MonoBehaviour
     }
     private void CheckWinCond()
     {
+        if(holders != null)
+        {
+            Debug.Log(holders.Count);
+        }
+
         int childCount = lines.childCount;
         for(int i=0;i<childCount;i++)
         {
@@ -117,8 +131,18 @@ public class WinSystem : MonoBehaviour
                 line.StopLine();
             }
         }
+        if(CheckHolder())
+        {
+            StartCoroutine(CheckBulbs());
+        }
+        else
+        {
+            Debug.Log("Some empty");
+            winCond = false;
+            isPlay = !isPlay;
+            ChangeIcon("Empty placeholder");
+        }
         
-        StartCoroutine(CheckBulbs());
     }
 
     IEnumerator CheckBulbs()
@@ -140,10 +164,23 @@ public class WinSystem : MonoBehaviour
             isWin = true;
         }
         isPlay = !isPlay;
-        ChangeIcon();
+        ChangeIcon("Fail");
     }
 
-    private void ChangeIcon()
+    private bool CheckHolder()
+    {
+        foreach(GameObject holder in holders)
+        {
+            // Debug.Log(bulb.GetComponent<GateObject>().GetCurrentState());
+            if(!holder.transform.Find("Image").GetComponent<Holder>().IsHolded())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void ChangeIcon(string errorMs)
     {
         currentIcon.SetActive(false);
         if(isWin)
@@ -153,6 +190,8 @@ public class WinSystem : MonoBehaviour
 
             statusUI.SetActive(true);
             statusText.text = "Pass";
+            RoomDetail roomDetail = mapSystem.GetCurrentRoomDetail();
+            tutorialSys.ShowUI(roomDetail.puzzleName);
         }
         else if(isPlay)
         {
@@ -160,6 +199,7 @@ public class WinSystem : MonoBehaviour
             currentIcon = playIcon;
 
             statusUI.SetActive(false);
+            tutorialSys.ResetAll();
         }
         else
         {
@@ -167,7 +207,8 @@ public class WinSystem : MonoBehaviour
             currentIcon = pauseIcon;
 
             statusUI.SetActive(true);
-            statusText.text = "Fail";
+            statusText.text = errorMs;
+            tutorialSys.ResetAll();
         }
     }
 

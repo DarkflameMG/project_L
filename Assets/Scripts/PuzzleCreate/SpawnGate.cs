@@ -37,6 +37,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log(enable);
         if(enable)
         {
             Spawn();

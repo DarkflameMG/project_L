@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6027748930571241568, guid: 084a0bb4fbb8e3b4096708145019e2d0, type: 3}
   sprite: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
   gateName: splitter
-  description: 
+  description: split input to 2 output

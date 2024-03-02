@@ -32,10 +32,10 @@ public class SaveData : MonoBehaviour
         }
         
         //Save data when press S from keyboard.
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveToJson();
-        }
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     SaveToJson();
+        // }
 
     }
 
