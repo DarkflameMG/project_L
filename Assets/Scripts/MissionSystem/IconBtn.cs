@@ -14,7 +14,7 @@ public class IconBtn : MonoBehaviour
         btn.onClick.AddListener(ClickBtn);
     }
 
-    private void ClickBtn()
+    public void ClickBtn()
     {
         if(isChest)
         {
