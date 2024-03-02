@@ -16,6 +16,9 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private GameObject NewSave;
 
+    private void Start() {
+        Screen.SetResolution(1920, 1080, true);
+    }
     public void con()
     {
         Debug.Log("Contiue clicked...!");
