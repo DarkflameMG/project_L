@@ -36,10 +36,14 @@ public class DontDestroyMap : MonoBehaviour
         map.SetActive(false);
     }
 
-    public void FightToMap()
+    public void FightToMap(bool win)
     {
         map.SetActive(true);
-        SetItem();
+        if(win)
+        {
+            SetItem();
+            map.GetComponent<ShowGateReward>().ShowUI();
+        }
     }
 
     public void MapToLobby()
