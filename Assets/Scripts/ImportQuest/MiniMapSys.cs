@@ -21,6 +21,7 @@ public class MiniMapSys : MonoBehaviour
     private string currentRoomName;
     private int hight,width;
     private bool mapStatus = true;
+    private bool canToggle = true;
     private void Awake() {
         rooms = missionSO.missionInfo.rooms;
         hight = missionSO.missionInfo.hight;
@@ -81,18 +82,21 @@ public class MiniMapSys : MonoBehaviour
 
     public void ToggleMap()
     {
-        mapStatus = !mapStatus;
-        if(mapStatus)
+        if(canToggle)
         {
-            mapCamera.rect = new Rect(0.8f,0,1,0.2f);
-            scrollView.horizontal = false;
-            scrollView.vertical = false;
-        }
-        else
-        {
-            mapCamera.rect = new Rect(0,0,1,1);
-            scrollView.horizontal = true;
-            scrollView.vertical = true;
+            mapStatus = !mapStatus;
+            if(mapStatus)
+            {
+                mapCamera.rect = new Rect(0.8f,0,1,0.2f);
+                scrollView.horizontal = false;
+                scrollView.vertical = false;
+            }
+            else
+            {
+                mapCamera.rect = new Rect(0,0,1,1);
+                scrollView.horizontal = true;
+                scrollView.vertical = true;
+            }
         }
     }
 
@@ -109,5 +113,15 @@ public class MiniMapSys : MonoBehaviour
     public void CenterPosition()
     {
         viewPort.localPosition = new Vector3(-flagCurrent.localPosition.x,-flagCurrent.localPosition.y);
+    }
+
+    public void SetCanToggleTrue()
+    {
+        canToggle = true;
+    }
+
+    public void SetCanToggleFalse()
+    {
+        canToggle = false;
     }
 }

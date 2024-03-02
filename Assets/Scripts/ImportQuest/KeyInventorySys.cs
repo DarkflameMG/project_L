@@ -16,6 +16,7 @@ public class KeyInventorySys : MonoBehaviour
     [SerializeField]private GateInventorySys gateInventorySys;
     private bool inventoryState = false;
     private Color32[] colors;
+    private bool canToggle = true;
     int index = 0;
 
     private void Awake() {
@@ -50,9 +51,12 @@ public class KeyInventorySys : MonoBehaviour
 
     public void ToggleUI()
     {
-        inventoryState = !inventoryState;
-        inventoryUI.SetActive(inventoryState);
-        gateInventorySys.ReCheck();
+        if(canToggle)
+        {
+            inventoryState = !inventoryState;
+            inventoryUI.SetActive(inventoryState);
+            gateInventorySys.ReCheck();
+        }
     }
 
     public void AddNewKey(string name)
@@ -101,6 +105,16 @@ public class KeyInventorySys : MonoBehaviour
                 keySO.currentIndex = index;
             }
         } 
+    }
+
+    public void SetCanToggleTrue()
+    {
+        canToggle = true;
+    }
+
+    public void SetCanToggleFalse()
+    {
+        canToggle = false;
     }
 
 }
