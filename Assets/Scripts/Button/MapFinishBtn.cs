@@ -23,7 +23,8 @@ public class MapFinishBtn : MonoBehaviour
             playerData.puzzleCompleted.Add(missionName);
         }
         SaveData saveData = GetComponent<SaveData>();
-        saveData.SaveToJsonV2(playerData);
+        // saveData.SaveToJsonV2(playerData);
+        saveData.SaveToJson();
         dontDestroyMap.MapToLobby();
         SceneManager.LoadScene("lobby");
         
