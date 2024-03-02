@@ -50,6 +50,8 @@ public class SaveData : MonoBehaviour
         Debug.Log("FilePath = \"" + filePath + "\"");
         System.IO.File.WriteAllText(filePath, PlayerDataJson);
         Debug.Log("Save Data to slot " + slot + " Complete...!!");
+
+        LoadFromJson(slot);
     }
 
     public void SaveToJson()
