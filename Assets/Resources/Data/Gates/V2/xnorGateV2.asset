@@ -15,4 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: a778a0a55296774498777649768d7059, type: 3}
   sprite: {fileID: 21712544, guid: 5da342c3ff3ed2543b3c71feaba99955, type: 3}
   gateName: xnor
-  description: output is true when 2 input are the same
+  description: "output \u0E40\u0E1B\u0E47\u0E19\u0E08\u0E23\u0E34\u0E07 \u0E40\u0E21\u0E37\u0E48\u0E2D\u0E17\u0E31\u0E49\u0E07
+    2 input \u0E21\u0E35\u0E04\u0E48\u0E32\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E01\u0E31\u0E19"

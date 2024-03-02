@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6137835852763397361, guid: 399d160ce365e074f834a73b4aaa8f60, type: 3}
   sprite: {fileID: -1093565075, guid: 9b4d498bc1e8c7f418cfc4626b5a3921, type: 3}
   gateName: high volt
-  description: have only true output
+  description: "output \u0E04\u0E37\u0E2D True \u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19"

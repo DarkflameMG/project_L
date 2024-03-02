@@ -12,7 +12,7 @@ public class MissionSelect : MonoBehaviour
     private void Update() {
         if(lobbyinfo.currentPage == Page.main)
         {
-            if(Keyboard.current.escapeKey.wasPressedThisFrame)
+            if(Keyboard.current.tabKey.wasPressedThisFrame) // esc
             {
                 lobbyinfo.Busy = false;
                 lobbyinfo.currentPage = Page.none;
@@ -23,7 +23,7 @@ public class MissionSelect : MonoBehaviour
         {
             mainMenuUI.SetActive(false);
             questListUI.SetActive(true);
-            if(Keyboard.current.escapeKey.wasPressedThisFrame)
+            if(Keyboard.current.tabKey.wasPressedThisFrame) // esc
             {
                 lobbyinfo.Busy = false;
                 lobbyinfo.currentPage = Page.none;
@@ -41,7 +41,7 @@ public class MissionSelect : MonoBehaviour
         {
             mainMenuUI.SetActive(false);
             UI.transform.GetChild(4).gameObject.SetActive(true);
-            if(Keyboard.current.escapeKey.wasPressedThisFrame)
+            if(Keyboard.current.tabKey.wasPressedThisFrame) // esc
             {
                 lobbyinfo.Busy = false;
                 lobbyinfo.currentPage = Page.none;

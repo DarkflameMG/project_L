@@ -15,4 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: 91bb626fb8cbc654b80efa97b648ce92, type: 3}
   sprite: {fileID: -609539793, guid: 97d312ac87494a3449a114277ba02661, type: 3}
   gateName: and
-  description: output is true when input is true together
+  description: "output \u0E40\u0E1B\u0E47\u0E19 True \u0E40\u0E21\u0E37\u0E48\u0E2D\u0E17\u0E31\u0E49\u0E07
+    2 input \u0E40\u0E1B\u0E47\u0E19 True"

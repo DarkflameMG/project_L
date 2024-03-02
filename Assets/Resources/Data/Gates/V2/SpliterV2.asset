@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpliterV2
   m_EditorClassIdentifier: 
   prefab: {fileID: 6027748930571241568, guid: e602ad22a1039c248b200ad96bf070a5, type: 3}
-  sprite: {fileID: 21300000, guid: 96e9f53f9487b704cbd3b1ff843d889c, type: 3}
+  sprite: {fileID: -1995395000, guid: 57763b6c503043a4390a9361e832e479, type: 3}
   gateName: splitter
-  description: Split input to 2 output
+  description: "output \u0E17\u0E31\u0E49\u0E07 2 \u0E21\u0E35\u0E04\u0E48\u0E32\u0E40\u0E17\u0E48\u0E32\u0E01\u0E31\u0E1A
+    input"

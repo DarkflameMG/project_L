@@ -15,4 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 6027748930571241568, guid: 59abdbce9dca5b0419850bd513be000f, type: 3}
   sprite: {fileID: -1024012131, guid: 79a87f7b9ff5e5a4cb5c01f445834aac, type: 3}
   gateName: not
-  description: output is flip input example if input is true output will be false
+  description: "output \u0E04\u0E37\u0E2D\u0E04\u0E48\u0E32\u0E15\u0E23\u0E07\u0E02\u0E49\u0E32\u0E21\u0E01\u0E31\u0E1A
+    input"

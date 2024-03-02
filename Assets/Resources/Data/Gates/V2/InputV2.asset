@@ -15,4 +15,5 @@ MonoBehaviour:
   prefab: {fileID: 3079195852384303507, guid: aa05c4d65f1591f4db62ca22cded29d4, type: 3}
   sprite: {fileID: 1436999307, guid: 5aa189e8df425194e816c21e787544b5, type: 3}
   gateName: input
-  description: Input right click to change name
+  description: "\u0E04\u0E25\u0E34\u0E01\u0E02\u0E27\u0E32\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E0A\u0E37\u0E48\u0E2D
+    Input"

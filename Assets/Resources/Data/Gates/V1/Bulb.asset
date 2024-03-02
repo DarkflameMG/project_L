@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 6933539883709446676, guid: d22bcb98517cc254882cea054e29e0be, type: 3}
   sprite: {fileID: 1064232014, guid: a3a8723237f203f41b43bab684ba6178, type: 3}
   gateName: bulb
-  description: if input is true bulb will shine
+  description: "\u0E16\u0E49\u0E32 input \u0E40\u0E1B\u0E47\u0E19 True \u0E2B\u0E25\u0E2D\u0E14\u0E44\u0E1F\u0E08\u0E30\u0E21\u0E35\u0E41\u0E2A\u0E07"
