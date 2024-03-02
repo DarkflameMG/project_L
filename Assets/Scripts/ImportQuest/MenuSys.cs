@@ -25,7 +25,7 @@ public class MenuSys : MonoBehaviour
         }
     }
 
-    private void ToggleMenu()
+    public void ToggleMenu()
     {
         toggle = !toggle;
         menuUI.SetActive(toggle);
@@ -37,4 +37,5 @@ public class MenuSys : MonoBehaviour
         SceneManager.LoadScene("Lobby");
         dontDestroyMap.MapToLobby();
     }
+
 }
