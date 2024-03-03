@@ -64,7 +64,7 @@ public class WinSystem : MonoBehaviour
         }
     }
 
-    private void DestroyGates()
+    public void DestroyGates()
     {
         int gateCount = gates.childCount;
         for(int i=0;i<gateCount;i++)
@@ -74,7 +74,7 @@ public class WinSystem : MonoBehaviour
         }
         statusUI.SetActive(false);
     }
-    private void DestroyLines()
+    public void DestroyLines()
     {
         int lineCount = lines.childCount;
         for(int i=0;i<lineCount;i++)
