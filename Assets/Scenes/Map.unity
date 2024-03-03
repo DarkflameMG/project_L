@@ -2999,6 +2999,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028987107}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
       objectReference: {fileID: 919616972}
@@ -10759,6 +10763,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2028987107}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
@@ -18992,6 +19000,7 @@ MonoBehaviour:
   mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
   mapUI: {fileID: 598801250}
   tabBar: {fileID: 1594730491}
+  winSystem: {fileID: 1117993384}
 --- !u!1 &1021138401
 GameObject:
   m_ObjectHideFlags: 0
@@ -20504,6 +20513,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2028987107}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
@@ -25634,6 +25647,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2028987107}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
@@ -34467,6 +34484,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2028987107}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
       objectReference: {fileID: 919616972}
@@ -36085,6 +36106,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2028987107}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
@@ -37909,6 +37934,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2028987107}
+    - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
+      propertyPath: isMakeitTrue
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 524967915757806912, guid: d36faee7fafc53246bd6937f11b80c4a, type: 3}
       propertyPath: GateNumberSystem
       value: 
