@@ -13,7 +13,6 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
     private Transform gate;
     private bool dragable = true;
     private Canvas canvas;
-    private Canvas canvas;
 
     private void Awake() {
         rectTransform = transform.parent.GetComponent<RectTransform>();
