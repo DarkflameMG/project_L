@@ -18992,6 +18992,7 @@ MonoBehaviour:
   mapInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
   mapUI: {fileID: 598801250}
   tabBar: {fileID: 1594730491}
+  winSystem: {fileID: 1117993384}
 --- !u!1 &1021138401
 GameObject:
   m_ObjectHideFlags: 0
