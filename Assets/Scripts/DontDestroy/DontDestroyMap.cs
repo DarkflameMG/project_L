@@ -8,6 +8,7 @@ public class DontDestroyMap : MonoBehaviour
     [SerializeField]private RewardsSO rewardsSO;
     [SerializeField]private GateInventorySO gateInventorySO;
     // private bool toggle = false;
+    private GameObject cameraMap;
 
     private void Awake() {
         DontDestroyOnLoad(map);
@@ -15,6 +16,10 @@ public class DontDestroyMap : MonoBehaviour
         if(GameObject.Find("MapScene") != null)
         {
             map = GameObject.Find("MapScene");
+        }
+        if(GameObject.Find("Main Camera Map") != null)
+        {
+            cameraMap = GameObject.Find("Main Camera Map");
         }
     }
 
@@ -38,12 +43,25 @@ public class DontDestroyMap : MonoBehaviour
 
     public void FightToMap(bool win)
     {
+        if(GameObject.Find("TurnBase") != null)
+        {
+            GameObject turnbase = GameObject.Find("TurnBase");
+            Destroy(turnbase);
+        }
         map.SetActive(true);
         if(win)
         {
             SetItem();
             map.GetComponent<ShowGateReward>().ShowUI();
         }
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        cameraMap.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        cameraMap.SetActive(true);
     }
 
     public void MapToLobby()

@@ -59,7 +59,8 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         if(gateNumberSystem != null)
         {
             gateTranform.gameObject.name = gateSO.gateName+"_"+gateNumberSystem.GetGateNum();
-            gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;   
+            // gateTranform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0) - viewPort.localPosition;   
+            gateTranform.localPosition = Input.mousePosition / canvas.scaleFactor + new Vector3(-1250f,-830f,0) - viewPort.localPosition;  
         }
         else
         {

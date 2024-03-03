@@ -8,6 +8,7 @@ public class TooltipManager : MonoBehaviour
     public static TooltipManager _instance;
     [SerializeField]public TextMeshProUGUI gateName;
     [SerializeField]public TextMeshProUGUI description;
+    [SerializeField]public Canvas canvas;
 
     private void Awake() {
         if(_instance != null && _instance != this)
@@ -29,7 +30,10 @@ public class TooltipManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0);
+        // Debug.Log(canvas.scaleFactor);
+        transform.localPosition = Input.mousePosition/canvas.scaleFactor + new Vector3(-1250f,-830f,0);;
+        // transform.localPosition = transform.localPosition + new Vector3(-1250f,-830f,0);
+        // transform.localPosition = Input.mousePosition + new Vector3(-950f,-550f,0);
     }
 
     public void SetAndShow(string name,string desc)
