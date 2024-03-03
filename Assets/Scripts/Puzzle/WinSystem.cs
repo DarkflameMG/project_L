@@ -147,7 +147,7 @@ public class WinSystem : MonoBehaviour
 
     IEnumerator CheckBulbs()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1);
         winCond = true;
         foreach(GameObject bulb in bulbs)
         {

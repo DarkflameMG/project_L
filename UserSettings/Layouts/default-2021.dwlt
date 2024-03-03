@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 18680
+  controlID: 604
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 18681
+  controlID: 605
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 18682
+  controlID: 606
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 18683
+  controlID: 607
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,8 +213,8 @@ MonoBehaviour:
     y: 0
     width: 281.6
     height: 485.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -241,14 +241,14 @@ MonoBehaviour:
     height: 485.6
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
   - {fileID: 13}
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -268,14 +268,14 @@ MonoBehaviour:
     y: 485.6
     width: 1176.8
     height: 237.19998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -427,23 +427,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6c7b0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 52e6fbffa0e6fbffe0edfbffe0f0fbffc0f2fbff00f7fbff8efbfbffacfbfbffcc69fcff0e6afcff4e71fcff4e74fcff2e76fcff6e7afcfffc7efcff1a7ffcffd010fdff8440fdff2e48fdff424dfdffea9cfdffc2dafdff0ae6fdffb0e6fdffb6e6fdff4207feff5009feffbc09feff2c0afeff440bfeffb6bcffff86c2ffff74d1ffff88e9ffff94f0ffff62f5ffff0cfbfffff4ffffff50a70000b6a700000ec6000034c7000050cd00009ecd0000c6e70000a2ec000024ee0000aeef000000f10000e4f200003af4000088f50000b4f500009cc60300fca50400dc56050034610500
+      m_ExpandedIDs: 34d3feff74d3feffb8dafeffbcddfeffa0dffeff46e4fefff4e8feff06e9feff9e3fffffde3fffff2647ffff2e4affff164cffffc050ffff7255ffff8855ffff82f5ffff02fbfffff4ffffffb0bb0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: UICamera
-        m_OriginalName: UICamera
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 352124
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -931,22 +931,22 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Resources/Data
+    - Assets/Scripts/ScriptableObject
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 58
   m_LastFolders:
-  - Assets/Scenes/Resources/Data
+  - Assets/Scripts/ScriptableObject
   m_LastFoldersGridSize: 58
   m_LastProjectPath: D:\project\game\project_L
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 619}
-    m_SelectedIDs: d0910000
-    m_LastClickedID: 37328
-    m_ExpandedIDs: 000000007c9100007e91000080910000829100008491000086910000889100008a9100008c9100008e9100009091000000ca9a3b
+    scrollPos: {x: 0, y: 715.80005}
+    m_SelectedIDs: ea910000
+    m_LastClickedID: 37354
+    m_ExpandedIDs: 000000007a9100007c9100007e91000080910000829100008491000086910000889100008a9100008c9100008e91000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -974,7 +974,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 1281.6}
     m_SelectedIDs: 5c820000
     m_LastClickedID: 33372
-    m_ExpandedIDs: 000000007c9100007e91000080910000829100008491000086910000889100008a9100008c9100008e9100009091000000ca9a3b
+    m_ExpandedIDs: 000000007a9100007c9100007e91000080910000829100008491000086910000889100008a9100008c9100008e91000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: ce920000da7b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1088,7 +1088,8 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_ObjectsLockedBeforeSerialization: []
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 11400000, guid: f44a760c08838384c94321278d1161b7, type: 2}
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
     m_CachedPref: -160
@@ -1099,5 +1100,5 @@ MonoBehaviour:
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}

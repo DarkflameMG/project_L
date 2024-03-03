@@ -16,8 +16,8 @@ MonoBehaviour:
   or: 0
   not: 0
   xor: 0
-  nand: 5
-  nor: 5
+  nand: 0
+  nor: 0
   xnor: 0
   highVolt: 0
   lowVolt: 0
