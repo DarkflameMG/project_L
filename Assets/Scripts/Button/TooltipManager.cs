@@ -9,6 +9,7 @@ public class TooltipManager : MonoBehaviour
     [SerializeField]public TextMeshProUGUI gateName;
     [SerializeField]public TextMeshProUGUI description;
     [SerializeField]public Canvas canvas;
+    [SerializeField]public Canvas canvas;
 
     private void Awake() {
         if(_instance != null && _instance != this)

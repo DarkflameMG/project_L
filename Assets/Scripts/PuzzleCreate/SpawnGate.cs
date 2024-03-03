@@ -12,6 +12,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     [SerializeField]private Transform viewPort;
     [SerializeField]private Transform roomcatalog;
     [SerializeField]private bool isMakeitTrue = true;
+    [SerializeField]private bool isMakeitTrue = true;
 
     private GateNumberSystem gateNumberSystem;
     private Transform gateTranform;
