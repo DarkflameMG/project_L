@@ -11,6 +11,7 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
     [SerializeField]private Transform GateNumberSystem;
     [SerializeField]private Transform viewPort;
     [SerializeField]private Transform roomcatalog;
+    [SerializeField]private bool isMakeitTrue = true;
 
     private GateNumberSystem gateNumberSystem;
     private Transform gateTranform;
@@ -52,8 +53,14 @@ public class SpawnGate : MonoBehaviour,IBeginDragHandler,IDragHandler
         // Debug.Log(viewPort.position);
         if(limitGateSys != null)
         {
-            limitGateSys.DecreaseNumber(gateSO.gateName);
-            limitFinalGateSys.DecreaseNumber(gateSO.gateName);
+            if(isMakeitTrue)
+            {
+                limitGateSys.DecreaseNumber(gateSO.gateName);
+            }
+            else
+            {
+                limitFinalGateSys.DecreaseNumber(gateSO.gateName);
+            }
         }
         gateTranform = Instantiate(gateSO.prefab,spawnPoint);
         if(gateNumberSystem != null)

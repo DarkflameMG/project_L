@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 6c7b0000
       m_LastClickedID: 0
       m_ExpandedIDs: 52e6fbffa0e6fbffe0edfbffe0f0fbffc0f2fbff00f7fbff8efbfbffacfbfbffcc69fcff0e6afcff4e71fcff4e74fcff2e76fcff6e7afcfffc7efcff1a7ffcffd010fdff8440fdff2e48fdff424dfdffea9cfdffc2dafdff0ae6fdffb0e6fdffb6e6fdff4207feff5009feffbc09feff2c0afeff440bfeffb6bcffff86c2ffff74d1ffff88e9ffff94f0ffff62f5ffff0cfbfffff4ffffff50a70000b6a700000ec6000034c7000050cd00009ecd0000c6e70000a2ec000024ee0000aeef000000f10000e4f200003af4000088f50000b4f500009cc60300fca50400dc56050034610500
       m_RenameOverlay:
@@ -931,13 +931,13 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/Resources/Data
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 58
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/Resources/Data
   m_LastFoldersGridSize: 58
   m_LastProjectPath: D:\project\game\project_L
   m_LockTracker:
