@@ -51,8 +51,8 @@ public class SetQuest : MonoBehaviour
         }
         else if(isActive  && data.MissionName.Equals("Next Step"))
         {
-            Application.OpenURL("https://forms.office.com/r/Y8ETGBLHgQ"); // group1 Test
-            // Application.OpenURL("https://forms.office.com/r/RUyezDbj8D"); // group2 Finish
+            // Application.OpenURL("https://forms.office.com/r/Y8ETGBLHgQ"); // group1 Test
+            Application.OpenURL("https://forms.office.com/r/RUyezDbj8D"); // group2 Finish
         }
     }
 
