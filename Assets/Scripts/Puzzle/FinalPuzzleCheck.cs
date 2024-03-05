@@ -165,7 +165,7 @@ public class FinalPuzzleCheck : MonoBehaviour
                     }
                 }
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1f);
 
                 foreach(GameObject output in outputs)
                 {
