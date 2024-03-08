@@ -53,4 +53,25 @@ public class LineV2 : Line
           RunLine();
      }
    }
+
+   public void NotifyNextGate()
+   {
+     RunLine();
+     if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.s1)
+     {
+          StartCoroutine(point1.GetComponent<Drag>().GetGate().parent.GetComponent<GateObject>().NotifyNextLine(SlotNo.s1));
+     }
+     else if(point2.GetComponent<Drag>().GetSlotNo() == SlotNo.s1)
+     {
+          StartCoroutine(point2.GetComponent<Drag>().GetGate().parent.GetComponent<GateObject>().NotifyNextLine(SlotNo.s1));
+     }
+     else if(point1.GetComponent<Drag>().GetSlotNo() == SlotNo.s2)
+     {
+          StartCoroutine(point1.GetComponent<Drag>().GetGate().parent.GetComponent<GateObject>().NotifyNextLine(SlotNo.s2));
+     }
+     else if(point2.GetComponent<Drag>().GetSlotNo() == SlotNo.s2)
+     {
+          StartCoroutine(point2.GetComponent<Drag>().GetGate().parent.GetComponent<GateObject>().NotifyNextLine(SlotNo.s2));
+     }
+   }
 }

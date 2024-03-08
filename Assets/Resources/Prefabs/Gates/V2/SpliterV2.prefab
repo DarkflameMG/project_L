@@ -463,6 +463,7 @@ MonoBehaviour:
   s1: {fileID: 3946679825193922055}
   s2: {fileID: 0}
   output: {fileID: 2411000702987008993}
+  output2: {fileID: 3506432568182001840}
 --- !u!50 &780414060928860157
 Rigidbody2D:
   serializedVersion: 4

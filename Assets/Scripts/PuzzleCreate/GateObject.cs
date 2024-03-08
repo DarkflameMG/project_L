@@ -9,6 +9,7 @@ public class GateObject : MonoBehaviour
     [SerializeField]private Transform s1;
     [SerializeField]private Transform s2;
     [SerializeField]private Transform output;
+    [SerializeField]private Transform output2;
     private string gateName;
     private void Awake() {
         gateName = gateSO.gateName;
@@ -16,11 +17,14 @@ public class GateObject : MonoBehaviour
     private bool currentState = false;
     private bool slot1 = false;
     private bool slot2 = false;
+    private bool s1Signal = false;
+    private bool s2Signal = false;
     private bool switchState = false;
     private bool isPuzzleStart = false;
     private Transform holder;
     private Transform holded;
     private Transform preSpawnPoint;
+    private FinalPuzzleCheck finalPuzzleCheck;
 
     private void OnMouseDown() {
         Debug.Log(gateName +" "+ currentState +" slot"+slot1);
@@ -296,5 +300,74 @@ public class GateObject : MonoBehaviour
     public void SetState(bool data)
     {
         currentState = data;
+    }
+
+    public void AddFinalPuzzleCheckObserver(FinalPuzzleCheck puzzleCheck)
+    {
+        finalPuzzleCheck = puzzleCheck;
+    }
+
+    public void ResetObserver()
+    {
+
+    }
+
+    public IEnumerator NotifyNextLine(SlotNo slotNo)
+    {
+        if(slotNo == SlotNo.s1)
+        {
+            s1Signal = true;
+        }
+        else if(slotNo == SlotNo.s2)
+        {
+            s2Signal = true;
+        }
+
+        // 0 input 1 output  or 1 input 1 output
+        if(output != null && output2 == null && s2 == null)
+        {
+            Slot outputSlot = output.GetComponent<Slot>();
+            LineV2 lineV2 = outputSlot.GetCurrentLine().Find("Line").GetComponent<LineV2>();
+            lineV2.NotifyNextGate();
+            // Debug.Log(outputSlot.GetCurrentLine());
+        }
+        // 1 input 2 output
+        else if(output != null && output2 != null && s2 == null && s1 != null)
+        {
+            Slot outputSlot = output.GetComponent<Slot>();
+            Slot outputSlot2 = output2.GetComponent<Slot>();
+            LineV2 lineV2 = outputSlot.GetCurrentLine().Find("Line").GetComponent<LineV2>();
+            LineV2 lineV2_2 = outputSlot2.GetCurrentLine().Find("Line").GetComponent<LineV2>();
+            lineV2.NotifyNextGate();
+            lineV2_2.NotifyNextGate();
+        }
+        // 1 output 0 output
+        else if(output == null && output2 == null && s1 != null && s2 == null)
+        {
+            Debug.Log("output null");
+            currentState = slot1;
+            finalPuzzleCheck.Observe();
+        }
+        // 2 input 1 output
+        else if(output != null && output2 == null && s1 != null && s2 != null)
+        {
+            if(slotNo == SlotNo.s1)
+            {
+                // Debug.Log("slot 1 : "+s1Signal+"slot 2 "+s2Signal);
+                Debug.Log("slot 1 "+s1Signal+" slot 2 "+s2Signal);
+                yield return new WaitUntil(() => s2Signal);
+
+                s1Signal = false;
+                s2Signal = false;
+                Slot outputSlot = output.GetComponent<Slot>();
+                LineV2 lineV2 = outputSlot.GetCurrentLine().Find("Line").GetComponent<LineV2>();
+                lineV2.NotifyNextGate();
+            }
+            else
+            {
+                Debug.Log("slot 2 "+s2Signal);
+            }
+        }
+        yield return null;
     }
 }

@@ -114,5 +114,10 @@ public class Slot : MonoBehaviour, IDropHandler,IPointerDownHandler,IBeginDragHa
     {
         currentLine = line;
     }
+
+    public Transform GetCurrentLine()
+    {
+        return currentLine;
+    }
 }
 

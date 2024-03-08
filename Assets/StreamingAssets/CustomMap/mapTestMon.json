@@ -12,7 +12,7 @@
             "y": 0,
             "Ftype": 4,
             "roomType": 1,
-            "puzzleName": "truth01",
+            "puzzleName": "Table3",
             "objs": [],
             "config": {
                 "line": 0,
@@ -67,11 +67,15 @@
                 "rewards": [
                     {
                         "gateName": "and",
-                        "used": 5
+                        "used": 1
                     },
                     {
                         "gateName": "or",
-                        "used": 4
+                        "used": 1
+                    },
+                    {
+                        "gateName": "not",
+                        "used": 1
                     }
                 ]
             }
@@ -108,6 +112,6 @@
         }
     ],
     "truthTables": [
-        "truth01"
+        "Table3"
     ]
 }

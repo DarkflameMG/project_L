@@ -56,9 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateSO: {fileID: 11400000, guid: 4102d5dec37e2d64a832c1379d736f2d, type: 2}
   isHolder: 0
-  s1: {fileID: 0}
+  s1: {fileID: 2168516062190155213}
   s2: {fileID: 0}
-  output: {fileID: 2168516062190155213}
+  output: {fileID: 0}
 --- !u!114 &5424727621424036829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2785803391484877993}
   - component: {fileID: 8495713220894189215}
   m_Layer: 5
-  m_Name: output
+  m_Name: s1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

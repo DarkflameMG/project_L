@@ -24,6 +24,7 @@ public class FinalPuzzleCheck : MonoBehaviour
     private bool isPass;
     // private Transform
     private Button btn;
+    private int completedOutput = 0;
 
     private void Awake() {
         // table = truthTableSO.table;
@@ -120,6 +121,7 @@ public class FinalPuzzleCheck : MonoBehaviour
                 if(outputName.Equals(tableOutputName))
                 {
                     haveAllName = true;
+                    output.GetComponent<GateObject>().AddFinalPuzzleCheckObserver(this);
                 }
                 if(!outputNames.Contains(outputName))
                 {
@@ -148,9 +150,13 @@ public class FinalPuzzleCheck : MonoBehaviour
                 line.Run();
             }
 
+
             for(int i=0;i<table.rows.Length;i++)
             {
                 int[] row = table.rows[i];
+                completedOutput = 0;
+
+                // Debug.Log("Start round "+i);
                 foreach(GameObject input in inputs)
                 {
                     AddNameIO name = input.GetComponent<AddNameIO>();
@@ -158,15 +164,29 @@ public class FinalPuzzleCheck : MonoBehaviour
                     if(row[index] == 0)
                     {
                         input.GetComponent<GateObject>().SetState(false);
+
                     }
                     else
                     {
                         input.GetComponent<GateObject>().SetState(true);
                     }
+
+                    StartCoroutine(input.GetComponent<GateObject>().NotifyNextLine(SlotNo.output));
                 }
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.1f);
 
+                // while(completedOutput != outputs.Length)
+                // {
+                //     yield return null;
+                // }
+
+                yield return new WaitUntil(() => completedOutput == outputs.Length);
+                Debug.Log("Completed "+i);
+                // Debug.Log(completedOutput == outputs.Length);
+                // Debug.Log();
+
+                // Debug.Log("check "+i);
                 foreach(GameObject output in outputs)
                 {
                     AddNameIO name = output.GetComponent<AddNameIO>();
@@ -198,5 +218,11 @@ public class FinalPuzzleCheck : MonoBehaviour
             StatusUI.GetComponent<StatusUI>().Show();
             StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow);
         }
+    }
+
+    public void Observe()
+    {
+        // Debug.Log("obeserve");
+        completedOutput++;
     }
 }
