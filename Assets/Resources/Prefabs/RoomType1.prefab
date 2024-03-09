@@ -5342,6 +5342,7 @@ MonoBehaviour:
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
   unlockedDoor: {fileID: -7002800478522578119, guid: 71aae269886834b4d8371099a99349b2, type: 3}
   lockedDoor: {fileID: 7696180846141515301, guid: 9764912f963b61d4ca9c59744ac98448, type: 3}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1001 &2221622066808794301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5839,6 +5840,7 @@ MonoBehaviour:
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
   unlockedDoor: {fileID: -7002800478522578119, guid: 71aae269886834b4d8371099a99349b2, type: 3}
   lockedDoor: {fileID: 7696180846141515301, guid: 9764912f963b61d4ca9c59744ac98448, type: 3}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1001 &2221622066992818326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7553,6 +7555,7 @@ MonoBehaviour:
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
   unlockedDoor: {fileID: -7002800478522578119, guid: 71aae269886834b4d8371099a99349b2, type: 3}
   lockedDoor: {fileID: 7696180846141515301, guid: 9764912f963b61d4ca9c59744ac98448, type: 3}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1001 &2221622067521629208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8967,6 +8970,7 @@ MonoBehaviour:
   keySO: {fileID: 11400000, guid: 66eab9902a137524c9662b68f0d3e542, type: 2}
   unlockedDoor: {fileID: -7002800478522578119, guid: 71aae269886834b4d8371099a99349b2, type: 3}
   lockedDoor: {fileID: 7696180846141515301, guid: 9764912f963b61d4ca9c59744ac98448, type: 3}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!1001 &3054258035852497249
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Doors : MonoBehaviour,IInteractable
     [SerializeField]private KeySO keySO;
     [SerializeField]private Mesh unlockedDoor;
     [SerializeField]private Mesh lockedDoor;
+    [SerializeField]private LobbyInfo lobbyInfo;
     private RoomDetail[] rooms;
     private GameObject popupSystem;
     private MapSystem mapSystem;
@@ -38,7 +39,7 @@ public class Doors : MonoBehaviour,IInteractable
             // nothing happen
             Debug.Log("Don't have key");
         }
-        else
+        else if(lobbyInfo.Busy == false)
         {
             mapLoc.current_x = x;
             mapLoc.current_y = y;

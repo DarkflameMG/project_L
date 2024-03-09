@@ -20,6 +20,7 @@ public class MapSystem : MonoBehaviour
     private Transform mapspawn;
     // private Transform[] roomObj;
     private RoomDetail[] rooms;
+    private bool transitionBusy = false;
 
     private void Start() {
         player.position = Vector3.zero;
@@ -41,7 +42,11 @@ public class MapSystem : MonoBehaviour
 
     public void ChangeRoom(RoomSide side)
     {
-        StartCoroutine(TransitionRoom(side));
+        if(!transitionBusy)
+        {
+            transitionBusy = true;
+            StartCoroutine(TransitionRoom(side));
+        }
        
     }
 
@@ -119,6 +124,7 @@ public class MapSystem : MonoBehaviour
         {
             player.position = new Vector3 (0,0,-7.4f);
         }
+        transitionBusy = false;
     }
 
     private void SpawnFloor(RoomDetail room)
