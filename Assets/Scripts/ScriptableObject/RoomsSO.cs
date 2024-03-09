@@ -6,4 +6,6 @@ using UnityEngine;
 public class RoomsSO : ScriptableObject
 {
     public Transform room1;
+    public Transform room2;
+    public Transform room3;
 }

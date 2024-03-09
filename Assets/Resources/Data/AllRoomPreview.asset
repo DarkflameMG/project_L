@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defalut: {fileID: 21300000, guid: f1ff066854524eb459e7df0cb42e8d28, type: 3}
   room1: {fileID: 838971916, guid: e125a17b3797c4546b6b2208cbaa78c7, type: 3}
+  room2: {fileID: 273019913, guid: 74a09f1c1c56bb547a888248d046cba7, type: 3}
+  room3: {fileID: 440101643, guid: b345628c977fd1649bba44b9600eb2cd, type: 3}

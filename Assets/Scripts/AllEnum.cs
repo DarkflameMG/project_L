@@ -15,7 +15,7 @@ public enum Page{none,main,mainQuest,custom,mainUp,up,mod}
 
 public enum RoomSide{front,back,left,right}
 public enum GateType{not,and,or,batterry,bulb}
-public enum RoomType{none,room1}
+public enum RoomType{none,room1,room2,room3}
 public enum FeatureType{none,monster,puzzle,start,exit}
 public enum CreateMapCatalog{floor,feature,puzzle,door,mon}
 public enum MenuBtn{lobby,map,puzzle,none}

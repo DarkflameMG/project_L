@@ -42,6 +42,14 @@ public class RoomCatalogSys : MonoBehaviour
         {
             currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.room1);
         }
+        else if(type == RoomType.room2)
+        {
+            currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.room2);
+        }
+        else if(type == RoomType.room3)
+        {
+            currentSlot.GetComponent<RoomSlot>().SetRoomType(type,allRoom.room3);
+        }
     }
 
     public void AddRoomFeature(FeatureType type)

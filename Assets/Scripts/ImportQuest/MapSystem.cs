@@ -133,6 +133,15 @@ public class MapSystem : MonoBehaviour
         {
             currentRoom = Instantiate(allRoom.room1,mapspawn);
         }
+        else if(room.roomType == RoomType.room2)
+        {
+            currentRoom = Instantiate(allRoom.room2,mapspawn);
+        }
+        else if(room.roomType == RoomType.room3)
+        {
+            currentRoom = Instantiate(allRoom.room3,mapspawn);
+        }
+        
     }
 
     public RoomDetail GetCurrentRoomDetail()

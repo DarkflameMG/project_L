@@ -87,38 +87,56 @@ public class MonsterDetailSys : MonoBehaviour
         if(name.Equals("BrownWolf"))
         {
             monImg.sprite = monsterImgSO.brownWolf;
+            hp.text = "100";
+            atk.text = "15";
         }
         else if(name.Equals("GreenSnake"))
         {
             monImg.sprite = monsterImgSO.greenSnake;
+            hp.text = "80";
+            atk.text = "10";
         }
         else if(name.Equals("AbyssDog"))
         {
             monImg.sprite = monsterImgSO.abyssDog;
+            hp.text = "250";
+            atk.text = "20";
         }
         else if(name.Equals("GreenJelly"))
         {
             monImg.sprite = monsterImgSO.greenJelly;
+            hp.text = "25";
+            atk.text = "5";
         }
         else if(name.Equals("FireSalamandra"))
         {
             monImg.sprite = monsterImgSO.fireSalamandra;
+            hp.text = "150";
+            atk.text = "15";
         }
         else if(name.Equals("BlueSpirit"))
         {
             monImg.sprite = monsterImgSO.blueSpirit;
+            hp.text = "200";
+            atk.text = "20";
         }
         else if(name.Equals("BlackSpider"))
         {
             monImg.sprite = monsterImgSO.blackSpider;
+            hp.text = "300";
+            atk.text = "25";
         }
         else if(name.Equals("GreenBush"))
         {
             monImg.sprite = monsterImgSO.greenBush;
+            hp.text = "40";
+            atk.text = "10";
         }
         else if(name.Equals("RoyalManticora"))
         {
             monImg.sprite = monsterImgSO.royalManticora;
+            hp.text = "400";
+            atk.text = "25";
         }
         else
         {

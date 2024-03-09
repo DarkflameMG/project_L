@@ -112,6 +112,10 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
         {
             currentFlag = Instantiate(flag,flagPoint);
             currentFlag.GetComponent<RectTransform>().localPosition = GetComponent<RectTransform>().localPosition + transform.parent.GetComponent<RectTransform>().localPosition;
+            if(featureType == FeatureType.puzzle || featureType == FeatureType.exit)
+            {
+                currentFlag.GetComponent<PuzzleFlag>().SetRoomSlot(this);
+            }
         }
     }
 
@@ -119,6 +123,11 @@ public class RoomSlot : MonoBehaviour,IPointerClickHandler
     {
         if(currentFlag != null)
         {
+            if(featureType == FeatureType.puzzle || featureType == FeatureType.exit)
+            {
+                currentFlag.GetComponent<PuzzleFlag>().SetRoomSlot(null);
+            }
+            curretPuzzleName = "none";
             featureType = FeatureType.none;
             Destroy(currentFlag.gameObject);
         }

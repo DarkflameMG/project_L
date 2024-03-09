@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: AllRoom
   m_EditorClassIdentifier: 
   room1: {fileID: 2221622066167056153, guid: 26bea45e9edf7e940b16d051f6a27c68, type: 3}
+  room2: {fileID: 2221622066167056153, guid: 9a8ebe0ed8db674408cd629dd610ed73, type: 3}
+  room3: {fileID: 2221622066167056153, guid: 2c83340ed22d02545a563e85412250e0, type: 3}
