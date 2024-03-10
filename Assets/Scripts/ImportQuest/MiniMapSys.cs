@@ -55,6 +55,9 @@ public class MiniMapSys : MonoBehaviour
         int j = -1;
         foreach(RoomDetail room in rooms)
         {
+            DoorsDetail doorsDetail = room.doors;
+
+
             if( j != room.y)
             {
                 horizontal = Instantiate(horizontalPrefab,roomSpawnPoint);
@@ -77,6 +80,28 @@ public class MiniMapSys : MonoBehaviour
                 currentRoom = spawnRoom;
                 currentRoomName = currentRoom.name;
             }
+
+            ShowDoorInMap(doorsDetail,spawnRoom);
+        }
+    }
+
+    private void ShowDoorInMap(DoorsDetail doorsDetail,Transform room)
+    {
+        if(doorsDetail.front == DoorState.unlocked || doorsDetail.front == DoorState.locked)
+        {
+            room.GetComponent<RoomSlotDoor>().ShowDoor(RoomSide.front,true);
+        }
+        if(doorsDetail.back == DoorState.unlocked || doorsDetail.back == DoorState.locked)
+        {
+            room.GetComponent<RoomSlotDoor>().ShowDoor(RoomSide.back,true);
+        }
+        if(doorsDetail.left == DoorState.unlocked || doorsDetail.left == DoorState.locked)
+        {
+            room.GetComponent<RoomSlotDoor>().ShowDoor(RoomSide.left,true);
+        }
+        if(doorsDetail.right == DoorState.unlocked || doorsDetail.right == DoorState.locked)
+        {
+            room.GetComponent<RoomSlotDoor>().ShowDoor(RoomSide.right,true);
         }
     }
 
@@ -103,6 +128,7 @@ public class MiniMapSys : MonoBehaviour
     public void UpdatePosition()
     {
         flagCurrent.localPosition = currentRoom.localPosition + currentRoom.parent.localPosition + vertical.localPosition;
+        currentRoom.Find("Image").GetComponent<Image>().color = new Color32(0,0,255,255);
     }
 
     public void SetCurrentRoom(string roomName)
