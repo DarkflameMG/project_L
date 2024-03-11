@@ -12399,8 +12399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.020462, y: 0.0032806}
+  m_SizeDelta: {x: 450, y: 385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &634463136
 Canvas:
@@ -31466,7 +31466,6 @@ GameObject:
   - component: {fileID: 1647471296}
   - component: {fileID: 1647471295}
   - component: {fileID: 1647471294}
-  - component: {fileID: 1647471293}
   m_Layer: 0
   m_Name: ClearAll
   m_TagString: Untagged
@@ -31496,25 +31495,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1479, y: 479}
   m_SizeDelta: {x: 150, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1647471293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647471291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0044d7c8e0645664682f4fd5c0ac72c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkBtn: {fileID: 1245507107}
-  exitBtn: {fileID: 1110014672}
-  StatusUI: {fileID: 1515910847}
-  statusText: {fileID: 1021138403}
-  truthTableSO: {fileID: 11400000, guid: 41f1acd7a6c65d64f98518e0c4756d75, type: 2}
-  lines: {fileID: 1174282415}
-  puzzleComplete: {fileID: 826090044}
 --- !u!114 &1647471294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39288,8 +39268,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0026836, y: 113.39}
-  m_SizeDelta: {x: 454.8, y: 383.63}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 450, y: 385}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143350522
 MonoBehaviour:
