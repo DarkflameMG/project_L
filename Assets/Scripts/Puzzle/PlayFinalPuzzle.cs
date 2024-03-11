@@ -41,7 +41,7 @@ public class PlayFinalPuzzle : MonoBehaviour
         DeletedAll();
     }
 
-    private void DeletedAll()
+    public void DeletedAll()
     {
         int countGate = spawnGate.childCount;
         for(int i=0;i<countGate;i++)
