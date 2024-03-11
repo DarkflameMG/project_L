@@ -30,6 +30,15 @@ public class SaveGate
     public float posy;
     public float posz;
 }
+[System.Serializable]
+public class SaveGateLog
+{
+    public string gateName;
+    public float posx;
+    public float posy;
+    public float posz;
+    public string IOName;
+}
 
 [System.Serializable]
 public class PuzzleInfo
@@ -40,6 +49,16 @@ public class PuzzleInfo
     // public MapInfo map;
     public List<GateObjectConfig> configs;
 }
+
+[System.Serializable]
+public class PuzzleLog
+{
+    public string LogName;
+    public SaveGateLog[] saveGates;
+    public Lines[] saveLines;
+
+}
+
 [System.Serializable]
 public class GateObjectConfig
 {

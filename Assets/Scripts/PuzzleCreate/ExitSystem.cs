@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class ExitSystem : MonoBehaviour
 {
     [SerializeField]private GameObject exitMenu;
+    [SerializeField]private GameObject exitMenuLog;
 
     public void ShowExitMenu()
     {
         exitMenu.SetActive(true);
+        exitMenuLog.SetActive(true);
     }
 
     public void ToLobby()
@@ -30,6 +32,7 @@ public class ExitSystem : MonoBehaviour
     public void CancelMenu()
     {
         exitMenu.SetActive(false);
+        exitMenuLog.SetActive(false);
     }
 
     private void Update() {

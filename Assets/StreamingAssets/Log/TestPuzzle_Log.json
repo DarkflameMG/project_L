@@ -1,0 +1,31 @@
+{
+    "LogName": "TestPuzzle",
+    "saveGates": [
+        {
+            "gateName": "input_2",
+            "posx": -256.38360595703127,
+            "posy": 175.14991760253907,
+            "posz": 0.0,
+            "IOName": "A"
+        },
+        {
+            "gateName": "output_3",
+            "posx": 115.84523010253906,
+            "posy": 153.3921356201172,
+            "posz": 0.0,
+            "IOName": "X"
+        }
+    ],
+    "saveLines": [
+        {
+            "pos1X": -221.3835906982422,
+            "pos2X": 80.84524536132813,
+            "pos1Y": 175.14996337890626,
+            "pos2Y": 153.39218139648438,
+            "c1Name": "input_2",
+            "c1Type": 2,
+            "c2Name": "output_3",
+            "c2Type": 0
+        }
+    ]
+}

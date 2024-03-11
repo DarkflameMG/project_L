@@ -1,5 +1,5 @@
 {
-    "tableName": "Same",
+    "tableName": "Table1",
     "input" : 1,
     "output" : 1,
     "columnName" : ["A","X"],
