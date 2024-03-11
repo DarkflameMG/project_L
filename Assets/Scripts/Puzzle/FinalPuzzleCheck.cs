@@ -24,6 +24,8 @@ public class FinalPuzzleCheck : MonoBehaviour
     private bool isPass;
     // private Transform
     private Button btn;
+    private List<bool> actualOutput;
+    private List<string> outputHeader;
     private int completedOutput = 0;
 
     private void Awake() {
@@ -187,6 +189,8 @@ public class FinalPuzzleCheck : MonoBehaviour
                 // Debug.Log();
 
                 // Debug.Log("check "+i);
+                actualOutput = new();
+                outputHeader = new();
                 foreach(GameObject output in outputs)
                 {
                     AddNameIO name = output.GetComponent<AddNameIO>();
@@ -197,12 +201,30 @@ public class FinalPuzzleCheck : MonoBehaviour
                         truth = true;
                     }
 
+                    if(!outputHeader.Contains(name.GetName()))
+                    {
+                        outputHeader.Add(name.GetName());
+                        actualOutput.Add(output.GetComponent<GateObject>().GetCurrentState());
+                    }
+
                     if(truth != output.GetComponent<GateObject>().GetCurrentState())
                     {
                         isPass = false;
                         wrongRow = row;
-                        break;
+                        // break;
+                        if(outputHeader.Contains(name.GetName()))
+                        {
+                            actualOutput[outputHeader.IndexOf(name.GetName())] = output.GetComponent<GateObject>().GetCurrentState();
+                        }
                     }
+                    // actualOutput.Add(output.GetComponent<GateObject>().GetCurrentState());
+                }
+
+                if(isPass == false)
+                {
+                    Debug.Log("fail");
+                    Debug.Log(actualOutput.Count);
+                    break;
                 }
             }
         }
@@ -216,7 +238,7 @@ public class FinalPuzzleCheck : MonoBehaviour
         {
             statusText.text = "You Fail this case";
             StatusUI.GetComponent<StatusUI>().Show();
-            StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow);
+            StatusUI.GetComponent<StatusUI>().SpawnWrongRow(table,wrongRow,actualOutput,outputHeader);
         }
     }
 

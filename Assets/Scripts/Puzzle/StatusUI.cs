@@ -11,7 +11,7 @@ public class StatusUI : MonoBehaviour
     [SerializeField]private Transform cellPrefab;
     [SerializeField]private GameObject wrongTable;
 
-    public void SpawnWrongRow(TruthTable table,int[] row)
+    public void SpawnWrongRow(TruthTable table,int[] row,List<bool> actualOutput,List<string> outputHeader)
     {
         Transform cell;
 
@@ -20,16 +20,30 @@ public class StatusUI : MonoBehaviour
         cell.GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.input,100f);
         cell.Find("Image").GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.input-5,100f);
         cell.Find("text").GetComponent<TMP_Text>().text = "Input";
+
         cell = Instantiate(cellPrefab,ioHeader);
         cell.GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output,100f);
         cell.Find("Image").GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output-5,100f);
-        cell.Find("text").GetComponent<TMP_Text>().text = "Output";
+        cell.Find("text").GetComponent<TMP_Text>().text = "Expect Output";
+
+        cell = Instantiate(cellPrefab,ioHeader);
+        cell.GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output,100f);
+        cell.Find("Image").GetComponent<RectTransform>().sizeDelta = new Vector2(150f*table.output-5,100f);
+        cell.Find("text").GetComponent<TMP_Text>().text = "Actual Output";
 
         //column name
         foreach(string name in table.columnName)
         {
             cell = Instantiate(cellPrefab,columnName);
             cell.Find("text").GetComponent<TMP_Text>().text = name;
+        }
+
+        int startOutput = table.input;
+        int endOutput = table.input+table.output;
+        for(int k=startOutput;k<endOutput;k++)
+        {
+            cell = Instantiate(cellPrefab,columnName);
+            cell.Find("text").GetComponent<TMP_Text>().text = table.columnName[k];
         }
 
         try
@@ -39,6 +53,18 @@ public class StatusUI : MonoBehaviour
             {
                 cell = Instantiate(cellPrefab,truthRow);
                 cell.Find("text").GetComponent<TMP_Text>().text = data.ToString();
+            }
+
+            for(int k=startOutput;k<endOutput;k++)
+            {
+                int num = 0;
+                bool truthData = actualOutput[outputHeader.IndexOf(table.columnName[k])];
+                if(truthData == true)
+                {
+                    num = 1;
+                }
+                cell = Instantiate(cellPrefab,truthRow);
+                cell.Find("text").GetComponent<TMP_Text>().text = num.ToString();
             }
         }
         catch
