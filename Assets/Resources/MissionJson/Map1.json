@@ -12,7 +12,7 @@
             "y": 0,
             "Ftype": 4,
             "roomType": 1,
-            "puzzleName": "Same",
+            "puzzleName": "Table1",
             "objs": [],
             "config": {
                 "line": 0,
@@ -129,6 +129,6 @@
         }
     ],
     "truthTables": [
-        "Same"
+        "Table1"
     ]
 }

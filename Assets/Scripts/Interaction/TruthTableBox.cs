@@ -5,6 +5,7 @@ using UnityEngine;
 public class TruthTableBox : MonoBehaviour, IInteractable
 {
     [SerializeField]private string _prompt;
+    [SerializeField]private LobbyInfo lobbyInfo;
     private GameObject popupSystem;
     private GameObject playFinalPuzzleSys;
     private void Awake() {
@@ -16,8 +17,12 @@ public class TruthTableBox : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         // Debug.Log("Open");
-        playFinalPuzzleSys.GetComponent<PlayFinalPuzzle>().StartPuzzle();
-        return true;
+        if(lobbyInfo.Busy != true)
+        {
+            playFinalPuzzleSys.GetComponent<PlayFinalPuzzle>().StartPuzzle();
+            return true;
+        }
+        return false;
     }
 
     public bool ShowPopup()

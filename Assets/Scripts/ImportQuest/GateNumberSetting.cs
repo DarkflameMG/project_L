@@ -24,55 +24,55 @@ public class GateNumberSetting : MonoBehaviour
         {
             newSprite = allGateSpriteSO.or;
         }
-        else if(this.gateName.Equals("not"))
+        else if(gateName.Equals("not"))
         {
             newSprite = allGateSpriteSO.not;
         }
-        else if(this.gateName.Equals("xor"))
+        else if(gateName.Equals("xor"))
         {
             newSprite = allGateSpriteSO.xor;
         }
-        else if(this.gateName.Equals("nand"))
+        else if(gateName.Equals("nand"))
         {
             newSprite = allGateSpriteSO.nand;
         }
-        else if(this.gateName.Equals("nor"))
+        else if(gateName.Equals("nor"))
         {
             newSprite = allGateSpriteSO.nor;
         }
-        else if(this.gateName.Equals("xnor"))
+        else if(gateName.Equals("xnor"))
         {
             newSprite = allGateSpriteSO.xnor;
         }
-        else if(this.gateName.Equals("high volt"))
+        else if(gateName.Equals("high volt"))
         {
             newSprite = allGateSpriteSO.highVolt;
         }
-        else if(this.gateName.Equals("low volt"))
+        else if(gateName.Equals("low volt"))
         {
             newSprite = allGateSpriteSO.lowVolt;
         }
-        else if(this.gateName.Equals("switch"))
+        else if(gateName.Equals("switch"))
         {
             newSprite = allGateSpriteSO.switchs;
         }
-        else if(this.gateName.Equals("bulb"))
+        else if(gateName.Equals("bulb"))
         {
             newSprite = allGateSpriteSO.bulb;
         }
-        else if(this.gateName.Equals("splitter"))
+        else if(gateName.Equals("splitter"))
         {
             newSprite = allGateSpriteSO.splitter;
         }
-        else if(this.gateName.Equals("placeholder1"))
+        else if(gateName.Equals("placeholder1"))
         {
             newSprite = allGateSpriteSO.placeHolder1;
         }
-        else if(this.gateName.Equals("placeholder2"))
+        else if(gateName.Equals("placeholder2"))
         {
             newSprite = allGateSpriteSO.placeHolder2;
         }
-        else if(this.gateName.Equals("line"))
+        else if(gateName.Equals("line"))        
         {
             newSprite = allGateSpriteSO.line;
         }

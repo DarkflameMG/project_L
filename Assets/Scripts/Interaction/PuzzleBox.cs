@@ -7,6 +7,7 @@ public class PuzzleBox : MonoBehaviour, IInteractable
     [SerializeField]private string _prompt;
     [SerializeField]private Mesh open;
     [SerializeField]private Mesh close;
+    [SerializeField]private LobbyInfo lobbyInfo;
     private GameObject popupSystem;
     private GameObject playPuzzleSys;
     private bool canInteract = true;
@@ -18,9 +19,10 @@ public class PuzzleBox : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if(canInteract)
+        Debug.Log(lobbyInfo.Busy);
+        if(canInteract && lobbyInfo.Busy != true)
         {
-            // Debug.Log("Open");
+            Debug.Log("Open");
             playPuzzleSys.GetComponent<PlayPuzzle>().StartPuzzle(this.transform);
             return true;
         }

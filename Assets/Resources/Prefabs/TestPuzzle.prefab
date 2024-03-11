@@ -148,6 +148,7 @@ MonoBehaviour:
   _prompt: 
   open: {fileID: 3909807631388274685, guid: c885a721e05e39445839def5f56a5329, type: 3}
   close: {fileID: 4870072274410194715, guid: 153e94c68b7596544b9a7be4e5de05f0, type: 3}
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!114 &5880632268540638625
 MonoBehaviour:
   m_ObjectHideFlags: 0

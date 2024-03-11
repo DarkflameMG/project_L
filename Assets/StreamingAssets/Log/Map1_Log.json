@@ -1,0 +1,31 @@
+{
+    "LogName": "Map1",
+    "saveGates": [
+        {
+            "gateName": "input_2",
+            "posx": -232.02227783203126,
+            "posy": 302.5310363769531,
+            "posz": 0.0,
+            "IOName": "A"
+        },
+        {
+            "gateName": "output_3",
+            "posx": 236.18206787109376,
+            "posy": 302.5376281738281,
+            "posz": 0.0,
+            "IOName": "X"
+        }
+    ],
+    "saveLines": [
+        {
+            "pos1X": -197.0224151611328,
+            "pos2X": 201.18206787109376,
+            "pos1Y": 302.5310363769531,
+            "pos2Y": 302.5376281738281,
+            "c1Name": "input_2",
+            "c1Type": 2,
+            "c2Name": "output_3",
+            "c2Type": 0
+        }
+    ]
+}

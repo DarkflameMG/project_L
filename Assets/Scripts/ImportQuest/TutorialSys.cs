@@ -41,7 +41,7 @@ public class TutorialSys : MonoBehaviour
         {
             tutorial2.SetActive(true);
         }
-        else if(puzzleName.Equals("Same"))
+        else if(puzzleName.Equals("Table1"))
         {
             tutorial3.SetActive(true);
         }

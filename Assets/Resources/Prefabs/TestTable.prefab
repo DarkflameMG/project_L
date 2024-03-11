@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 
+  lobbyInfo: {fileID: 11400000, guid: fc81dfa80e7be0e488796413d919da30, type: 2}
 --- !u!4 &5027083284511603829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 962357744299301590, guid: 82fe639d2f685354db6cd8837972b6b5, type: 3}

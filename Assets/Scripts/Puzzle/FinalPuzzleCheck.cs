@@ -174,7 +174,7 @@ public class FinalPuzzleCheck : MonoBehaviour
                     StartCoroutine(input.GetComponent<GateObject>().NotifyNextLine(SlotNo.output));
                 }
 
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
 
                 // while(completedOutput != outputs.Length)
                 // {
