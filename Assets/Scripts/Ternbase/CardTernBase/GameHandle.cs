@@ -40,6 +40,7 @@ public class GameHandle : MonoBehaviour
     private Animator PlayerAnimation;
     private Animator EnemyAnimation;
     private double dmg = 10;
+    private int PlayerInitHp = 150;
     [SerializeField] private TMP_Text PlayerHP;
     [SerializeField] private TMP_Text EnemyHP;
 
@@ -145,7 +146,7 @@ public class GameHandle : MonoBehaviour
         GameObject p = Instantiate(player, room);
         p.name = "Player";
         p.transform.localPosition = position;
-        playerhealthSystem = new HealthSystem(100);
+        playerhealthSystem = new HealthSystem(PlayerInitHp);
         playerHealthBar = p.GetComponentInChildren<HealthBar>();
         playerHealthBar.Setup(playerhealthSystem);
         PlayerAnimation = p.GetComponent<Animator>();
@@ -153,11 +154,6 @@ public class GameHandle : MonoBehaviour
 
     void GetMonitors()
     {
-        // GameObject[] objects = GameObject.FindGameObjectsWithTag("Monitor");
-        // for (int i = 0; i < objects.Length; i++)
-        // {
-        //     monitors.Add(objects[i].GetComponent<Button>());
-        // }
         monitors.Add(monitor1.GetComponent<Button>());
         monitors.Add(monitor2.GetComponent<Button>());
         monitors.Add(monitor3.GetComponent<Button>());
@@ -586,7 +582,7 @@ public class GameHandle : MonoBehaviour
                         break;
                     case "xnorLv1_0":
                         skill = "acquire";
-                        StartCoroutine(playerAttackAnimation((float)(200 * 0.15), skill));
+                        StartCoroutine(playerAttackAnimation((float)(playerhealthSystem.GetHealth() * 0.15), skill));
                         yield return new WaitForSeconds(1);
                         break;
                     //Lv_2
@@ -629,7 +625,7 @@ public class GameHandle : MonoBehaviour
                         break;
                     case "xnorLv2_0":
                         skill = "acquire";
-                        StartCoroutine(playerAttackAnimation((float)(200 * 0.35), skill));
+                        StartCoroutine(playerAttackAnimation((float)(playerhealthSystem.GetHealth() * 0.35), skill));
                         yield return new WaitForSeconds(1);
                         break;
                     //Lv_3
@@ -672,7 +668,7 @@ public class GameHandle : MonoBehaviour
                         break;
                     case "xnorLv3_0":
                         skill = "acquire";
-                        StartCoroutine(playerAttackAnimation((float)(200 * 0.8), skill));
+                        StartCoroutine(playerAttackAnimation((float)(playerhealthSystem.GetHealth() * 0.8), skill));
                         yield return new WaitForSeconds(1);
                         break;
                 }
