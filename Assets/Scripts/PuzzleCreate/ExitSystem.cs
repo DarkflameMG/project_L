@@ -7,11 +7,22 @@ public class ExitSystem : MonoBehaviour
 {
     [SerializeField]private GameObject exitMenu;
     [SerializeField]private GameObject exitMenuLog;
+    [SerializeField]private GameObject exitMainMenu;
 
     public void ShowExitMenu()
     {
-        exitMenu.SetActive(true);
-        exitMenuLog.SetActive(true);
+        if(exitMenu != null)
+        {
+            exitMenu.SetActive(true);
+        }
+        if(exitMenuLog != null)
+        {
+            exitMenuLog.SetActive(true);
+        }
+        if(exitMainMenu != null)
+        {
+            exitMainMenu.SetActive(true);
+        }
     }
 
     public void ToLobby()
@@ -31,8 +42,18 @@ public class ExitSystem : MonoBehaviour
 
     public void CancelMenu()
     {
-        exitMenu.SetActive(false);
-        exitMenuLog.SetActive(false);
+        if(exitMenu != null)
+        {
+            exitMenu.SetActive(false);
+        }
+        if(exitMenuLog != null)
+        {
+            exitMenuLog.SetActive(false);
+        }
+        if(exitMainMenu != null)
+        {
+            exitMainMenu.SetActive(false);
+        }
     }
 
     private void Update() {
