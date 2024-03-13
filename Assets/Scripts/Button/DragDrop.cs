@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEndDragHandler,IDragHandler
 {
     // [SerializeField]private Canvas canvas;
+    [SerializeField]private GameObject nameTag;
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Transform scrollParent;
@@ -43,6 +44,10 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         unscrollParent = transform.parent.GetComponent<GateObject>().GetPreSpawnPoint();
         if(dragable)
         {
+            if(nameTag != null)
+            {
+                nameTag.SetActive(true);
+            }
             Transform holder = gate.GetComponent<GateObject>().GetHolder();
             canvasGroup.blocksRaycasts = false;
             gate.SetParent(unscrollParent);
@@ -61,6 +66,10 @@ public class DragDrop : MonoBehaviour,IPointerDownHandler,IBeginDragHandler,IEnd
         // Debug.Log("end");
         if(dragable)
         {
+            if(nameTag != null)
+            {
+                nameTag.SetActive(false);
+            }
             canvasGroup.blocksRaycasts = true;
             gate.SetParent(scrollParent);
             if(gate.GetComponent<GateObject>().GetIsHolder())

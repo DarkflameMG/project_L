@@ -56,5 +56,7 @@ public class PlayFinalPuzzle : MonoBehaviour
             GameObject line = spawnLine.GetChild(i).gameObject;
             Destroy(line);
         }
+
+        limitFinalGateSys.SetStartNum();
     }
 }
