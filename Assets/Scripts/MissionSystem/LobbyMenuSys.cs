@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyMenuSys : MonoBehaviour
 {
@@ -25,5 +26,10 @@ public class LobbyMenuSys : MonoBehaviour
         ToggleMenu();
         Debug.Log("quit game");
         Application.Quit();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
