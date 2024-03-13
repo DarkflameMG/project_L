@@ -68,7 +68,7 @@ public class MiniMapSys : MonoBehaviour
             {
                 prefab = emptyPrefab;
             }
-            else if(room.roomType == RoomType.room1)
+            else if(room.roomType != RoomType.none)
             {
                 prefab = roomPrefab;
             }
@@ -87,6 +87,7 @@ public class MiniMapSys : MonoBehaviour
 
     private void ShowDoorInMap(DoorsDetail doorsDetail,Transform room)
     {
+        // Debug.Log(room == null);
         if(doorsDetail.front == DoorState.unlocked || doorsDetail.front == DoorState.locked)
         {
             room.GetComponent<RoomSlotDoor>().ShowDoor(RoomSide.front,true);
